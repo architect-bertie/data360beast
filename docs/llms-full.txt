@@ -1,0 +1,73 @@
+# Data360 Beast Full Agent Context
+
+Data360 Beast is a curated Salesforce Data 360 operating kit for agentic IDEs.
+It is not a Salesforce docs mirror. It gives agents a source hierarchy, phase
+router, API workflow, and validation contract.
+
+## Entry Points
+
+- Homepage: https://architect-bertie.github.io/data360beast/
+- Repository: https://github.com/architect-bertie/data360beast
+- Skill folder: https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast
+- Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
+- Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
+
+## Source Hierarchy
+
+1. User-provided target org, files, data space, API version, and business goal.
+2. Official Salesforce docs fetched on demand.
+3. User-supplied or locally available Data 360 Connect API OpenAPI spec.
+4. Data360 Beast cookbook and scorecard.
+5. Live org validation in an explicitly authorized org.
+
+## Operating Loop
+
+1. Classify the phase.
+2. Identify the proof target.
+3. Fetch official docs on demand.
+4. Search OpenAPI for the API shape.
+5. Apply the cookbook.
+6. Validate in org when authorized.
+7. Label confidence as documented, tested, or inferred.
+
+## Phase Router
+
+- Connect: connectors, connections, schema, refresh, ingestion setup.
+- Prepare: data streams, DLOs, transforms, document processing.
+- Harmonize: DMOs, mappings, relationships, identity resolution, data graphs.
+- Govern: data spaces, classifications, tags, access policies, security.
+- Retrieve: Query SQL, Query v2, Profile API, metadata discovery.
+- Insight: calculated insights, streaming insights, SQL validation.
+- Semantic: semantic models, metrics, dimensions, shared dimensions.
+- AI/Search: search indexes, retrievers, unstructured retrieval, grounding.
+- Segment: segment create/read/publish/count, DBT segments, membership proof.
+- Act: activation targets, activations, data action targets, data actions.
+- Automation: triggered flows, events, activation-triggered flows, monitoring.
+
+## Live-Tested Cookbook Notes
+
+- Data space and metadata discovery are safe first checks.
+- Query SQL and Profile API provide useful proof for data and metadata.
+- DBT segment create worked with `includeDbt.models.models[]`.
+- DBT segment readback can normalize to `includeDbt.models[]`.
+- Approximate segment count can fail when the feature is disabled.
+- Segment members depend on a delta window; status and count readback are better
+  first proofs.
+- Data action target and data action create were validated in lab.
+- Activation target create/read was validated by returned ID.
+- Search index and calculated insight list were explored, but creation recipes
+  require enabled assets before promotion.
+
+## Public Boundary
+
+This repository intentionally excludes raw Salesforce Help exports, generated
+caches, lab data, credentials, and org-specific metadata. Agents should fetch
+official docs on demand and use this repository as the curated operating layer.
+
+## Current Score
+
+- Connect API readiness: 9.7/10
+- Core Data 360 architecture: 9.3/10
+- Governance and data spaces: 9.0/10
+- Segment, act, automation: 9.2/10
+- Overall Beast mode: 9.4/10

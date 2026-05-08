@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data360 Beast"
+  short_description: "Salesforce Data 360 agent operating model"
+  brand_color: "#127CC1"
+  default_prompt: "Use $data360beast to design a Salesforce Data 360 solution and cite the proof path."
+
+policy:
+  allow_implicit_invocation: true

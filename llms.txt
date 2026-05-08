@@ -1,0 +1,32 @@
+# Data360 Beast
+
+> Agent-ready Salesforce Data 360 operating kit: source hierarchy, phase routing,
+> OpenAPI-first Connect API lookup, live-tested cookbook lessons, and validation
+> rules for Claude, Codex, Cursor, and other agents.
+
+Site: https://architect-bertie.github.io/data360beast/
+Repository: https://github.com/architect-bertie/data360beast
+Skill: https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast
+
+## Start Here
+
+- [Agent quickstart](https://architect-bertie.github.io/data360beast/agent-quickstart.md): install and usage path.
+- [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
+- [API cookbook](https://architect-bertie.github.io/data360beast/api-cookbook.md): tested API surfaces and gotchas.
+- [Scorecard](https://architect-bertie.github.io/data360beast/scorecard.md): readiness scores and frontier.
+- [Agent manifest](https://architect-bertie.github.io/data360beast/agent-manifest.json): machine-readable metadata.
+
+## Core Rules
+
+- Use official Salesforce docs on demand for current setup, limits, permissions,
+  and behavior.
+- Use OpenAPI or user-provided Swagger for Connect API method, path, params, and
+  schema shape.
+- Use the cookbook for live-tested patterns and caveats.
+- Validate in the target org when authorized.
+- Label unvalidated answers as documented or inferred, not proven.
+
+## Public Boundary
+
+This repository does not publish raw Salesforce Help exports, generated docs
+caches, lab data, credentials, or org-specific metadata.

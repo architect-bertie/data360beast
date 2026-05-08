@@ -1,0 +1,36 @@
+{
+  "name": "data360beast",
+  "displayName": "Data360 Beast",
+  "version": "1.0.0",
+  "description": "Agent-ready operating kit for Salesforce Data 360 architecture, Connect API work, live validation, and cookbook-driven implementation.",
+  "homepage": "https://architect-bertie.github.io/data360beast/",
+  "repository": "https://github.com/architect-bertie/data360beast",
+  "skill": "skills/data360beast/SKILL.md",
+  "llms": {
+    "site": "https://architect-bertie.github.io/data360beast/llms.txt",
+    "full": "https://architect-bertie.github.io/data360beast/llms-full.txt",
+    "repository": "llms.txt"
+  },
+  "docs": [
+    "docs/agent-quickstart.md",
+    "docs/operating-model.md",
+    "docs/api-cookbook.md",
+    "docs/scorecard.md"
+  ],
+  "topics": [
+    "salesforce",
+    "data-360",
+    "data-cloud",
+    "connect-api",
+    "agent-skills",
+    "llms-txt"
+  ],
+  "stats": {
+    "apiOperationsAnalyzed": 194,
+    "schemasAnalyzed": 813,
+    "helpDocsAnalyzed": 77,
+    "overallScore": 9.4
+  },
+  "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, credentials, and org-specific metadata.",
+  "lastReviewed": "2026-05-08"
+}
