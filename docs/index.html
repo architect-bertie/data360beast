@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data360 Beast | Salesforce Data 360 Operating System</title>
+    <meta name="description" content="A field-tested operating model for Salesforce Data 360 docs, APIs, recipes, skills, and live validation.">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Data360 Beast home">
+          <span class="brand-mark">D3</span>
+          <span>Data360 Beast</span>
+        </a>
+        <div class="nav-links">
+          <a href="#built">Built</a>
+          <a href="#loop">Loop</a>
+          <a href="#api">API</a>
+          <a href="#score">Score</a>
+          <a href="https://github.com/architect-bertie/data360beast">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Salesforce Data 360, sharpened</p>
+          <h1 id="hero-title">A Data 360 operating system built from docs, APIs, and live proof.</h1>
+          <p class="lead">
+            We turned a messy knowledge problem into a repeatable delivery engine:
+            official docs on demand, OpenAPI-first endpoint lookup, tested API recipes,
+            and lean specialist skills that know when to validate.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#built">See what changed</a>
+            <a class="button" href="#api">API cookbook lessons</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="./assets/data360beast-map.svg" alt="">
+        </div>
+      </section>
+
+      <div class="stats" aria-label="Project stats">
+        <div class="stat">
+          <strong>194</strong>
+          <span>Connect API operations cataloged</span>
+        </div>
+        <div class="stat">
+          <strong>813</strong>
+          <span>component schemas indexed</span>
+        </div>
+        <div class="stat">
+          <strong>77</strong>
+          <span>official Help pages analyzed</span>
+        </div>
+        <div class="stat">
+          <strong>9.7</strong>
+          <span>current API readiness score</span>
+        </div>
+      </div>
+
+      <section id="built" aria-labelledby="built-title">
+        <p class="eyebrow">What we built</p>
+        <h2 id="built-title">A sharper way to work with Data 360.</h2>
+        <p class="section-intro">
+          The goal was not to hoard documentation. The goal was to know where truth lives,
+          retrieve it fast, and prove the answer in a real org.
+        </p>
+        <div class="grid three">
+          <article class="card">
+            <div class="tag">Architecture</div>
+            <h3>Beast mode architecture</h3>
+            <p>A phase map for Connect, Prepare, Harmonize, Govern, Retrieve, Insights, Semantic Layer, AI/Search, Segment, Act, and Automation.</p>
+          </article>
+          <article class="card">
+            <div class="tag green">Docs</div>
+            <h3>Official docs on demand</h3>
+            <p>Salesforce Help is fetched when needed, refreshed by automation, and used as source truth without polluting every skill.</p>
+          </article>
+          <article class="card">
+            <div class="tag amber">API</div>
+            <h3>OpenAPI plus recipes</h3>
+            <p>The Swagger became a searchable catalog. The lab became a cookbook. Schema and reality now talk to each other.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="loop" aria-labelledby="loop-title">
+        <div class="split">
+          <div>
+            <p class="eyebrow">Operating loop</p>
+            <h2 id="loop-title">No guessing. No doc dump. Proof first.</h2>
+            <p class="section-intro">
+              Every Data 360 task now follows the same high-signal loop. It is simple
+              enough to repeat and strict enough to catch bad assumptions.
+            </p>
+          </div>
+          <ol class="loop">
+            <li>Classify the phase and load the right specialist skill.</li>
+            <li>Fetch official Salesforce docs when behavior, limits, or setup matter.</li>
+            <li>Search the OpenAPI catalog for method, path, params, and schemas.</li>
+            <li>Use the live-tested API cookbook before writing payloads.</li>
+            <li>Validate in the org with status fields, counts, metadata, and readback.</li>
+            <li>Document the proof and the caveat, not just the happy path.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="api" aria-labelledby="api-title">
+        <p class="eyebrow">API cookbook</p>
+        <h2 id="api-title">The useful truth came from testing.</h2>
+        <p class="section-intro">
+          OpenAPI gave structure. The lab gave judgment. The cookbook now captures the
+          patterns that would otherwise cost hours in customer work.
+        </p>
+        <div class="grid two">
+          <article class="card">
+            <h3>Live-tested surfaces</h3>
+            <p>Data spaces, metadata, Query SQL, Profile API, segments, segment count, data action targets, data actions, activation targets, search-index list, and calculated-insight list.</p>
+          </article>
+          <article class="card">
+            <h3>Hard-won API lessons</h3>
+            <p>DBT segment create needs <code>includeDbt.models.models[]</code>; approximate counts can fail by feature flag; segment members use a delta window; activation target readback is safest by ID.</p>
+          </article>
+          <article class="card">
+            <h3>Safer customer behavior</h3>
+            <p>Payloads are built from catalog, checked against docs, tested with explicit data space context, then proven by readback.</p>
+          </article>
+          <article class="card">
+            <h3>Clean public boundary</h3>
+            <p>This site explains the system. It does not republish raw Salesforce Help exports or lab-specific working data.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="score" aria-labelledby="score-title">
+        <div class="split">
+          <div>
+            <p class="eyebrow">Scorecard</p>
+            <h2 id="score-title">From useful to dangerous in the best way.</h2>
+            <p class="section-intro">
+              The skills were already promising. The Beast layer made them operational:
+              smaller, better sourced, and much harder to fool.
+            </p>
+          </div>
+          <div class="scoreboard" aria-label="Before and after scores">
+            <div class="score-row">
+              <span>Connect API readiness</span>
+              <span class="before">5.5</span>
+              <span class="after">9.7</span>
+            </div>
+            <div class="score-row">
+              <span>Core Data 360 architecture</span>
+              <span class="before">8.0</span>
+              <span class="after">9.3</span>
+            </div>
+            <div class="score-row">
+              <span>Governance and data spaces</span>
+              <span class="before">7.5</span>
+              <span class="after">9.0</span>
+            </div>
+            <div class="score-row">
+              <span>Segment, act, automation</span>
+              <span class="before">7.5</span>
+              <span class="after">9.2</span>
+            </div>
+            <div class="score-row">
+              <span>Overall Beast mode</span>
+              <span class="before">7.3</span>
+              <span class="after">9.4</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="proof-title">
+        <p class="eyebrow">Customer value</p>
+        <h2 id="proof-title">What teammates and customers should care about.</h2>
+        <ul class="proof-list">
+          <li><strong>Faster discovery:</strong> endpoint, schema, and doc lookup are no longer scavenger hunts.</li>
+          <li><strong>Better answers:</strong> skills cite the right source tier instead of relying on stale memory.</li>
+          <li><strong>Less API pain:</strong> the cookbook captures live Salesforce quirks that the schema does not explain.</li>
+          <li><strong>Safer delivery:</strong> every important move has a validation gate: status, count, metadata, readback, or publish proof.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="frontier-title">
+        <div class="callout">
+          <p class="eyebrow">Next frontier</p>
+          <h2 id="frontier-title">The remaining gap is narrow and knowable.</h2>
+          <p>
+            External activation destinations and real search-index creation still need
+            customer-specific assets and enabled features. The path is clear: create a
+            controlled lab scenario, test the endpoint, capture the error patterns, and
+            promote the recipe when it proves itself.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Data360 Beast by architect-bertie</span>
+        <span>Built for sharper Salesforce Data 360 delivery.</span>
+      </div>
+    </footer>
+  </body>
+</html>

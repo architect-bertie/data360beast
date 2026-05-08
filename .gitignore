@@ -1,0 +1,7 @@
+.DS_Store
+
+# Local generated Data360 Beast working layer.
+# The public site documents the work without republishing raw Salesforce docs,
+# large generated API catalogs, or lab-specific working files.
+docs/data360/
+tools/

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 620" role="img" aria-labelledby="title desc">
+  <title id="title">Data360 Beast operating map</title>
+  <desc id="desc">A map showing official docs, OpenAPI, live org validation, recipes, and skills feeding customer-ready Data 360 delivery.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1040" height="620" rx="32" fill="#f8fafc"/>
+  <rect x="36" y="36" width="968" height="548" rx="28" fill="url(#panel)" filter="url(#shadow)"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="84" y="104" fill="#f8fafc" font-size="34" font-weight="800">Data360 Beast</text>
+    <text x="84" y="136" fill="#cbd5e1" font-size="16">Docs, APIs, live proof, and specialist skills in one operating loop.</text>
+
+    <g fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" opacity=".85">
+      <path d="M220 240 C315 185 418 185 510 240"/>
+      <path d="M530 240 C625 185 730 185 820 240"/>
+      <path d="M820 332 C730 392 625 392 530 332"/>
+      <path d="M510 332 C418 392 315 392 220 332"/>
+      <path d="M512 258 L512 315"/>
+    </g>
+
+    <g>
+      <rect x="86" y="210" width="220" height="122" rx="16" fill="#ffffff"/>
+      <text x="112" y="248" fill="#0f172a" font-size="18" font-weight="800">Official Docs</text>
+      <text x="112" y="278" fill="#475569" font-size="14">Fetch on demand.</text>
+      <text x="112" y="302" fill="#475569" font-size="14">Refresh deltas weekly.</text>
+    </g>
+
+    <g>
+      <rect x="330" y="160" width="220" height="122" rx="16" fill="#ffffff"/>
+      <text x="356" y="198" fill="#0f172a" font-size="18" font-weight="800">OpenAPI Catalog</text>
+      <text x="356" y="228" fill="#475569" font-size="14">194 endpoints.</text>
+      <text x="356" y="252" fill="#475569" font-size="14">813 schemas.</text>
+    </g>
+
+    <g>
+      <rect x="574" y="160" width="220" height="122" rx="16" fill="#ffffff"/>
+      <text x="600" y="198" fill="#0f172a" font-size="18" font-weight="800">API Cookbook</text>
+      <text x="600" y="228" fill="#475569" font-size="14">Live-tested recipes.</text>
+      <text x="600" y="252" fill="#475569" font-size="14">Real error patterns.</text>
+    </g>
+
+    <g>
+      <rect x="818" y="210" width="140" height="122" rx="16" fill="#ffffff"/>
+      <text x="844" y="248" fill="#0f172a" font-size="18" font-weight="800">Skills</text>
+      <text x="844" y="278" fill="#475569" font-size="14">Lean routing.</text>
+      <text x="844" y="302" fill="#475569" font-size="14">No bloat.</text>
+    </g>
+
+    <g>
+      <rect x="330" y="342" width="220" height="122" rx="16" fill="#ffffff"/>
+      <text x="356" y="380" fill="#0f172a" font-size="18" font-weight="800">Live Org Proof</text>
+      <text x="356" y="410" fill="#475569" font-size="14">Status fields.</text>
+      <text x="356" y="434" fill="#475569" font-size="14">Counts and readback.</text>
+    </g>
+
+    <g>
+      <rect x="574" y="342" width="220" height="122" rx="16" fill="#ffffff"/>
+      <text x="600" y="380" fill="#0f172a" font-size="18" font-weight="800">Customer Work</text>
+      <text x="600" y="410" fill="#475569" font-size="14">Fewer guesses.</text>
+      <text x="600" y="434" fill="#475569" font-size="14">Faster delivery.</text>
+    </g>
+
+    <g>
+      <rect x="84" y="488" width="874" height="42" rx="21" fill="#0ea5e9"/>
+      <text x="112" y="515" fill="#f8fafc" font-size="15" font-weight="700">Beast loop: classify phase -> fetch truth -> use catalog -> apply recipe -> validate live -> document the proof</text>
+    </g>
+  </g>
+</svg>
