@@ -1,0 +1,135 @@
+---
+name: sf-datacloud-connectapi
+description: >
+  Salesforce Data 360 Connect REST API and Apex ConnectApi development.
+  TRIGGER when: the user wants programmatic Data 360 work through REST, OpenAPI,
+  Apex ConnectApi.CdpQuery/CdpSegment, Data Graph APIs, Profile APIs, Query APIs,
+  endpoint discovery, payload design, or API validation. DO NOT TRIGGER when:
+  the task is only declarative Data 360 UI usage with no API or code path.
+license: MIT
+metadata:
+  version: "2.1.0"
+  author: "Codex"
+  validated: "OpenAPI-first Data360 Beast refresh with live-tested API cookbook"
+---
+
+# sf-datacloud-connectapi
+
+Use this skill for the **programmatic Data 360 surface**:
+- Connect REST API under `/services/data/vXX.X/ssot/...`
+- Apex `ConnectApi.CdpQuery*`, `ConnectApi.CdpSegment*`, and related Data 360 classes
+- Data 360 Query/Profile/Metadata/Data Graph APIs
+- endpoint discovery, payload snippets, local tools, MCP integration, and live validation
+
+## Beast References
+
+Use these first, before guessing:
+- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Public LLM map: [docs/llms.txt](../../docs/llms.txt)
+- Local reference: [references/connectapi-overview.md](references/connectapi-overview.md)
+- Local reference: [references/connectapi-endpoint-cards.md](references/connectapi-endpoint-cards.md)
+- Local reference: [references/project-gotchas.md](references/project-gotchas.md)
+
+When a full OpenAPI or Swagger file is available from the user or official Salesforce docs, use it as the method, path, parameter, schema, response, and version source of truth. Do not require the private local generated catalog.
+
+## Source Hierarchy
+
+1. **OpenAPI catalog** for method/path/parameter/schema/response/version mechanics.
+2. **API recipe cookbook** for live-tested payload shapes, commands, gotchas, and proof fields.
+3. **Official Salesforce docs via `sf-docs`** for behavior, limits, permissions, setup, and release caveats.
+4. **Data 360 MCP** for live operations when its session is healthy: `search -> payload_examples -> execute`.
+5. **Target org validation** for actual data spaces, permissions, metadata names, status, and row counts.
+
+Do not use Redoc-rendered Markdown as canonical when the YAML/catalog is available. Do not copy endpoint dumps into this skill.
+
+## When This Skill Owns The Task
+
+Use this skill when the work involves:
+- REST payloads for connections, streams, DLOs, DMOs, mappings, graphs, CIs, segments, activations, data actions, search indexes, or queries
+- Apex code that calls Data 360 `ConnectApi`
+- mapping a product concept to a Connect API endpoint
+- building cURL, Postman, MCP, CLI, or local tooling around Data 360 APIs
+- deciding between Connect REST, Apex ConnectApi, Query API, Profile API, Metadata API, Data 360 API/Direct API, or data kits
+
+Delegate phase behavior to the relevant Data 360 specialist skill after the endpoint/API surface is identified.
+
+## Portable API Lookup
+
+- If the user supplies `cdp-connect-api-Swagger.yaml` or another official OpenAPI file, search it before writing any method, path, parameter, or payload.
+- If no local spec is available, fetch the current official Salesforce Connect API docs on demand and cite the page used.
+- Use [docs/api-cookbook.md](../../docs/api-cookbook.md) and [references/project-gotchas.md](references/project-gotchas.md) for live-tested gotchas.
+- Use `scripts/data360_accelerator.py snippet --kind apex-query`, `apex-segment-create`, or `curl-query-sql` for small starter snippets.
+- Use `scripts/data360_accelerator.py summarize-postman --postman <collection.json>` only when the user provides a Postman collection.
+
+## API Surface Map
+
+| Need | Preferred Surface |
+| --- | --- |
+| SQL over Data 360 tables | `ConnectApi.CdpQuery.queryAnsiSqlV2`, `/ssot/query-sql`, `/ssot/queryv2` |
+| profile/record retrieval | `/ssot/profile/...` |
+| schema and metadata | `/ssot/metadata`, `/ssot/profile/metadata`, Data Model Object endpoints |
+| Data Graph metadata/data | `/ssot/data-graphs/...` |
+| connection lifecycle | `/ssot/connectors`, `/ssot/connections` |
+| streams, DLOs, transforms | `/ssot/data-streams`, `/ssot/data-lake-objects`, `/ssot/data-transforms` |
+| calculated insights | `/ssot/calculated-insights`, `/ssot/insight/...` |
+| search indexes and retrievers | `/ssot/search-index`, Machine Learning / AI Models endpoints where available |
+| segment lifecycle | `/ssot/segments`, `ConnectApi.CdpSegment` |
+| activation lifecycle | `/ssot/activation-targets`, `/ssot/activations` |
+| data actions | `/ssot/data-action-targets`, `/ssot/data-actions` |
+| deployable metadata promotion | Metadata API and data kits |
+
+## Operating Rules
+
+- Search the OpenAPI catalog before writing any endpoint or payload.
+- Check the API recipe cookbook before creating query, segment, activation target, data action, calculated insight, profile, or search-index payloads.
+- Use `sf-docs` when behavior, setup, permission, limit, or data-space handling matters.
+- Treat the official DMO catalog as a label directory, not proof of runtime API names. Resolve real object/field names through metadata/profile/query introspection.
+- Distinguish query success from segment success. Query SQL can pass while DBT segment creation fails.
+- Distinguish Data Graph retrieval context from segment/activation criteria. Use graph context for enrichment, not silent activation logic.
+- For data spaces, check whether the call needs a query parameter, token exchange body parameter, SQL/Python connector property, or Apex extra parameter such as `ConnectApi.CdpQuery.queryAnsiSqlV2(input, "dataspace_name")`.
+- Validate governed behavior with a non-admin user when policies, masking, or data spaces affect access.
+- Prefer existing `sf` CLI auth, then direct `SF_ACCESS_TOKEN` + `SF_INSTANCE_URL`, then connected-app OAuth.
+
+## Hard-Won Rules
+
+1. Discovery queries can use published Calculated Insights; DBT segment creation should use DMO-native SQL.
+2. Consent data that only exists on a `__dll` path is not enough for DBT segment enforcement; harmonize it into a DMO-backed shape.
+3. Relative date expressions can be fragile in generated DBT segment SQL; prefer absolute timestamp literals built in code.
+4. Segment create responses are not health proof. Verify `MarketSegment` status and member counts.
+5. Data action and activation APIs often expose `dataspace` as a later-version parameter; check catalog availability before assuming support.
+6. DBT segment REST create uses `includeDbt.models.models[]` as input, but readback returns `includeDbt.models[]`.
+7. Approximate segment count can fail with `NOT_ACCEPTABLE` when the org feature is disabled; retry exact count with `preferApproxCount=false`.
+8. Data 360 MCP can hold an expired session; if it returns `INVALID_SESSION_ID`, use explicit `sf api request rest --target-org <alias>` for live proof.
+
+## Snippet Patterns
+
+Apex query:
+- create `ConnectApi.CdpQueryInput`
+- set `input.sql`
+- call `ConnectApi.CdpQuery.queryAnsiSqlV2(input)` or data-space overload
+- parse `rowData`
+- keep SQL ANSI/PostgreSQL style, not SOQL
+
+Apex segment:
+- create `ConnectApi.CdpSegmentDbtModelInput`
+- attach it to `ConnectApi.CdpSegmentDbtInput`
+- attach that to `ConnectApi.CdpSegmentInput`
+- call `ConnectApi.CdpSegment.createSegment(input)`
+- check returned `marketSegmentId`
+- verify `MarketSegment` status and counts
+
+Local SQL validation should use the available org tooling in the current IDE or MCP environment. Prefer explicit target org and data space arguments; do not rely on global CLI state.
+
+## Output Format
+
+Report:
+
+1. auth mode chosen
+2. API surface used
+3. catalog endpoint/schema found
+4. cookbook recipe or payload used, if available
+5. docs consulted when behavior matters
+6. payload/snippet/tooling produced
+7. data space and governance assumptions
+8. live validation or unverified gates

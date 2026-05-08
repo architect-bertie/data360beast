@@ -10,7 +10,7 @@ recipes.
 | Core Data 360 architecture | 8.0 | 9.3 | Phase router and proof-first delivery loop |
 | Governance and data spaces | 7.5 | 9.0 | Data-space-aware validation and source rules |
 | Segment, act, automation | 7.5 | 9.2 | DBT segment, data action, and activation recipes |
-| Overall Beast mode | 7.3 | 9.4 | Curated docs, skill, manifest, and validation contract |
+| Overall Beast mode | 7.3 | 9.6 | Full specialist skill pack, curated docs, manifest, and validation contract |
 
 ## Remaining Frontier
 

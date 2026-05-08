@@ -21,6 +21,7 @@
         </a>
         <div class="nav-links">
           <a href="#agent-ready">Agent-ready</a>
+          <a href="#skills">Skills</a>
           <a href="#system">System</a>
           <a href="#cookbook">Cookbook</a>
           <a href="#score">Score</a>
@@ -40,13 +41,13 @@
           </p>
           <div class="actions">
             <a class="button primary" href="./llms.txt">Read llms.txt</a>
-            <a class="button" href="https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast">View skill</a>
+            <a class="button" href="./skills.md">View skill pack</a>
           </div>
           <div class="hero-proof" aria-label="Project proof">
+            <span>17 agent skills</span>
             <span>194 API operations</span>
             <span>813 schemas</span>
             <span>77 docs analyzed</span>
-            <span>Live-tested recipes</span>
           </div>
         </div>
         <div class="terminal-card" aria-label="Agent quickstart">
@@ -75,8 +76,8 @@ Use Data360 Beast when:
         <div class="grid four">
           <article class="card">
             <span class="mini-label">01</span>
-            <h3>Skill folder</h3>
-            <p><code>skills/data360beast/SKILL.md</code> gives agents the trigger, source hierarchy, loop, and output contract.</p>
+            <h3>Skill pack</h3>
+            <p><code>skills/</code> ships the Beast router plus 16 specialist Data 360 skills.</p>
           </article>
           <article class="card">
             <span class="mini-label">02</span>
@@ -93,6 +94,36 @@ Use Data360 Beast when:
             <h3>Sharp docs</h3>
             <p>Short Markdown files explain the architecture, cookbook, scorecard, and integration path.</p>
           </article>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="eyebrow">Full specialist layer</p>
+          <h2 id="skills-title">Install the repo. Get the Data 360 specialists.</h2>
+          <p>
+            The pack now includes the orchestration skill, Connect API skill, and specialist
+            phase skills for the full Data 360 delivery lifecycle.
+          </p>
+        </div>
+        <div class="skill-cloud" aria-label="Data 360 skills">
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast">data360beast</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud">sf-datacloud</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-connectapi">sf-datacloud-connectapi</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-connect">sf-datacloud-connect</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-prepare">sf-datacloud-prepare</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-harmonize">sf-datacloud-harmonize</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-governance">sf-datacloud-governance</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-retrieve">sf-datacloud-retrieve</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-calculated-insights">sf-datacloud-calculated-insights</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-segment">sf-datacloud-segment</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-act">sf-datacloud-act</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-automation">sf-datacloud-automation</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-semantic-layer">sf-datacloud-semantic-layer</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-ai-models">sf-datacloud-ai-models</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-unstructured-retrieval">sf-datacloud-unstructured-retrieval</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-analytics">sf-datacloud-analytics</a>
+          <a href="https://github.com/architect-bertie/data360beast/tree/main/skills/sf-datacloud-metadata-agentic">sf-datacloud-metadata-agentic</a>
         </div>
       </section>
 
@@ -124,7 +155,7 @@ Use Data360 Beast when:
           <p class="eyebrow">API cookbook</p>
           <h2 id="cookbook-title">The schema told us what was possible. The lab told us what actually worked.</h2>
           <p>
-            We tested core Data 360 Connect API surfaces in <code>agentforcelab</code>
+            We tested core Data 360 Connect API surfaces in a live Data 360 lab org
             and documented the sharp edges that docs and OpenAPI alone do not reveal.
           </p>
         </div>
@@ -187,7 +218,7 @@ Use Data360 Beast when:
             <div class="score-row">
               <span>Overall Beast mode</span>
               <span class="before">7.3</span>
-              <span class="after">9.4</span>
+              <span class="after">9.6</span>
             </div>
           </div>
         </div>
@@ -201,6 +232,8 @@ Use Data360 Beast when:
         <div class="repo-map">
           <pre><code>data360beast/
 |-- skills/data360beast/SKILL.md
+|-- skills/sf-datacloud-connectapi/SKILL.md
+|-- skills/sf-datacloud-*/SKILL.md
 |-- AGENTS.md
 |-- CLAUDE.md
 |-- CODEX.md
@@ -212,6 +245,7 @@ Use Data360 Beast when:
     |-- llms-full.txt
     |-- agent-manifest.json
     |-- agent-quickstart.md
+    |-- skills.md
     |-- operating-model.md
     |-- api-cookbook.md
     `-- scorecard.md</code></pre>

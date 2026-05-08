@@ -2,10 +2,11 @@
 
 Salesforce Data 360, made agent-ready.
 
-Data360 Beast is a compact operating kit for teams using Claude, Codex, Cursor,
+Data360 Beast is a portable skill pack for teams using Claude, Codex, Cursor,
 or another agentic IDE to design, build, and troubleshoot Salesforce Data 360.
-It combines an explicit delivery loop, OpenAPI-first API lookup, live-tested
-recipes, and clean LLM entry points.
+It combines a top-level Beast router, 16 specialist Data 360 skills, an explicit
+delivery loop, OpenAPI-first API lookup, live-tested recipes, and clean LLM
+entry points.
 
 Site: <https://architect-bertie.github.io/data360beast/>
 
@@ -18,15 +19,40 @@ npx skills add architect-bertie/data360beast
 Start with:
 
 - [`skills/data360beast/SKILL.md`](skills/data360beast/SKILL.md) for the agent skill.
+- [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
+
+## Full Skill Pack
+
+The repo now ships the Beast router plus specialist skills:
+
+- `data360beast`: top-level router and proof contract.
+- `sf-datacloud`: cross-phase orchestration.
+- `sf-datacloud-connectapi`: Connect REST API, Apex ConnectApi, OpenAPI lookup.
+- `sf-datacloud-connect`: connectors and connections.
+- `sf-datacloud-prepare`: data streams, DLOs, transforms.
+- `sf-datacloud-harmonize`: DMOs, mappings, identity, data graphs.
+- `sf-datacloud-governance`: data spaces, access, policies, masking.
+- `sf-datacloud-retrieve`: SQL, profile APIs, metadata lookup.
+- `sf-datacloud-calculated-insights`: calculated and streaming insight SQL.
+- `sf-datacloud-segment`: segments, counts, publish proof.
+- `sf-datacloud-act`: activations and data actions.
+- `sf-datacloud-automation`: events, flows, and data actions.
+- `sf-datacloud-semantic-layer`: semantic models and metrics.
+- `sf-datacloud-ai-models`: AI models and model outputs.
+- `sf-datacloud-unstructured-retrieval`: search indexes and retrievers.
+- `sf-datacloud-analytics`: reports, dashboards, and analytics.
+- `sf-datacloud-metadata-agentic`: metadata semantics for agents.
 
 ## What Is Inside
 
 ```text
 data360beast/
 |-- skills/data360beast/SKILL.md
+|-- skills/sf-datacloud-connectapi/SKILL.md
+|-- skills/sf-datacloud-*/SKILL.md
 |-- AGENTS.md
 |-- CLAUDE.md
 |-- CODEX.md
@@ -38,6 +64,7 @@ data360beast/
     |-- llms-full.txt
     |-- agent-manifest.json
     |-- agent-quickstart.md
+    |-- skills.md
     |-- operating-model.md
     |-- api-cookbook.md
     `-- scorecard.md
@@ -62,7 +89,7 @@ publishes the curated operating model and agent entry points.
 
 ## Status
 
-Current score: **9.4/10 overall**.
+Current score: **9.6/10 overall** after publishing the full specialist skill pack.
 
 Remaining frontier: external activation destinations and search-index creation
 recipes require enabled assets in a live org before promotion into the skill.

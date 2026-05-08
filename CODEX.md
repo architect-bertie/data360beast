@@ -1,6 +1,7 @@
 # Codex Instructions
 
-Use `$data360beast` for Salesforce Data 360 and Data Cloud work.
+Use `$data360beast` for Salesforce Data 360 and Data Cloud work, then route to
+the matching `sf-datacloud-*` specialist skill when the task is phase-specific.
 
 Operational defaults:
 
@@ -11,6 +12,6 @@ Operational defaults:
   or metadata.
 - Keep generated public docs short and agent-ingestible.
 
-When editing this repo, do not stage ignored local knowledge exports under
-`docs/data360/` or local tooling under `tools/` unless the user explicitly asks
-to publish them.
+When editing this repo, do not stage ignored local knowledge exports, generated
+docs caches, raw specs, lab metadata, or local tooling unless the user
+explicitly asks to publish them.

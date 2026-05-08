@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data 360 Analytics"
+  short_description: "Reports, dashboards, and insights"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-analytics to design Data 360 reporting and dashboard validation."
+
+policy:
+  allow_implicit_invocation: true

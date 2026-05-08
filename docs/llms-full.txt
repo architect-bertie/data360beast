@@ -1,16 +1,38 @@
 # Data360 Beast Full Agent Context
 
-Data360 Beast is a curated Salesforce Data 360 operating kit for agentic IDEs.
-It is not a Salesforce docs mirror. It gives agents a source hierarchy, phase
-router, API workflow, and validation contract.
+Data360 Beast is a curated Salesforce Data 360 skill pack for agentic IDEs.
+It is not a Salesforce docs mirror. It gives agents a top-level Beast router,
+16 specialist Data 360 skills, a source hierarchy, phase router, API workflow,
+and validation contract.
 
 ## Entry Points
 
 - Homepage: https://architect-bertie.github.io/data360beast/
 - Repository: https://github.com/architect-bertie/data360beast
-- Skill folder: https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast
+- Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
+- Skill map: https://architect-bertie.github.io/data360beast/skills.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
+
+## Skills
+
+- `data360beast`: top-level router and proof contract.
+- `sf-datacloud`: cross-phase orchestration.
+- `sf-datacloud-connectapi`: Connect REST API, Apex ConnectApi, OpenAPI lookup.
+- `sf-datacloud-connect`: connectors and connections.
+- `sf-datacloud-prepare`: streams, DLOs, transforms.
+- `sf-datacloud-harmonize`: DMOs, mappings, identity, data graphs.
+- `sf-datacloud-governance`: data spaces, access, policies, masking.
+- `sf-datacloud-retrieve`: SQL, profile, metadata.
+- `sf-datacloud-calculated-insights`: calculated and streaming insights.
+- `sf-datacloud-segment`: segments, counts, publish proof.
+- `sf-datacloud-act`: activations and data action delivery.
+- `sf-datacloud-automation`: flows, events, monitoring.
+- `sf-datacloud-semantic-layer`: semantic models and metrics.
+- `sf-datacloud-ai-models`: AI models and model outputs.
+- `sf-datacloud-unstructured-retrieval`: search indexes and retrievers.
+- `sf-datacloud-analytics`: reports, dashboards, analytics.
+- `sf-datacloud-metadata-agentic`: metadata semantics for agents.
 
 ## Source Hierarchy
 
@@ -70,4 +92,4 @@ official docs on demand and use this repository as the curated operating layer.
 - Core Data 360 architecture: 9.3/10
 - Governance and data spaces: 9.0/10
 - Segment, act, automation: 9.2/10
-- Overall Beast mode: 9.4/10
+- Overall Beast mode: 9.6/10

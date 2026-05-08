@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data 360 Governance"
+  short_description: "Data spaces, policies, masking"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-governance to review Data 360 data spaces, access, tags, and policies."
+
+policy:
+  allow_implicit_invocation: true

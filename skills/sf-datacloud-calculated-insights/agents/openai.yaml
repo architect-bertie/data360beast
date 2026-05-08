@@ -1,0 +1,8 @@
+interface:
+  display_name: "Calculated Insights"
+  short_description: "CI and streaming insight SQL"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-calculated-insights to author and validate Data 360 calculated insight SQL."
+
+policy:
+  allow_implicit_invocation: true

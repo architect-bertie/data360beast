@@ -2,7 +2,8 @@
 
 Use Data360 Beast when the task touches Salesforce Data 360, Data Cloud, Connect
 API, segmentation, activation, governance, search, semantic models, calculated
-insights, or org validation.
+insights, or org validation. Installing the repo gives the agent the Beast
+router plus the specialist `sf-datacloud-*` skills.
 
 ## Install
 
@@ -16,8 +17,9 @@ If your IDE does not support skill installation, load these files in order:
 
 1. `AGENTS.md`
 2. `skills/data360beast/SKILL.md`
-3. `docs/llms.txt`
-4. The one task-specific doc you need: `operating-model.md`,
+3. `docs/skills.md`
+4. `docs/llms.txt`
+5. The one task-specific doc you need: `operating-model.md`,
    `api-cookbook.md`, or `scorecard.md`.
 
 ## Good Starting Prompts

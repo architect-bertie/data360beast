@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data 360 Act"
+  short_description: "Activation and data actions"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-act to design a Data 360 activation or data action workflow."
+
+policy:
+  allow_implicit_invocation: true

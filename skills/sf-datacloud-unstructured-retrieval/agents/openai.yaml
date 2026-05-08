@@ -1,0 +1,8 @@
+interface:
+  display_name: "Unstructured Retrieval"
+  short_description: "Search indexes and retrievers"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-unstructured-retrieval to design Data 360 search indexes and retrievers."
+
+policy:
+  allow_implicit_invocation: true

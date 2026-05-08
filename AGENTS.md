@@ -7,9 +7,10 @@ Salesforce documentation.
 ## Start Here
 
 1. Load `skills/data360beast/SKILL.md`.
-2. Use `docs/llms.txt` for a compact public map.
-3. Use `docs/agent-manifest.json` when a machine-readable entry point is easier.
-4. Use `docs/operating-model.md`, `docs/api-cookbook.md`, and
+2. Use `docs/skills.md` to route into the specialist `sf-datacloud-*` skills.
+3. Use `docs/llms.txt` for a compact public map.
+4. Use `docs/agent-manifest.json` when a machine-readable entry point is easier.
+5. Use `docs/operating-model.md`, `docs/api-cookbook.md`, and
    `docs/scorecard.md` only when the task needs those details.
 
 ## Source Order

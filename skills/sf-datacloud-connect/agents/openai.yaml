@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data 360 Connect"
+  short_description: "Connections and connector setup"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-connect to design or troubleshoot a Salesforce Data 360 connection."
+
+policy:
+  allow_implicit_invocation: true

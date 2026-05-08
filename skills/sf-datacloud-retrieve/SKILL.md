@@ -1,0 +1,69 @@
+---
+name: sf-datacloud-retrieve
+description: >
+  Salesforce Data 360 Retrieve phase for query-sql, queryv2, profile APIs,
+  metadata introspection, and query MCP usage. TRIGGER when: the user writes or
+  debugs Data 360 SQL, profile retrieval, metadata lookup, or query tooling.
+license: MIT
+metadata:
+  version: "2.0.0"
+  author: "Codex"
+---
+
+# sf-datacloud-retrieve
+
+Use this skill for the **query and metadata plane**.
+
+Beast references:
+- Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Public LLM map: [docs/llms.txt](../../docs/llms.txt)
+- For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
+- For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
+
+## Default surfaces
+
+- Apex `ConnectApi.CdpQuery.queryAnsiSqlV2`
+- `POST /ssot/queryv2`
+- `POST /ssot/query-sql`
+- `GET /ssot/query-sql/:queryId`
+- `GET /ssot/query-sql/:queryId/rows`
+- `GET /ssot/metadata`
+- `GET /ssot/profile/metadata`
+- `GET /ssot/profile/:dataModelName`
+- `GET /ssot/insight/metadata`
+- `GET /ssot/insight/metadata/:ciName`
+- Universal ID Lookup
+- Data Graph API retrieval
+- query MCP configured from `tools/datacloud-mcp-query`
+
+## Rules
+
+- For Calculated Insight SQL, use [sf-datacloud-calculated-insights](../sf-datacloud-calculated-insights/SKILL.md) after metadata discovery.
+- Query Editor is the official UI surface for SQL exploration, data validation, query testing, and troubleshooting across DLOs, DMOs, CIOs, and data graphs.
+- Use Data Explorer to validate object data and formulas; use Profile Explorer to validate unified profile views.
+- Data 360 SQL is ANSI/PostgreSQL-like, not SOQL.
+- Quote identifiers carefully when the surface requires it.
+- Use `IS NOT NULL` for null checks.
+- Use metadata/profile discovery before inventing table or field names.
+- Prefer query-sql or `ConnectApi.CdpQuery` when you need robust pagination or large result handling.
+- Use Data 360 API / Direct API for high-performance tenant-side read paths when available.
+- Treat query jobs as asynchronous: submit, poll, page rows, and handle status codes.
+- Prefer profile endpoints when you need record-centric retrieval instead of ad hoc SQL.
+- Use metadata retrieval before exposing objects to agents or semantic models.
+- Governed queries can omit fields from `SELECT *`; explicit inaccessible fields should fail.
+- View All/Modify All can expose metadata in some UI paths, but query policy enforcement still applies.
+- Dynamic masking is applied at retrieval time; do not use masked values as join/filter truth.
+- For data spaces, check token exchange, SQL connector/Python connector `dataspace`, or ConnectApi extra parameter handling before blaming query syntax.
+
+## Query MCP
+
+When a local query tool helps, use the project MCP setup and the helper script from [sf-datacloud-connectapi](../sf-datacloud-connectapi/SKILL.md).
+
+## Hard-won rules
+
+- Query success does not prove segment SQL will compile.
+- CI tables are fine for discovery queries and proposal logic.
+- DBT segment creation is stricter than the query plane.
+- Profile, metadata, calculated insight, and data graph retrieval all have different response shapes; do not normalize them casually.
+- When a query differs from a segment, graph, report, or transform result, check governance enforcement differences before assuming data drift.

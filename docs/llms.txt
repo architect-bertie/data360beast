@@ -6,11 +6,12 @@
 
 Site: https://architect-bertie.github.io/data360beast/
 Repository: https://github.com/architect-bertie/data360beast
-Skill: https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast
+Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 
 ## Start Here
 
 - [Agent quickstart](https://architect-bertie.github.io/data360beast/agent-quickstart.md): install and usage path.
+- [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
 - [API cookbook](https://architect-bertie.github.io/data360beast/api-cookbook.md): tested API surfaces and gotchas.
 - [Scorecard](https://architect-bertie.github.io/data360beast/scorecard.md): readiness scores and frontier.
@@ -25,6 +26,7 @@ Skill: https://github.com/architect-bertie/data360beast/tree/main/skills/data360
 - Use the cookbook for live-tested patterns and caveats.
 - Validate in the target org when authorized.
 - Label unvalidated answers as documented or inferred, not proven.
+- Route specialist work to the matching `sf-datacloud-*` skill after loading `data360beast`.
 
 ## Public Boundary
 

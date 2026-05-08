@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data 360 Prepare"
+  short_description: "Streams, DLOs, and transforms"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-prepare to validate Data 360 streams, DLOs, and transforms."
+
+policy:
+  allow_implicit_invocation: true

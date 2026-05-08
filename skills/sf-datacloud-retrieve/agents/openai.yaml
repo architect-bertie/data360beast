@@ -1,0 +1,8 @@
+interface:
+  display_name: "Data 360 Retrieve"
+  short_description: "SQL, profile, and metadata APIs"
+  brand_color: "#127CC1"
+  default_prompt: "Use $sf-datacloud-retrieve to write Data 360 SQL and prove it with metadata."
+
+policy:
+  allow_implicit_invocation: true

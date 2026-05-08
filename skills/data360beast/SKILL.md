@@ -52,6 +52,43 @@ availability.
 - **Automation**: triggered flows, DataObjectDataChgEvent, activation-triggered
   flows, refresh cadence, monitoring.
 
+## Specialist Skill Routing
+
+After loading this router, use the matching specialist skill when the work is
+specific:
+
+- [sf-datacloud](../sf-datacloud/SKILL.md): cross-phase architecture.
+- [sf-datacloud-connectapi](../sf-datacloud-connectapi/SKILL.md): REST,
+  OpenAPI, Apex ConnectApi, payload design.
+- [sf-datacloud-connect](../sf-datacloud-connect/SKILL.md): connectors and
+  connections.
+- [sf-datacloud-prepare](../sf-datacloud-prepare/SKILL.md): streams, DLOs,
+  transforms.
+- [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md): DMOs,
+  mappings, identity, data graphs.
+- [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md): data spaces,
+  access, tags, masking, policies.
+- [sf-datacloud-retrieve](../sf-datacloud-retrieve/SKILL.md): SQL, profile,
+  metadata, query tools.
+- [sf-datacloud-calculated-insights](../sf-datacloud-calculated-insights/SKILL.md):
+  calculated and streaming insight SQL.
+- [sf-datacloud-segment](../sf-datacloud-segment/SKILL.md): segments, counts,
+  publish proof.
+- [sf-datacloud-act](../sf-datacloud-act/SKILL.md): activations and data
+  action delivery.
+- [sf-datacloud-automation](../sf-datacloud-automation/SKILL.md): flows,
+  events, monitoring.
+- [sf-datacloud-semantic-layer](../sf-datacloud-semantic-layer/SKILL.md):
+  semantic models and metrics.
+- [sf-datacloud-ai-models](../sf-datacloud-ai-models/SKILL.md): AI models and
+  model outputs.
+- [sf-datacloud-unstructured-retrieval](../sf-datacloud-unstructured-retrieval/SKILL.md):
+  search indexes and retrievers.
+- [sf-datacloud-analytics](../sf-datacloud-analytics/SKILL.md): reports,
+  dashboards, analytics.
+- [sf-datacloud-metadata-agentic](../sf-datacloud-metadata-agentic/SKILL.md):
+  metadata semantics for agents.
+
 ## Connect API Workflow
 
 For API work:

@@ -1,11 +1,31 @@
 {
   "name": "data360beast",
   "displayName": "Data360 Beast",
-  "version": "1.0.0",
-  "description": "Agent-ready operating kit for Salesforce Data 360 architecture, Connect API work, live validation, and cookbook-driven implementation.",
+  "version": "1.1.0",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, OpenAPI-first API guidance, live validation rules, and cookbook-driven implementation.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "skill": "skills/data360beast/SKILL.md",
+  "skillPack": "skills/",
+  "skills": [
+    "skills/data360beast/SKILL.md",
+    "skills/sf-datacloud/SKILL.md",
+    "skills/sf-datacloud-connectapi/SKILL.md",
+    "skills/sf-datacloud-connect/SKILL.md",
+    "skills/sf-datacloud-prepare/SKILL.md",
+    "skills/sf-datacloud-harmonize/SKILL.md",
+    "skills/sf-datacloud-governance/SKILL.md",
+    "skills/sf-datacloud-retrieve/SKILL.md",
+    "skills/sf-datacloud-calculated-insights/SKILL.md",
+    "skills/sf-datacloud-segment/SKILL.md",
+    "skills/sf-datacloud-act/SKILL.md",
+    "skills/sf-datacloud-automation/SKILL.md",
+    "skills/sf-datacloud-semantic-layer/SKILL.md",
+    "skills/sf-datacloud-ai-models/SKILL.md",
+    "skills/sf-datacloud-unstructured-retrieval/SKILL.md",
+    "skills/sf-datacloud-analytics/SKILL.md",
+    "skills/sf-datacloud-metadata-agentic/SKILL.md"
+  ],
   "llms": {
     "site": "https://architect-bertie.github.io/data360beast/llms.txt",
     "full": "https://architect-bertie.github.io/data360beast/llms-full.txt",
@@ -13,6 +33,7 @@
   },
   "docs": [
     "docs/agent-quickstart.md",
+    "docs/skills.md",
     "docs/operating-model.md",
     "docs/api-cookbook.md",
     "docs/scorecard.md"
@@ -29,7 +50,8 @@
     "apiOperationsAnalyzed": 194,
     "schemasAnalyzed": 813,
     "helpDocsAnalyzed": 77,
-    "overallScore": 9.4
+    "specialistSkills": 17,
+    "overallScore": 9.6
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, credentials, and org-specific metadata.",
   "lastReviewed": "2026-05-08"

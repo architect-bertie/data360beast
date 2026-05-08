@@ -1,14 +1,16 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Agent-ready Salesforce Data 360 operating kit with phase routing, docs-on-demand, OpenAPI-first API lookup, live-tested cookbook lessons, and validation rules.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, OpenAPI-first API lookup, live-tested cookbook lessons, and validation rules.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
     "skill": "https://github.com/architect-bertie/data360beast/tree/main/skills/data360beast",
+    "skillPack": "https://github.com/architect-bertie/data360beast/tree/main/skills",
     "llms": "https://architect-bertie.github.io/data360beast/llms.txt",
     "llmsFull": "https://architect-bertie.github.io/data360beast/llms-full.txt",
     "quickstart": "https://architect-bertie.github.io/data360beast/agent-quickstart.md",
+    "skills": "https://architect-bertie.github.io/data360beast/skills.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
     "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md"
@@ -19,6 +21,25 @@
     "User-supplied or locally available Data 360 Connect API OpenAPI spec",
     "Data360 Beast public cookbook and scorecard",
     "Live org validation when authorized"
+  ],
+  "skills": [
+    "data360beast",
+    "sf-datacloud",
+    "sf-datacloud-connectapi",
+    "sf-datacloud-connect",
+    "sf-datacloud-prepare",
+    "sf-datacloud-harmonize",
+    "sf-datacloud-governance",
+    "sf-datacloud-retrieve",
+    "sf-datacloud-calculated-insights",
+    "sf-datacloud-segment",
+    "sf-datacloud-act",
+    "sf-datacloud-automation",
+    "sf-datacloud-semantic-layer",
+    "sf-datacloud-ai-models",
+    "sf-datacloud-unstructured-retrieval",
+    "sf-datacloud-analytics",
+    "sf-datacloud-metadata-agentic"
   ],
   "phases": [
     "connect",
@@ -63,7 +84,7 @@
     "coreArchitecture": 9.3,
     "governanceAndDataSpaces": 9.0,
     "segmentActAutomation": 9.2,
-    "overall": 9.4
+    "overall": 9.6
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, credentials, or org-specific metadata are published.",
   "lastReviewed": "2026-05-08"
