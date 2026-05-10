@@ -35,6 +35,8 @@ Beast references:
 - Do not jump to harmonization until stream and DLO health is clear.
 - Keep dataset category decisions explicit: profile, engagement, or supporting data.
 - For data streams, lock in primary key, category, event time, record modified field, refresh mode, and data space before deploy.
+- Data stream formula fields use the Data 360 formula library, not Data 360 Query SQL. Use uppercase function names (`IF`, `AND`, `OR`, `UPPER`, `TRIM`, `COALESCE`), `sourceField['Header Label']` with exact case-sensitive raw header labels, `==` and `!=` for equality checks, and array-style `COALESCE([sourceField['Field'], ''])`.
+- For boolean formula return types, return boolean literals (`true`, `false`) unless the target field is text. Example: `IF(UPPER(TRIM(COALESCE([sourceField['MailingCountry'], '']))) != 'US', true, false)`.
 - For engagement streams, event time is mandatory and must describe when the engagement occurred.
 - Data streams feed DLOs. If a DLO is associated with a data stream, update fields through the stream rather than directly from the DLO tab.
 - CRM data streams perform incremental refreshes every 10 minutes after full refresh; full refresh cadence is configurable.

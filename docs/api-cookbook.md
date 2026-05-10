@@ -25,6 +25,9 @@ not published here.
 
 ## Gotchas Worth Keeping
 
+- Data stream formula fields are not Query SQL. Use the Data 360 formula
+  library syntax: uppercase functions, exact `sourceField['Header Label']`
+  references, `==`/`!=` comparisons, and `COALESCE([value, fallback])`.
 - DBT segment create used `includeDbt.models.models[]` successfully.
 - DBT segment readback can normalize the shape to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.
