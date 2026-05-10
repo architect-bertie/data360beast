@@ -51,6 +51,7 @@ Beast references:
 - Query Editor validates SQL and data assumptions; Data Explorer validates DLOs, DMOs, CIOs, and data graphs before reports consume them.
 - Profile Explorer is the validation surface for unified profile views and related Lightning apps.
 - Treat Tableau Semantics as the governed source for metrics used across reports, Tableau Next, AI, and apps.
+- Treat analytics as its own serving path. Query Editor success is a useful control, but reports, dashboards, semantic models, Tableau-style consumption, cache, refresh cadence, and target-user governance must be validated directly.
 - Avoid dashboards that mix incompatible grains without clear labels.
 - Keep row counts, refresh cadence, and credit/usage implications visible to admins.
 - For executive dashboards, include metric owner and data freshness.

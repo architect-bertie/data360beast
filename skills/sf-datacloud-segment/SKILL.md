@@ -38,6 +38,7 @@ Beast references:
   - discovery can use published CIs and aggregate query logic
   - activation should rebuild a DMO-native DBT segment definition
 - Do not assume a query-safe join is segment-safe.
+- Query-plane proof is not segment-plane proof. A segment needs its own create/readback, status, count, and publish validation.
 - Prefer segment-safe DMOs with a single unique primary key. Visual Segment Canvas does not reliably handle composite-key joins because relationships support one field.
 - Design segment criteria at the same grain as Segment On. Avoid joins that multiply members.
 - When using calculated insights in segmentation, the segment-on profile DMO primary key must be a CI dimension and the segmented DMO must be joined in the CI SQL.
@@ -51,6 +52,7 @@ Beast references:
 - In governed orgs, segment creation enforces object and field access but does not enforce RLS. Validate created member counts against the intended DMO-native criteria.
 - Confirm the creator has access to the Segment On DMO and primary key before debugging DBT or count mismatches.
 - Activations displayed from segment records can be filtered by access to dependent objects.
+- When query counts and segment counts diverge, debug DMO grain, relationships, Segment On primary key, compiler constraints, governance, and refresh timing before rewriting working query SQL.
 - Prefer absolute timestamp literals in generated DBT segment SQL.
 - Separate audience discovery, segment definition, publish, activation, and downstream campaign/action steps.
 

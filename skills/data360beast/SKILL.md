@@ -12,16 +12,19 @@ it whenever the user is designing, building, validating, or debugging Data 360.
 
 1. Classify the phase: connect, prepare, harmonize, govern, retrieve, insight,
    semantic layer, AI/search, segment, act, or automation.
-2. Identify the proof target: docs-only guidance, payload generation, metadata
+2. Identify the object layer and execution plane when relevant: DSO, DLO, DMO,
+   CIO, data graph, query plane, processing job, analytics serving path, or
+   orchestration.
+3. Identify the proof target: docs-only guidance, payload generation, metadata
    discovery, live validation, troubleshooting, or customer explanation.
-3. Fetch official Salesforce docs on demand for current setup, limits,
+4. Fetch official Salesforce docs on demand for current setup, limits,
    permissions, and behavior.
-4. Use OpenAPI for Connect API method, path, params, body schema, response
+5. Use OpenAPI for Connect API method, path, params, body schema, response
    schema, and version requirements.
-5. Apply cookbook lessons for known working payloads and known gotchas.
-6. Validate against the target org when authorized. Prefer returned ID,
+6. Apply cookbook lessons for known working payloads and known gotchas.
+7. Validate against the target org when authorized. Prefer returned ID,
    readback, status, count, data space, metadata, and sample query proof.
-7. State the confidence level: documented, tested, or inferred.
+8. State the confidence level: documented, tested, or inferred.
 
 ## Source Hierarchy
 
@@ -51,6 +54,23 @@ availability.
 - **Act**: activation targets, activations, data action targets, data actions.
 - **Automation**: triggered flows, DataObjectDataChgEvent, activation-triggered
   flows, refresh cadence, monitoring.
+
+## Engine-Aware Triage
+
+Use [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-engine-map.md)
+when the work involves architecture, performance, cross-surface mismatches, or
+ambiguous troubleshooting.
+
+Default loop:
+
+```text
+symptom -> surface -> DSO/DLO/DMO/CIO/graph layer -> likely execution plane -> proof path
+```
+
+Treat engine mapping as inferred unless proven in the target org. Spark-like
+processing, Trino-like query, Hyper-like analytics serving, Airflow-like
+orchestration, and Iceberg-style storage are useful mental models, not public
+API guarantees.
 
 ## Specialist Skill Routing
 
@@ -103,6 +123,10 @@ For API work:
 
 Live-tested cookbook lessons to remember:
 
+- Data stream formula fields use Data 360 formula library syntax, not Query SQL.
+- Query success does not prove segment, analytics, activation, or transform
+  behavior because each surface can use a different validation or execution
+  path.
 - DBT segment create used `includeDbt.models.models[]` successfully.
 - DBT segment readback can normalize to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.

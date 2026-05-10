@@ -36,6 +36,7 @@ npx skills add architect-bertie/data360beast
 
 ## Supporting References And Scripts
 
+- `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.
 - `sf-datacloud-connectapi/scripts/data360_accelerator.py`: portable snippets and optional Postman/DMO helpers.
 - `sf-datacloud-calculated-insights/references/ci-sql-patterns.md`: reusable CI SQL patterns.

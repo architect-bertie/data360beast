@@ -12,6 +12,7 @@ and validation contract.
 - Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
 - Skill map: https://architect-bertie.github.io/data360beast/skills.md
+- Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
 
 ## Skills
@@ -45,12 +46,13 @@ and validation contract.
 ## Operating Loop
 
 1. Classify the phase.
-2. Identify the proof target.
-3. Fetch official docs on demand.
-4. Search OpenAPI for the API shape.
-5. Apply the cookbook.
-6. Validate in org when authorized.
-7. Label confidence as documented, tested, or inferred.
+2. Identify the object layer and likely execution plane.
+3. Identify the proof target.
+4. Fetch official docs on demand.
+5. Search OpenAPI for the API shape.
+6. Apply the cookbook.
+7. Validate in org when authorized.
+8. Label confidence as documented, tested, or inferred.
 
 ## Phase Router
 
@@ -70,6 +72,9 @@ and validation contract.
 
 - Data space and metadata discovery are safe first checks.
 - Query SQL and Profile API provide useful proof for data and metadata.
+- Query, transform, segment, analytics, activation, and orchestration surfaces
+  can validate and execute through different paths; proof must match the
+  target surface.
 - DBT segment create worked with `includeDbt.models.models[]`.
 - DBT segment readback can normalize to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.

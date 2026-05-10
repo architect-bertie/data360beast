@@ -12,6 +12,7 @@
     "quickstart": "https://architect-bertie.github.io/data360beast/agent-quickstart.md",
     "skills": "https://architect-bertie.github.io/data360beast/skills.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
+    "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
     "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md"
   },
@@ -74,6 +75,8 @@
   ],
   "knownCaveats": [
     "DBT segment create used includeDbt.models.models[] successfully",
+    "Data stream formula fields use the Data 360 formula library, not Query SQL",
+    "Query, transform, segment, analytics, activation, and orchestration surfaces can use different validation paths",
     "DBT segment readback can normalize to includeDbt.models[]",
     "Approximate segment count can fail when the feature is disabled",
     "Segment member retrieval depends on a delta window",
@@ -87,5 +90,5 @@
     "overall": 9.6
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-05-08"
+  "lastReviewed": "2026-05-10"
 }

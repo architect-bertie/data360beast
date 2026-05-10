@@ -49,6 +49,8 @@ Beast references:
 - Prefer query-sql or `ConnectApi.CdpQuery` when you need robust pagination or large result handling.
 - Use Data 360 API / Direct API for high-performance tenant-side read paths when available.
 - Treat query jobs as asynchronous: submit, poll, page rows, and handle status codes.
+- For query performance, reason from the object layer first: DLO, DMO, CIO, or data graph. Selective predicates, date filters, projected fields, join grain, and row counts often matter more than cosmetic SQL changes.
+- Treat Trino-like or Iceberg-style query behavior as an inferred mental model only. Use it to choose proof steps such as metadata checks, smaller probes, count queries, and predicate selectivity tests.
 - Prefer profile endpoints when you need record-centric retrieval instead of ad hoc SQL.
 - Use metadata retrieval before exposing objects to agents or semantic models.
 - Governed queries can omit fields from `SELECT *`; explicit inaccessible fields should fail.
@@ -65,5 +67,6 @@ When a local query tool helps, use the project MCP setup and the helper script f
 - Query success does not prove segment SQL will compile.
 - CI tables are fine for discovery queries and proposal logic.
 - DBT segment creation is stricter than the query plane.
+- Analytics, segments, transforms, and activations can consume the same logical data through different serving or processing paths; validate the target surface directly.
 - Profile, metadata, calculated insight, and data graph retrieval all have different response shapes; do not normalize them casually.
 - When a query differs from a segment, graph, report, or transform result, check governance enforcement differences before assuming data drift.

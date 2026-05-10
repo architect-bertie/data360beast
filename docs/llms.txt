@@ -13,6 +13,7 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Agent quickstart](https://architect-bertie.github.io/data360beast/agent-quickstart.md): install and usage path.
 - [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
+- [Architecture engine map](https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md): engine-aware triage model.
 - [API cookbook](https://architect-bertie.github.io/data360beast/api-cookbook.md): tested API surfaces and gotchas.
 - [Scorecard](https://architect-bertie.github.io/data360beast/scorecard.md): readiness scores and frontier.
 - [Agent manifest](https://architect-bertie.github.io/data360beast/agent-manifest.json): machine-readable metadata.

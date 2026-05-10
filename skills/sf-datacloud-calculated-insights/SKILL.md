@@ -65,6 +65,7 @@ Do not use a CI for a simple row-based normalization that belongs in ingestion f
 6. Keep the CI within platform limits: maximum 10 dimensions, 50 measures, and 131,021 SQL characters.
 7. Validate static SQL rules, then execute a preview query, then run Data 360 Check Syntax or the CI API lifecycle.
 8. Run or publish the insight, query the materialized `__cio`, and verify row counts, null rates, and metric ranges.
+9. For troubleshooting, keep preview query, CI save, CI run/materialization, and `__cio` retrieval separate. Each step can fail or drift for a different reason.
 
 ## CI SQL Rules That Matter
 
@@ -88,6 +89,7 @@ Do not use a CI for a simple row-based normalization that belongs in ingestion f
 - Streaming insights can drive data actions, but segment and activation do not support them.
 - For streaming insights, only use supported streaming aggregate functions and window durations. Validate event time and late-arriving data behavior.
 - Verify lifecycle status with `MktCalculatedInsight.LastRunStatus`, status dates, and error codes when available.
+- Query preview success is not proof of materialized CIO health. Always read the output object when a segment, activation, report, or agent depends on the CI.
 - For agentic use, write metric descriptions with grain, formula, dimensions, time window, and allowed user-facing interpretation.
 
 ## Standard Patterns
