@@ -14,6 +14,9 @@ model, not official Salesforce documentation or an API contract.
 - Do not publish raw architecture deck images, org metadata, customer data, or
   implementation details that are not needed for field guidance.
 
+Related decision map:
+- `docs/data360/interoperability-decision-map.md`
+
 ## Core Stack Model
 
 Data 360 work becomes easier to reason about when separated into layers:
@@ -86,6 +89,11 @@ When a query or report is slow, avoid jumping straight to syntax fixes. Check:
 4. Is the data fresh in the object layer being queried?
 5. Is the consuming surface using a different cache, semantic model, or serving
    path than the validation query?
+
+For external data, also ask whether the data is ingested, queried live,
+accelerated through a cache, accessed through file federation, or blended
+through a hybrid pattern. The integration pattern changes the likely cost,
+governance owner, freshness, and proof path.
 
 ## Output Habit
 

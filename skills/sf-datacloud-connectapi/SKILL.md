@@ -26,6 +26,7 @@ Use this skill for the **programmatic Data 360 surface**:
 Use these first, before guessing:
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - Local reference: [references/connectapi-overview.md](references/connectapi-overview.md)
 - Local reference: [references/connectapi-endpoint-cards.md](references/connectapi-endpoint-cards.md)
@@ -37,8 +38,8 @@ When a full OpenAPI or Swagger file is available from the user or official Sales
 
 1. **OpenAPI catalog** for method/path/parameter/schema/response/version mechanics.
 2. **API recipe cookbook** for live-tested payload shapes, commands, gotchas, and proof fields.
-3. **Official Salesforce docs via `sf-docs`** for behavior, limits, permissions, setup, and release caveats.
-4. **Data 360 MCP** for live operations when its session is healthy: `search -> payload_examples -> execute`.
+3. **Official Salesforce docs via `sf-docs`** for behavior, limits, permissions, setup, and release caveats. Install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
+4. **Data 360 MCP** for live operations when its session is healthy: `search -> payload_examples -> execute`. Install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 5. **Target org validation** for actual data spaces, permissions, metadata names, status, and row counts.
 
 Do not use Redoc-rendered Markdown as canonical when the YAML/catalog is available. Do not copy endpoint dumps into this skill.
@@ -84,6 +85,7 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 - Search the OpenAPI catalog before writing any endpoint or payload.
 - Check the API recipe cookbook before creating query, segment, activation target, data action, calculated insight, profile, or search-index payloads.
 - Use `sf-docs` when behavior, setup, permission, limit, or data-space handling matters.
+- Do not assume MCP dependencies are bundled by `npx skills add`; use the documented direct URLs and local install paths when the runtime does not expose the tools.
 - Treat the official DMO catalog as a label directory, not proof of runtime API names. Resolve real object/field names through metadata/profile/query introspection.
 - Distinguish query success from segment success. Query SQL can pass while DBT segment creation fails.
 - Distinguish Data Graph retrieval context from segment/activation criteria. Use graph context for enrichment, not silent activation logic.

@@ -36,7 +36,9 @@ npx skills add architect-bertie/data360beast
 
 ## Supporting References And Scripts
 
+- `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.
 - `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
+- `docs/data360/interoperability-decision-map.md`: ingestion, zero-copy, and hybrid pattern selection.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.
 - `sf-datacloud-connectapi/scripts/data360_accelerator.py`: portable snippets and optional Postman/DMO helpers.
 - `sf-datacloud-calculated-insights/references/ci-sql-patterns.md`: reusable CI SQL patterns.

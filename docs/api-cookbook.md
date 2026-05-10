@@ -31,6 +31,9 @@ not published here.
 - Engine-aware triage matters. Query, transform, segment, analytics, activation,
   and orchestration surfaces can validate and execute through different paths,
   so proof must match the surface being debugged.
+- Interoperability is a first decision, not an implementation afterthought.
+  Choose ingestion, live query, accelerated query, file federation, or hybrid
+  from freshness, governance, access pattern, data volume, and cost/I/O.
 - DBT segment create used `includeDbt.models.models[]` successfully.
 - DBT segment readback can normalize the shape to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.

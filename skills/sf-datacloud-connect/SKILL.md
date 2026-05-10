@@ -16,6 +16,7 @@ Use this skill for the **connection plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -36,10 +37,11 @@ Beast references:
 ## Default workflow
 
 1. inspect connector metadata
-2. inspect existing connections
-3. test before creating when possible
-4. upload or verify schema for ingestion-style connectors
-5. hand off to Prepare once the connection is healthy
+2. classify the connector as ingestion, query federation, file federation, sharing, or hybrid
+3. inspect existing connections
+4. test before creating when possible
+5. upload or verify schema for ingestion-style connectors
+6. hand off to Prepare or Retrieve once the connection and pattern are clear
 
 ## Rules
 
@@ -49,7 +51,9 @@ Beast references:
 - Review source prerequisites before creating streams. Help docs separate source configuration from stream setup.
 - Inspect connector metadata and test the connection before handing off to Prepare.
 - If data spaces are involved, confirm where the connection, stream, and resulting DLOs are scoped.
+- For external lakehouses, choose the interoperability pattern before creating assets: ingestion for canonical governance, live query for maximum freshness, accelerated query for frequent reads with stale tolerance, file federation for large object-store/open-table workloads, or hybrid for governed core plus fresh edge.
+- Capture source-system cost and governance assumptions for federated connections. Query federation can depend on external compute and source-side policies; file federation depends on storage access, table format, partitioning, and Data 360 compute.
 
 ## Validation gate
 
-Connection work is not done until connector metadata is understood, auth is healthy, schema is discovered or uploaded, and the next Data Stream/DLO step is explicit.
+Connection work is not done until connector metadata is understood, auth is healthy, schema is discovered or uploaded, the integration pattern is explicit, and the next Data Stream/DLO/federated-query step is clear.

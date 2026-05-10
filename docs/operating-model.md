@@ -33,6 +33,7 @@ Use the engine-aware architecture map for cross-surface mismatches,
 performance work, or ambiguous failures:
 
 - `docs/data360/architecture-engine-map.md`
+- `docs/data360/interoperability-decision-map.md`
 
 | Phase | Common Object Layer | Likely Plane To Consider | Proof Habit |
 | --- | --- | --- | --- |
@@ -48,6 +49,25 @@ performance work, or ambiguous failures:
 
 Do not promote an inferred engine guess to a fact. Use the guess to choose the
 next validation step.
+
+## Interoperability Decision Loop
+
+For external sources and lakehouses, choose the pattern before designing assets:
+
+```text
+workload -> freshness need -> governance need -> cost/I/O profile -> access pattern -> integration pattern -> proof path
+```
+
+| Pattern | Use For | Proof Habit |
+| --- | --- | --- |
+| Ingestion | governed canonical core, identity, compliance, operational activation | stream/DLO/DMO status, non-admin governance test |
+| Real-time ingestion | sub-second operational decisions | event latency, pipeline health, saturation check |
+| Streaming ingestion | minute-level incremental freshness | micro-batch status, freshness sample |
+| Batch ingestion | historical or low-velocity datasets | scheduled run status, row reconciliation |
+| Live query | freshest federated reads | source pushdown, latency, source policy check |
+| Accelerated query | frequent reads with stale-data tolerance | cache interval, refresh status, result comparison |
+| File federation | large object-store/open-table workloads | table metadata, partition/pruning probe |
+| Hybrid | governed core plus fresh/high-volume edge | proof for both ingested core and federated edge |
 
 ## Source Rules
 

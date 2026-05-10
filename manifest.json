@@ -31,11 +31,35 @@
     "full": "https://architect-bertie.github.io/data360beast/llms-full.txt",
     "repository": "llms.txt"
   },
+  "companionMcpServers": [
+    {
+      "name": "sf-docs",
+      "repository": "https://github.com/kvirtue123/sf-docs-mcp",
+      "suggestedLocalPath": "$HOME/.codex/mcp-servers/sf-docs-mcp",
+      "tools": [
+        "scrape_sf_docs",
+        "analyze_page_structure"
+      ]
+    },
+    {
+      "name": "data360",
+      "repository": "https://github.com/forcedotcom/d360-mcp-server",
+      "suggestedLocalPath": "$HOME/.codex/mcp-servers/d360-mcp-server",
+      "tools": [
+        "search",
+        "payload_examples",
+        "execute"
+      ]
+    }
+  ],
   "docs": [
     "docs/agent-quickstart.md",
     "docs/skills.md",
+    "docs/mcp-dependencies.md",
     "docs/operating-model.md",
     "docs/api-cookbook.md",
+    "docs/data360/architecture-engine-map.md",
+    "docs/data360/interoperability-decision-map.md",
     "docs/scorecard.md"
   ],
   "topics": [
@@ -54,5 +78,5 @@
     "overallScore": 9.6
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-05-08"
+  "lastReviewed": "2026-05-10"
 }

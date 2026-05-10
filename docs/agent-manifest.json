@@ -11,8 +11,10 @@
     "llmsFull": "https://architect-bertie.github.io/data360beast/llms-full.txt",
     "quickstart": "https://architect-bertie.github.io/data360beast/agent-quickstart.md",
     "skills": "https://architect-bertie.github.io/data360beast/skills.md",
+    "mcpDependencies": "https://architect-bertie.github.io/data360beast/mcp-dependencies.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
+    "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
     "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md"
   },
@@ -64,6 +66,40 @@
     "metadata",
     "sample query proof"
   ],
+  "companionMcpServers": [
+    {
+      "name": "sf-docs",
+      "repository": "https://github.com/kvirtue123/sf-docs-mcp",
+      "suggestedLocalPath": "$HOME/.codex/mcp-servers/sf-docs-mcp",
+      "runtime": "node",
+      "serverCommand": "node",
+      "serverArgs": [
+        "$HOME/.codex/mcp-servers/sf-docs-mcp/dist/mcp-server.js"
+      ],
+      "tools": [
+        "scrape_sf_docs",
+        "analyze_page_structure"
+      ],
+      "purpose": "Official Salesforce Help and Developer docs retrieval as clean Markdown"
+    },
+    {
+      "name": "data360",
+      "repository": "https://github.com/forcedotcom/d360-mcp-server",
+      "suggestedLocalPath": "$HOME/.codex/mcp-servers/d360-mcp-server",
+      "runtime": "java",
+      "serverCommand": "java",
+      "serverArgs": [
+        "-jar",
+        "$HOME/.codex/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
+      ],
+      "tools": [
+        "search",
+        "payload_examples",
+        "execute"
+      ],
+      "purpose": "Authorized live Data 360 Connect API operations"
+    }
+  ],
   "liveTestedAreas": [
     "data spaces and metadata",
     "query SQL",
@@ -77,6 +113,7 @@
     "DBT segment create used includeDbt.models.models[] successfully",
     "Data stream formula fields use the Data 360 formula library, not Query SQL",
     "Query, transform, segment, analytics, activation, and orchestration surfaces can use different validation paths",
+    "External data architecture should choose ingestion, live query, accelerated query, file federation, or hybrid before implementation",
     "DBT segment readback can normalize to includeDbt.models[]",
     "Approximate segment count can fail when the feature is disabled",
     "Segment member retrieval depends on a delta window",

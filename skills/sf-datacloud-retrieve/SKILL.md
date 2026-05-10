@@ -16,6 +16,8 @@ Use this skill for the **query and metadata plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -35,7 +37,7 @@ Beast references:
 - `GET /ssot/insight/metadata/:ciName`
 - Universal ID Lookup
 - Data Graph API retrieval
-- query MCP configured from `tools/datacloud-mcp-query`
+- Data 360 MCP facade tools: `search`, `payload_examples`, `execute`
 
 ## Rules
 
@@ -51,6 +53,8 @@ Beast references:
 - Treat query jobs as asynchronous: submit, poll, page rows, and handle status codes.
 - For query performance, reason from the object layer first: DLO, DMO, CIO, or data graph. Selective predicates, date filters, projected fields, join grain, and row counts often matter more than cosmetic SQL changes.
 - Treat Trino-like or Iceberg-style query behavior as an inferred mental model only. Use it to choose proof steps such as metadata checks, smaller probes, count queries, and predicate selectivity tests.
+- For zero-copy work, distinguish live query, accelerated query, and file federation. Live query is freshness-first and source-compute-dependent; accelerated query trades freshness for repeated-read performance; file federation is read-only and depends on object format, partitioning, pruning, and region/I/O.
+- Push predicates and aggregations to the source when using query federation. Avoid unfiltered scans over massive federated datasets.
 - Prefer profile endpoints when you need record-centric retrieval instead of ad hoc SQL.
 - Use metadata retrieval before exposing objects to agents or semantic models.
 - Governed queries can omit fields from `SELECT *`; explicit inaccessible fields should fail.
@@ -60,7 +64,10 @@ Beast references:
 
 ## Query MCP
 
-When a local query tool helps, use the project MCP setup and the helper script from [sf-datacloud-connectapi](../sf-datacloud-connectapi/SKILL.md).
+When a local query tool helps, prefer the official Data 360 MCP server
+configured from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md).
+Use any legacy local query MCP only if it is already present in the user's
+workspace and the user authorizes live org access.
 
 ## Hard-won rules
 

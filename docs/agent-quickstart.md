@@ -11,6 +11,19 @@ router plus the specialist `sf-datacloud-*` skills.
 npx skills add architect-bertie/data360beast
 ```
 
+## Companion MCP Servers
+
+Install the skill pack first. Then use
+[`docs/mcp-dependencies.md`](mcp-dependencies.md) when the task needs:
+
+- official Salesforce docs through `sf-docs`
+- live Data 360 org operations through the `data360` MCP server
+
+Direct sources:
+
+- `sf-docs`: https://github.com/kvirtue123/sf-docs-mcp
+- `data360`: https://github.com/forcedotcom/d360-mcp-server
+
 ## Manual Context
 
 If your IDE does not support skill installation, load these files in order:
@@ -18,8 +31,9 @@ If your IDE does not support skill installation, load these files in order:
 1. `AGENTS.md`
 2. `skills/data360beast/SKILL.md`
 3. `docs/skills.md`
-4. `docs/llms.txt`
-5. The one task-specific doc you need: `operating-model.md`,
+4. `docs/mcp-dependencies.md` if companion MCP tools are missing
+5. `docs/llms.txt`
+6. The one task-specific doc you need: `operating-model.md`,
    `api-cookbook.md`, or `scorecard.md`.
 
 ## Good Starting Prompts

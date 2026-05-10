@@ -20,9 +20,19 @@ Start with:
 
 - [`skills/data360beast/SKILL.md`](skills/data360beast/SKILL.md) for the agent skill.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
+- [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for optional companion MCP installs.
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
+
+## Companion MCP Services
+
+The skill pack is intentionally portable and does not vendor local MCP servers.
+For docs-on-demand and live org work, install the companion services documented
+in [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md):
+
+- `sf-docs`: <https://github.com/kvirtue123/sf-docs-mcp>
+- `data360`: <https://github.com/forcedotcom/d360-mcp-server>
 
 ## Full Skill Pack
 
@@ -64,10 +74,14 @@ data360beast/
     |-- llms-full.txt
     |-- agent-manifest.json
     |-- agent-quickstart.md
+    |-- mcp-dependencies.md
     |-- skills.md
     |-- operating-model.md
     |-- api-cookbook.md
-    `-- scorecard.md
+    |-- scorecard.md
+    `-- data360/
+        |-- architecture-engine-map.md
+        `-- interoperability-decision-map.md
 ```
 
 ## What It Does
@@ -76,6 +90,8 @@ data360beast/
   insight, semantic layer, AI/search, segment, act, and automation.
 - Uses official Salesforce docs on demand instead of stale pasted docs.
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
+- Documents companion MCP install paths for `sf-docs` and the official Data 360
+  MCP server.
 - Applies live-tested cookbook lessons for query, segment, data action, and
   activation work.
 - Requires org validation through status, counts, metadata, data space, and

@@ -12,7 +12,9 @@ and validation contract.
 - Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
 - Skill map: https://architect-bertie.github.io/data360beast/skills.md
+- MCP dependencies: https://architect-bertie.github.io/data360beast/mcp-dependencies.md
 - Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
+- Interoperability decision map: https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
 
 ## Skills
@@ -43,16 +45,27 @@ and validation contract.
 4. Data360 Beast cookbook and scorecard.
 5. Live org validation in an explicitly authorized org.
 
+## Companion MCP Services
+
+- `sf-docs`: install from https://github.com/kvirtue123/sf-docs-mcp when the
+  agent needs official Salesforce Help or Developer docs as clean Markdown.
+- `data360`: install from https://github.com/forcedotcom/d360-mcp-server when
+  the agent needs authorized live Data 360 Connect API operations through
+  `search`, `payload_examples`, and `execute`.
+- Keep caches, access tokens, client secrets, and org metadata local. Do not
+  publish them in this repository.
+
 ## Operating Loop
 
 1. Classify the phase.
 2. Identify the object layer and likely execution plane.
-3. Identify the proof target.
-4. Fetch official docs on demand.
-5. Search OpenAPI for the API shape.
-6. Apply the cookbook.
-7. Validate in org when authorized.
-8. Label confidence as documented, tested, or inferred.
+3. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
+4. Identify the proof target.
+5. Fetch official docs on demand.
+6. Search OpenAPI for the API shape.
+7. Apply the cookbook.
+8. Validate in org when authorized.
+9. Label confidence as documented, tested, or inferred.
 
 ## Phase Router
 
@@ -75,6 +88,8 @@ and validation contract.
 - Query, transform, segment, analytics, activation, and orchestration surfaces
   can validate and execute through different paths; proof must match the
   target surface.
+- For interoperability, choose the pattern from freshness, governance owner,
+  access pattern, data volume, and cost/I/O before designing connectors or SQL.
 - DBT segment create worked with `includeDbt.models.models[]`.
 - DBT segment readback can normalize to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.

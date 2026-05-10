@@ -20,6 +20,8 @@ Production checklist: [references/production-implementation-checklist.md](refere
 
 Data360 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -48,14 +50,15 @@ Data360 Beast references:
 
 Prefer this order:
 
-1. connections and source inspection
-2. streams / DLOs / transforms
-3. governance baseline: data spaces, permission sets, tags, classifications, masking, and policy posture
-4. DMO mappings and identity resolution
-5. query validation and metadata checks
-6. calculated/streaming insights, search indexes, semantic models, and AI models
-7. segment creation and count validation
-8. activations, data actions, flows, reports, and monitoring
+1. interoperability choice: ingest, live query, accelerated query, file federation, or hybrid
+2. connections and source inspection
+3. streams / DLOs / transforms
+4. governance baseline: data spaces, permission sets, tags, classifications, masking, and policy posture
+5. DMO mappings and identity resolution
+6. query validation and metadata checks
+7. calculated/streaming insights, search indexes, semantic models, and AI models
+8. segment creation and count validation
+9. activations, data actions, flows, reports, and monitoring
 
 ## Programmatic-first rule
 
@@ -77,13 +80,18 @@ Use this for non-trivial Data 360 work:
 2. Check [docs/operating-model.md](../../docs/operating-model.md) for the phase gate.
 3. Use `sf-docs` for exact official Help/Developer docs when a rule, permission, limit, or setup step matters.
 4. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
-5. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available.
+5. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 6. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
 
 Do not copy long Help pages or endpoint dumps into skills. Keep durable detail in the project reference layer and retrieve exact docs on demand.
 
 ## Hard-won orchestration rules
 
+- For external data, do not assume ingestion is the default. Choose based on
+  freshness, governance owner, access pattern, data volume, and cost/I/O.
+- Ingest the governed core for identity, compliance, and operational activation;
+  federate the edge for fresh, high-volume, exploratory, or AI/ML workloads
+  when source governance is acceptable.
 - The query plane and the DBT segment compiler are different gates.
 - Data Graph is excellent for enrichment and retrieval, but should not become activation logic unless the signal is also segment-safe.
 - Metadata quality is an agentic feature. Descriptions, grain, relationships, and metric semantics must be production artifacts.

@@ -23,6 +23,7 @@ Detailed enforcement matrix: [references/policy-enforcement-matrix.md](reference
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -48,6 +49,8 @@ Beast references:
 - Feature permissions inside a data space can restrict access, but they cannot grant more than the permission set object permissions allow.
 - The default Allow All/day-zero policy can keep broad access in place. Plan it deliberately before switching to granular ABAC.
 - Users with admin-style permissions can sometimes see metadata while runtime access still fails.
+- For interoperability decisions, explicitly state where governance is enforced: Data 360, the external source, or both.
+- Use ingestion when Data 360 must own canonical governance, lineage, auditability, and operational activation. Use federation only when source-side RLS, masking, identity mapping, and audit controls are acceptable and tested.
 
 ## Production Workflow
 
@@ -68,6 +71,7 @@ Beast references:
    - RLS for row access by region, owner, hierarchy, or mapping table
    - dynamic masking for partial visibility
 10. Test with real non-admin users in every consumption surface, not only in Policy Builder.
+11. For federated data, validate source-side RLS/masking with the mapped enterprise identity and compare behavior with Data 360 user access.
 
 ## Tags, Classifications, and Propagation
 
@@ -93,6 +97,7 @@ Beast references:
 - Scheduled high-scale flows can enforce policies captured at flow creation, but RLS is not enforced when the flow is triggered on schedule.
 - Copy Field Enrichment runs in system mode; apply CRM security after enrichment.
 - Dashboard policy changes may require refresh or cache clearing before they are visible.
+- Accelerated-query caches can introduce freshness and governance interpretation questions. Validate cache refresh timing, source policy behavior, and target user access before claiming a governed result.
 
 ## Agentic Governance Rules
 

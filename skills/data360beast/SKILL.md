@@ -18,7 +18,9 @@ it whenever the user is designing, building, validating, or debugging Data 360.
 3. Identify the proof target: docs-only guidance, payload generation, metadata
    discovery, live validation, troubleshooting, or customer explanation.
 4. Fetch official Salesforce docs on demand for current setup, limits,
-   permissions, and behavior.
+   permissions, and behavior. If `sf-docs` is unavailable, use
+   [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) for the install
+   source or label the answer as docs-unverified.
 5. Use OpenAPI for Connect API method, path, params, body schema, response
    schema, and version requirements.
 6. Apply cookbook lessons for known working payloads and known gotchas.
@@ -33,6 +35,10 @@ it whenever the user is designing, building, validating, or debugging Data 360.
 3. User-supplied or locally available Data 360 Connect API OpenAPI spec.
 4. Data360 Beast public docs and cookbook.
 5. Live org validation in an explicitly authorized org.
+
+Companion MCP install paths are documented in
+[docs/mcp-dependencies.md](../../docs/mcp-dependencies.md). Do not assume
+`sf-docs` or `data360` MCP servers are bundled with the skill pack.
 
 Do not treat this repository as official Salesforce documentation. Do not
 hallucinate endpoint paths, payload fields, limits, permissions, or feature
@@ -61,10 +67,20 @@ Use [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-en
 when the work involves architecture, performance, cross-surface mismatches, or
 ambiguous troubleshooting.
 
+Use [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+when the work involves external lakehouses, zero copy, ingestion strategy,
+freshness, cost/I/O, or hybrid architecture.
+
 Default loop:
 
 ```text
 symptom -> surface -> DSO/DLO/DMO/CIO/graph layer -> likely execution plane -> proof path
+```
+
+Interoperability loop:
+
+```text
+workload -> freshness need -> governance need -> cost/I/O profile -> access pattern -> integration pattern -> proof path
 ```
 
 Treat engine mapping as inferred unless proven in the target org. Spark-like
@@ -127,6 +143,9 @@ Live-tested cookbook lessons to remember:
 - Query success does not prove segment, analytics, activation, or transform
   behavior because each surface can use a different validation or execution
   path.
+- For external data, choose the pattern before the payload: ingestion,
+  real-time ingestion, streaming ingestion, batch ingestion, live query,
+  accelerated query, file federation, or hybrid.
 - DBT segment create used `includeDbt.models.models[]` successfully.
 - DBT segment readback can normalize to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.
