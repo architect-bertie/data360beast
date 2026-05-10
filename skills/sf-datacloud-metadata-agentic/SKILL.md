@@ -19,6 +19,8 @@ Use this skill for the **metadata and agentic semantics plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
+- Developer Guide synthesis: [docs/data360/developer/skill-update-synthesis.md](../../docs/data360/developer/skill-update-synthesis.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -42,6 +44,24 @@ Prefer official Data 360 metadata surfaces before guessing:
 - `GET /ssot/data-graphs/metadata`
 - data model object and relationship metadata from Connect API
 - Apex `ConnectApi.CdpQuery` metadata methods where available
+- Metadata API for supported Data 360 metadata movement
+- data kit metadata and packageability readback for deployable Data 360 assets
+
+## Data Kits And Packageability
+
+- Data kits are the core packaging/deploy abstraction for Data 360 metadata.
+  They package definitions, not raw data.
+- Verify current Metadata Coverage and the Data 360 metadata component cheat
+  sheet before promising packageability.
+- Data 360 metadata and Salesforce Platform metadata should be planned as
+  separate package tracks unless current docs explicitly support the combined
+  target.
+- For sandbox-to-production movement, check DevOps data kit membership,
+  downloaded `package.xml`, retrieved metadata files, matching data space
+  prefixes, and connector reauthorization requirements.
+- Watch deployment failures involving missing `FieldSrcTrgtRelationship`
+  metadata, generated key qualifier files, and inactive connectors after
+  deployment.
 
 ## Agentic Metadata Goals
 
@@ -88,7 +108,9 @@ Prepare metadata so an agent can:
    - time window
    - owner and validation source
 7. Generate an agent-safe metadata summary for prompts, Agentforce instructions, Data Graph descriptions, retriever descriptions, and action parameter descriptions.
-8. Validate with agent tests that require the agent to choose the correct object/metric without being shown table names in the user prompt.
+8. For deployable assets, verify data kit membership, packageability, metadata
+   coverage, and target-org deployment prerequisites.
+9. Validate with agent tests that require the agent to choose the correct object/metric without being shown table names in the user prompt.
 
 ## Description Quality Rubric
 
@@ -126,6 +148,8 @@ Production target: object descriptions >= 4, agent-facing fields >= 4, metrics >
 - Data Graph and retriever descriptions match the actual fields included.
 - CI/semantic metric descriptions include formulas and time windows.
 - Metadata semantic score is >= 4 for agent-facing objects and fields, and 5 for metrics.
+- Data kit / Metadata API deployment proof exists for metadata expected to move
+  across orgs.
 
 ## Handoffs
 

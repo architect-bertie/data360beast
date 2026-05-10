@@ -24,6 +24,7 @@ Detailed enforcement matrix: [references/policy-enforcement-matrix.md](reference
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -51,6 +52,9 @@ Beast references:
 - Users with admin-style permissions can sometimes see metadata while runtime access still fails.
 - For interoperability decisions, explicitly state where governance is enforced: Data 360, the external source, or both.
 - Use ingestion when Data 360 must own canonical governance, lineage, auditability, and operational activation. Use federation only when source-side RLS, masking, identity mapping, and audit controls are acceptable and tested.
+- For cross-org architecture, distinguish Data 360 Home Org, Companion Org,
+  shared data spaces, companion connections, Data Cloud One, and API-based
+  exchange. Governance ownership can move depending on which pattern is used.
 
 ## Production Workflow
 
@@ -72,6 +76,9 @@ Beast references:
    - dynamic masking for partial visibility
 10. Test with real non-admin users in every consumption surface, not only in Policy Builder.
 11. For federated data, validate source-side RLS/masking with the mapped enterprise identity and compare behavior with Data 360 user access.
+12. For Home Org / Companion Org designs, validate data-space sharing,
+    companion connection permissions, metadata visibility, and target user
+    access in each org boundary.
 
 ## Tags, Classifications, and Propagation
 

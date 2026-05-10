@@ -26,6 +26,7 @@ Use this skill for the **programmatic Data 360 surface**:
 Use these first, before guessing:
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - Local reference: [references/connectapi-overview.md](references/connectapi-overview.md)
@@ -80,6 +81,16 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 | data actions | `/ssot/data-action-targets`, `/ssot/data-actions` |
 | deployable metadata promotion | Metadata API and data kits |
 
+## Developer Guide API Selection
+
+| Surface | Use When | Watch For |
+| --- | --- | --- |
+| Connect REST API | Platform-integrated apps need Data 360 resources, Salesforce auth, metadata, profiles, CIs, identity rulesets, segments, Universal ID lookup, or Query APIs | Use OpenAPI for exact path/schema; validate data space and permissions |
+| Apex `ConnectApi` | Apex code must query or manipulate supported Data 360 resources from inside Salesforce | Subset of Connect REST; profile and Universal ID lookup are not generally covered |
+| Data 360 API / Direct API | Tenant-direct performance matters and the app does not need Salesforce Platform features | Requires Salesforce token -> Data 360 token exchange and tenant-specific endpoint; not all Connect REST resources are available |
+| SOQL | Supported platform query paths against Unified Profile, data source, or DMO objects are enough | Narrower than ANSI SQL / Query APIs; check supported keywords and limitations |
+| Metadata API | Moving supported Data 360 metadata between orgs or projects | Coverage is partial; verify metadata coverage, data kit membership, and packageability |
+
 ## Operating Rules
 
 - Search the OpenAPI catalog before writing any endpoint or payload.
@@ -90,6 +101,9 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 - Distinguish query success from segment success. Query SQL can pass while DBT segment creation fails.
 - Distinguish Data Graph retrieval context from segment/activation criteria. Use graph context for enrichment, not silent activation logic.
 - For data spaces, check whether the call needs a query parameter, token exchange body parameter, SQL/Python connector property, or Apex extra parameter such as `ConnectApi.CdpQuery.queryAnsiSqlV2(input, "dataspace_name")`.
+- For Data 360 API / Direct API, plan the two-step OAuth exchange: Salesforce
+  access token first, then a Data 360 access token plus tenant-specific endpoint.
+  Do not reuse Connect REST auth assumptions blindly.
 - Validate governed behavior with a non-admin user when policies, masking, or data spaces affect access.
 - Prefer existing `sf` CLI auth, then direct `SF_ACCESS_TOKEN` + `SF_INSTANCE_URL`, then connected-app OAuth.
 
@@ -103,6 +117,9 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 6. DBT segment REST create uses `includeDbt.models.models[]` as input, but readback returns `includeDbt.models[]`.
 7. Approximate segment count can fail with `NOT_ACCEPTABLE` when the org feature is disabled; retry exact count with `preferApproxCount=false`.
 8. Data 360 MCP can hold an expired session; if it returns `INVALID_SESSION_ID`, use explicit `sf api request rest --target-org <alias>` for live proof.
+9. Data 360 API / Direct API can be the performance-oriented tenant path, but it
+   is not the universal API. Segments and identity resolution rulesets remain
+   Connect REST / ConnectApi territory unless current docs say otherwise.
 
 ## Snippet Patterns
 

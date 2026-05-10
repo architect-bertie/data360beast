@@ -13,6 +13,9 @@ and validation contract.
 - Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
 - Skill map: https://architect-bertie.github.io/data360beast/skills.md
 - MCP dependencies: https://architect-bertie.github.io/data360beast/mcp-dependencies.md
+- Help index: https://architect-bertie.github.io/data360beast/data360/help/index.md
+- Developer Guide index: https://architect-bertie.github.io/data360beast/data360/developer/index.md
+- Developer learning map: https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md
 - Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
 - Interoperability decision map: https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
@@ -44,6 +47,13 @@ and validation contract.
 3. User-supplied or locally available Data 360 Connect API OpenAPI spec.
 4. Data360 Beast cookbook and scorecard.
 5. Live org validation in an explicitly authorized org.
+
+## Official Doc Indexes
+
+- 77 Salesforce Help pages are indexed at `/data360/help/index.md`.
+- 23 Salesforce Developer Guide pages are indexed at `/data360/developer/index.md`.
+- Raw crawled docs and local summaries are not published; fetch exact official
+  pages on demand before making source-sensitive claims.
 
 ## Companion MCP Services
 

@@ -37,6 +37,9 @@ npx skills add architect-bertie/data360beast
 ## Supporting References And Scripts
 
 - `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.
+- `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
+- `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
+- `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
 - `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
 - `docs/data360/interoperability-decision-map.md`: ingestion, zero-copy, and hybrid pattern selection.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.

@@ -13,6 +13,8 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Agent quickstart](https://architect-bertie.github.io/data360beast/agent-quickstart.md): install and usage path.
 - [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
 - [MCP dependencies](https://architect-bertie.github.io/data360beast/mcp-dependencies.md): companion `sf-docs` and `data360` MCP install paths.
+- [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
+- [Data 360 Developer Guide index](https://architect-bertie.github.io/data360beast/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
 - [Architecture engine map](https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md): engine-aware triage model.
 - [Interoperability decision map](https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md): ingestion, zero-copy, and hybrid pattern selection.
@@ -24,6 +26,8 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 
 - Use official Salesforce docs on demand for current setup, limits, permissions,
   and behavior.
+- Use the Help and Developer Guide indexes to find likely official pages before
+  fetching exact docs.
 - Install companion MCP servers from `mcp-dependencies.md` when docs-on-demand
   or live org operations are needed.
 - Use OpenAPI or user-provided Swagger for Connect API method, path, params, and

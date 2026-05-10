@@ -18,6 +18,7 @@ Use this skill for the **Data 360 reports and dashboards plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -54,6 +55,9 @@ Beast references:
 - Treat analytics as its own serving path. Query Editor success is a useful control, but reports, dashboards, semantic models, Tableau-style consumption, cache, refresh cadence, and target-user governance must be validated directly.
 - Avoid dashboards that mix incompatible grains without clear labels.
 - Keep row counts, refresh cadence, and credit/usage implications visible to admins.
+- Treat query, report, dashboard, and semantic model design as credit-sensitive:
+  filter early, select only necessary fields, avoid high-cardinality scans, and
+  validate expected consumption impact when the workload is large or recurring.
 - For executive dashboards, include metric owner and data freshness.
 
 ## Validation Gates

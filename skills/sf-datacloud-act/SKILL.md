@@ -18,6 +18,7 @@ Use this skill for the **activation plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -45,6 +46,9 @@ Beast references:
 - For activation-triggered flows, document the activation source, payload, flow context, target object, and fault path.
 - For data actions, use [sf-datacloud-automation](../sf-datacloud-automation/SKILL.md) for event contract, Flow, webhook, and Platform Event design.
 - Monitor activation status, publish status, delivery failures, target auth expiry, rejected rows, and downstream target acceptance.
+- Activations, ad audiences, and recurring delivery jobs can affect service
+  usage. Validate audience size, publish cadence, target scope, and whether a
+  test activation can use a deliberately small sample.
 - Treat external target mappings as production contracts. Version them and test them after data model changes.
 - Validate access to the Segment On primary key and every underlying DMO/CIO/Data Graph entity used by the activation.
 - Do not assume a visible segment can be activated; governed dependent objects can still block activation save or delivery.

@@ -12,6 +12,9 @@
     "quickstart": "https://architect-bertie.github.io/data360beast/agent-quickstart.md",
     "skills": "https://architect-bertie.github.io/data360beast/skills.md",
     "mcpDependencies": "https://architect-bertie.github.io/data360beast/mcp-dependencies.md",
+    "helpIndex": "https://architect-bertie.github.io/data360beast/data360/help/index.md",
+    "developerGuideIndex": "https://architect-bertie.github.io/data360beast/data360/developer/index.md",
+    "developerLearningMap": "https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
@@ -109,10 +112,18 @@
     "activation target create/read",
     "search index and calculated insight list"
   ],
+  "officialDocIndexes": {
+    "helpSalesforcePages": 77,
+    "developerSalesforceGuidePages": 23,
+    "officialPagesIndexed": 100,
+    "rawCorpusPublished": false
+  },
   "knownCaveats": [
     "DBT segment create used includeDbt.models.models[] successfully",
     "Data stream formula fields use the Data 360 formula library, not Query SQL",
     "Query, transform, segment, analytics, activation, and orchestration surfaces can use different validation paths",
+    "Data 360 API / Direct API uses tenant-specific token exchange and endpoint handling, unlike Connect REST API and Apex ConnectApi",
+    "Data kits are the central deploy/package abstraction for Data 360 metadata; raw data is not packaged",
     "External data architecture should choose ingestion, live query, accelerated query, file federation, or hybrid before implementation",
     "DBT segment readback can normalize to includeDbt.models[]",
     "Approximate segment count can fail when the feature is disabled",

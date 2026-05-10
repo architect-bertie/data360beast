@@ -17,6 +17,7 @@ Use this skill for the **query and metadata plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -45,6 +46,10 @@ Beast references:
 - Query Editor is the official UI surface for SQL exploration, data validation, query testing, and troubleshooting across DLOs, DMOs, CIOs, and data graphs.
 - Use Data Explorer to validate object data and formulas; use Profile Explorer to validate unified profile views.
 - Data 360 SQL is ANSI/PostgreSQL-like, not SOQL.
+- SOQL can query supported Data 360 profile, data source, or DMO objects through
+  REST API query or Apex, but it is a narrower platform-integrated path. Use
+  ANSI SQL / Query APIs for broad Data 360 querying unless the user specifically
+  needs SOQL behavior.
 - Quote identifiers carefully when the surface requires it.
 - Use `IS NOT NULL` for null checks.
 - Use metadata/profile discovery before inventing table or field names.
@@ -52,6 +57,8 @@ Beast references:
 - Use Data 360 API / Direct API for high-performance tenant-side read paths when available.
 - Treat query jobs as asynchronous: submit, poll, page rows, and handle status codes.
 - For query performance, reason from the object layer first: DLO, DMO, CIO, or data graph. Selective predicates, date filters, projected fields, join grain, and row counts often matter more than cosmetic SQL changes.
+- Prefer filtered queries with explicit field lists over broad record retrieval;
+  query cost and credits are part of the design, not just an admin afterthought.
 - Treat Trino-like or Iceberg-style query behavior as an inferred mental model only. Use it to choose proof steps such as metadata checks, smaller probes, count queries, and predicate selectivity tests.
 - For zero-copy work, distinguish live query, accelerated query, and file federation. Live query is freshness-first and source-compute-dependent; accelerated query trades freshness for repeated-read performance; file federation is read-only and depends on object format, partitioning, pruning, and region/I/O.
 - Push predicates and aggregations to the source when using query federation. Avoid unfiltered scans over massive federated datasets.

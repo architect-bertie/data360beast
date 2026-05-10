@@ -21,6 +21,9 @@ Start with:
 - [`skills/data360beast/SKILL.md`](skills/data360beast/SKILL.md) for the agent skill.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
 - [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for optional companion MCP installs.
+- [`docs/data360/help/index.md`](docs/data360/help/index.md) and
+  [`docs/data360/developer/index.md`](docs/data360/developer/index.md) for
+  public-safe official doc indexes.
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
@@ -81,7 +84,9 @@ data360beast/
     |-- scorecard.md
     `-- data360/
         |-- architecture-engine-map.md
-        `-- interoperability-decision-map.md
+        |-- interoperability-decision-map.md
+        |-- help/index.md
+        `-- developer/index.md
 ```
 
 ## What It Does
@@ -89,6 +94,8 @@ data360beast/
 - Routes work by Data 360 phase: connect, prepare, harmonize, govern, retrieve,
   insight, semantic layer, AI/search, segment, act, and automation.
 - Uses official Salesforce docs on demand instead of stale pasted docs.
+- Publishes public-safe indexes for 77 Help pages and 23 Developer Guide pages
+  without publishing raw scraped content.
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
 - Documents companion MCP install paths for `sf-docs` and the official Data 360
   MCP server.

@@ -16,6 +16,7 @@ Use this skill for the **CI and segment lifecycle plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -55,6 +56,9 @@ Beast references:
 - When query counts and segment counts diverge, debug DMO grain, relationships, Segment On primary key, compiler constraints, governance, and refresh timing before rewriting working query SQL.
 - Prefer absolute timestamp literals in generated DBT segment SQL.
 - Separate audience discovery, segment definition, publish, activation, and downstream campaign/action steps.
+- Segmentation and activation consume credits. When proposing or testing
+  segments, keep test audiences small, filter early, and avoid publishing or
+  counting broad exploratory segments unless the user accepts the usage impact.
 
 ## Recommended verification
 

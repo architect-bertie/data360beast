@@ -40,6 +40,11 @@ Companion MCP install paths are documented in
 [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md). Do not assume
 `sf-docs` or `data360` MCP servers are bundled with the skill pack.
 
+Public-safe official doc indexes:
+- [docs/data360/help/index.md](../../docs/data360/help/index.md): 77 indexed Salesforce Help pages.
+- [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
+- [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
+
 Do not treat this repository as official Salesforce documentation. Do not
 hallucinate endpoint paths, payload fields, limits, permissions, or feature
 availability.
@@ -60,6 +65,9 @@ availability.
 - **Act**: activation targets, activations, data action targets, data actions.
 - **Automation**: triggered flows, DataObjectDataChgEvent, activation-triggered
   flows, refresh cadence, monitoring.
+- **Develop/Package**: API surface selection, External Client App auth,
+  development environments, data kits, packageability, sandbox-to-production
+  deployment, metadata coverage, cost and usage.
 
 ## Engine-Aware Triage
 
@@ -146,6 +154,15 @@ Live-tested cookbook lessons to remember:
 - For external data, choose the pattern before the payload: ingestion,
   real-time ingestion, streaming ingestion, batch ingestion, live query,
   accelerated query, file federation, or hybrid.
+- For development work, choose the API surface before coding: Connect REST API
+  for platform-integrated apps, Apex ConnectApi for Apex, Data 360 API / Direct
+  API for tenant-direct performance, SOQL only for supported platform query
+  paths, and Metadata API only for supported metadata movement.
+- Data 360 metadata deploys through data kits and supported metadata/package
+  types; data kits package definitions, not raw data.
+- Cost is a design gate: query only required fields, filter early, ingest
+  selectively, aggregate before ingest when raw detail is unnecessary, and keep
+  test data small.
 - DBT segment create used `includeDbt.models.models[]` successfully.
 - DBT segment readback can normalize to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.

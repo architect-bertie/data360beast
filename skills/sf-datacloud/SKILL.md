@@ -21,6 +21,7 @@ Production checklist: [references/production-implementation-checklist.md](refere
 Data360 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -59,6 +60,7 @@ Prefer this order:
 7. calculated/streaming insights, search indexes, semantic models, and AI models
 8. segment creation and count validation
 9. activations, data actions, flows, reports, and monitoring
+10. development lifecycle: environment, API surface, data kits, packageability, deploy path, and cost/usage
 
 ## Programmatic-first rule
 
@@ -92,6 +94,13 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - Ingest the governed core for identity, compliance, and operational activation;
   federate the edge for fresh, high-volume, exploratory, or AI/ML workloads
   when source governance is acceptable.
+- Data 360 development is not identical to standard Platform development. Confirm
+  customer vs partner path, sandbox vs second org, data kit strategy,
+  packageability, and metered test usage before recommending a lifecycle.
+- Keep Data 360 metadata and Salesforce Platform metadata packaging separate
+  unless current docs explicitly allow the target combination.
+- Data spaces, data kit membership, metadata coverage, and connector
+  reauthorization are deployment proof points, not cleanup details.
 - The query plane and the DBT segment compiler are different gates.
 - Data Graph is excellent for enrichment and retrieval, but should not become activation logic unless the signal is also segment-safe.
 - Metadata quality is an agentic feature. Descriptions, grain, relationships, and metric semantics must be production artifacts.

@@ -7,4 +7,12 @@ docs/data360/*
 !docs/data360/
 !docs/data360/architecture-engine-map.md
 !docs/data360/interoperability-decision-map.md
+!docs/data360/help/
+docs/data360/help/*
+!docs/data360/help/index.md
+!docs/data360/developer/
+docs/data360/developer/*
+!docs/data360/developer/index.md
+!docs/data360/developer/learning-map.md
+!docs/data360/developer/skill-update-synthesis.md
 tools/

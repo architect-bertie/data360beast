@@ -17,6 +17,7 @@ Use this skill for the **connection plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -53,6 +54,12 @@ Beast references:
 - If data spaces are involved, confirm where the connection, stream, and resulting DLOs are scoped.
 - For external lakehouses, choose the interoperability pattern before creating assets: ingestion for canonical governance, live query for maximum freshness, accelerated query for frequent reads with stale tolerance, file federation for large object-store/open-table workloads, or hybrid for governed core plus fresh edge.
 - Capture source-system cost and governance assumptions for federated connections. Query federation can depend on external compute and source-side policies; file federation depends on storage access, table format, partitioning, and Data 360 compute.
+- Classify integration path before implementation: built-in Salesforce connector,
+  external connector, Ingestion API bulk/streaming, Amazon S3 data stream,
+  Salesforce Interactions SDK for web behavior, Engagement Mobile SDK for
+  mobile events, MuleSoft, or zero-copy/federation.
+- For API-driven ingestion, confirm OAuth scope requirements and whether the
+  work is bulk historical load, recurring bulk load, or small-batch streaming.
 
 ## Validation gate
 

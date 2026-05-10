@@ -60,6 +60,10 @@
     "docs/api-cookbook.md",
     "docs/data360/architecture-engine-map.md",
     "docs/data360/interoperability-decision-map.md",
+    "docs/data360/help/index.md",
+    "docs/data360/developer/index.md",
+    "docs/data360/developer/learning-map.md",
+    "docs/data360/developer/skill-update-synthesis.md",
     "docs/scorecard.md"
   ],
   "topics": [
@@ -74,6 +78,8 @@
     "apiOperationsAnalyzed": 194,
     "schemasAnalyzed": 813,
     "helpDocsAnalyzed": 77,
+    "developerGuidePagesAnalyzed": 23,
+    "officialDocsIndexed": 100,
     "specialistSkills": 17,
     "overallScore": 9.6
   },
