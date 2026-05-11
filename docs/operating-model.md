@@ -12,7 +12,7 @@ Data360 Beast uses one loop for Salesforce Data 360 work:
 6. Identify the proof target.
 7. Fetch official docs on demand.
 8. Search OpenAPI for API shape.
-9. Apply cookbook lessons.
+9. Apply proof ledger evidence.
 10. Validate in org when authorized.
 11. Label confidence as documented, tested, or inferred.
 
@@ -132,7 +132,10 @@ prompt resolution, agent action selection, final answer, and non-admin access.
 
 - Official docs are fetched on demand.
 - OpenAPI is used for exact API shape.
-- Cookbook lessons are used for working payloads and caveats.
+- Proof ledger evidence is used for working surfaces, validation readbacks, and
+  known caveats.
+- Labs remains the home for golden scenarios, synthetic journeys, raw payload
+  experiments, traces, and future cookbook candidates.
 - Live org validation upgrades confidence from documented to tested.
 
 ## Confidence Labels

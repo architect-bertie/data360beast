@@ -26,6 +26,6 @@ Before raising the Beast score, confirm the update adds at least one of:
 
 - a current official docs source or OpenAPI-backed shape
 - a reusable proof path with readback fields
-- a live-tested recipe with caveats and failure modes
+- a proof ledger entry with caveats and failure modes
 - a guardrail that prevents a known bad assumption
 - a machine-readable routing or validation artifact

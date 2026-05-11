@@ -26,7 +26,7 @@ Beast references:
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.

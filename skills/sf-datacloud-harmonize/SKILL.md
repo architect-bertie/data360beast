@@ -17,7 +17,7 @@ Use this skill for the **schema and unification plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.

@@ -27,7 +27,7 @@ it whenever the user is designing, building, validating, or debugging Data 360.
    source or label the answer as docs-unverified.
 6. Use OpenAPI for Connect API method, path, params, body schema, response
    schema, and version requirements.
-7. Apply cookbook lessons for known working payloads and known gotchas.
+7. Apply proof ledger evidence for known working payloads and known gotchas.
 8. Validate against the target org when authorized. Prefer returned ID,
    readback, status, count, data space, metadata, and sample query proof.
 9. State the confidence level: documented, tested, or inferred.
@@ -37,7 +37,7 @@ it whenever the user is designing, building, validating, or debugging Data 360.
 1. User-provided target org, files, data space, API version, and business goal.
 2. Official Salesforce docs fetched on demand.
 3. User-supplied or locally available Data 360 Connect API OpenAPI spec.
-4. Data360 Beast public docs and cookbook.
+4. Data360 Beast public docs and proof ledger.
 5. Live org validation in an explicitly authorized org.
 
 Companion MCP install paths are documented in
@@ -56,6 +56,11 @@ Public-safe operating references:
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 - [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
 - [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
+- [docs/proof-ledger.md](../../docs/proof-ledger.md): public-safe evidence,
+  caveats, confidence labels, labs references, and promotion status.
+- [docs/labs-interface.md](../../docs/labs-interface.md): boundary between
+  Beast and the Labs proving ground for golden scenarios, synthetic journeys,
+  raw payload experiments, traces, and future cookbook candidates.
 - [docs/beast-evals.md](../../docs/beast-evals.md): lightweight eval checks for
   future Beast mode changes.
 
@@ -209,7 +214,7 @@ small and enforce these cross-cutting rules:
   query, file federation, or hybrid.
 - Choose the API surface before coding: Connect REST, Apex `ConnectApi`, Data
   360 API / Direct API, SOQL-supported paths, Metadata API, or data kits.
-- Promote a recipe only when it has official docs or OpenAPI shape, a minimal
+- Promote evidence only when it has official docs or OpenAPI shape, a minimal
   payload or command, readback proof, caveats, and failure modes.
 - Cost is a design gate: query only required fields, filter early, ingest
   selectively, aggregate before ingest when raw detail is unnecessary, and keep
@@ -231,19 +236,3 @@ Next proof step
 
 If the task is customer-facing, keep the answer sharp and avoid internal lab
 details unless they directly support the recommendation.
-
-## Doc-Synced Notes
-
-<!-- SF_DOC_SYNC_START:weekly-watch-gate -->
-### Usage and access changelog gate
-
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
-
-**Sources (sf-docs cached Help):**
-- data.c360_a_changelog_usage_and_access.htm (2026-05-11T20:20:32.153Z) — Data 360 Usage and Access Changes
-
-**Notes:**
-- Check this changelog before treating older Beast guidance as durable; it tracks licensing, access, availability, billing, limits, and permission-set documentation changes.
-- When a changelog entry touches a phase, update the owning specialist skill and any public-safe markdown map in the same run.
-- Most recent captured entry headings: Apr 28, 2026, Apr 14, 2026, Mar 13, 2026, Mar 2, 2026, Feb 6, 2026, Feb 3, 2026, Jan 30, 2026, Jan 9, 2026.
-<!-- SF_DOC_SYNC_END:weekly-watch-gate -->

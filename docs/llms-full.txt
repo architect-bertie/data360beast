@@ -21,6 +21,9 @@ proof matrix, API workflow, eval checks, and validation contract.
 - Developer learning map: https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md
 - Data 360 model-gallery implementation map: https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md
 - Data 360 RAG search-index retriever playbook: https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md
+- Proof ledger: https://architect-bertie.github.io/data360beast/proof-ledger.md
+- Labs interface: https://architect-bertie.github.io/data360beast/labs-interface.md
+- Labs repository: https://github.com/architect-bertie/data360beast-labs
 - Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
 - Interoperability decision map: https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
@@ -50,7 +53,7 @@ proof matrix, API workflow, eval checks, and validation contract.
 1. User-provided target org, files, data space, API version, and business goal.
 2. Official Salesforce docs fetched on demand.
 3. User-supplied or locally available Data 360 Connect API OpenAPI spec.
-4. Data360 Beast cookbook and scorecard.
+4. Data360 Beast proof ledger and scorecard.
 5. Live org validation in an explicitly authorized org.
 
 ## Official Doc Indexes
@@ -90,7 +93,7 @@ proof matrix, API workflow, eval checks, and validation contract.
 7. Identify the proof target.
 8. Fetch official docs on demand.
 9. Search OpenAPI for the API shape.
-10. Apply the cookbook.
+10. Apply proof ledger evidence.
 11. Validate in org when authorized.
 12. Label confidence as documented, tested, or inferred.
 
@@ -117,7 +120,7 @@ proof matrix, API workflow, eval checks, and validation contract.
 - Act: activation targets, activations, data action targets, data actions.
 - Automation: triggered flows, events, activation-triggered flows, monitoring.
 
-## Live-Tested Cookbook Notes
+## Proof Ledger Notes
 
 - Data space and metadata discovery are safe first checks.
 - The public Data 360 model gallery is a normalized subject-area map. Use it to
@@ -142,14 +145,18 @@ proof matrix, API workflow, eval checks, and validation contract.
   first proofs.
 - Data action target and data action create were validated in lab.
 - Activation target create/read was validated by returned ID.
-- Search index and calculated insight list were explored, but creation recipes
-  require enabled assets before promotion.
+- Search index and calculated insight list were explored, but creation evidence
+  requires enabled assets and repeatable Labs evidence before promotion.
+- Golden scenarios, synthetic journeys, raw payload experiments, traces, and
+  future cookbook candidates belong in the Labs repository; Beast keeps only
+  distilled public-safe evidence.
 
 ## Public Boundary
 
 This repository intentionally excludes raw Salesforce Help exports, generated
-caches, lab data, credentials, and org-specific metadata. Agents should fetch
-official docs on demand and use this repository as the curated operating layer.
+caches, raw Labs payload dumps, lab data, credentials, and org-specific
+metadata. Agents should fetch official docs on demand and use this repository as
+the curated operating layer.
 
 ## Current Score
 

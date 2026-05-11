@@ -10,7 +10,7 @@ license: MIT
 metadata:
   version: "2.1.0"
   author: "Codex"
-  validated: "OpenAPI-first Data360 Beast refresh with live-tested API cookbook"
+  validated: "OpenAPI-first Data360 Beast refresh with proof ledger evidence"
 ---
 
 # sf-datacloud-connectapi
@@ -26,7 +26,7 @@ Use this skill for the **programmatic Data 360 surface**:
 Use these first, before guessing:
 - Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
@@ -40,7 +40,7 @@ When a full OpenAPI or Swagger file is available from the user or official Sales
 ## Source Hierarchy
 
 1. **OpenAPI catalog** for method/path/parameter/schema/response/version mechanics.
-2. **API recipe cookbook** for live-tested payload shapes, commands, gotchas, and proof fields.
+2. **proof ledger** for live-tested payload shapes, commands, gotchas, and proof fields.
 3. **Official Salesforce docs via `sf-docs`** for behavior, limits, permissions, setup, and release caveats. Install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 4. **Data 360 MCP** for live operations when its session is healthy: `search -> payload_examples -> execute`. Install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 5. **Target org validation** for actual data spaces, permissions, metadata names, status, and row counts.
@@ -66,7 +66,7 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
   authorization boundary, and proof target are explicit.
 - Use the phase proof matrix to confirm the owning phase, minimum readback, and
   forbidden assumptions before promoting a payload.
-- Use [docs/api-cookbook.md](../../docs/api-cookbook.md) and [references/project-gotchas.md](references/project-gotchas.md) for live-tested gotchas.
+- Use [docs/proof-ledger.md](../../docs/proof-ledger.md) and [references/project-gotchas.md](references/project-gotchas.md) for live-tested gotchas.
 - Use `scripts/data360_accelerator.py snippet --kind apex-query`, `apex-segment-create`, or `curl-query-sql` for small starter snippets.
 - Use `scripts/data360_accelerator.py summarize-postman --postman <collection.json>` only when the user provides a Postman collection.
 
@@ -100,7 +100,7 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 ## Operating Rules
 
 - Search the OpenAPI catalog before writing any endpoint or payload.
-- Check the API recipe cookbook before creating query, segment, activation target, data action, calculated insight, profile, or search-index payloads.
+- Check the proof ledger before creating query, segment, activation target, data action, calculated insight, profile, or search-index payloads.
 - Use `sf-docs` when behavior, setup, permission, limit, or data-space handling matters.
 - Do not assume MCP dependencies are bundled by `npx skills add`; use the documented direct URLs and local install paths when the runtime does not expose the tools.
 - Treat the official DMO catalog as a label directory, not proof of runtime API names. Resolve real object/field names through metadata/profile/query introspection.
@@ -153,7 +153,7 @@ Report:
 1. auth mode chosen
 2. API surface used
 3. catalog endpoint/schema found
-4. cookbook recipe or payload used, if available
+4. proof ledger evidence or payload used, if available
 5. docs consulted when behavior matters
 6. payload/snippet/tooling produced
 7. data space and governance assumptions

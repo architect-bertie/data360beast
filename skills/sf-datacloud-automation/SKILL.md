@@ -19,7 +19,7 @@ Use this skill for the **Data 360 event automation plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -79,8 +79,8 @@ Beast references:
 ## Handoffs
 
 - Activation target setup and activation jobs -> [sf-datacloud-act](../sf-datacloud-act/SKILL.md)
-- Flow implementation -> [sf-flow](../sf-flow/SKILL.md)
-- Integration/webhook security -> [sf-integration](../sf-integration/SKILL.md)
+- Flow implementation -> `sf-flow` companion skill when available
+- Integration/webhook security -> `sf-integration` companion skill when available
 - Data graph enrichment -> [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md)
 - Governance, masking, RLS, and policy context -> [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md)
 

@@ -2,7 +2,7 @@
   "name": "data360beast",
   "displayName": "Data360 Beast",
   "version": "1.4.0",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and cookbook-driven implementation.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and proof-ledger-driven validation.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "skill": "skills/data360beast/SKILL.md",
@@ -34,7 +34,13 @@
   "proofArtifacts": {
     "preflight": "docs/beast-preflight.md",
     "phaseProofMatrix": "docs/phase-proof-matrix.json",
+    "proofLedger": "docs/proof-ledger.md",
+    "labsInterface": "docs/labs-interface.md",
     "evals": "docs/beast-evals.md"
+  },
+  "labs": {
+    "repository": "https://github.com/architect-bertie/data360beast-labs",
+    "purpose": "Parallel proving ground for golden scenarios, synthetic journeys, payload experiments, traces, failures, and future cookbook candidates."
   },
   "companionMcpServers": [
     {
@@ -65,6 +71,8 @@
     "docs/skills.md",
     "docs/mcp-dependencies.md",
     "docs/operating-model.md",
+    "docs/proof-ledger.md",
+    "docs/labs-interface.md",
     "docs/api-cookbook.md",
     "docs/data360/architecture-engine-map.md",
     "docs/data360/interoperability-decision-map.md",
@@ -84,6 +92,7 @@
     "rag",
     "search-indexes",
     "retrievers",
+    "proof-ledger",
     "agent-skills",
     "llms-txt"
   ],
@@ -99,8 +108,9 @@
     "ragDiagramsAndScreenshotsAnalyzed": 8,
     "phaseProofMatrixEntries": 12,
     "promptLevelEvals": 8,
+    "proofLedgerEntries": 7,
     "overallScore": 9.8
   },
-  "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, credentials, and org-specific metadata.",
+  "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
   "lastReviewed": "2026-05-11"
 }

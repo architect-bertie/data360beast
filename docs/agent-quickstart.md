@@ -44,7 +44,8 @@ If your IDE does not support skill installation, load these files in order:
    grounding, or Flow/Apex retrieval paths
 10. `docs/llms.txt`
 11. The one task-specific doc you need: `operating-model.md`,
-   `api-cookbook.md`, `scorecard.md`, or a phase-specific reference.
+   `proof-ledger.md`, `labs-interface.md`, `scorecard.md`, or a phase-specific
+   reference.
 
 ## Good Starting Prompts
 

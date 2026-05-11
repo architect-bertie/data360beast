@@ -6,7 +6,7 @@ Data360 Beast is a portable skill pack for teams using Claude, Codex, Cursor,
 or another agentic IDE to design, build, and troubleshoot Salesforce Data 360.
 It combines a top-level Beast router, 16 specialist Data 360 skills, an explicit
 preflight, a machine-readable proof matrix, OpenAPI-first API lookup,
-live-tested recipes, and clean LLM entry points.
+tested evidence, and clean LLM entry points.
 
 Site: <https://architect-bertie.github.io/data360beast/>
 
@@ -38,6 +38,11 @@ Start with:
 - [`docs/data360/docs-watch-operating-model.md`](docs/data360/docs-watch-operating-model.md)
   for the weekly official-doc refresh, oversized Help fallback, audit, skill
   sync, and publishing workflow.
+- [`docs/proof-ledger.md`](docs/proof-ledger.md) for public-safe evidence,
+  caveats, confidence labels, and promotion status.
+- [`docs/labs-interface.md`](docs/labs-interface.md) for the boundary between
+  this operating-model repo and
+  [`data360beast-labs`](https://github.com/architect-bertie/data360beast-labs).
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
@@ -97,6 +102,8 @@ data360beast/
     |-- mcp-dependencies.md
     |-- skills.md
     |-- operating-model.md
+    |-- proof-ledger.md
+    |-- labs-interface.md
     |-- api-cookbook.md
     |-- scorecard.md
     `-- data360/
@@ -132,16 +139,21 @@ data360beast/
   agents can design ADL/manual retrieval, search indexes, chunking, retrievers,
   prompt grounding, Flow/Apex fallbacks, and debug paths with a clear mental
   model.
-- Applies live-tested cookbook lessons for query, segment, data action, and
+- Applies tested proof ledger evidence for query, segment, data action, and
   activation work.
 - Requires org validation through status, counts, metadata, data space, and
   readback before treating an answer as proven.
+- Keeps golden scenarios, synthetic journeys, raw payload experiments, traces,
+  and future cookbook candidates in
+  [`data360beast-labs`](https://github.com/architect-bertie/data360beast-labs);
+  Beast promotes only distilled, public-safe proof ledger evidence.
 
 ## Public Boundary
 
 This repository intentionally does not publish raw Salesforce Help exports,
-generated documentation caches, lab-specific data, tokens, or org metadata. It
-publishes the curated operating model and agent entry points.
+generated documentation caches, lab-specific data, raw Labs payload dumps,
+tokens, or org metadata. It publishes the curated operating model, proof ledger,
+and agent entry points.
 
 ## Status
 
@@ -150,5 +162,5 @@ RAG/search-index/retriever playbook, preflight contract, phase proof matrix, and
 lightweight Beast evals.
 
 Remaining frontier: external activation destinations and search-index creation
-recipes still need enabled assets in a live org before promotion into tested
-cookbook recipes.
+evidence still need enabled assets in a live org before promotion into tested
+proof ledger evidence.

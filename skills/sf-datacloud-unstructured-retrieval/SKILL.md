@@ -19,7 +19,7 @@ Use this skill for the **unstructured data and retrieval plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -187,7 +187,7 @@ ORDER BY location
 - Data streams and transforms -> [sf-datacloud-prepare](../sf-datacloud-prepare/SKILL.md)
 - Data modeling and UDMO relationships -> [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md)
 - AI model or retriever usage in Einstein Studio -> [sf-datacloud-ai-models](../sf-datacloud-ai-models/SKILL.md)
-- Agentforce grounding and behavior -> [sf-ai-agentforce](../sf-ai-agentforce/SKILL.md)
+- Agentforce grounding and behavior -> `sf-ai-agentforce` companion skill when available
 - Governance and access policy behavior -> [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md)
 
 ## Output Format

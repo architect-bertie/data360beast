@@ -1,7 +1,7 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, phase proof matrix, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live-tested cookbook lessons, and validation rules.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, phase proof matrix, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, tested proof ledger evidence, and validation rules.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
@@ -21,6 +21,9 @@
     "modelGalleryImplementationMap": "https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md",
     "ragSearchIndexRetrieverPlaybook": "https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
+    "proofLedger": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
+    "labsInterface": "https://architect-bertie.github.io/data360beast/labs-interface.md",
+    "labsRepository": "https://github.com/architect-bertie/data360beast-labs",
     "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
@@ -29,13 +32,15 @@
   "proofArtifacts": {
     "preflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",
     "phaseProofMatrix": "https://architect-bertie.github.io/data360beast/phase-proof-matrix.json",
+    "proofLedger": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
+    "labsInterface": "https://architect-bertie.github.io/data360beast/labs-interface.md",
     "evals": "https://architect-bertie.github.io/data360beast/beast-evals.md"
   },
   "sourceHierarchy": [
     "User-provided org, files, data space, API version, and business goal",
     "Official Salesforce docs fetched on demand",
     "User-supplied or locally available Data 360 Connect API OpenAPI spec",
-    "Data360 Beast public cookbook and scorecard",
+    "Data360 Beast proof ledger and scorecard",
     "Live org validation when authorized"
   ],
   "skills": [
@@ -163,7 +168,7 @@
     "DBT segment readback can normalize to includeDbt.models[]",
     "Approximate segment count can fail when the feature is disabled",
     "Segment member retrieval depends on a delta window",
-    "External activation destinations and search-index creation need enabled assets before cookbook promotion"
+    "External activation destinations and search-index creation need enabled assets before proof-ledger promotion"
   ],
   "scores": {
     "connectApiReadiness": 9.7,
@@ -175,6 +180,6 @@
     "deterministicProofRouting": 9.6,
     "overall": 9.8
   },
-  "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, credentials, or org-specific metadata are published.",
+  "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
   "lastReviewed": "2026-05-11"
 }
