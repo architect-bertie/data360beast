@@ -9,6 +9,7 @@ docs/data360/*
 !docs/data360/interoperability-decision-map.md
 !docs/data360/model-gallery-implementation-map.md
 !docs/data360/rag-search-index-retriever-playbook.md
+!docs/data360/docs-watch-operating-model.md
 !docs/data360/help/
 docs/data360/help/*
 !docs/data360/help/index.md
@@ -17,4 +18,11 @@ docs/data360/developer/*
 !docs/data360/developer/index.md
 !docs/data360/developer/learning-map.md
 !docs/data360/developer/skill-update-synthesis.md
-tools/
+tools/*
+!tools/audit_indexed_docs.py
+!tools/capture_help_prerendered.mjs
+!tools/data360_openapi_catalog.py
+!tools/export_sf_docs_cache.py
+!tools/refresh_skills_from_sf_docs.py
+!tools/sf_docs_developer_guide_crawl.mjs
+!tools/sf_docs_help_crawl.mjs

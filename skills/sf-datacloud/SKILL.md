@@ -130,3 +130,21 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - Always verify created segment status after the create call.
 - Always test governed behavior with a non-admin user; admin metadata visibility can hide runtime access failures.
 - Data spaces affect visibility, API context, and names. When a task crosses data spaces, explicitly confirm data space, prefix, and API parameter/token handling.
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:limits-first-architecture -->
+### Limits-first architecture gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- For cross-phase designs, explicitly identify the phase that owns each limit: ingest, model, query, insights, segment, activation, automation, search, or API.
+- Keep cost, throttling, hard limits, and feature availability in the proof plan, not as afterthoughts.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-first-architecture -->

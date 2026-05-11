@@ -92,3 +92,18 @@ workspace and the user authorizes live org access.
 - Analytics, segments, transforms, and activations can consume the same logical data through different serving or processing paths; validate the target surface directly.
 - Profile, metadata, calculated insight, and data graph retrieval all have different response shapes; do not normalize them casually.
 - When a query differs from a segment, graph, report, or transform result, check governance enforcement differences before assuming data drift.
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:data-spaces-retrieve -->
+### Data Spaces in Query Tooling
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_using_data_cloud_apis_with_data_spaces.htm (2026-05-11T18:36:20.467Z) — Use Data Cloud APIs with Data Spaces
+
+**Notes:**
+- If results differ by user or environment, confirm whether the query path is scoped by a data space (token exchange, connector property, or API extra parameter).
+- Treat data space selection as part of proof: include the data space in readbacks and troubleshooting probes.
+<!-- SF_DOC_SYNC_END:data-spaces-retrieve -->

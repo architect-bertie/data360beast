@@ -46,7 +46,11 @@ npx skills add architect-bertie/data360beast
 - `docs/data360/rag-search-index-retriever-playbook.md`: public-safe RAG/search-index/retriever playbook for ADL versus manual setup, field roles, chunking, hybrid search, dynamic filters, prompt grounding, Flow/Apex fallbacks, and debugging.
 - `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
 - `docs/data360/interoperability-decision-map.md`: ingestion, zero-copy, and hybrid pattern selection.
+- `docs/data360/docs-watch-operating-model.md`: weekly official-doc refresh, oversized Help fallback, indexed-doc audit, skill sync, and GitHub publishing.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.
+- `tools/audit_indexed_docs.py`: validates indexed Help and Developer capture completeness.
+- `tools/capture_help_prerendered.mjs`: captures oversized official Help pages when sf-docs returns placeholders.
+- `tools/refresh_skills_from_sf_docs.py`: refreshes marker-delimited skill guidance from official-doc exports.
 - `sf-datacloud-connectapi/scripts/data360_accelerator.py`: portable snippets and optional Postman/DMO helpers.
 - `sf-datacloud-calculated-insights/references/ci-sql-patterns.md`: reusable CI SQL patterns.
 - `sf-datacloud-calculated-insights/scripts/ci_sql_guard.py`: static CI SQL guard.

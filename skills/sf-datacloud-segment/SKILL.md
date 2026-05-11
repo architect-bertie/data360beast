@@ -76,3 +76,21 @@ Default habit:
 - run an alignment probe when a proposal count and created segment count disagree
 - query `MarketSegment` status before declaring the segment healthy
 - run governance checks when proposal counts, query counts, and created segment counts disagree
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:limits-segmentation -->
+### Segmentation limit gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- Before recommending segment shape, publish cadence, counts, or DBT segment strategy, check the segmentation limit family and publish-related Help pages.
+- Treat count success, publish success, and activation pickup as separate proof targets.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-segmentation -->

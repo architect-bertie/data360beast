@@ -155,3 +155,31 @@ Report:
 5. feature-specific enforcement risks
 6. validation tests by user profile and surface
 7. production gaps and remediation
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:data-spaces -->
+### Data Spaces (visibility boundary)
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_data_spaces.htm (2026-05-11T18:36:14.319Z) — About Data Spaces
+
+**Notes:**
+- Treat a data space as a logical partition; it scopes data, metadata, and processes for teams (brand/region/department).
+- Data space assignment via permission sets controls what users can work on in that context; it is not the same thing as granting data access (policies still matter).
+<!-- SF_DOC_SYNC_END:data-spaces -->
+
+<!-- SF_DOC_SYNC_START:permission-sets -->
+### Standard Permission Sets (operational reminders)
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_userpermissions.htm (2026-05-11T18:33:50.890Z) — Data 360 Standard Permission Sets
+
+**Notes:**
+- Standard Data 360 permission sets can change over time; avoid custom clones unless you have a specific reason and a review process.
+- System Administrator profile can have broad data space definition access; validate governed runtime behavior with a non-admin user when proving policies.
+<!-- SF_DOC_SYNC_END:permission-sets -->

@@ -55,6 +55,7 @@ Public-safe operating references:
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 - [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
+- [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
 - [docs/beast-evals.md](../../docs/beast-evals.md): lightweight eval checks for
   future Beast mode changes.
 
@@ -230,3 +231,19 @@ Next proof step
 
 If the task is customer-facing, keep the answer sharp and avoid internal lab
 details unless they directly support the recommendation.
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:weekly-watch-gate -->
+### Usage and access changelog gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_changelog_usage_and_access.htm (2026-05-11T20:20:32.153Z) — Data 360 Usage and Access Changes
+
+**Notes:**
+- Check this changelog before treating older Beast guidance as durable; it tracks licensing, access, availability, billing, limits, and permission-set documentation changes.
+- When a changelog entry touches a phase, update the owning specialist skill and any public-safe markdown map in the same run.
+- Most recent captured entry headings: Apr 28, 2026, Apr 14, 2026, Mar 13, 2026, Mar 2, 2026, Feb 6, 2026, Feb 3, 2026, Jan 30, 2026, Jan 9, 2026.
+<!-- SF_DOC_SYNC_END:weekly-watch-gate -->

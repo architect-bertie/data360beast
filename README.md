@@ -35,6 +35,9 @@ Start with:
   for RAG architecture, Agentforce Data Libraries, search-index field roles,
   chunking, hybrid/vector search, retriever filters, prompt grounding, and
   troubleshooting.
+- [`docs/data360/docs-watch-operating-model.md`](docs/data360/docs-watch-operating-model.md)
+  for the weekly official-doc refresh, oversized Help fallback, audit, skill
+  sync, and publishing workflow.
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
@@ -99,6 +102,7 @@ data360beast/
     `-- data360/
     |-- architecture-engine-map.md
     |-- interoperability-decision-map.md
+    |-- docs-watch-operating-model.md
     |-- model-gallery-implementation-map.md
     |-- rag-search-index-retriever-playbook.md
     |-- help/index.md
@@ -116,6 +120,9 @@ data360beast/
 - Uses official Salesforce docs on demand instead of stale pasted docs.
 - Publishes public-safe indexes for 77 Help pages and 23 Developer Guide pages
   without publishing raw scraped content.
+- Audits the indexed Help and Developer pages weekly and uses official Help
+  prerendered HTML to capture oversized pages that the standard sf-docs path
+  returns as placeholders.
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
 - Documents companion MCP install paths for `sf-docs` and the official Data 360
   MCP server.
