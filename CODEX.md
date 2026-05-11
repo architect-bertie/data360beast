@@ -10,6 +10,9 @@ Operational defaults:
 - Use OpenAPI or official docs before constructing Connect API payloads.
 - Use `docs/mcp-dependencies.md` when `sf-docs` or `data360` MCP tools are
   missing from the local runtime.
+- Use `docs/data360/rag-search-index-retriever-playbook.md` for RAG,
+  Agentforce Data Libraries, search indexes, chunking, retrievers, prompt
+  grounding, Flow/Apex retrieval orchestration, or RAG troubleshooting.
 - Validate create/update operations with readback by returned ID, status, count,
   or metadata.
 - Keep generated public docs short and agent-ingestible.

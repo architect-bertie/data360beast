@@ -35,8 +35,11 @@ If your IDE does not support skill installation, load these files in order:
 5. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
 6. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
    model grain, relationship paths, or Data Graph shape
-7. `docs/llms.txt`
-8. The one task-specific doc you need: `operating-model.md`,
+7. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
+   Agentforce Data Libraries, search indexes, chunking, retrievers, prompt
+   grounding, or Flow/Apex retrieval paths
+8. `docs/llms.txt`
+9. The one task-specific doc you need: `operating-model.md`,
    `api-cookbook.md`, `scorecard.md`, or a phase-specific reference.
 
 ## Good Starting Prompts
@@ -55,6 +58,10 @@ Use Data360 Beast to review this Data 360 architecture and identify missing proo
 
 ```text
 Use Data360 Beast to map this business use case to the right Data 360 model-gallery subject area, anchor DMO, and relationship path.
+```
+
+```text
+Use Data360 Beast to design a Data 360 RAG pipeline. Compare ADL and manual setup, choose chunking and retriever filters, then give me the validation plan.
 ```
 
 ## Answer Shape

@@ -17,6 +17,7 @@ Use this skill for the **AI Models / Einstein Studio plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -36,8 +37,11 @@ Beast references:
 5. Validate that model creators and consumers have access to every governed input object and field; save-time failures can differ from metadata visibility.
 6. For generative model configs, set deterministic hyperparameters for production workflows and define masking/stop sequences.
 7. For retrievers, use [sf-datacloud-unstructured-retrieval](../sf-datacloud-unstructured-retrieval/SKILL.md) for index and chunking quality.
-8. Deploy model outputs into a DMO/calculated insight/transform output that downstream reports, segments, or agents can verify.
-9. Monitor performance, drift, usage, and permissions after activation.
+8. For RAG generation, choose the LLM from context-window need and reasoning
+   difficulty. Retrieval quality, prompt grounding, and model reasoning are
+   separate gates.
+9. Deploy model outputs into a DMO/calculated insight/transform output that downstream reports, segments, or agents can verify.
+10. Monitor performance, drift, usage, and permissions after activation.
 
 ## Guardrails
 
@@ -47,6 +51,14 @@ Beast references:
 - For input categories with high cardinality, group or encode deliberately.
 - Document whether the model output is a score, class, forecast, sentiment, or generated text.
 - Use lower temperature for operational outputs that must be repeatable.
+- Do not upgrade the LLM as the first fix for bad RAG. First prove that relevant
+  chunks exist, the retriever returns them, and the prompt resolution includes
+  usable context.
+- For RAG, context window sizing must include system/prompt instructions, user
+  query, retrieved chunks, return fields, source metadata, and expected output.
+- Stronger reasoning models help when the response must synthesize across
+  multiple retrieved chunks, but they cannot recover missing or irrelevant
+  retrieval context.
 - Predictive AI work must include use case, training data prep, model quality, output consumption path, and monitoring.
 - Model outputs should land in queryable DMOs, CIs, transforms, Flow actions, Apex, or REST paths that downstream consumers can validate.
 - Retrievers are versioned, select a data space, DMO, and search index, and must be activated before use in prompt templates.

@@ -17,6 +17,7 @@ and validation contract.
 - Developer Guide index: https://architect-bertie.github.io/data360beast/data360/developer/index.md
 - Developer learning map: https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md
 - Data 360 model-gallery implementation map: https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md
+- Data 360 RAG search-index retriever playbook: https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md
 - Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
 - Interoperability decision map: https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
@@ -56,6 +57,9 @@ and validation contract.
 - The public Data 360 model-gallery implementation map covers 14 public
   Salesforce Developer diagrams and translates them into DMO anchor, grain,
   relationship, and implementation guidance.
+- The RAG search-index retriever playbook distills a 45-page public-facing
+  Salesforce best-practices PDF into ADL/manual setup, field-role, chunking,
+  hybrid search, retriever, prompt, Flow/Apex, and troubleshooting guidance.
 - Raw crawled docs and local summaries are not published; fetch exact official
   pages on demand before making source-sensitive claims.
 
@@ -75,13 +79,15 @@ and validation contract.
 2. Identify the object layer and likely execution plane.
 3. For model design, choose the public model-gallery subject area, anchor DMO,
    grain, and relationship path.
-4. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
-5. Identify the proof target.
-6. Fetch official docs on demand.
-7. Search OpenAPI for the API shape.
-8. Apply the cookbook.
-9. Validate in org when authorized.
-10. Label confidence as documented, tested, or inferred.
+4. For RAG, choose ADL versus manual setup, source object path, field roles,
+   chunking, search type, retriever filters, and prompt/action scope.
+5. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
+6. Identify the proof target.
+7. Fetch official docs on demand.
+8. Search OpenAPI for the API shape.
+9. Apply the cookbook.
+10. Validate in org when authorized.
+11. Label confidence as documented, tested, or inferred.
 
 ## Phase Router
 
@@ -109,6 +115,12 @@ and validation contract.
   target surface.
 - For interoperability, choose the pattern from freshness, governance owner,
   access pattern, data volume, and cost/I/O before designing connectors or SQL.
+- For RAG, separate retrieval and generation quality: context relevance points
+  at the search index/retriever path, faithfulness points at prompt/generation
+  grounding, and answer relevance is the overall outcome.
+- ADL is a fast path for uploaded files and Knowledge Articles; manual RAG setup
+  is preferred when source coverage, chunking, embeddings, dynamic filters,
+  return fields, pro-code SQL, or access checks require more control.
 - DBT segment create worked with `includeDbt.models.models[]`.
 - DBT segment readback can normalize to `includeDbt.models[]`.
 - Approximate segment count can fail when the feature is disabled.
@@ -128,7 +140,8 @@ official docs on demand and use this repository as the curated operating layer.
 ## Current Score
 
 - Connect API readiness: 9.7/10
-- Core Data 360 architecture: 9.3/10
+- Core Data 360 architecture: 9.5/10
+- Unstructured retrieval and RAG: 9.5/10
 - Governance and data spaces: 9.0/10
 - Segment, act, automation: 9.2/10
-- Overall Beast mode: 9.7/10
+- Overall Beast mode: 9.8/10

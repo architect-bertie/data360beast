@@ -10,9 +10,10 @@ Salesforce documentation.
 2. Use `docs/skills.md` to route into the specialist `sf-datacloud-*` skills.
 3. Use `docs/mcp-dependencies.md` to install companion MCP servers when docs-on-demand or live Data 360 operations are needed.
 4. Use `docs/data360/help/index.md` and `docs/data360/developer/index.md` for public-safe maps of indexed official docs.
-5. Use `docs/llms.txt` for a compact public map.
-6. Use `docs/agent-manifest.json` when a machine-readable entry point is easier.
-7. Use `docs/operating-model.md`, `docs/api-cookbook.md`, and
+5. Use `docs/data360/rag-search-index-retriever-playbook.md` for RAG, search index, chunking, retriever, and prompt-grounding work.
+6. Use `docs/llms.txt` for a compact public map.
+7. Use `docs/agent-manifest.json` when a machine-readable entry point is easier.
+8. Use `docs/operating-model.md`, `docs/api-cookbook.md`, and
    `docs/scorecard.md` only when the task needs those details.
 
 ## Source Order

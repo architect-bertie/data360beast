@@ -41,6 +41,7 @@ npx skills add architect-bertie/data360beast
 - `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
 - `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
 - `docs/data360/model-gallery-implementation-map.md`: public Data 360 model-gallery synthesis for anchor DMOs, grain, relationship paths, and live-build traps.
+- `docs/data360/rag-search-index-retriever-playbook.md`: public-safe RAG/search-index/retriever playbook for ADL versus manual setup, field roles, chunking, hybrid search, dynamic filters, prompt grounding, Flow/Apex fallbacks, and debugging.
 - `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
 - `docs/data360/interoperability-decision-map.md`: ingestion, zero-copy, and hybrid pattern selection.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.

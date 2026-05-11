@@ -45,6 +45,7 @@ Public-safe official doc indexes:
 - [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
+- [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
 
 Do not treat this repository as official Salesforce documentation. Do not
 hallucinate endpoint paths, payload fields, limits, permissions, or feature
@@ -86,6 +87,11 @@ when the work involves Data 360 data models, DMO choice, model diagrams, subject
 areas such as Case, Party, Privacy, Engagement, Product, Sales Order,
 Financial Services, Healthcare Provider, Vehicle Charger and Telematics, Student
 Financial Aid, or GenAI Audit and Feedback.
+
+Use [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
+when the work involves RAG architecture, Agentforce Data Libraries, manual
+search indexes, chunking, hybrid/vector search, retriever filters, prompt
+grounding, Flow/Apex RAG orchestration, or retrieval troubleshooting.
 
 Default loop:
 
@@ -159,6 +165,23 @@ Live-tested cookbook lessons to remember:
 - The public Data 360 model gallery is a normalized subject-area map. It should
   guide anchor DMO selection, model grain, and relationship paths, not be treated
   as a flat table list.
+- Data 360 RAG should be diagnosed as two loops: offline load/chunk/vectorize/index
+  and online query/vectorize/retrieve/hydrate/generate. Failures can occur at
+  each boundary.
+- Agentforce Data Libraries are the fast path for uploaded files and Knowledge
+  Articles. Use manual RAG setup when sources, chunking, embeddings, filters,
+  return fields, prompt behavior, or access checks need control.
+- For search indexes, long text is indexable content; categories, IDs, booleans,
+  publication status, entitlement, account, language, product, and region are
+  usually filter, prepend, return, or ranking fields.
+- Hybrid search is valuable when exact terms and semantic similarity both matter,
+  but it is not a standalone category lookup engine and has cost/latency impact.
+- Retriever design is an architecture decision: result count, return fields,
+  prefilters, dynamic prefilters, version activation, prompt scope, and
+  Flow/Apex fallback all shape answer quality.
+- RAG quality metrics separate root causes: context relevance points at retrieval,
+  faithfulness points at prompt/generation grounding, and answer relevance is
+  the end-user outcome.
 - Party/identity, contact point/consent, engagement, commerce, product, service,
   asset, and vertical-domain models reuse common hubs. Preserve those hubs and
   validate relationship cardinality before downstream build.

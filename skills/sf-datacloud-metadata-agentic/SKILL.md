@@ -20,6 +20,7 @@ Use this skill for the **metadata and agentic semantics plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
+- RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Developer Guide synthesis: [docs/data360/developer/skill-update-synthesis.md](../../docs/data360/developer/skill-update-synthesis.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
@@ -75,6 +76,8 @@ Prepare metadata so an agent can:
 - understand grain, cardinality, freshness, and governance limits
 - choose between DMO, CIO, Data Graph, semantic metric, or search retriever
 - understand whether an answer should use query, semantic model, Data Graph, or retriever grounding
+- understand which fields are index, prepend, filter, return, ranking, or
+  agent-safe citation fields in a RAG design
 - explain results using business language without exposing PII
 - know when a metric is authoritative vs exploratory
 

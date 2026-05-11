@@ -7,7 +7,9 @@ This repository is optimized for agent ingestion. Keep context lean.
 3. Read `docs/skills.md` and load the matching specialist skill when the task is phase-specific.
 4. Read `docs/mcp-dependencies.md` when official docs or live Data 360 MCP tools are needed but unavailable.
 5. For website or customer-facing context, read `docs/llms.txt`.
-6. For implementation detail, read only the matching doc:
+6. For RAG/search work, read
+   `docs/data360/rag-search-index-retriever-playbook.md`.
+7. For implementation detail, read only the matching doc:
    `docs/operating-model.md`, `docs/api-cookbook.md`, or `docs/scorecard.md`.
 
 When answering Salesforce Data 360 questions, separate:

@@ -27,6 +27,10 @@ Start with:
 - [`docs/data360/model-gallery-implementation-map.md`](docs/data360/model-gallery-implementation-map.md)
   for public Data 360 model-gallery learnings, anchor DMOs, relationship paths,
   grain guidance, and live implementation traps.
+- [`docs/data360/rag-search-index-retriever-playbook.md`](docs/data360/rag-search-index-retriever-playbook.md)
+  for RAG architecture, Agentforce Data Libraries, search-index field roles,
+  chunking, hybrid/vector search, retriever filters, prompt grounding, and
+  troubleshooting.
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
@@ -89,6 +93,7 @@ data360beast/
     |-- architecture-engine-map.md
     |-- interoperability-decision-map.md
     |-- model-gallery-implementation-map.md
+    |-- rag-search-index-retriever-playbook.md
     |-- help/index.md
     `-- developer/index.md
 ```
@@ -105,6 +110,10 @@ data360beast/
   MCP server.
 - Captures public Data 360 model-gallery patterns across 14 diagrams so agents
   choose the right DMO anchor, grain, and relationship path before building.
+- Captures public-facing Data 360 RAG guidance from a 45-page Salesforce PDF so
+  agents can design ADL/manual retrieval, search indexes, chunking, retrievers,
+  prompt grounding, Flow/Apex fallbacks, and debug paths with a clear mental
+  model.
 - Applies live-tested cookbook lessons for query, segment, data action, and
   activation work.
 - Requires org validation through status, counts, metadata, data space, and
@@ -118,8 +127,9 @@ publishes the curated operating model and agent entry points.
 
 ## Status
 
-Current score: **9.7/10 overall** after adding the public Data 360 model-gallery
-implementation map to the specialist skill pack.
+Current score: **9.8/10 overall** after adding the RAG/search-index/retriever
+playbook and upgrading the unstructured retrieval skill.
 
 Remaining frontier: external activation destinations and search-index creation
-recipes require enabled assets in a live org before promotion into the skill.
+recipes still need enabled assets in a live org before promotion into tested
+cookbook recipes.

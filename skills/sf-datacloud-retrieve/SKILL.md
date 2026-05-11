@@ -17,6 +17,7 @@ Use this skill for the **query and metadata plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
@@ -53,6 +54,13 @@ Beast references:
 - Quote identifiers carefully when the surface requires it.
 - Use `IS NOT NULL` for null checks.
 - Use metadata/profile discovery before inventing table or field names.
+- For RAG troubleshooting, search indexes produce chunk and index DMOs. Probe
+  them directly with small `SELECT ... LIMIT 10` queries and compare chunk/index
+  counts with source DMO counts before blaming prompts.
+- For pro-code RAG, use Data 360 SQL `vector_search` or `hybrid_search` through
+  Query SQL or Apex `ConnectApi.CdpQuery` when no-code retrievers cannot express
+  nested filters, unsupported operators, post-filters, majority-vote
+  classification, custom joins, or record access checks.
 - Prefer query-sql or `ConnectApi.CdpQuery` when you need robust pagination or large result handling.
 - Use Data 360 API / Direct API for high-performance tenant-side read paths when available.
 - Treat query jobs as asynchronous: submit, poll, page rows, and handle status codes.

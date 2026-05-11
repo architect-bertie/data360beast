@@ -6,12 +6,14 @@ Data360 Beast uses one loop for Salesforce Data 360 work:
 2. Identify the object layer and likely execution plane.
 3. For model work, choose the public model-gallery subject area, anchor DMO,
    grain, and relationship path.
-4. Identify the proof target.
-5. Fetch official docs on demand.
-6. Search OpenAPI for API shape.
-7. Apply cookbook lessons.
-8. Validate in org when authorized.
-9. Label confidence as documented, tested, or inferred.
+4. For RAG work, choose ADL versus manual setup, source object path, field
+   roles, chunking, search type, retriever filters, and prompt/action scope.
+5. Identify the proof target.
+6. Fetch official docs on demand.
+7. Search OpenAPI for API shape.
+8. Apply cookbook lessons.
+9. Validate in org when authorized.
+10. Label confidence as documented, tested, or inferred.
 
 ## Phase Router
 
@@ -36,6 +38,7 @@ performance work, or ambiguous failures:
 
 - `docs/data360/architecture-engine-map.md`
 - `docs/data360/interoperability-decision-map.md`
+- `docs/data360/rag-search-index-retriever-playbook.md`
 
 | Phase | Common Object Layer | Likely Plane To Consider | Proof Habit |
 | --- | --- | --- | --- |
@@ -84,6 +87,19 @@ workload -> freshness need -> governance need -> cost/I/O profile -> access patt
 | Accelerated query | frequent reads with stale-data tolerance | cache interval, refresh status, result comparison |
 | File federation | large object-store/open-table workloads | table metadata, partition/pruning probe |
 | Hybrid | governed core plus fresh/high-volume edge | proof for both ingested core and federated edge |
+
+## RAG Retrieval Loop
+
+Use `docs/data360/rag-search-index-retriever-playbook.md` when the task
+involves Agentforce Data Libraries, unstructured data, search indexes,
+chunking, retrievers, prompt grounding, Flow/Apex retrieval, or RAG debugging.
+
+```text
+source content -> ADL/manual setup -> field roles -> chunking -> search type -> retriever -> prompt/action -> evaluation
+```
+
+Proof should move through the chain: index DMO/chunk population, retriever output,
+prompt resolution, agent action selection, final answer, and non-admin access.
 
 ## Source Rules
 

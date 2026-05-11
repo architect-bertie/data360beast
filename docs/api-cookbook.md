@@ -40,8 +40,11 @@ not published here.
 - Segment member retrieval depends on a delta window.
 - Status and count readback are better first proofs than member retrieval.
 - Activation target readback by returned ID was reliable in lab.
+- For pro-code RAG, `vector_search` and `hybrid_search` should be driven from
+  Query SQL or Apex `ConnectApi.CdpQuery` only after metadata confirms the index
+  DMO, chunk DMO, source joins, and filter fields.
 - External activation destinations and search-index creation need enabled assets
-  before promotion into a public recipe.
+  before promotion into tested public recipes.
 
 ## Agent Rule
 

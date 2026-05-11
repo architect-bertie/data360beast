@@ -22,6 +22,7 @@ Data360 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
@@ -60,9 +61,11 @@ Prefer this order:
 6. DMO mappings and identity resolution
 7. query validation and metadata checks
 8. calculated/streaming insights, search indexes, semantic models, and AI models
-9. segment creation and count validation
-10. activations, data actions, flows, reports, and monitoring
-11. development lifecycle: environment, API surface, data kits, packageability, deploy path, and cost/usage
+9. RAG retrieval design when applicable: ADL/manual setup, field roles, chunking,
+   search type, retrievers, prompt scope, Flow/Apex fallback, and evaluation
+10. segment creation and count validation
+11. activations, data actions, flows, reports, and monitoring
+12. development lifecycle: environment, API surface, data kits, packageability, deploy path, and cost/usage
 
 ## Programmatic-first rule
 
@@ -111,6 +114,9 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - The public Data 360 model gallery is the best early design compass for
   choosing anchor DMOs and relationship paths. Use it before creating custom
   DMOs or flattening source tables.
+- RAG is not just prompt work. Design and validate the source object path,
+  chunking, index fields, filter fields, retriever version, prompt resolution,
+  and agent/action scope before tuning the answer text.
 - Treat `Individual`, `Unified Individual`, `Account`, `Account Contact`,
   `Party`, and contact point DMOs as distinct grains. Do not collapse them into
   one generic customer object.

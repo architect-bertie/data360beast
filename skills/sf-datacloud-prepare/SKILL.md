@@ -17,6 +17,7 @@ Use this skill for the **ingestion and lake-prep plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -61,6 +62,13 @@ Beast references:
 - Apply or propagate governance tags to DLOs, DMO outputs, transform outputs, and sensitive fields before downstream consumption.
 - Do not mask primary keys, foreign keys, fully qualified keys, event-time fields, or required join/filter fields without validating every query, transform, graph, segment, and activation path.
 - Transform preview can enforce RLS differently from runtime execution; compare preview counts with run output before declaring a data issue.
+- For unstructured data, curate content before indexing: focused documents,
+  headings, explicit Q&A structure, detailed examples, media descriptions,
+  split/structured tables, and freshness governance improve retrieval more than
+  downstream prompt tweaks.
+- Do not treat CSV, JSON, or XML as unstructured merely because it arrived as a
+  file. Load structured fields into DLO/DMO shape first, then chunk only
+  sentence-level long text fields when RAG is needed.
 - For unstructured data, hand off chunking/search index design to [sf-datacloud-unstructured-retrieval](../sf-datacloud-unstructured-retrieval/SKILL.md).
 - Use stream reruns for ingestion validation before blaming downstream mappings.
 - Prefer programmatic payloads over UI click-memory when the user wants repeatable setup.

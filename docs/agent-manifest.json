@@ -1,7 +1,7 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, OpenAPI-first API lookup, public model-gallery DMO design guidance, live-tested cookbook lessons, and validation rules.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live-tested cookbook lessons, and validation rules.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
@@ -16,6 +16,7 @@
     "developerGuideIndex": "https://architect-bertie.github.io/data360beast/data360/developer/index.md",
     "developerLearningMap": "https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md",
     "modelGalleryImplementationMap": "https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md",
+    "ragSearchIndexRetrieverPlaybook": "https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
@@ -113,10 +114,23 @@
     "activation target create/read",
     "search index and calculated insight list"
   ],
+  "ragGuidance": [
+    "ADL fast path versus manual RAG setup",
+    "search index source path and DMO/UDMO selection",
+    "field roles: index, prepend, filter, return, and ranking",
+    "chunking tradeoffs for retrieval versus augmentation",
+    "hybrid versus vector search cost and relevance tradeoffs",
+    "dynamic prefilters for record, language, entitlement, product, and geography",
+    "prompt grounding, fallback behavior, and source ID preservation",
+    "Flow and Apex fallbacks for advanced filters and pro-code SQL",
+    "RAG debug chain and evaluation metrics"
+  ],
   "officialDocIndexes": {
     "helpSalesforcePages": 77,
     "developerSalesforceGuidePages": 23,
     "publicModelGalleryDiagramsAnalyzed": 14,
+    "ragBestPracticePdfPagesAnalyzed": 45,
+    "ragDiagramsAndScreenshotsAnalyzed": 8,
     "officialPagesIndexed": 100,
     "rawCorpusPublished": false
   },
@@ -124,6 +138,9 @@
     "DBT segment create used includeDbt.models.models[] successfully",
     "Data stream formula fields use the Data 360 formula library, not Query SQL",
     "The public Data 360 model gallery is a normalized subject-area map for anchor DMO, grain, and relationship-path design",
+    "ADL is a fast path for uploaded files and Knowledge Articles; use manual RAG setup when source coverage, chunking, embeddings, dynamic filters, return fields, custom SQL, or access checks need more control",
+    "Hybrid search is useful when exact terms and semantic similarity both matter, but it is not a category lookup engine and has cost/latency impact",
+    "No-code retrievers have simple filter and result-count limits; use Flow/Apex/Query SQL for nested filters, post-filters, majority-vote classification, custom joins, or record-access checks",
     "Query, transform, segment, analytics, activation, and orchestration surfaces can use different validation paths",
     "Data 360 API / Direct API uses tenant-specific token exchange and endpoint handling, unlike Connect REST API and Apex ConnectApi",
     "Data kits are the central deploy/package abstraction for Data 360 metadata; raw data is not packaged",
@@ -139,7 +156,8 @@
     "governanceAndDataSpaces": 9.0,
     "segmentActAutomation": 9.2,
     "modelAndDmoDesign": 9.4,
-    "overall": 9.7
+    "unstructuredRetrievalAndRag": 9.5,
+    "overall": 9.8
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, credentials, or org-specific metadata are published.",
   "lastReviewed": "2026-05-11"

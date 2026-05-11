@@ -11,12 +11,14 @@ recipes.
 | Governance and data spaces | 7.5 | 9.0 | Data-space-aware validation and source rules |
 | Segment, act, automation | 7.5 | 9.2 | DBT segment, data action, and activation recipes |
 | Model and DMO design | 6.5 | 9.4 | Public Data 360 diagrams translated into anchor DMO, grain, relationship, consent, commerce, product, telemetry, and vertical-domain guidance |
-| Overall Beast mode | 7.3 | 9.7 | Full specialist skill pack, curated docs, model-gallery map, manifest, and validation contract |
+| Unstructured retrieval and RAG | 6.8 | 9.5 | Public RAG best-practices PDF distilled into ADL/manual setup, chunking, field roles, hybrid search, retrievers, prompt grounding, Flow/Apex fallbacks, and debug metrics |
+| Overall Beast mode | 7.3 | 9.8 | Full specialist skill pack, curated docs, model-gallery map, RAG playbook, manifest, and validation contract |
 
 ## Remaining Frontier
 
 - External activation destination recipes need specific enabled targets.
-- Search-index creation recipes need enabled assets and repeatable lab setup.
+- Search-index creation recipes need enabled assets and repeatable lab setup
+  before moving from documented playbook guidance to tested cookbook recipes.
 - Model-gallery guidance should be validated against target-org metadata before
   generating org-specific SQL, segments, activations, or Data Graphs.
 - Customer-specific architecture patterns should be documented as short recipes,

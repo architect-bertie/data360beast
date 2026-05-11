@@ -16,6 +16,7 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
 - [Data 360 Developer Guide index](https://architect-bertie.github.io/data360beast/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [Data 360 model-gallery implementation map](https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md): public Data 360 diagrams translated into DMO anchors, relationship paths, grain guidance, and live-build guardrails.
+- [Data 360 RAG search-index retriever playbook](https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md): Agentforce Data Libraries, manual search indexes, field roles, chunking, hybrid/vector search, retriever filters, prompt grounding, Flow/Apex fallbacks, and RAG troubleshooting.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
 - [Architecture engine map](https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md): engine-aware triage model.
 - [Interoperability decision map](https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md): ingestion, zero-copy, and hybrid pattern selection.
@@ -31,6 +32,9 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
   fetching exact docs.
 - Use the model-gallery implementation map before choosing DMOs, flattening
   source tables, creating custom relationships, or designing Data Graphs.
+- Use the RAG search-index retriever playbook before designing Agentforce Data
+  Libraries, manual search indexes, chunking, retriever filters, prompt
+  grounding, or Flow/Apex RAG pipelines.
 - Install companion MCP servers from `mcp-dependencies.md` when docs-on-demand
   or live org operations are needed.
 - Use OpenAPI or user-provided Swagger for Connect API method, path, params, and

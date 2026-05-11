@@ -24,6 +24,7 @@ Detailed enforcement matrix: [references/policy-enforcement-matrix.md](reference
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
+- RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -112,6 +113,12 @@ Beast references:
 - Mark fields as agent-safe, agent-internal, restricted, PII, join-only, or activation-only.
 - Never expose names, emails, phones, addresses, source IDs, or raw profile keys unless the use case explicitly allows it and policy permits it.
 - For Agentforce actions, document which user context is used and which Data 360 policies are expected to apply.
+- For RAG, design filter fields and dynamic prefilters as governance controls,
+  not just relevance controls: language, entitlement, publication status,
+  account/record ID, geography, product, and data source often prevent the agent
+  from seeing the wrong chunk.
+- Validate search index, chunk DMO, index DMO, retriever, prompt, Flow, Apex, and
+  Agentforce behavior with the actual non-admin consuming user.
 - Validate agent answers with a non-admin user profile and policy-restricted fixtures.
 
 ## Validation Gates

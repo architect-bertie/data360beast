@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data360 Beast | Salesforce Data 360 Agent Kit</title>
-    <meta name="description" content="A customer-ready Salesforce Data 360 agent kit with docs-on-demand, OpenAPI lookup, public model-gallery guidance, live-tested API recipes, and agent-readable entry points.">
+    <meta name="description" content="A customer-ready Salesforce Data 360 agent kit with docs-on-demand, OpenAPI lookup, public model-gallery guidance, RAG/search-index guidance, live-tested API recipes, and agent-readable entry points.">
     <meta property="og:title" content="Data360 Beast">
     <meta property="og:description" content="Salesforce Data 360, made agent-ready: docs, APIs, recipes, skills, and live proof.">
     <meta property="og:type" content="website">
@@ -36,17 +36,19 @@
           <p class="eyebrow">Salesforce Data 360, made agent-ready</p>
           <h1 id="hero-title">The Data 360 kit for teams that want answers with proof.</h1>
           <p class="lead">
-            Data360 Beast packages the operating model, model-gallery lessons, API lessons, and validation loop
+            Data360 Beast packages the operating model, model-gallery lessons, RAG retrieval playbook, API lessons, and validation loop
             an AI agent needs to work with Salesforce Data 360 without guessing.
           </p>
           <div class="actions">
             <a class="button primary" href="./llms.txt">Read llms.txt</a>
             <a class="button" href="./skills.md">View skill pack</a>
+            <a class="button" href="./data360/rag-search-index-retriever-playbook.md">RAG playbook</a>
             <a class="button" href="./mcp-dependencies.md">MCP installs</a>
           </div>
           <div class="hero-proof" aria-label="Project proof">
             <span>17 agent skills</span>
             <span>14 model diagrams</span>
+            <span>45 RAG pages</span>
             <span>194 API operations</span>
             <span>813 schemas</span>
             <span>100 docs indexed</span>
@@ -61,6 +63,7 @@
 Use Data360 Beast when:
 - designing a Data 360 architecture
 - finding the right Connect API endpoint
+- designing RAG, search indexes, and retrievers
 - creating query, segment, activation, or data action payloads
 - validating with org metadata, status, counts, and readback</code></pre>
         </div>
@@ -142,6 +145,7 @@ Use Data360 Beast when:
           <ol class="loop">
             <li><strong>Classify the phase.</strong> Connect, prepare, harmonize, govern, retrieve, insight, semantic, AI/search, segment, act, or automate.</li>
             <li><strong>Choose the model path.</strong> Use the public model-gallery map for anchor DMO, grain, and relationship design.</li>
+            <li><strong>Design retrieval deliberately.</strong> For RAG, choose ADL or manual setup, field roles, chunking, search type, retriever filters, and prompt scope.</li>
             <li><strong>Fetch official docs.</strong> Use Salesforce docs for setup, limits, permissions, and behavior.</li>
             <li><strong>Search OpenAPI.</strong> Use the catalog for method, path, params, schemas, and version gates.</li>
             <li><strong>Apply the cookbook.</strong> Start from live-tested payloads and known gotchas.</li>
@@ -214,6 +218,11 @@ Use Data360 Beast when:
               <span class="after">9.4</span>
             </div>
             <div class="score-row">
+              <span>Unstructured retrieval and RAG</span>
+              <span class="before">6.8</span>
+              <span class="after">9.5</span>
+            </div>
+            <div class="score-row">
               <span>Governance and data spaces</span>
               <span class="before">7.5</span>
               <span class="after">9.0</span>
@@ -226,7 +235,7 @@ Use Data360 Beast when:
             <div class="score-row">
               <span>Overall Beast mode</span>
               <span class="before">7.3</span>
-              <span class="after">9.7</span>
+              <span class="after">9.8</span>
             </div>
           </div>
         </div>
@@ -262,6 +271,7 @@ Use Data360 Beast when:
         |-- architecture-engine-map.md
         |-- interoperability-decision-map.md
         |-- model-gallery-implementation-map.md
+        |-- rag-search-index-retriever-playbook.md
         |-- help/index.md
         `-- developer/index.md</code></pre>
         </div>
@@ -272,7 +282,7 @@ Use Data360 Beast when:
           <p class="eyebrow">Next frontier</p>
           <h2 id="frontier-title">The remaining work is targeted, not vague.</h2>
           <p>
-            External activation destinations and search-index creation need specific enabled assets.
+            External activation destinations and tested search-index creation recipes need specific enabled assets.
             When those exist, the same loop applies: create a controlled lab case, test it live,
             capture the recipe, and promote it into the skill.
           </p>

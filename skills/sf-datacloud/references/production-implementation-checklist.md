@@ -23,9 +23,10 @@
 6. Run identity resolution and validate unified profile quality.
 7. Create calculated or streaming insights for reusable metrics.
 8. Create data graphs/search indexes/semantic models for retrieval and analytics.
-9. Create segments and verify counts.
-10. Create activations, data actions, and flows.
-11. Build reports/dashboards and monitoring.
+9. For RAG, validate ADL/manual setup, field roles, chunking, search type, retriever filters, prompt resolution, and Flow/Apex fallbacks.
+10. Create segments and verify counts.
+11. Create activations, data actions, and flows.
+12. Build reports/dashboards and monitoring.
 
 ## Production Gates
 
@@ -35,5 +36,8 @@
 - OLS/FLS/RLS/masking behavior is validated with target non-admin users in query, graph, CI, segment, report, activation, and agent surfaces.
 - Queries are validated against actual data spaces and exact API names.
 - CIs, segments, activations, and data actions are tested independently.
+- RAG pipelines are tested independently at the index, retriever, prompt
+  resolution, agent action, and final answer layers.
+- RAG evaluation separates context relevance, faithfulness, and answer relevance.
 - Monitoring covers ingestion, transforms, identity resolution, insight runs, segment publish, activation delivery, data action failures, and usage/credits.
 - Agentic consumers are tested for hallucination, PII safety, and correct metric/object selection.
