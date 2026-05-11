@@ -36,17 +36,19 @@
           <p class="eyebrow">Salesforce Data 360, made agent-ready</p>
           <h1 id="hero-title">The Data 360 kit for teams that want answers with proof.</h1>
           <p class="lead">
-            Data360 Beast packages the operating model, model-gallery lessons, RAG retrieval playbook, API lessons, and validation loop
-            an AI agent needs to work with Salesforce Data 360 without guessing.
+            Data360 Beast packages the preflight contract, phase proof matrix, model-gallery lessons, RAG retrieval playbook,
+            API lessons, and validation loop an AI agent needs to work with Salesforce Data 360 without guessing.
           </p>
           <div class="actions">
             <a class="button primary" href="./llms.txt">Read llms.txt</a>
+            <a class="button" href="./beast-preflight.md">Preflight</a>
             <a class="button" href="./skills.md">View skill pack</a>
             <a class="button" href="./data360/rag-search-index-retriever-playbook.md">RAG playbook</a>
             <a class="button" href="./mcp-dependencies.md">MCP installs</a>
           </div>
           <div class="hero-proof" aria-label="Project proof">
             <span>17 agent skills</span>
+            <span>12 proof routes</span>
             <span>14 model diagrams</span>
             <span>45 RAG pages</span>
             <span>194 API operations</span>
@@ -61,7 +63,9 @@
           <pre><code>npx skills add architect-bertie/data360beast
 
 Use Data360 Beast when:
+- running target-org/data-space preflight
 - designing a Data 360 architecture
+- choosing the required proof path
 - finding the right Connect API endpoint
 - designing RAG, search indexes, and retrievers
 - creating query, segment, activation, or data action payloads
@@ -96,8 +100,8 @@ Use Data360 Beast when:
           </article>
           <article class="card">
             <span class="mini-label">04</span>
-            <h3>MCP path</h3>
-            <p><code>mcp-dependencies.md</code> names the companion doc and live-org servers with install paths.</p>
+            <h3>Proof matrix</h3>
+            <p><code>phase-proof-matrix.json</code> maps phases to sources, tools, proofs, and assumptions to avoid.</p>
           </article>
         </div>
       </section>
@@ -143,7 +147,8 @@ Use Data360 Beast when:
             </p>
           </div>
           <ol class="loop">
-            <li><strong>Classify the phase.</strong> Connect, prepare, harmonize, govern, retrieve, insight, semantic, AI/search, segment, act, or automate.</li>
+            <li><strong>Run preflight.</strong> Capture target org, API version, data space, persona, lifecycle, authorization boundary, tools, and proof target.</li>
+            <li><strong>Classify the phase.</strong> Use the proof matrix to route connect, prepare, harmonize, govern, retrieve, insight, semantic, AI/search, segment, act, automate, or package work.</li>
             <li><strong>Choose the model path.</strong> Use the public model-gallery map for anchor DMO, grain, and relationship design.</li>
             <li><strong>Design retrieval deliberately.</strong> For RAG, choose ADL or manual setup, field roles, chunking, search type, retriever filters, and prompt scope.</li>
             <li><strong>Fetch official docs.</strong> Use Salesforce docs for setup, limits, permissions, and behavior.</li>
@@ -233,6 +238,11 @@ Use Data360 Beast when:
               <span class="after">9.2</span>
             </div>
             <div class="score-row">
+              <span>Deterministic proof routing</span>
+              <span class="before">7.0</span>
+              <span class="after">9.6</span>
+            </div>
+            <div class="score-row">
               <span>Overall Beast mode</span>
               <span class="before">7.3</span>
               <span class="after">9.8</span>
@@ -262,6 +272,9 @@ Use Data360 Beast when:
     |-- llms-full.txt
     |-- agent-manifest.json
     |-- agent-quickstart.md
+    |-- beast-preflight.md
+    |-- beast-evals.md
+    |-- phase-proof-matrix.json
     |-- mcp-dependencies.md
     |-- skills.md
     |-- operating-model.md

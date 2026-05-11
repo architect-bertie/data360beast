@@ -1,8 +1,8 @@
 {
   "name": "data360beast",
   "displayName": "Data360 Beast",
-  "version": "1.3.0",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and cookbook-driven implementation.",
+  "version": "1.4.0",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and cookbook-driven implementation.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "skill": "skills/data360beast/SKILL.md",
@@ -31,6 +31,11 @@
     "full": "https://architect-bertie.github.io/data360beast/llms-full.txt",
     "repository": "llms.txt"
   },
+  "proofArtifacts": {
+    "preflight": "docs/beast-preflight.md",
+    "phaseProofMatrix": "docs/phase-proof-matrix.json",
+    "evals": "docs/beast-evals.md"
+  },
   "companionMcpServers": [
     {
       "name": "sf-docs",
@@ -54,6 +59,9 @@
   ],
   "docs": [
     "docs/agent-quickstart.md",
+    "docs/beast-preflight.md",
+    "docs/phase-proof-matrix.json",
+    "docs/beast-evals.md",
     "docs/skills.md",
     "docs/mcp-dependencies.md",
     "docs/operating-model.md",
@@ -89,6 +97,8 @@
     "modelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
+    "phaseProofMatrixEntries": 12,
+    "promptLevelEvals": 8,
     "overallScore": 9.8
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, credentials, and org-specific metadata.",

@@ -11,6 +11,9 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 ## Start Here
 
 - [Agent quickstart](https://architect-bertie.github.io/data360beast/agent-quickstart.md): install and usage path.
+- [Beast preflight](https://architect-bertie.github.io/data360beast/beast-preflight.md): target org, API version, data space, authorization, tools, and proof target.
+- [Phase proof matrix](https://architect-bertie.github.io/data360beast/phase-proof-matrix.json): machine-readable routing, source requirements, proof targets, and forbidden assumptions.
+- [Beast evals](https://architect-bertie.github.io/data360beast/beast-evals.md): prompt-level checks for endpoint discipline, data-space handling, proof, and confidence labels.
 - [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
 - [MCP dependencies](https://architect-bertie.github.io/data360beast/mcp-dependencies.md): companion `sf-docs` and `data360` MCP install paths.
 - [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
@@ -28,6 +31,9 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 
 - Use official Salesforce docs on demand for current setup, limits, permissions,
   and behavior.
+- Run Beast preflight for non-trivial work before choosing a phase or payload.
+- Use the phase proof matrix to select the specialist skill, source type,
+  minimum proof target, and forbidden assumptions.
 - Use the Help and Developer Guide indexes to find likely official pages before
   fetching exact docs.
 - Use the model-gallery implementation map before choosing DMOs, flattening

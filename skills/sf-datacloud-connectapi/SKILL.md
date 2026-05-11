@@ -24,6 +24,8 @@ Use this skill for the **programmatic Data 360 surface**:
 ## Beast References
 
 Use these first, before guessing:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
@@ -60,6 +62,10 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 
 - If the user supplies `cdp-connect-api-Swagger.yaml` or another official OpenAPI file, search it before writing any method, path, parameter, or payload.
 - If no local spec is available, fetch the current official Salesforce Connect API docs on demand and cite the page used.
+- Run Beast preflight before create/update calls so target org, data space,
+  authorization boundary, and proof target are explicit.
+- Use the phase proof matrix to confirm the owning phase, minimum readback, and
+  forbidden assumptions before promoting a payload.
 - Use [docs/api-cookbook.md](../../docs/api-cookbook.md) and [references/project-gotchas.md](references/project-gotchas.md) for live-tested gotchas.
 - Use `scripts/data360_accelerator.py snippet --kind apex-query`, `apex-segment-create`, or `curl-query-sql` for small starter snippets.
 - Use `scripts/data360_accelerator.py summarize-postman --postman <collection.json>` only when the user provides a Postman collection.

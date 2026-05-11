@@ -12,7 +12,12 @@ recipes.
 | Segment, act, automation | 7.5 | 9.2 | DBT segment, data action, and activation recipes |
 | Model and DMO design | 6.5 | 9.4 | Public Data 360 diagrams translated into anchor DMO, grain, relationship, consent, commerce, product, telemetry, and vertical-domain guidance |
 | Unstructured retrieval and RAG | 6.8 | 9.5 | Public RAG best-practices PDF distilled into ADL/manual setup, chunking, field roles, hybrid search, retrievers, prompt grounding, Flow/Apex fallbacks, and debug metrics |
-| Overall Beast mode | 7.3 | 9.8 | Full specialist skill pack, curated docs, model-gallery map, RAG playbook, manifest, and validation contract |
+| Deterministic proof routing | 7.0 | 9.6 | Beast preflight, machine-readable phase proof matrix, mutation gate, and prompt-level evals |
+| Overall Beast mode | 7.3 | 9.8 | Full specialist skill pack, curated docs, model-gallery map, RAG playbook, manifest, preflight, proof matrix, and validation contract |
+
+Scores are evidence maturity scores. They reflect how reliably an agent can
+route to the right source and proof path, not a claim that every Data 360 asset
+or destination has been live-tested.
 
 ## Remaining Frontier
 
@@ -33,3 +38,7 @@ A recipe should enter the skill only when it has:
 3. Live readback proof.
 4. Caveats and failure modes.
 5. A short, reusable explanation.
+
+Before raising any score, run the relevant checks in
+[`beast-evals.md`](beast-evals.md). A score increase must add proof, not merely
+more prose.

@@ -36,6 +36,8 @@ npx skills add architect-bertie/data360beast
 
 ## Supporting References And Scripts
 
+- `docs/beast-preflight.md`: required envelope, tool inventory, proof target, and mutation gate.
+- `docs/phase-proof-matrix.json`: machine-readable phase routing, source requirements, proof targets, and forbidden assumptions.
 - `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.
 - `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
 - `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
@@ -51,6 +53,7 @@ npx skills add architect-bertie/data360beast
 - `sf-datacloud-governance/references/policy-enforcement-matrix.md`: runtime policy behavior map.
 - `sf-datacloud-metadata-agentic/scripts/metadata_semantic_score.py`: metadata description scoring.
 - `sf-datacloud/references/production-implementation-checklist.md`: end-to-end production checklist.
+- `docs/beast-evals.md`: prompt-level evals for endpoint discipline, data-space handling, RAG troubleshooting, governance proof, and confidence labels.
 
 ## Public Boundary
 

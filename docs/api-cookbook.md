@@ -6,13 +6,16 @@ not published here.
 
 ## API Workflow
 
-1. Confirm target org, API version, data space, and asset lifecycle.
-2. Search the Connect API OpenAPI spec for the operation family.
-3. Build the smallest valid payload first.
-4. Use disposable lab names for create tests.
-5. Read back by returned ID.
-6. Check status, count, metadata, or query proof.
-7. Capture caveats before promoting the recipe.
+1. Run [`beast-preflight.md`](beast-preflight.md): target org, API version,
+   data space, asset lifecycle, authorization boundary, tools, and proof target.
+2. Check [`phase-proof-matrix.json`](phase-proof-matrix.json) for the owning
+   phase, required source, minimum readback, and forbidden assumptions.
+3. Search the Connect API OpenAPI spec for the operation family.
+4. Build the smallest valid payload first.
+5. Use disposable lab names for create tests.
+6. Read back by returned ID.
+7. Check status, count, metadata, or query proof.
+8. Capture caveats before promoting the recipe.
 
 ## Live-Tested Areas
 

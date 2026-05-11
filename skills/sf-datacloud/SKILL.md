@@ -19,6 +19,8 @@ Use this skill when the user needs a **multi-phase Data 360 plan**, not just one
 Production checklist: [references/production-implementation-checklist.md](references/production-implementation-checklist.md)
 
 Data360 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
@@ -83,12 +85,17 @@ Treat community `sf data360` commands as optional helpers, not the primary archi
 
 Use this for non-trivial Data 360 work:
 
-1. Route to the relevant phase skill.
-2. Check [docs/operating-model.md](../../docs/operating-model.md) for the phase gate.
-3. Use `sf-docs` for exact official Help/Developer docs when a rule, permission, limit, or setup step matters.
-4. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
-5. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
-6. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
+1. Run [docs/beast-preflight.md](../../docs/beast-preflight.md) for target org,
+   API version, data space, persona, lifecycle, authorization boundary, tools,
+   and proof target.
+2. Route through [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
+   to pick the specialist skill, required source, proof target, and forbidden
+   assumptions.
+3. Check [docs/operating-model.md](../../docs/operating-model.md) for the phase gate.
+4. Use `sf-docs` for exact official Help/Developer docs when a rule, permission, limit, or setup step matters.
+5. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
+6. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
+7. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
 
 Do not copy long Help pages or endpoint dumps into skills. Keep durable detail in the project reference layer and retrieve exact docs on demand.
 

@@ -4,12 +4,14 @@ This repository is optimized for agent ingestion. Keep context lean.
 
 1. Read `AGENTS.md`.
 2. Read `skills/data360beast/SKILL.md`.
-3. Read `docs/skills.md` and load the matching specialist skill when the task is phase-specific.
-4. Read `docs/mcp-dependencies.md` when official docs or live Data 360 MCP tools are needed but unavailable.
-5. For website or customer-facing context, read `docs/llms.txt`.
-6. For RAG/search work, read
+3. Run `docs/beast-preflight.md` for non-trivial work.
+4. Use `docs/phase-proof-matrix.json` to select the proof path.
+5. Read `docs/skills.md` and load the matching specialist skill when the task is phase-specific.
+6. Read `docs/mcp-dependencies.md` when official docs or live Data 360 MCP tools are needed but unavailable.
+7. For website or customer-facing context, read `docs/llms.txt`.
+8. For RAG/search work, read
    `docs/data360/rag-search-index-retriever-playbook.md`.
-7. For implementation detail, read only the matching doc:
+9. For implementation detail, read only the matching doc:
    `docs/operating-model.md`, `docs/api-cookbook.md`, or `docs/scorecard.md`.
 
 When answering Salesforce Data 360 questions, separate:

@@ -2,8 +2,8 @@
 
 Data360 Beast is a curated Salesforce Data 360 skill pack for agentic IDEs.
 It is not a Salesforce docs mirror. It gives agents a top-level Beast router,
-16 specialist Data 360 skills, a source hierarchy, phase router, API workflow,
-and validation contract.
+16 specialist Data 360 skills, a source hierarchy, preflight contract, phase
+proof matrix, API workflow, eval checks, and validation contract.
 
 ## Entry Points
 
@@ -11,6 +11,9 @@ and validation contract.
 - Repository: https://github.com/architect-bertie/data360beast
 - Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
+- Beast preflight: https://architect-bertie.github.io/data360beast/beast-preflight.md
+- Phase proof matrix: https://architect-bertie.github.io/data360beast/phase-proof-matrix.json
+- Beast evals: https://architect-bertie.github.io/data360beast/beast-evals.md
 - Skill map: https://architect-bertie.github.io/data360beast/skills.md
 - MCP dependencies: https://architect-bertie.github.io/data360beast/mcp-dependencies.md
 - Help index: https://architect-bertie.github.io/data360beast/data360/help/index.md
@@ -75,19 +78,30 @@ and validation contract.
 
 ## Operating Loop
 
-1. Classify the phase.
-2. Identify the object layer and likely execution plane.
-3. For model design, choose the public model-gallery subject area, anchor DMO,
+1. Run Beast preflight: target org, API version, data space, persona, asset
+   lifecycle, authorization boundary, available tools, and proof target.
+2. Classify the phase with the proof matrix.
+3. Identify the object layer and likely execution plane.
+4. For model design, choose the public model-gallery subject area, anchor DMO,
    grain, and relationship path.
-4. For RAG, choose ADL versus manual setup, source object path, field roles,
+5. For RAG, choose ADL versus manual setup, source object path, field roles,
    chunking, search type, retriever filters, and prompt/action scope.
-5. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
-6. Identify the proof target.
-7. Fetch official docs on demand.
-8. Search OpenAPI for the API shape.
-9. Apply the cookbook.
-10. Validate in org when authorized.
-11. Label confidence as documented, tested, or inferred.
+6. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
+7. Identify the proof target.
+8. Fetch official docs on demand.
+9. Search OpenAPI for the API shape.
+10. Apply the cookbook.
+11. Validate in org when authorized.
+12. Label confidence as documented, tested, or inferred.
+
+## Deterministic Proof Artifacts
+
+- `beast-preflight.md` defines the required operating envelope and mutation gate.
+- `phase-proof-matrix.json` maps phase to specialist skill, source requirements,
+  preferred tools, proof targets, and forbidden assumptions.
+- `beast-evals.md` provides prompt-level release checks for endpoint discipline,
+  data-space handling, segment proof, RAG troubleshooting, governance proof,
+  activation proof, formula syntax, and confidence labels.
 
 ## Phase Router
 
@@ -144,4 +158,5 @@ official docs on demand and use this repository as the curated operating layer.
 - Unstructured retrieval and RAG: 9.5/10
 - Governance and data spaces: 9.0/10
 - Segment, act, automation: 9.2/10
+- Deterministic proof routing: 9.6/10
 - Overall Beast mode: 9.8/10

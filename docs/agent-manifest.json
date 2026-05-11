@@ -1,7 +1,7 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live-tested cookbook lessons, and validation rules.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, phase proof matrix, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live-tested cookbook lessons, and validation rules.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
@@ -10,6 +10,9 @@
     "llms": "https://architect-bertie.github.io/data360beast/llms.txt",
     "llmsFull": "https://architect-bertie.github.io/data360beast/llms-full.txt",
     "quickstart": "https://architect-bertie.github.io/data360beast/agent-quickstart.md",
+    "beastPreflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",
+    "phaseProofMatrix": "https://architect-bertie.github.io/data360beast/phase-proof-matrix.json",
+    "beastEvals": "https://architect-bertie.github.io/data360beast/beast-evals.md",
     "skills": "https://architect-bertie.github.io/data360beast/skills.md",
     "mcpDependencies": "https://architect-bertie.github.io/data360beast/mcp-dependencies.md",
     "helpIndex": "https://architect-bertie.github.io/data360beast/data360/help/index.md",
@@ -22,6 +25,11 @@
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
     "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md"
+  },
+  "proofArtifacts": {
+    "preflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",
+    "phaseProofMatrix": "https://architect-bertie.github.io/data360beast/phase-proof-matrix.json",
+    "evals": "https://architect-bertie.github.io/data360beast/beast-evals.md"
   },
   "sourceHierarchy": [
     "User-provided org, files, data space, API version, and business goal",
@@ -60,9 +68,12 @@
     "ai-search",
     "segment",
     "act",
-    "automation"
+    "automation",
+    "develop-package"
   ],
   "validationContract": [
+    "preflight",
+    "phase proof matrix",
     "returned ID",
     "readback",
     "status",
@@ -134,6 +145,10 @@
     "officialPagesIndexed": 100,
     "rawCorpusPublished": false
   },
+  "proofArtifactStats": {
+    "phaseProofMatrixEntries": 12,
+    "promptLevelEvals": 8
+  },
   "knownCaveats": [
     "DBT segment create used includeDbt.models.models[] successfully",
     "Data stream formula fields use the Data 360 formula library, not Query SQL",
@@ -157,6 +172,7 @@
     "segmentActAutomation": 9.2,
     "modelAndDmoDesign": 9.4,
     "unstructuredRetrievalAndRag": 9.5,
+    "deterministicProofRouting": 9.6,
     "overall": 9.8
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, credentials, or org-specific metadata are published.",

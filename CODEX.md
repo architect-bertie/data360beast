@@ -5,6 +5,11 @@ the matching `sf-datacloud-*` specialist skill when the task is phase-specific.
 
 Operational defaults:
 
+- Run `docs/beast-preflight.md` before non-trivial work to capture target org,
+  API version, data space, persona, lifecycle, authorization boundary, tools,
+  and proof target.
+- Use `docs/phase-proof-matrix.json` to choose specialist skill, source type,
+  proof target, and forbidden assumptions.
 - Prefer explicit `--target-org` or org alias inputs over global CLI state.
 - Prefer explicit data space selection over implicit default behavior.
 - Use OpenAPI or official docs before constructing Connect API payloads.
