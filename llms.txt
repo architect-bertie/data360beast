@@ -1,7 +1,7 @@
 # Data360 Beast
 
 > Agent-ready Salesforce Data 360 operating kit: source hierarchy, phase routing,
-> OpenAPI-first Connect API lookup, live-tested cookbook lessons, and validation
+> OpenAPI-first Connect API lookup, tested proof ledger evidence, and validation
 > rules for Claude, Codex, Cursor, and other agents.
 
 Site: https://architect-bertie.github.io/data360beast/
@@ -11,6 +11,9 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 ## Start Here
 
 - [Agent quickstart](https://architect-bertie.github.io/data360beast/agent-quickstart.md): install and usage path.
+- [Beast preflight](https://architect-bertie.github.io/data360beast/beast-preflight.md): target org, API version, data space, authorization, tools, and proof target.
+- [Phase proof matrix](https://architect-bertie.github.io/data360beast/phase-proof-matrix.json): machine-readable routing, source requirements, proof targets, and forbidden assumptions.
+- [Beast evals](https://architect-bertie.github.io/data360beast/beast-evals.md): prompt-level checks for endpoint discipline, data-space handling, proof, and confidence labels.
 - [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
 - [MCP dependencies](https://architect-bertie.github.io/data360beast/mcp-dependencies.md): companion `sf-docs` and `data360` MCP install paths.
 - [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
@@ -18,9 +21,11 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Data 360 model-gallery implementation map](https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md): public Data 360 diagrams translated into DMO anchors, relationship paths, grain guidance, and live-build guardrails.
 - [Data 360 RAG search-index retriever playbook](https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md): Agentforce Data Libraries, manual search indexes, field roles, chunking, hybrid/vector search, retriever filters, prompt grounding, Flow/Apex fallbacks, and RAG troubleshooting.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
+- [Proof ledger](https://architect-bertie.github.io/data360beast/proof-ledger.md): public-safe evidence, caveats, confidence labels, and promotion status.
+- [Labs interface](https://architect-bertie.github.io/data360beast/labs-interface.md): Labs-to-proof-ledger promotion boundary.
+- [Labs repository](https://github.com/architect-bertie/data360beast-labs): golden scenarios, synthetic journeys, payload experiments, traces, and future cookbook candidates.
 - [Architecture engine map](https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md): engine-aware triage model.
 - [Interoperability decision map](https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md): ingestion, zero-copy, and hybrid pattern selection.
-- [API cookbook](https://architect-bertie.github.io/data360beast/api-cookbook.md): tested API surfaces and gotchas.
 - [Scorecard](https://architect-bertie.github.io/data360beast/scorecard.md): readiness scores and frontier.
 - [Agent manifest](https://architect-bertie.github.io/data360beast/agent-manifest.json): machine-readable metadata.
 
@@ -28,6 +33,9 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 
 - Use official Salesforce docs on demand for current setup, limits, permissions,
   and behavior.
+- Run Beast preflight for non-trivial work before choosing a phase or payload.
+- Use the phase proof matrix to select the specialist skill, source type,
+  minimum proof target, and forbidden assumptions.
 - Use the Help and Developer Guide indexes to find likely official pages before
   fetching exact docs.
 - Use the model-gallery implementation map before choosing DMOs, flattening
@@ -39,7 +47,7 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
   or live org operations are needed.
 - Use OpenAPI or user-provided Swagger for Connect API method, path, params, and
   schema shape.
-- Use the cookbook for live-tested patterns and caveats.
+- Use the proof ledger for live-tested patterns and caveats.
 - Validate in the target org when authorized.
 - Label unvalidated answers as documented or inferred, not proven.
 - Route specialist work to the matching `sf-datacloud-*` skill after loading `data360beast`.
@@ -47,4 +55,4 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 ## Public Boundary
 
 This repository does not publish raw Salesforce Help exports, generated docs
-caches, lab data, credentials, or org-specific metadata.
+caches, raw Labs payload dumps, lab data, credentials, or org-specific metadata.

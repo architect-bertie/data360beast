@@ -2,18 +2,43 @@
 
 Data360 Beast uses one loop for Salesforce Data 360 work:
 
-1. Classify the phase.
-2. Identify the object layer and likely execution plane.
-3. For model work, choose the public model-gallery subject area, anchor DMO,
+1. Run Beast preflight.
+2. Classify the phase with the proof matrix.
+3. Identify the object layer and likely execution plane.
+4. For model work, choose the public model-gallery subject area, anchor DMO,
    grain, and relationship path.
-4. For RAG work, choose ADL versus manual setup, source object path, field
+5. For RAG work, choose ADL versus manual setup, source object path, field
    roles, chunking, search type, retriever filters, and prompt/action scope.
-5. Identify the proof target.
-6. Fetch official docs on demand.
-7. Search OpenAPI for API shape.
-8. Apply cookbook lessons.
-9. Validate in org when authorized.
-10. Label confidence as documented, tested, or inferred.
+6. Identify the proof target.
+7. Fetch official docs on demand.
+8. Search OpenAPI for API shape.
+9. Apply proof ledger evidence.
+10. Validate in org when authorized.
+11. Label confidence as documented, tested, or inferred.
+
+## Beast Preflight
+
+Use [`beast-preflight.md`](beast-preflight.md) before non-trivial work. The
+preflight makes the agent name the target org or alias, API version, data space,
+persona, lifecycle, authorization boundary, available tools, and proof target.
+
+If live validation, fresh official docs, or OpenAPI shape is unavailable, keep
+working only when safe and label the answer as `inferred`, `docs-unverified`,
+`path/schema-unverified`, or `live-validation-unavailable`.
+
+## Phase Proof Matrix
+
+Use [`phase-proof-matrix.json`](phase-proof-matrix.json) as the deterministic
+routing table for:
+
+- specialist skill selection
+- required source type
+- preferred tool path
+- minimum proof target
+- forbidden assumptions
+
+The matrix is the machine-readable contract. The human phase table below is a
+quick reference.
 
 ## Phase Router
 
@@ -30,6 +55,7 @@ Data360 Beast uses one loop for Salesforce Data 360 work:
 | Segment | Segments, DBT segments, counts | Segment status, count, publish status |
 | Act | Activations and data actions | Target/action readback, activation status |
 | Automation | Events and triggered flows | Event payload, flow run, monitoring signal |
+| Develop/Package | API surface, auth, data kits, packageability, deployment | Chosen API surface, auth mode, data kit membership, metadata coverage |
 
 ## Layer And Engine Triage
 
@@ -51,6 +77,7 @@ performance work, or ambiguous failures:
 | Analytics | DMO, CIO, semantic model | analytics serving and cache | report totals, dashboard refresh, user access |
 | Act | segment, DMO, CIO | activation orchestration | target readback, activation status, delivery proof |
 | Automation | DMO, CIO, event | orchestration and event delivery | control event, flow run, emitted payload |
+| Develop/Package | metadata, data kits, APIs | development and deployment lifecycle | data kit readback, deploy validation, auth proof |
 
 Do not promote an inferred engine guess to a fact. Use the guess to choose the
 next validation step.
@@ -105,7 +132,10 @@ prompt resolution, agent action selection, final answer, and non-admin access.
 
 - Official docs are fetched on demand.
 - OpenAPI is used for exact API shape.
-- Cookbook lessons are used for working payloads and caveats.
+- Proof ledger evidence is used for working surfaces, validation readbacks, and
+  known caveats.
+- Labs remains the home for golden scenarios, synthetic journeys, raw payload
+  experiments, traces, and future cookbook candidates.
 - Live org validation upgrades confidence from documented to tested.
 
 ## Confidence Labels

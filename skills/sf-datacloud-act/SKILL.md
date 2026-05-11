@@ -19,7 +19,7 @@ Use this skill for the **activation plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -63,3 +63,21 @@ Beast references:
 5. test activation delivered to target
 6. publish history or activation `LastPublishStatus` checked
 7. monitoring and alerting in place
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:limits-activation -->
+### Activation limit gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- Before recommending activation targets, DMO activation, API activation, or publish schedule, check activation and data-action limit families.
+- Call out whether a target is internal, external, file-based, API-based, or event-driven because limits and proof differ.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-activation -->

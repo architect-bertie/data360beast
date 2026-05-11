@@ -20,7 +20,7 @@ Beast references:
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -92,3 +92,18 @@ workspace and the user authorizes live org access.
 - Analytics, segments, transforms, and activations can consume the same logical data through different serving or processing paths; validate the target surface directly.
 - Profile, metadata, calculated insight, and data graph retrieval all have different response shapes; do not normalize them casually.
 - When a query differs from a segment, graph, report, or transform result, check governance enforcement differences before assuming data drift.
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:data-spaces-retrieve -->
+### Data Spaces in Query Tooling
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_using_data_cloud_apis_with_data_spaces.htm (2026-05-11T18:36:20.467Z) — Use Data Cloud APIs with Data Spaces
+
+**Notes:**
+- If results differ by user or environment, confirm whether the query path is scoped by a data space (token exchange, connector property, or API extra parameter).
+- Treat data space selection as part of proof: include the data space in readbacks and troubleshooting probes.
+<!-- SF_DOC_SYNC_END:data-spaces-retrieve -->

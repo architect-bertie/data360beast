@@ -10,48 +10,85 @@ it whenever the user is designing, building, validating, or debugging Data 360.
 
 ## Operating Loop
 
-1. Classify the phase: connect, prepare, harmonize, govern, retrieve, insight,
-   semantic layer, AI/search, segment, act, or automation.
-2. Identify the object layer and execution plane when relevant: DSO, DLO, DMO,
+1. Run Beast preflight: business goal, target org, API version, data space,
+   persona, asset lifecycle, authorization boundary, available tools, and proof
+   target.
+2. Classify the phase with the proof matrix: connect, prepare, harmonize,
+   govern, retrieve, insight, semantic layer, AI/search, segment, act,
+   automation, or develop/package.
+3. Identify the object layer and execution plane when relevant: DSO, DLO, DMO,
    CIO, data graph, query plane, processing job, analytics serving path, or
    orchestration.
-3. Identify the proof target: docs-only guidance, payload generation, metadata
+4. Identify the proof target: docs-only guidance, payload generation, metadata
    discovery, live validation, troubleshooting, or customer explanation.
-4. Fetch official Salesforce docs on demand for current setup, limits,
+5. Fetch official Salesforce docs on demand for current setup, limits,
    permissions, and behavior. If `sf-docs` is unavailable, use
    [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) for the install
    source or label the answer as docs-unverified.
-5. Use OpenAPI for Connect API method, path, params, body schema, response
+6. Use OpenAPI for Connect API method, path, params, body schema, response
    schema, and version requirements.
-6. Apply cookbook lessons for known working payloads and known gotchas.
-7. Validate against the target org when authorized. Prefer returned ID,
+7. Apply proof ledger evidence for known working payloads and known gotchas.
+8. Validate against the target org when authorized. Prefer returned ID,
    readback, status, count, data space, metadata, and sample query proof.
-8. State the confidence level: documented, tested, or inferred.
+9. State the confidence level: documented, tested, or inferred.
 
 ## Source Hierarchy
 
 1. User-provided target org, files, data space, API version, and business goal.
 2. Official Salesforce docs fetched on demand.
 3. User-supplied or locally available Data 360 Connect API OpenAPI spec.
-4. Data360 Beast public docs and cookbook.
+4. Data360 Beast public docs and proof ledger.
 5. Live org validation in an explicitly authorized org.
 
 Companion MCP install paths are documented in
 [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md). Do not assume
 `sf-docs` or `data360` MCP servers are bundled with the skill pack.
 
-Public-safe official doc indexes:
+Public-safe operating references:
+- [docs/beast-preflight.md](../../docs/beast-preflight.md): required envelope,
+  tool inventory, proof target, and mutation gate.
+- [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json):
+  machine-readable phase routing, required sources, proof targets, and forbidden
+  assumptions.
 - [docs/data360/help/index.md](../../docs/data360/help/index.md): 77 indexed Salesforce Help pages.
 - [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 - [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
+- [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
+- [docs/proof-ledger.md](../../docs/proof-ledger.md): public-safe evidence,
+  caveats, confidence labels, labs references, and promotion status.
+- [docs/labs-interface.md](../../docs/labs-interface.md): boundary between
+  Beast and the Labs proving ground for golden scenarios, synthetic journeys,
+  raw payload experiments, traces, and future cookbook candidates.
+- [docs/beast-evals.md](../../docs/beast-evals.md): lightweight eval checks for
+  future Beast mode changes.
 
 Do not treat this repository as official Salesforce documentation. Do not
 hallucinate endpoint paths, payload fields, limits, permissions, or feature
 availability.
 
+## Beast Preflight
+
+For non-trivial work, capture or infer:
+
+- business goal and target phase
+- target org or alias, API version, data space, and user persona
+- asset lifecycle: disposable lab, sandbox, or production
+- authorization boundary: docs-only, metadata read, live validation, create or
+  update, or production mutation
+- available tools: `sf-docs`, OpenAPI/Swagger, `data360` MCP, `sf` CLI, and
+  user-provided files
+- proof target and confidence label
+
+If a required fact is missing, continue only when the task can safely proceed
+with an explicit assumption. Lower confidence instead of filling gaps with
+guesses.
+
 ## Phase Router
+
+Use [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json) as the
+machine-readable routing table. The bullets below are the human shorthand.
 
 - **Connect**: connectors, connections, connector schema, refresh, ingestion
   setup, connector permissions.
@@ -159,59 +196,36 @@ For API work:
 5. Read back by returned ID and check status/count/metadata.
 6. Capture caveats in the response so the next agent does not rediscover them.
 
-Live-tested cookbook lessons to remember:
+## Proof Kernel
 
-- Data stream formula fields use Data 360 formula library syntax, not Query SQL.
-- The public Data 360 model gallery is a normalized subject-area map. It should
-  guide anchor DMO selection, model grain, and relationship paths, not be treated
-  as a flat table list.
-- Data 360 RAG should be diagnosed as two loops: offline load/chunk/vectorize/index
-  and online query/vectorize/retrieve/hydrate/generate. Failures can occur at
-  each boundary.
-- Agentforce Data Libraries are the fast path for uploaded files and Knowledge
-  Articles. Use manual RAG setup when sources, chunking, embeddings, filters,
-  return fields, prompt behavior, or access checks need control.
-- For search indexes, long text is indexable content; categories, IDs, booleans,
-  publication status, entitlement, account, language, product, and region are
-  usually filter, prepend, return, or ranking fields.
-- Hybrid search is valuable when exact terms and semantic similarity both matter,
-  but it is not a standalone category lookup engine and has cost/latency impact.
-- Retriever design is an architecture decision: result count, return fields,
-  prefilters, dynamic prefilters, version activation, prompt scope, and
-  Flow/Apex fallback all shape answer quality.
-- RAG quality metrics separate root causes: context relevance points at retrieval,
-  faithfulness points at prompt/generation grounding, and answer relevance is
-  the end-user outcome.
-- Party/identity, contact point/consent, engagement, commerce, product, service,
-  asset, and vertical-domain models reuse common hubs. Preserve those hubs and
-  validate relationship cardinality before downstream build.
-- Query success does not prove segment, analytics, activation, or transform
-  behavior because each surface can use a different validation or execution
-  path.
-- For external data, choose the pattern before the payload: ingestion,
-  real-time ingestion, streaming ingestion, batch ingestion, live query,
-  accelerated query, file federation, or hybrid.
-- For development work, choose the API surface before coding: Connect REST API
-  for platform-integrated apps, Apex ConnectApi for Apex, Data 360 API / Direct
-  API for tenant-direct performance, SOQL only for supported platform query
-  paths, and Metadata API only for supported metadata movement.
-- Data 360 metadata deploys through data kits and supported metadata/package
-  types; data kits package definitions, not raw data.
+Use the specialist skills and public docs for details. Keep this top router
+small and enforce these cross-cutting rules:
+
+- Use [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json) to pick
+  the required source and proof target before answering.
+- Query success does not prove segment, transform, analytics, activation, or
+  orchestration behavior; proof must match the target surface.
+- Use the model-gallery map before choosing DMO anchors, model grain,
+  relationship paths, custom DMOs, or Data Graph shape.
+- Diagnose RAG as an offline chain and an online chain: source, chunk, index,
+  retrieve, hydrate, prompt, generate, cite, and enforce access.
+- Choose external data architecture before payloads: ingestion, real-time
+  ingestion, streaming ingestion, batch ingestion, live query, accelerated
+  query, file federation, or hybrid.
+- Choose the API surface before coding: Connect REST, Apex `ConnectApi`, Data
+  360 API / Direct API, SOQL-supported paths, Metadata API, or data kits.
+- Promote evidence only when it has official docs or OpenAPI shape, a minimal
+  payload or command, readback proof, caveats, and failure modes.
 - Cost is a design gate: query only required fields, filter early, ingest
   selectively, aggregate before ingest when raw detail is unnecessary, and keep
   test data small.
-- DBT segment create used `includeDbt.models.models[]` successfully.
-- DBT segment readback can normalize to `includeDbt.models[]`.
-- Approximate segment count can fail when the feature is disabled.
-- Segment member retrieval depends on a delta window; status and count readback
-  are stronger first proofs.
-- Activation target readback by returned ID was reliable in lab testing.
 
 ## Output Contract
 
 Prefer answers with this shape:
 
 ```text
+Preflight
 Recommendation
 Source path: documented | tested | inferred
 Payload/command/query

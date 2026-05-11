@@ -19,7 +19,7 @@ Use this skill for the **Data 360 event automation plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -79,8 +79,8 @@ Beast references:
 ## Handoffs
 
 - Activation target setup and activation jobs -> [sf-datacloud-act](../sf-datacloud-act/SKILL.md)
-- Flow implementation -> [sf-flow](../sf-flow/SKILL.md)
-- Integration/webhook security -> [sf-integration](../sf-integration/SKILL.md)
+- Flow implementation -> `sf-flow` companion skill when available
+- Integration/webhook security -> `sf-integration` companion skill when available
 - Data graph enrichment -> [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md)
 - Governance, masking, RLS, and policy context -> [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md)
 
@@ -95,3 +95,21 @@ Report:
 5. permissions and governance
 6. test cases
 7. monitoring and retry plan
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:limits-data-actions -->
+### Data action and event limit gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- Before recommending data actions, Flow delivery, webhook delivery, or event subscribers, check data-action limits and Platform Event delivery implications.
+- Distinguish home-org platform delivery from external subscriber delivery when discussing allocation pressure.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-data-actions -->

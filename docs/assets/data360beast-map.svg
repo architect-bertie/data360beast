@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 620" role="img" aria-labelledby="title desc">
   <title id="title">Data360 Beast operating map</title>
-  <desc id="desc">A map showing official docs, OpenAPI, live org validation, recipes, and skills feeding customer-ready Data 360 delivery.</desc>
+  <desc id="desc">A map showing official docs, OpenAPI, live org validation, evidence, and skills feeding a Data 360 operating model with proof.</desc>
   <defs>
     <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0" stop-color="#0f172a"/>
@@ -41,8 +41,8 @@
 
     <g>
       <rect x="574" y="160" width="220" height="122" rx="16" fill="#ffffff"/>
-      <text x="600" y="198" fill="#0f172a" font-size="18" font-weight="800">API Cookbook</text>
-      <text x="600" y="228" fill="#475569" font-size="14">Live-tested recipes.</text>
+      <text x="600" y="198" fill="#0f172a" font-size="18" font-weight="800">Proof Ledger</text>
+      <text x="600" y="228" fill="#475569" font-size="14">Live-tested evidence.</text>
       <text x="600" y="252" fill="#475569" font-size="14">Real error patterns.</text>
     </g>
 
@@ -69,7 +69,7 @@
 
     <g>
       <rect x="84" y="488" width="874" height="42" rx="21" fill="#0ea5e9"/>
-      <text x="112" y="515" fill="#f8fafc" font-size="15" font-weight="700">Beast loop: classify phase -> fetch truth -> use catalog -> apply recipe -> validate live -> document the proof</text>
+      <text x="112" y="515" fill="#f8fafc" font-size="15" font-weight="700">Beast loop: classify phase -> fetch truth -> use catalog -> apply evidence -> validate live -> document the proof</text>
     </g>
   </g>
 </svg>

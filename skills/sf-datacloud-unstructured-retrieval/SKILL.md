@@ -19,7 +19,7 @@ Use this skill for the **unstructured data and retrieval plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -187,7 +187,7 @@ ORDER BY location
 - Data streams and transforms -> [sf-datacloud-prepare](../sf-datacloud-prepare/SKILL.md)
 - Data modeling and UDMO relationships -> [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md)
 - AI model or retriever usage in Einstein Studio -> [sf-datacloud-ai-models](../sf-datacloud-ai-models/SKILL.md)
-- Agentforce grounding and behavior -> [sf-ai-agentforce](../sf-ai-agentforce/SKILL.md)
+- Agentforce grounding and behavior -> `sf-ai-agentforce` companion skill when available
 - Governance and access policy behavior -> [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md)
 
 ## Output Format
@@ -201,3 +201,39 @@ Report:
 5. retriever/version plan
 6. test prompts and pass/fail retrieval evidence
 7. cost, governance, and reindexing risks
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:search-index-and-retrievers -->
+### Search Index + Retriever Setup (UI path)
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- sf.c360_a_search_index_ground_ai.htm (2026-05-11T18:38:46.532Z) — Use Search for AI, Automation, and Analytics
+- data.c360_a_hybridsearch_index_create.htm (2026-05-11T18:38:47.245Z) — Create a Hybrid Search Index with Advanced Setup
+- data.c360_a_ai_retriever_create.htm (2026-05-11T18:38:48.058Z) — Create an Individual Retriever
+
+**Notes:**
+- Hybrid search is intended to combine semantic (vector) and lexical (keyword) matching; choose it when vocabulary precision matters.
+- Advanced Setup includes parser/preprocessing choices; some options are available only for certain file types and are mutually exclusive in specific combinations.
+- Index configuration can include filter fields and ranking factors; retriever filters depend on filter fields being defined on the index.
+- Creating an index can produce related objects (chunk/index DMOs); include them in governance and monitoring.
+- Retriever configuration includes selecting the data space, DMO, index, optional filters, return fields, and (optional) citations; activate a version before use in prompts.
+<!-- SF_DOC_SYNC_END:search-index-and-retrievers -->
+
+<!-- SF_DOC_SYNC_START:limits-unstructured-search -->
+### Unstructured data and search index limit gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- Before recommending chunking, parser mode, ranking fields, index refresh, or retriever shape, check the unstructured-data and search-index limit family.
+- Keep reindexing, embedding, query, storage, and intelligent-processing cost in the design review.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-unstructured-search -->

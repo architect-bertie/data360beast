@@ -36,6 +36,8 @@ npx skills add architect-bertie/data360beast
 
 ## Supporting References And Scripts
 
+- `docs/beast-preflight.md`: required envelope, tool inventory, proof target, and mutation gate.
+- `docs/phase-proof-matrix.json`: machine-readable phase routing, source requirements, proof targets, and forbidden assumptions.
 - `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.
 - `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
 - `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
@@ -44,16 +46,24 @@ npx skills add architect-bertie/data360beast
 - `docs/data360/rag-search-index-retriever-playbook.md`: public-safe RAG/search-index/retriever playbook for ADL versus manual setup, field roles, chunking, hybrid search, dynamic filters, prompt grounding, Flow/Apex fallbacks, and debugging.
 - `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
 - `docs/data360/interoperability-decision-map.md`: ingestion, zero-copy, and hybrid pattern selection.
+- `docs/data360/docs-watch-operating-model.md`: weekly official-doc refresh, oversized Help fallback, indexed-doc audit, skill sync, and GitHub publishing.
+- `docs/proof-ledger.md`: public-safe evidence entries, caveats, confidence labels, Labs references, and promotion status.
+- `docs/labs-interface.md`: boundary between this operating-model repo and the Labs proving ground.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.
+- `tools/audit_indexed_docs.py`: validates indexed Help and Developer capture completeness.
+- `tools/capture_help_prerendered.mjs`: captures oversized official Help pages when sf-docs returns placeholders.
+- `tools/refresh_skills_from_sf_docs.py`: refreshes marker-delimited docs-side evidence and specialist skill guidance from official-doc exports.
 - `sf-datacloud-connectapi/scripts/data360_accelerator.py`: portable snippets and optional Postman/DMO helpers.
 - `sf-datacloud-calculated-insights/references/ci-sql-patterns.md`: reusable CI SQL patterns.
 - `sf-datacloud-calculated-insights/scripts/ci_sql_guard.py`: static CI SQL guard.
 - `sf-datacloud-governance/references/policy-enforcement-matrix.md`: runtime policy behavior map.
 - `sf-datacloud-metadata-agentic/scripts/metadata_semantic_score.py`: metadata description scoring.
 - `sf-datacloud/references/production-implementation-checklist.md`: end-to-end production checklist.
+- `docs/beast-evals.md`: prompt-level evals for endpoint discipline, data-space handling, RAG troubleshooting, governance proof, and confidence labels.
 
 ## Public Boundary
 
 The skill pack includes curated instructions, references, and small helper
 scripts. It does not include raw Salesforce Help exports, generated local docs
-caches, lab org metadata, credentials, or bulky Postman/OpenAPI dumps.
+caches, lab org metadata, raw Labs payload dumps, credentials, or bulky
+Postman/OpenAPI dumps.

@@ -10,7 +10,7 @@ license: MIT
 metadata:
   version: "2.1.0"
   author: "Codex"
-  validated: "OpenAPI-first Data360 Beast refresh with live-tested API cookbook"
+  validated: "OpenAPI-first Data360 Beast refresh with proof ledger evidence"
 ---
 
 # sf-datacloud-connectapi
@@ -24,7 +24,9 @@ Use this skill for the **programmatic Data 360 surface**:
 ## Beast References
 
 Use these first, before guessing:
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
@@ -38,7 +40,7 @@ When a full OpenAPI or Swagger file is available from the user or official Sales
 ## Source Hierarchy
 
 1. **OpenAPI catalog** for method/path/parameter/schema/response/version mechanics.
-2. **API recipe cookbook** for live-tested payload shapes, commands, gotchas, and proof fields.
+2. **proof ledger** for live-tested payload shapes, commands, gotchas, and proof fields.
 3. **Official Salesforce docs via `sf-docs`** for behavior, limits, permissions, setup, and release caveats. Install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 4. **Data 360 MCP** for live operations when its session is healthy: `search -> payload_examples -> execute`. Install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 5. **Target org validation** for actual data spaces, permissions, metadata names, status, and row counts.
@@ -60,7 +62,11 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 
 - If the user supplies `cdp-connect-api-Swagger.yaml` or another official OpenAPI file, search it before writing any method, path, parameter, or payload.
 - If no local spec is available, fetch the current official Salesforce Connect API docs on demand and cite the page used.
-- Use [docs/api-cookbook.md](../../docs/api-cookbook.md) and [references/project-gotchas.md](references/project-gotchas.md) for live-tested gotchas.
+- Run Beast preflight before create/update calls so target org, data space,
+  authorization boundary, and proof target are explicit.
+- Use the phase proof matrix to confirm the owning phase, minimum readback, and
+  forbidden assumptions before promoting a payload.
+- Use [docs/proof-ledger.md](../../docs/proof-ledger.md) and [references/project-gotchas.md](references/project-gotchas.md) for live-tested gotchas.
 - Use `scripts/data360_accelerator.py snippet --kind apex-query`, `apex-segment-create`, or `curl-query-sql` for small starter snippets.
 - Use `scripts/data360_accelerator.py summarize-postman --postman <collection.json>` only when the user provides a Postman collection.
 
@@ -94,7 +100,7 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 ## Operating Rules
 
 - Search the OpenAPI catalog before writing any endpoint or payload.
-- Check the API recipe cookbook before creating query, segment, activation target, data action, calculated insight, profile, or search-index payloads.
+- Check the proof ledger before creating query, segment, activation target, data action, calculated insight, profile, or search-index payloads.
 - Use `sf-docs` when behavior, setup, permission, limit, or data-space handling matters.
 - Do not assume MCP dependencies are bundled by `npx skills add`; use the documented direct URLs and local install paths when the runtime does not expose the tools.
 - Treat the official DMO catalog as a label directory, not proof of runtime API names. Resolve real object/field names through metadata/profile/query introspection.
@@ -147,8 +153,41 @@ Report:
 1. auth mode chosen
 2. API surface used
 3. catalog endpoint/schema found
-4. cookbook recipe or payload used, if available
+4. proof ledger evidence or payload used, if available
 5. docs consulted when behavior matters
 6. payload/snippet/tooling produced
 7. data space and governance assumptions
 8. live validation or unverified gates
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:data-spaces-api -->
+### Data Spaces in API/Connector Usage (do not guess the mechanism)
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_using_data_cloud_apis_with_data_spaces.htm (2026-05-11T18:36:20.467Z) — Use Data Cloud APIs with Data Spaces
+
+**Notes:**
+- Token exchange: include a body parameter named `dataspace` with the data space name to get a Data 360 token scoped to that data space.
+- SQL clients: set a driver/user property named `dataspace` to query in a specific data space.
+- Python connector: pass an additional connection parameter named `dataspace` with the data space name.
+- Connect APIs: pass the data space name as an extra parameter (example shown in the Help page). Validate per-endpoint support in OpenAPI before assuming it exists everywhere.
+<!-- SF_DOC_SYNC_END:data-spaces-api -->
+
+<!-- SF_DOC_SYNC_START:limits-api -->
+### API limit gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- Before writing reusable API guidance, check the API Guidelines and Limits family and OpenAPI catalog together.
+- Do not treat a method/path as production-ready until limits, data space mechanics, permissions, and readback proof are named.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-api -->

@@ -5,8 +5,8 @@ Salesforce Data 360, made agent-ready.
 Data360 Beast is a portable skill pack for teams using Claude, Codex, Cursor,
 or another agentic IDE to design, build, and troubleshoot Salesforce Data 360.
 It combines a top-level Beast router, 16 specialist Data 360 skills, an explicit
-delivery loop, OpenAPI-first API lookup, live-tested recipes, and clean LLM
-entry points.
+preflight, a machine-readable proof matrix, OpenAPI-first API lookup,
+tested evidence, and clean LLM entry points.
 
 Site: <https://architect-bertie.github.io/data360beast/>
 
@@ -19,6 +19,10 @@ npx skills add architect-bertie/data360beast
 Start with:
 
 - [`skills/data360beast/SKILL.md`](skills/data360beast/SKILL.md) for the agent skill.
+- [`docs/beast-preflight.md`](docs/beast-preflight.md) for the target-org,
+  data-space, tool, authorization, and proof preflight.
+- [`docs/phase-proof-matrix.json`](docs/phase-proof-matrix.json) for the
+  machine-readable phase, source, proof, and forbidden-assumption matrix.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
 - [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for optional companion MCP installs.
 - [`docs/data360/help/index.md`](docs/data360/help/index.md) and
@@ -31,6 +35,14 @@ Start with:
   for RAG architecture, Agentforce Data Libraries, search-index field roles,
   chunking, hybrid/vector search, retriever filters, prompt grounding, and
   troubleshooting.
+- [`docs/data360/docs-watch-operating-model.md`](docs/data360/docs-watch-operating-model.md)
+  for the weekly official-doc refresh, oversized Help fallback, audit, skill
+  sync, and publishing workflow.
+- [`docs/proof-ledger.md`](docs/proof-ledger.md) for public-safe evidence,
+  caveats, confidence labels, and promotion status.
+- [`docs/labs-interface.md`](docs/labs-interface.md) for the boundary between
+  this operating-model repo and
+  [`data360beast-labs`](https://github.com/architect-bertie/data360beast-labs).
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
@@ -84,14 +96,20 @@ data360beast/
     |-- llms-full.txt
     |-- agent-manifest.json
     |-- agent-quickstart.md
+    |-- beast-preflight.md
+    |-- beast-evals.md
+    |-- phase-proof-matrix.json
     |-- mcp-dependencies.md
     |-- skills.md
     |-- operating-model.md
+    |-- proof-ledger.md
+    |-- labs-interface.md
     |-- api-cookbook.md
     |-- scorecard.md
     `-- data360/
     |-- architecture-engine-map.md
     |-- interoperability-decision-map.md
+    |-- docs-watch-operating-model.md
     |-- model-gallery-implementation-map.md
     |-- rag-search-index-retriever-playbook.md
     |-- help/index.md
@@ -102,9 +120,16 @@ data360beast/
 
 - Routes work by Data 360 phase: connect, prepare, harmonize, govern, retrieve,
   insight, semantic layer, AI/search, segment, act, and automation.
+- Runs a preflight for target org, API version, data space, persona, asset
+  lifecycle, authorization boundary, available tools, and proof target.
+- Uses a machine-readable proof matrix to pick the specialist skill, required
+  source type, minimum proof target, and forbidden assumptions.
 - Uses official Salesforce docs on demand instead of stale pasted docs.
 - Publishes public-safe indexes for 77 Help pages and 23 Developer Guide pages
   without publishing raw scraped content.
+- Audits the indexed Help and Developer pages weekly and uses official Help
+  prerendered HTML to capture oversized pages that the standard sf-docs path
+  returns as placeholders.
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
 - Documents companion MCP install paths for `sf-docs` and the official Data 360
   MCP server.
@@ -114,22 +139,28 @@ data360beast/
   agents can design ADL/manual retrieval, search indexes, chunking, retrievers,
   prompt grounding, Flow/Apex fallbacks, and debug paths with a clear mental
   model.
-- Applies live-tested cookbook lessons for query, segment, data action, and
+- Applies tested proof ledger evidence for query, segment, data action, and
   activation work.
 - Requires org validation through status, counts, metadata, data space, and
   readback before treating an answer as proven.
+- Keeps golden scenarios, synthetic journeys, raw payload experiments, traces,
+  and future cookbook candidates in
+  [`data360beast-labs`](https://github.com/architect-bertie/data360beast-labs);
+  Beast promotes only distilled, public-safe proof ledger evidence.
 
 ## Public Boundary
 
 This repository intentionally does not publish raw Salesforce Help exports,
-generated documentation caches, lab-specific data, tokens, or org metadata. It
-publishes the curated operating model and agent entry points.
+generated documentation caches, lab-specific data, raw Labs payload dumps,
+tokens, or org metadata. It publishes the curated operating model, proof ledger,
+and agent entry points.
 
 ## Status
 
-Current score: **9.8/10 overall** after adding the RAG/search-index/retriever
-playbook and upgrading the unstructured retrieval skill.
+Current score: **9.8/10 overall evidence maturity** after adding the
+RAG/search-index/retriever playbook, preflight contract, phase proof matrix, and
+lightweight Beast evals.
 
 Remaining frontier: external activation destinations and search-index creation
-recipes still need enabled assets in a live org before promotion into tested
-cookbook recipes.
+evidence still need enabled assets in a live org before promotion into tested
+proof ledger evidence.

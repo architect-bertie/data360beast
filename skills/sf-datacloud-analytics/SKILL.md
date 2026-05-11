@@ -19,7 +19,7 @@ Use this skill for the **Data 360 reports and dashboards plane**.
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -73,7 +73,7 @@ Beast references:
 
 - Metric modeling -> [sf-datacloud-semantic-layer](../sf-datacloud-semantic-layer/SKILL.md)
 - CI-backed reports -> [sf-datacloud-calculated-insights](../sf-datacloud-calculated-insights/SKILL.md)
-- Permission troubleshooting -> [sf-permissions](../sf-permissions/SKILL.md)
+- Permission troubleshooting -> `sf-permissions` companion skill when available
 - Data 360 policy behavior -> [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md)
 
 ## Output Format

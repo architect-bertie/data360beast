@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Data360 Beast Phase Proof Matrix",
+  "version": "2026-05-11",
+  "description": "Machine-readable routing table for Salesforce Data 360 agent work. Use it after Beast preflight and before specialist skill routing.",
+  "preflight": {
+    "requiredFields": [
+      "businessGoal",
+      "targetOrgOrAlias",
+      "apiVersion",
+      "dataSpace",
+      "userPersona",
+      "assetLifecycle",
+      "authorizationBoundary",
+      "proofTarget"
+    ],
+    "fallbackRule": "If a field is unknown and the task can proceed, state the assumption and lower confidence to documented, inferred, docs-unverified, or live-validation-unavailable."
+  },
+  "confidenceLabels": {
+    "documented": "Supported by current official Salesforce docs or OpenAPI, without target-org proof.",
+    "tested": "Validated in an explicitly authorized live org with readback evidence.",
+    "inferred": "Reasonable design or troubleshooting hypothesis that still needs target-org proof."
+  },
+  "phases": [
+    {
+      "phase": "connect",
+      "specialistSkill": "sf-datacloud-connect",
+      "owns": "Connectors, connections, connector schema, refresh, ingestion setup, and connector permissions.",
+      "preferredTools": [
+        "sf-docs",
+        "OpenAPI or Swagger",
+        "data360 MCP",
+        "sf CLI"
+      ],
+      "requiredSources": [
+        "Official connector/setup docs when behavior or permissions matter",
+        "OpenAPI for connector, connection, or stream payload mechanics",
+        "Target-org connection metadata for live proof"
+      ],
+      "proofTargets": [
+        "connector schema readback",
+        "connection status",
+        "created or refreshed stream status",
+        "data space context",
+        "ingestion row or run status when available"
+      ],
+      "forbiddenAssumptions": [
+        "Do not assume the connector creates only the assets named in the UI.",
+        "Do not assume global CLI org or default data space.",
+        "Do not expose connector secrets or copied source credentials."
+      ]
+    },
+    {
+      "phase": "prepare",
+      "specialistSkill": "sf-datacloud-prepare",
+      "owns": "Data streams, DLOs, transforms, ingestion status, formulas, and document processing prep.",
+      "preferredTools": [
+        "sf-docs",
+        "OpenAPI or Swagger",
+        "query proof",
+        "data360 MCP"
+      ],
+      "requiredSources": [
+        "Official docs for stream, transform, and formula behavior",
+        "OpenAPI for stream, DLO, or transform payloads",
+        "Target-org DLO schema and transform output"
+      ],
+      "proofTargets": [
+        "stream status",
+        "DLO field metadata",
+        "source and output row counts",
+        "null or duplicate sample check",
+        "transform output query"
+      ],
+      "forbiddenAssumptions": [
+        "Do not use Query SQL as data stream formula syntax.",
+        "Do not edit stream-managed DLO fields directly.",
+        "Do not mask keys or event-time fields without downstream validation."
+      ]
+    },
+    {
+      "phase": "harmonize",
+      "specialistSkill": "sf-datacloud-harmonize",
+      "owns": "DMOs, mappings, relationships, identity resolution, Data Graphs, model-gallery anchor selection, grain, and relationship paths.",
+      "preferredTools": [
+        "model-gallery implementation map",
+        "sf-docs",
+        "metadata discovery",
+        "query proof"
+      ],
+      "requiredSources": [
+        "Model-gallery map for early DMO anchor and grain choice",
+        "Official mapping and relationship docs for behavior",
+        "Target data-space metadata for exact object and field names"
+      ],
+      "proofTargets": [
+        "mapping status",
+        "DMO primary key metadata",
+        "relationship metadata",
+        "identity resolution run status or counts",
+        "sample mapped record query"
+      ],
+      "forbiddenAssumptions": [
+        "Do not flatten standard model hubs into one generic customer object.",
+        "Do not model consent as a single Individual boolean.",
+        "Do not treat model-gallery names as runtime field names."
+      ]
+    },
+    {
+      "phase": "govern",
+      "specialistSkill": "sf-datacloud-governance",
+      "owns": "Data spaces, tags, classifications, security policies, masking, RBAC, ABAC, and access validation.",
+      "preferredTools": [
+        "sf-docs",
+        "metadata discovery",
+        "non-admin user proof",
+        "policy matrix"
+      ],
+      "requiredSources": [
+        "Official governance docs for access behavior and limits",
+        "Target-org permission, tag, classification, and policy metadata",
+        "Runtime proof from the intended user persona"
+      ],
+      "proofTargets": [
+        "data space assignment",
+        "permission set or permission set group readback",
+        "tag and classification readback",
+        "policy readback",
+        "non-admin query or UI access test"
+      ],
+      "forbiddenAssumptions": [
+        "Do not treat data space assignment as data access.",
+        "Do not use System Admin visibility as governed runtime proof.",
+        "Do not claim policy behavior before propagation and user-persona testing."
+      ]
+    },
+    {
+      "phase": "retrieve",
+      "specialistSkill": "sf-datacloud-retrieve",
+      "owns": "Query SQL, Query v2, Profile API, metadata discovery, and query MCP usage.",
+      "preferredTools": [
+        "data360 MCP",
+        "sf CLI",
+        "ConnectApi.CdpQuery",
+        "metadata discovery"
+      ],
+      "requiredSources": [
+        "Official query/profile docs when syntax or behavior matters",
+        "OpenAPI for query/profile endpoints",
+        "Target-org metadata for exact names and data space"
+      ],
+      "proofTargets": [
+        "query job rows",
+        "profile result",
+        "metadata result",
+        "data space context",
+        "governed user query proof when access matters"
+      ],
+      "forbiddenAssumptions": [
+        "Do not rely on global CLI state.",
+        "Do not assume query success proves segment, activation, transform, or analytics behavior.",
+        "Do not surface raw personal identifiers unless the use case and access allow it."
+      ]
+    },
+    {
+      "phase": "insight",
+      "specialistSkill": "sf-datacloud-calculated-insights",
+      "owns": "Calculated insights, streaming insights, CI SQL, measures, dimensions, validation, and materialized output.",
+      "preferredTools": [
+        "CI SQL guard",
+        "query proof",
+        "sf-docs",
+        "OpenAPI or Swagger"
+      ],
+      "requiredSources": [
+        "Official CI or streaming insight docs for supported syntax and lifecycle",
+        "Static SQL rules from the specialist skill",
+        "Target-org CI output DMO metadata"
+      ],
+      "proofTargets": [
+        "static SQL guard result",
+        "check syntax result",
+        "run status",
+        "__cio output rows",
+        "independent control query"
+      ],
+      "forbiddenAssumptions": [
+        "Do not use a CI for simple row normalization that belongs in prepare.",
+        "Do not use streaming insights in segments or activations unless current docs support the exact path.",
+        "Do not treat SQL preview as materialization proof."
+      ]
+    },
+    {
+      "phase": "semantic",
+      "specialistSkill": "sf-datacloud-semantic-layer",
+      "owns": "C360 semantic models, logical views, metrics, dimensions, shared dimensions, and governed business definitions.",
+      "preferredTools": [
+        "sf-docs",
+        "metadata discovery",
+        "semantic model readback",
+        "analytics validation"
+      ],
+      "requiredSources": [
+        "Official semantic layer docs for supported metadata and behavior",
+        "Target model metadata for fields, dimensions, measures, and relationships",
+        "Business definition source for metrics"
+      ],
+      "proofTargets": [
+        "semantic model readback",
+        "metric query result",
+        "dimension mapping",
+        "report or dashboard comparison",
+        "governed user access proof"
+      ],
+      "forbiddenAssumptions": [
+        "Do not expose multiple conflicting definitions of the same metric.",
+        "Do not remove required primary keys or CI fields from semantic models.",
+        "Do not claim analytics parity without report or dashboard proof."
+      ]
+    },
+    {
+      "phase": "ai-search",
+      "specialistSkill": "sf-datacloud-unstructured-retrieval",
+      "owns": "Agentforce Data Libraries, manual search indexes, chunking, hybrid/vector search, retrievers, citations, and RAG grounding.",
+      "preferredTools": [
+        "RAG playbook",
+        "sf-docs",
+        "metadata discovery",
+        "retriever test"
+      ],
+      "requiredSources": [
+        "RAG/search-index playbook for architecture and debug flow",
+        "Official docs for ADL, search indexes, retrievers, and citations",
+        "Target-org index DMO, chunk DMO, source DMO, and retriever metadata"
+      ],
+      "proofTargets": [
+        "source object population",
+        "chunk and index DMO row counts",
+        "retriever output",
+        "return fields and citation fields",
+        "prompt grounding result",
+        "non-admin access proof"
+      ],
+      "forbiddenAssumptions": [
+        "Do not treat CSV, JSON, or XML as unstructured only because it is file-based.",
+        "Do not use hybrid search as a category lookup engine.",
+        "Do not upgrade the LLM before proving retrieval context relevance."
+      ]
+    },
+    {
+      "phase": "segment",
+      "specialistSkill": "sf-datacloud-segment",
+      "owns": "Segments, DBT segments, member counts, publish readiness, and membership proof.",
+      "preferredTools": [
+        "OpenAPI or Swagger",
+        "data360 MCP",
+        "sf CLI",
+        "query proof"
+      ],
+      "requiredSources": [
+        "OpenAPI for segment payload shape",
+        "Official segment docs for behavior and limits",
+        "Target-org DMO metadata, relationship metadata, and segment status"
+      ],
+      "proofTargets": [
+        "MarketSegment status",
+        "Segment On primary key proof",
+        "count result",
+        "publish status",
+        "member retrieval only when the delta window supports it"
+      ],
+      "forbiddenAssumptions": [
+        "Do not assume query-safe SQL is segment-safe SQL.",
+        "Do not assume a create response means the segment is healthy.",
+        "Do not use graph-only enrichment as activation criteria unless it is segment-safe."
+      ]
+    },
+    {
+      "phase": "act",
+      "specialistSkill": "sf-datacloud-act",
+      "owns": "Activation targets, activations, data action targets, data action delivery, publish status, and destination proof.",
+      "preferredTools": [
+        "OpenAPI or Swagger",
+        "data360 MCP",
+        "sf-docs",
+        "delivery logs or status"
+      ],
+      "requiredSources": [
+        "Official activation or destination docs for setup and behavior",
+        "OpenAPI for target or activation payload shape",
+        "Target-org target, activation, audience, and governed access metadata"
+      ],
+      "proofTargets": [
+        "activation target readback",
+        "activation status",
+        "publish status",
+        "record count",
+        "delivery proof from the destination when available"
+      ],
+      "forbiddenAssumptions": [
+        "Do not assume a visible segment can be activated.",
+        "Do not publish to an external destination without explicit authorization.",
+        "Do not expose raw identifiers or contact fields unless the use case and policy allow it."
+      ]
+    },
+    {
+      "phase": "automation",
+      "specialistSkill": "sf-datacloud-automation",
+      "owns": "Data actions, triggered flows, DataObjectDataChgEvent, activation-triggered flows, refresh cadence, and monitoring.",
+      "preferredTools": [
+        "sf-docs",
+        "OpenAPI or Swagger",
+        "Flow run history",
+        "event payload proof"
+      ],
+      "requiredSources": [
+        "Official data action, event, and Flow docs for behavior",
+        "OpenAPI for data action target and data action payload shape",
+        "Target-org event, flow, and monitoring metadata"
+      ],
+      "proofTargets": [
+        "data action target readback",
+        "data action status",
+        "DataObjectDataChgEvent payload",
+        "Flow run",
+        "monitoring signal"
+      ],
+      "forbiddenAssumptions": [
+        "Do not put raw profile IDs, email addresses, phone numbers, or addresses into external payloads unless approved.",
+        "Do not treat event configuration as delivery proof.",
+        "Do not ignore refresh cadence or late-arriving data."
+      ]
+    },
+    {
+      "phase": "develop-package",
+      "specialistSkill": "sf-datacloud",
+      "owns": "API surface selection, External Client App auth, development environments, data kits, packageability, deployment path, metadata coverage, and cost/usage.",
+      "preferredTools": [
+        "developer guide index",
+        "sf-docs",
+        "OpenAPI or Swagger",
+        "Metadata API",
+        "data kit readback"
+      ],
+      "requiredSources": [
+        "Official Developer Guide docs for auth, APIs, metadata, and packageability",
+        "OpenAPI for runtime API mechanics",
+        "Target-org data kit and metadata coverage proof"
+      ],
+      "proofTargets": [
+        "chosen API surface",
+        "auth mode",
+        "data kit membership",
+        "metadata coverage",
+        "sandbox-to-production validation",
+        "metered usage or cost guardrail"
+      ],
+      "forbiddenAssumptions": [
+        "Do not treat standard Platform metadata deployment as sufficient for every Data 360 asset.",
+        "Do not package raw data.",
+        "Do not reuse Connect REST auth assumptions for Data 360 Direct API token exchange."
+      ]
+    }
+  ]
+}

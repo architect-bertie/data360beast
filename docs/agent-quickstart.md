@@ -30,17 +30,22 @@ If your IDE does not support skill installation, load these files in order:
 
 1. `AGENTS.md`
 2. `skills/data360beast/SKILL.md`
-3. `docs/skills.md`
-4. `docs/mcp-dependencies.md` if companion MCP tools are missing
-5. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
-6. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
+3. `docs/beast-preflight.md` for target org, API version, data space,
+   authorization boundary, tools, and proof target
+4. `docs/phase-proof-matrix.json` for deterministic specialist routing and
+   minimum proof targets
+5. `docs/skills.md`
+6. `docs/mcp-dependencies.md` if companion MCP tools are missing
+7. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
+8. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
    model grain, relationship paths, or Data Graph shape
-7. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
+9. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
    Agentforce Data Libraries, search indexes, chunking, retrievers, prompt
    grounding, or Flow/Apex retrieval paths
-8. `docs/llms.txt`
-9. The one task-specific doc you need: `operating-model.md`,
-   `api-cookbook.md`, `scorecard.md`, or a phase-specific reference.
+10. `docs/llms.txt`
+11. The one task-specific doc you need: `operating-model.md`,
+   `proof-ledger.md`, `labs-interface.md`, `scorecard.md`, or a phase-specific
+   reference.
 
 ## Good Starting Prompts
 
@@ -69,6 +74,7 @@ Use Data360 Beast to design a Data 360 RAG pipeline. Compare ADL and manual setu
 Prefer this contract:
 
 ```text
+Preflight
 Recommendation
 Source path: documented | tested | inferred
 Payload/command/query

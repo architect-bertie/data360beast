@@ -19,13 +19,15 @@ Use this skill when the user needs a **multi-phase Data 360 plan**, not just one
 Production checklist: [references/production-implementation-checklist.md](references/production-implementation-checklist.md)
 
 Data360 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -83,12 +85,17 @@ Treat community `sf data360` commands as optional helpers, not the primary archi
 
 Use this for non-trivial Data 360 work:
 
-1. Route to the relevant phase skill.
-2. Check [docs/operating-model.md](../../docs/operating-model.md) for the phase gate.
-3. Use `sf-docs` for exact official Help/Developer docs when a rule, permission, limit, or setup step matters.
-4. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
-5. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
-6. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
+1. Run [docs/beast-preflight.md](../../docs/beast-preflight.md) for target org,
+   API version, data space, persona, lifecycle, authorization boundary, tools,
+   and proof target.
+2. Route through [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
+   to pick the specialist skill, required source, proof target, and forbidden
+   assumptions.
+3. Check [docs/operating-model.md](../../docs/operating-model.md) for the phase gate.
+4. Use `sf-docs` for exact official Help/Developer docs when a rule, permission, limit, or setup step matters.
+5. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
+6. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
+7. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
 
 Do not copy long Help pages or endpoint dumps into skills. Keep durable detail in the project reference layer and retrieve exact docs on demand.
 
@@ -123,3 +130,21 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - Always verify created segment status after the create call.
 - Always test governed behavior with a non-admin user; admin metadata visibility can hide runtime access failures.
 - Data spaces affect visibility, API context, and names. When a task crosses data spaces, explicitly confirm data space, prefix, and API parameter/token handling.
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:limits-first-architecture -->
+### Limits-first architecture gate
+
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+
+**Sources (sf-docs cached Help):**
+- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+
+**Notes:**
+- Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
+- For cross-phase designs, explicitly identify the phase that owns each limit: ingest, model, query, insights, segment, activation, automation, search, or API.
+- Keep cost, throttling, hard limits, and feature availability in the proof plan, not as afterthoughts.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+<!-- SF_DOC_SYNC_END:limits-first-architecture -->

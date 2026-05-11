@@ -23,7 +23,7 @@ Beast references:
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Developer Guide synthesis: [docs/data360/developer/skill-update-synthesis.md](../../docs/data360/developer/skill-update-synthesis.md)
-- Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
+- Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
@@ -166,7 +166,7 @@ Production target: object descriptions >= 4, agent-facing fields >= 4, metrics >
 
 - Semantic metrics -> [sf-datacloud-semantic-layer](../sf-datacloud-semantic-layer/SKILL.md)
 - Data graphs and relationships -> [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md)
-- Agentforce action/topic descriptions -> [sf-ai-agentforce](../sf-ai-agentforce/SKILL.md)
+- Agentforce action/topic descriptions -> `sf-ai-agentforce` companion skill when available
 - Query and metadata extraction -> [sf-datacloud-retrieve](../sf-datacloud-retrieve/SKILL.md)
 
 ## Output Format
