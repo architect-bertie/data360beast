@@ -19,6 +19,7 @@ Use this skill for the **metadata and agentic semantics plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Developer Guide synthesis: [docs/data360/developer/skill-update-synthesis.md](../../docs/data360/developer/skill-update-synthesis.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
@@ -67,6 +68,8 @@ Prefer official Data 360 metadata surfaces before guessing:
 
 Prepare metadata so an agent can:
 
+- map a business phrase to the right public Data 360 model-gallery subject area
+  and anchor DMO before writing SQL or creating a graph
 - identify the right object for a business concept
 - distinguish similar fields without hallucinating
 - understand grain, cardinality, freshness, and governance limits
@@ -131,6 +134,11 @@ Production target: object descriptions >= 4, agent-facing fields >= 4, metrics >
 - Multiple fields with similar labels and no distinction.
 - Metrics with no time window or grain.
 - Data Graphs with technical object names but no business purpose.
+- Metadata that calls everything "customer" and hides whether the grain is
+  `Individual`, `Unified Individual`, `Account`, `Account Contact`, `Party`, or
+  a contact point.
+- Consent metadata that exposes a generic opt-in flag without purpose, channel,
+  contact point, brand, legal basis, and status semantics.
 - Agent actions whose input descriptions do not define format, units, or valid values.
 - Exposing IDs, emails, phones, addresses, or raw source keys in agent responses.
 - Treating metadata visibility as access permission. Agents must respect runtime governance and masking.

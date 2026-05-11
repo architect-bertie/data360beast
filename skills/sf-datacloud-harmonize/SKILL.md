@@ -16,6 +16,7 @@ Use this skill for the **schema and unification plane**.
 
 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Public API cookbook: [docs/api-cookbook.md](../../docs/api-cookbook.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -37,9 +38,22 @@ Beast references:
 ## Rules
 
 - Resolve runtime DMO/profile names through metadata before writing query or segment logic.
+- For model design, load the model-gallery implementation map when choosing
+  between Case, Party, Privacy, Engagement, Email Engagement, Google Analytics,
+  Product, Sales Order, Financial Services, Healthcare Provider, Vehicle Charger
+  and Telematics, Student Financial Aid, or GenAI Audit and Feedback subject
+  areas.
+- Pick the anchor DMO before designing joins, insights, segments, or graphs.
+  Common anchors include Unified Individual, Individual, Account, Account
+  Contact, Contact Point plus Consent, Engagement Action, Sales Order, Sales
+  Order Product, Product, Case, Asset, and vertical-domain objects.
 - Only mapped fields and objects with relationships can be used for segmentation and activation.
 - Profile and Other DMOs require primary key mapping; Engagement DMOs require primary key and event datetime mapping.
 - For party-area modeling, Party is the reference to `Individual.Id`; map at least one contact point channel for unification and activation.
+- Do not treat `Individual`, `Account`, `Account Contact`, `Party`, contact
+  point DMOs, and unified DMOs as synonyms. They represent different grains.
+- Do not model consent as a single boolean on `Individual`; consent is scoped by
+  party, contact point, channel, purpose, brand, status, legal basis, and action.
 - Prefer standard C360 DMOs and starter mappings when they match the business concept; customize only when the standard model cannot represent the domain cleanly.
 - Model grain explicitly: profile, engagement, transaction, product, account, case, content, or support object.
 - Define relationship cardinality before allowing calculated insights, segments, data graphs, or reports to join across objects.

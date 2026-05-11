@@ -1,7 +1,7 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, OpenAPI-first API lookup, live-tested cookbook lessons, and validation rules.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, OpenAPI-first API lookup, public model-gallery DMO design guidance, live-tested cookbook lessons, and validation rules.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
@@ -15,6 +15,7 @@
     "helpIndex": "https://architect-bertie.github.io/data360beast/data360/help/index.md",
     "developerGuideIndex": "https://architect-bertie.github.io/data360beast/data360/developer/index.md",
     "developerLearningMap": "https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md",
+    "modelGalleryImplementationMap": "https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
@@ -115,12 +116,14 @@
   "officialDocIndexes": {
     "helpSalesforcePages": 77,
     "developerSalesforceGuidePages": 23,
+    "publicModelGalleryDiagramsAnalyzed": 14,
     "officialPagesIndexed": 100,
     "rawCorpusPublished": false
   },
   "knownCaveats": [
     "DBT segment create used includeDbt.models.models[] successfully",
     "Data stream formula fields use the Data 360 formula library, not Query SQL",
+    "The public Data 360 model gallery is a normalized subject-area map for anchor DMO, grain, and relationship-path design",
     "Query, transform, segment, analytics, activation, and orchestration surfaces can use different validation paths",
     "Data 360 API / Direct API uses tenant-specific token exchange and endpoint handling, unlike Connect REST API and Apex ConnectApi",
     "Data kits are the central deploy/package abstraction for Data 360 metadata; raw data is not packaged",
@@ -132,11 +135,12 @@
   ],
   "scores": {
     "connectApiReadiness": 9.7,
-    "coreArchitecture": 9.3,
+    "coreArchitecture": 9.5,
     "governanceAndDataSpaces": 9.0,
     "segmentActAutomation": 9.2,
-    "overall": 9.6
+    "modelAndDmoDesign": 9.4,
+    "overall": 9.7
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-05-10"
+  "lastReviewed": "2026-05-11"
 }

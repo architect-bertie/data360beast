@@ -44,6 +44,7 @@ Public-safe official doc indexes:
 - [docs/data360/help/index.md](../../docs/data360/help/index.md): 77 indexed Salesforce Help pages.
 - [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
+- [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 
 Do not treat this repository as official Salesforce documentation. Do not
 hallucinate endpoint paths, payload fields, limits, permissions, or feature
@@ -55,7 +56,8 @@ availability.
   setup, connector permissions.
 - **Prepare**: data streams, DLOs, transforms, ingestion status, document
   processing.
-- **Harmonize**: DMOs, mappings, relationships, identity resolution, data graphs.
+- **Harmonize**: DMOs, mappings, relationships, identity resolution, data graphs,
+  model-gallery subject areas, anchor DMO selection, and relationship-path design.
 - **Govern**: data spaces, tags, classifications, security policies, access.
 - **Retrieve**: Query SQL, Query v2, Profile API, metadata discovery.
 - **Insight**: calculated insights, streaming insights, SQL validation.
@@ -78,6 +80,12 @@ ambiguous troubleshooting.
 Use [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 when the work involves external lakehouses, zero copy, ingestion strategy,
 freshness, cost/I/O, or hybrid architecture.
+
+Use [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
+when the work involves Data 360 data models, DMO choice, model diagrams, subject
+areas such as Case, Party, Privacy, Engagement, Product, Sales Order,
+Financial Services, Healthcare Provider, Vehicle Charger and Telematics, Student
+Financial Aid, or GenAI Audit and Feedback.
 
 Default loop:
 
@@ -148,6 +156,12 @@ For API work:
 Live-tested cookbook lessons to remember:
 
 - Data stream formula fields use Data 360 formula library syntax, not Query SQL.
+- The public Data 360 model gallery is a normalized subject-area map. It should
+  guide anchor DMO selection, model grain, and relationship paths, not be treated
+  as a flat table list.
+- Party/identity, contact point/consent, engagement, commerce, product, service,
+  asset, and vertical-domain models reuse common hubs. Preserve those hubs and
+  validate relationship cardinality before downstream build.
 - Query success does not prove segment, analytics, activation, or transform
   behavior because each surface can use a different validation or execution
   path.

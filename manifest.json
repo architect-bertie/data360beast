@@ -1,8 +1,8 @@
 {
   "name": "data360beast",
   "displayName": "Data360 Beast",
-  "version": "1.1.0",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, OpenAPI-first API guidance, live validation rules, and cookbook-driven implementation.",
+  "version": "1.2.0",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, OpenAPI-first API guidance, public model-gallery DMO design guidance, live validation rules, and cookbook-driven implementation.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "skill": "skills/data360beast/SKILL.md",
@@ -60,6 +60,7 @@
     "docs/api-cookbook.md",
     "docs/data360/architecture-engine-map.md",
     "docs/data360/interoperability-decision-map.md",
+    "docs/data360/model-gallery-implementation-map.md",
     "docs/data360/help/index.md",
     "docs/data360/developer/index.md",
     "docs/data360/developer/learning-map.md",
@@ -81,8 +82,9 @@
     "developerGuidePagesAnalyzed": 23,
     "officialDocsIndexed": 100,
     "specialistSkills": 17,
-    "overallScore": 9.6
+    "modelGalleryDiagramsAnalyzed": 14,
+    "overallScore": 9.7
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-05-10"
+  "lastReviewed": "2026-05-11"
 }

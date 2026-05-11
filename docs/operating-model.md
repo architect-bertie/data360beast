@@ -4,12 +4,14 @@ Data360 Beast uses one loop for Salesforce Data 360 work:
 
 1. Classify the phase.
 2. Identify the object layer and likely execution plane.
-3. Identify the proof target.
-4. Fetch official docs on demand.
-5. Search OpenAPI for API shape.
-6. Apply cookbook lessons.
-7. Validate in org when authorized.
-8. Label confidence as documented, tested, or inferred.
+3. For model work, choose the public model-gallery subject area, anchor DMO,
+   grain, and relationship path.
+4. Identify the proof target.
+5. Fetch official docs on demand.
+6. Search OpenAPI for API shape.
+7. Apply cookbook lessons.
+8. Validate in org when authorized.
+9. Label confidence as documented, tested, or inferred.
 
 ## Phase Router
 
@@ -49,6 +51,20 @@ performance work, or ambiguous failures:
 
 Do not promote an inferred engine guess to a fact. Use the guess to choose the
 next validation step.
+
+## Model Gallery Loop
+
+Use `docs/data360/model-gallery-implementation-map.md` when the task involves
+DMO choice, model diagrams, relationship design, Data Graph shape, or
+agent-facing metadata.
+
+```text
+business outcome -> model-gallery subject area -> anchor DMO -> grain -> relationship path -> proof surface
+```
+
+Treat the gallery as a design compass, not runtime proof. Resolve exact DMO and
+field names through metadata in the target data space before writing SQL,
+segments, activations, or graph definitions.
 
 ## Interoperability Decision Loop
 

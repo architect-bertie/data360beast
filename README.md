@@ -24,6 +24,9 @@ Start with:
 - [`docs/data360/help/index.md`](docs/data360/help/index.md) and
   [`docs/data360/developer/index.md`](docs/data360/developer/index.md) for
   public-safe official doc indexes.
+- [`docs/data360/model-gallery-implementation-map.md`](docs/data360/model-gallery-implementation-map.md)
+  for public Data 360 model-gallery learnings, anchor DMOs, relationship paths,
+  grain guidance, and live implementation traps.
 - [`AGENTS.md`](AGENTS.md) for repository-wide agent instructions.
 - [`docs/llms.txt`](docs/llms.txt) for the public LLM entry point.
 - [`docs/agent-manifest.json`](docs/agent-manifest.json) for machine-readable metadata.
@@ -83,10 +86,11 @@ data360beast/
     |-- api-cookbook.md
     |-- scorecard.md
     `-- data360/
-        |-- architecture-engine-map.md
-        |-- interoperability-decision-map.md
-        |-- help/index.md
-        `-- developer/index.md
+    |-- architecture-engine-map.md
+    |-- interoperability-decision-map.md
+    |-- model-gallery-implementation-map.md
+    |-- help/index.md
+    `-- developer/index.md
 ```
 
 ## What It Does
@@ -99,6 +103,8 @@ data360beast/
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
 - Documents companion MCP install paths for `sf-docs` and the official Data 360
   MCP server.
+- Captures public Data 360 model-gallery patterns across 14 diagrams so agents
+  choose the right DMO anchor, grain, and relationship path before building.
 - Applies live-tested cookbook lessons for query, segment, data action, and
   activation work.
 - Requires org validation through status, counts, metadata, data space, and
@@ -112,7 +118,8 @@ publishes the curated operating model and agent entry points.
 
 ## Status
 
-Current score: **9.6/10 overall** after publishing the full specialist skill pack.
+Current score: **9.7/10 overall** after adding the public Data 360 model-gallery
+implementation map to the specialist skill pack.
 
 Remaining frontier: external activation destinations and search-index creation
 recipes require enabled assets in a live org before promotion into the skill.

@@ -21,7 +21,7 @@ npx skills add architect-bertie/data360beast
 | `sf-datacloud-connectapi` | Connect REST API, Apex ConnectApi, OpenAPI lookup, payload design |
 | `sf-datacloud-connect` | Connectors, connections, connector schema, connection health |
 | `sf-datacloud-prepare` | Data streams, DLOs, transforms, document processing prep |
-| `sf-datacloud-harmonize` | DMOs, mappings, relationships, identity resolution, data graphs |
+| `sf-datacloud-harmonize` | DMOs, mappings, model-gallery anchor choice, relationships, identity resolution, data graphs |
 | `sf-datacloud-governance` | Data spaces, access, tags, classifications, masking, policies |
 | `sf-datacloud-retrieve` | Query SQL, Query v2, Profile API, metadata retrieval |
 | `sf-datacloud-calculated-insights` | Calculated insights, streaming insights, CI SQL guardrails |
@@ -40,6 +40,7 @@ npx skills add architect-bertie/data360beast
 - `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
 - `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
 - `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
+- `docs/data360/model-gallery-implementation-map.md`: public Data 360 model-gallery synthesis for anchor DMOs, grain, relationship paths, and live-build traps.
 - `docs/data360/architecture-engine-map.md`: engine-aware architecture and troubleshooting map.
 - `docs/data360/interoperability-decision-map.md`: ingestion, zero-copy, and hybrid pattern selection.
 - `sf-datacloud-connectapi/references/*`: API surface cards and live gotchas.

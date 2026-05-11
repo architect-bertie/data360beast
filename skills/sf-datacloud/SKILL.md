@@ -20,6 +20,7 @@ Production checklist: [references/production-implementation-checklist.md](refere
 
 Data360 Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
@@ -55,12 +56,13 @@ Prefer this order:
 2. connections and source inspection
 3. streams / DLOs / transforms
 4. governance baseline: data spaces, permission sets, tags, classifications, masking, and policy posture
-5. DMO mappings and identity resolution
-6. query validation and metadata checks
-7. calculated/streaming insights, search indexes, semantic models, and AI models
-8. segment creation and count validation
-9. activations, data actions, flows, reports, and monitoring
-10. development lifecycle: environment, API surface, data kits, packageability, deploy path, and cost/usage
+5. model-gallery fit: choose the subject area, anchor DMO, grain, and relationship path
+6. DMO mappings and identity resolution
+7. query validation and metadata checks
+8. calculated/streaming insights, search indexes, semantic models, and AI models
+9. segment creation and count validation
+10. activations, data actions, flows, reports, and monitoring
+11. development lifecycle: environment, API surface, data kits, packageability, deploy path, and cost/usage
 
 ## Programmatic-first rule
 
@@ -106,6 +108,12 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - Metadata quality is an agentic feature. Descriptions, grain, relationships, and metric semantics must be production artifacts.
 - Governance metadata is also an agentic feature. Tags, classifications, access policies, masking, and agent-safe field notes must be explicit.
 - The official DMO catalog is a label directory; runtime names still need metadata resolution.
+- The public Data 360 model gallery is the best early design compass for
+  choosing anchor DMOs and relationship paths. Use it before creating custom
+  DMOs or flattening source tables.
+- Treat `Individual`, `Unified Individual`, `Account`, `Account Contact`,
+  `Party`, and contact point DMOs as distinct grains. Do not collapse them into
+  one generic customer object.
 - Always verify created segment status after the create call.
 - Always test governed behavior with a non-admin user; admin metadata visibility can hide runtime access failures.
 - Data spaces affect visibility, API context, and names. When a task crosses data spaces, explicitly confirm data space, prefix, and API parameter/token handling.

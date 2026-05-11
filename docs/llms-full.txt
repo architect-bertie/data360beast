@@ -16,6 +16,7 @@ and validation contract.
 - Help index: https://architect-bertie.github.io/data360beast/data360/help/index.md
 - Developer Guide index: https://architect-bertie.github.io/data360beast/data360/developer/index.md
 - Developer learning map: https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md
+- Data 360 model-gallery implementation map: https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md
 - Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
 - Interoperability decision map: https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
@@ -52,6 +53,9 @@ and validation contract.
 
 - 77 Salesforce Help pages are indexed at `/data360/help/index.md`.
 - 23 Salesforce Developer Guide pages are indexed at `/data360/developer/index.md`.
+- The public Data 360 model-gallery implementation map covers 14 public
+  Salesforce Developer diagrams and translates them into DMO anchor, grain,
+  relationship, and implementation guidance.
 - Raw crawled docs and local summaries are not published; fetch exact official
   pages on demand before making source-sensitive claims.
 
@@ -69,13 +73,15 @@ and validation contract.
 
 1. Classify the phase.
 2. Identify the object layer and likely execution plane.
-3. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
-4. Identify the proof target.
-5. Fetch official docs on demand.
-6. Search OpenAPI for the API shape.
-7. Apply the cookbook.
-8. Validate in org when authorized.
-9. Label confidence as documented, tested, or inferred.
+3. For model design, choose the public model-gallery subject area, anchor DMO,
+   grain, and relationship path.
+4. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
+5. Identify the proof target.
+6. Fetch official docs on demand.
+7. Search OpenAPI for the API shape.
+8. Apply the cookbook.
+9. Validate in org when authorized.
+10. Label confidence as documented, tested, or inferred.
 
 ## Phase Router
 
@@ -94,6 +100,9 @@ and validation contract.
 ## Live-Tested Cookbook Notes
 
 - Data space and metadata discovery are safe first checks.
+- The public Data 360 model gallery is a normalized subject-area map. Use it to
+  choose anchor DMOs and relationship paths before creating custom DMOs,
+  flattening source data, or building Data Graphs.
 - Query SQL and Profile API provide useful proof for data and metadata.
 - Query, transform, segment, analytics, activation, and orchestration surfaces
   can validate and execute through different paths; proof must match the
@@ -122,4 +131,4 @@ official docs on demand and use this repository as the curated operating layer.
 - Core Data 360 architecture: 9.3/10
 - Governance and data spaces: 9.0/10
 - Segment, act, automation: 9.2/10
-- Overall Beast mode: 9.6/10
+- Overall Beast mode: 9.7/10

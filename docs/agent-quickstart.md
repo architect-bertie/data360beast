@@ -1,9 +1,9 @@
 # Agent Quickstart
 
 Use Data360 Beast when the task touches Salesforce Data 360, Data Cloud, Connect
-API, segmentation, activation, governance, search, semantic models, calculated
-insights, or org validation. Installing the repo gives the agent the Beast
-router plus the specialist `sf-datacloud-*` skills.
+API, DMO modeling, segmentation, activation, governance, search, semantic
+models, calculated insights, or org validation. Installing the repo gives the
+agent the Beast router plus the specialist `sf-datacloud-*` skills.
 
 ## Install
 
@@ -33,9 +33,11 @@ If your IDE does not support skill installation, load these files in order:
 3. `docs/skills.md`
 4. `docs/mcp-dependencies.md` if companion MCP tools are missing
 5. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
-6. `docs/llms.txt`
-7. The one task-specific doc you need: `operating-model.md`,
-   `api-cookbook.md`, or `scorecard.md`.
+6. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
+   model grain, relationship paths, or Data Graph shape
+7. `docs/llms.txt`
+8. The one task-specific doc you need: `operating-model.md`,
+   `api-cookbook.md`, `scorecard.md`, or a phase-specific reference.
 
 ## Good Starting Prompts
 
@@ -49,6 +51,10 @@ Use Data360 Beast to find the Connect API payload shape for this task, then give
 
 ```text
 Use Data360 Beast to review this Data 360 architecture and identify missing proof points.
+```
+
+```text
+Use Data360 Beast to map this business use case to the right Data 360 model-gallery subject area, anchor DMO, and relationship path.
 ```
 
 ## Answer Shape
