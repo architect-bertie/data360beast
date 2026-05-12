@@ -46,7 +46,7 @@
     {
       "name": "sf-docs",
       "repository": "https://github.com/kvirtue123/sf-docs-mcp",
-      "suggestedLocalPath": "$HOME/.codex/mcp-servers/sf-docs-mcp",
+      "suggestedLocalPath": "$HOME/.data360beast/mcp-servers/sf-docs-mcp",
       "tools": [
         "scrape_sf_docs",
         "analyze_page_structure"
@@ -55,7 +55,7 @@
     {
       "name": "data360",
       "repository": "https://github.com/forcedotcom/d360-mcp-server",
-      "suggestedLocalPath": "$HOME/.codex/mcp-servers/d360-mcp-server",
+      "suggestedLocalPath": "$HOME/.data360beast/mcp-servers/d360-mcp-server",
       "tools": [
         "search",
         "payload_examples",

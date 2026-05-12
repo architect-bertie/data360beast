@@ -55,3 +55,12 @@ Salesforce documentation.
   documentation-derived.
 - Prefer concise, actionable outputs: source used, payload or command, expected
   readback, and known caveats.
+
+## GitHub Publishing
+
+- Default to `codex/...` branches for agent changes.
+- Stage only the intended public-safe files, commit tersely, push the branch,
+  and open a draft PR unless the user asks for a different publishing path.
+- Before GitHub-heavy work, run `tools/github_readiness.sh`. Treat `gh auth
+  status` as advisory if the script's API, repo permission, credential-helper,
+  and git remote checks pass.

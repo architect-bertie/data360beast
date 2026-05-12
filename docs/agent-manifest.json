@@ -93,11 +93,11 @@
     {
       "name": "sf-docs",
       "repository": "https://github.com/kvirtue123/sf-docs-mcp",
-      "suggestedLocalPath": "$HOME/.codex/mcp-servers/sf-docs-mcp",
+      "suggestedLocalPath": "$HOME/.data360beast/mcp-servers/sf-docs-mcp",
       "runtime": "node",
       "serverCommand": "node",
       "serverArgs": [
-        "$HOME/.codex/mcp-servers/sf-docs-mcp/dist/mcp-server.js"
+        "$HOME/.data360beast/mcp-servers/sf-docs-mcp/dist/mcp-server.js"
       ],
       "tools": [
         "scrape_sf_docs",
@@ -108,12 +108,12 @@
     {
       "name": "data360",
       "repository": "https://github.com/forcedotcom/d360-mcp-server",
-      "suggestedLocalPath": "$HOME/.codex/mcp-servers/d360-mcp-server",
+      "suggestedLocalPath": "$HOME/.data360beast/mcp-servers/d360-mcp-server",
       "runtime": "java",
       "serverCommand": "java",
       "serverArgs": [
         "-jar",
-        "$HOME/.codex/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
+        "$HOME/.data360beast/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
       ],
       "tools": [
         "search",

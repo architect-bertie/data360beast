@@ -7,7 +7,7 @@ description: >
 license: MIT
 metadata:
   version: "2.0.0"
-  author: "Codex"
+  author: "architect-bertie"
 ---
 
 # sf-datacloud-connect

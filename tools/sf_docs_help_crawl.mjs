@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { pathToFileURL } from "node:url";
 
 const DEFAULT_SEED =
   "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5";
-const MCP_ROOT = "/Users/bertie/.codex/mcp-servers/sf-docs-mcp";
+const DEFAULT_MCP_ROOT = path.join(
+  process.env.HOME ?? ".",
+  ".data360beast",
+  "mcp-servers",
+  "sf-docs-mcp",
+);
+const MCP_ROOT = process.env.SF_DOCS_MCP_ROOT ?? DEFAULT_MCP_ROOT;
 const extractorUrl = pathToFileURL(path.join(MCP_ROOT, "dist/extractors/index.js")).href;
 const browserUrl = pathToFileURL(path.join(MCP_ROOT, "dist/extractors/base.js")).href;
 const { scrape } = await import(extractorUrl);

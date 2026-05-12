@@ -9,7 +9,7 @@ description: >
 license: MIT
 metadata:
   version: "1.0.0"
-  author: "Codex"
+  author: "architect-bertie"
 ---
 
 # sf-datacloud-analytics

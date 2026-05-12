@@ -5,13 +5,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sqlite3
 from pathlib import Path
 from typing import Iterable
 
 
-DEFAULT_DB = Path("/Users/bertie/.codex/mcp-servers/sf-docs-mcp/sf-docs-cache.db")
+DEFAULT_SF_DOCS_DB = (
+    Path.home() / ".data360beast" / "mcp-servers" / "sf-docs-mcp" / "sf-docs-cache.db"
+)
+DEFAULT_DB = Path(os.environ.get("SF_DOCS_CACHE_DB", DEFAULT_SF_DOCS_DB))
 DEFAULT_OUT = Path("docs/data360/help")
 
 

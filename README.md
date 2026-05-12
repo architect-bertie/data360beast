@@ -2,11 +2,11 @@
 
 Salesforce Data 360, made agent-ready.
 
-Data360 Beast is a portable skill pack for teams using Claude, Codex, Cursor,
-or another agentic IDE to design, build, and troubleshoot Salesforce Data 360.
+Data360 Beast is an agent-facing operating kit for teams that design, build,
+and troubleshoot Salesforce Data 360.
 It combines a top-level Beast router, 16 specialist Data 360 skills, an explicit
 preflight, a machine-readable proof matrix, OpenAPI-first API lookup,
-tested evidence, and clean LLM entry points.
+tested evidence, and clean project-owned agent entry points.
 
 Site: <https://architect-bertie.github.io/data360beast/>
 
@@ -59,6 +59,18 @@ in [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md):
 - `sf-docs`: <https://github.com/kvirtue123/sf-docs-mcp>
 - `data360`: <https://github.com/forcedotcom/d360-mcp-server>
 
+## GitHub Readiness
+
+For Data360 Beast publishing work, use the repo readiness check before commit,
+push, or PR automation:
+
+```bash
+tools/github_readiness.sh
+```
+
+The check validates `gh` API access, repo write permission, git remote access,
+and the GitHub credential helper without printing tokens.
+
 ## Full Skill Pack
 
 The repo now ships the Beast router plus specialist skills:
@@ -89,11 +101,10 @@ data360beast/
 |-- skills/sf-datacloud-connectapi/SKILL.md
 |-- skills/sf-datacloud-*/SKILL.md
 |-- AGENTS.md
-|-- CLAUDE.md
-|-- CODEX.md
 |-- manifest.json
 |-- llms.txt
-  `-- docs/
+|-- tools/github_readiness.sh
+`-- docs/
     |-- index.html
     |-- llms.txt
     |-- llms-full.txt

@@ -9,7 +9,7 @@ description: >
 license: MIT
 metadata:
   version: "2.1.0"
-  author: "Codex"
+  author: "architect-bertie"
   validated: "OpenAPI-first Data360 Beast refresh with proof ledger evidence"
 ---
 

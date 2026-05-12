@@ -2,7 +2,7 @@
 
 > Agent-ready Salesforce Data 360 operating kit: source hierarchy, phase routing,
 > OpenAPI-first Connect API lookup, tested proof ledger evidence, and validation
-> rules for Claude, Codex, Cursor, and other agents.
+> rules for proof-driven Data 360 agents and automation.
 
 Site: https://architect-bertie.github.io/data360beast/
 Repository: https://github.com/architect-bertie/data360beast
