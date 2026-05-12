@@ -59,6 +59,18 @@ in [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md):
 - `sf-docs`: <https://github.com/kvirtue123/sf-docs-mcp>
 - `data360`: <https://github.com/forcedotcom/d360-mcp-server>
 
+## GitHub Readiness
+
+For Data360 Beast publishing work, use the repo readiness check before commit,
+push, or PR automation:
+
+```bash
+tools/github_readiness.sh
+```
+
+The check validates `gh` API access, repo write permission, git remote access,
+and the GitHub credential helper without printing tokens.
+
 ## Full Skill Pack
 
 The repo now ships the Beast router plus specialist skills:
@@ -93,7 +105,8 @@ data360beast/
 |-- CODEX.md
 |-- manifest.json
 |-- llms.txt
-  `-- docs/
+|-- tools/github_readiness.sh
+`-- docs/
     |-- index.html
     |-- llms.txt
     |-- llms-full.txt
