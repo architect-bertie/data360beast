@@ -25,6 +25,7 @@ Data360 Beast references:
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
+- Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
@@ -93,9 +94,12 @@ Use this for non-trivial Data 360 work:
    assumptions.
 3. Check [docs/operating-model.md](../../docs/operating-model.md) for the phase gate.
 4. Use `sf-docs` for exact official Help/Developer docs when a rule, permission, limit, or setup step matters.
-5. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
-6. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
-7. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
+5. For limits, use current Data 360 Limits and Guidelines first; follow Data
+   Services Billable Usage Types when referenced; use Customer Data Platform
+   limits only for explicit legacy CDP scope or labeled comparison.
+6. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
+7. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
+8. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
 
 Do not copy long Help pages or endpoint dumps into skills. Keep durable detail in the project reference layer and retrieve exact docs on demand.
 
@@ -130,6 +134,9 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - Always verify created segment status after the create call.
 - Always test governed behavior with a non-admin user; admin metadata visibility can hide runtime access failures.
 - Data spaces affect visibility, API context, and names. When a task crosses data spaces, explicitly confirm data space, prefix, and API parameter/token handling.
+- Never default to legacy Customer Data Platform limits for current Data 360
+  architecture. Use them only when the user names CDP/Customer Data Platform,
+  the org's license proves it, or you are comparing legacy and current behavior.
 
 ## Doc-Synced Notes
 
@@ -143,6 +150,11 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 
 **Notes:**
 - Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Prioritize current Data 360 limits over legacy Customer Data Platform limits;
+  use CDP limits only for explicit legacy scope or labeled comparison.
+- When current Data 360 docs route a value to Data Services Billable Usage
+  Types, treat the answer as entitlement/usage-sensitive until org contract or
+  Digital Wallet proof is available.
 - Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
 - For cross-phase designs, explicitly identify the phase that owns each limit: ingest, model, query, insights, segment, activation, automation, search, or API.
 - Keep cost, throttling, hard limits, and feature availability in the proof plan, not as afterthoughts.

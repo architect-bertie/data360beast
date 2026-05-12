@@ -31,6 +31,9 @@ Start with:
 - [`docs/data360/model-gallery-implementation-map.md`](docs/data360/model-gallery-implementation-map.md)
   for public Data 360 model-gallery learnings, anchor DMOs, relationship paths,
   grain guidance, and live implementation traps.
+- [`docs/data360/limits-source-precedence.md`](docs/data360/limits-source-precedence.md)
+  for the current Data 360 limits-first rule, Data Services usage follow-through,
+  and legacy CDP comparison boundary.
 - [`docs/data360/rag-search-index-retriever-playbook.md`](docs/data360/rag-search-index-retriever-playbook.md)
   for RAG architecture, Agentforce Data Libraries, search-index field roles,
   chunking, hybrid/vector search, retriever filters, prompt grounding, and
@@ -90,7 +93,7 @@ data360beast/
 |-- CODEX.md
 |-- manifest.json
 |-- llms.txt
-`-- docs/
+  `-- docs/
     |-- index.html
     |-- llms.txt
     |-- llms-full.txt
@@ -110,6 +113,7 @@ data360beast/
     |-- architecture-engine-map.md
     |-- interoperability-decision-map.md
     |-- docs-watch-operating-model.md
+    |-- limits-source-precedence.md
     |-- model-gallery-implementation-map.md
     |-- rag-search-index-retriever-playbook.md
     |-- help/index.md

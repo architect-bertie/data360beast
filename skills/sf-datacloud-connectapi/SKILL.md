@@ -31,6 +31,7 @@ Use these first, before guessing:
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
+- Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - Local reference: [references/connectapi-overview.md](references/connectapi-overview.md)
 - Local reference: [references/connectapi-endpoint-cards.md](references/connectapi-endpoint-cards.md)
 - Local reference: [references/project-gotchas.md](references/project-gotchas.md)

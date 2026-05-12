@@ -25,6 +25,10 @@ it whenever the user is designing, building, validating, or debugging Data 360.
    permissions, and behavior. If `sf-docs` is unavailable, use
    [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) for the install
    source or label the answer as docs-unverified.
+   For limits, use
+   [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md):
+   current Data 360 limits first, Data Services usage when referenced, and
+   legacy Customer Data Platform limits only when explicitly in scope.
 6. Use OpenAPI for Connect API method, path, params, body schema, response
    schema, and version requirements.
 7. Apply proof ledger evidence for known working payloads and known gotchas.
@@ -54,6 +58,7 @@ Public-safe operating references:
 - [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
+- [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md): current Data 360 limits first, Data Services usage follow-through, and legacy CDP comparison rules.
 - [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
 - [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
 - [docs/proof-ledger.md](../../docs/proof-ledger.md): public-safe evidence,
@@ -73,7 +78,8 @@ availability.
 For non-trivial work, capture or infer:
 
 - business goal and target phase
-- target org or alias, API version, data space, and user persona
+- target org or alias, API version, data space, license posture, and user
+  persona
 - asset lifecycle: disposable lab, sandbox, or production
 - authorization boundary: docs-only, metadata read, live validation, create or
   update, or production mutation
@@ -212,6 +218,12 @@ small and enforce these cross-cutting rules:
 - Choose external data architecture before payloads: ingestion, real-time
   ingestion, streaming ingestion, batch ingestion, live query, accelerated
   query, file federation, or hybrid.
+- For limits, quotas, connector counts, licensing, billing, and feature
+  availability, default to current Data 360 Limits and Guidelines. Follow Data
+  Services Billable Usage Types when current docs route there. Treat Customer
+  Data Platform limits as legacy unless the user explicitly says CDP/Customer
+  Data Platform, the target org is known to use that license, or the answer is a
+  labeled comparison.
 - Choose the API surface before coding: Connect REST, Apex `ConnectApi`, Data
   360 API / Direct API, SOQL-supported paths, Metadata API, or data kits.
 - Promote evidence only when it has official docs or OpenAPI shape, a minimal

@@ -6,6 +6,12 @@ This public index lists the official Salesforce Help pages analyzed for
 Data360 Beast. Raw extracted article bodies and generated local summaries are
 not published.
 
+Limit-source rule: use current Data 360 Limits and Guidelines first. When that
+page points to Data Services Billable Usage Types for Data 360, follow that
+source and treat the value as license, entitlement, usage, or contract
+sensitive. Use Customer Data Platform limits only for explicit legacy CDP scope
+or a clearly labeled comparison.
+
 | Title | Article ID | Chars | Source |
 | --- | --- | --- | --- |
 | About Data Spaces | data.c360_a_data_spaces.htm | 7009 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces.htm&language=en_US&type=5 |
@@ -36,7 +42,7 @@ not published.
 | Data 360 Editions and Licenses | data.c360_a_dc_editions.htm | 5121 | https://help.salesforce.com/apex/HTViewHelpDoc?id=data.c360_a_dc_editions.htm |
 | Data 360 Licenses, Billing, and Limits | data.c360_a_licenses_billing_limits.htm | 7424 | https://help.salesforce.com/apex/HTViewHelpDoc?id=data.c360_a_licenses_billing_limits.htm |
 | Data 360 Lifecycle Management | data.c360_a_lifecycle_management_cleanup.htm | 7234 | https://help.salesforce.com/apex/HTViewHelpDoc?id=data.c360_a_lifecycle_management_cleanup.htm |
-| Data 360 Limits and Guidelines | data.c360_a_limits_and_guidelines.htm | 63 | https://help.salesforce.com/apex/HTViewHelpDoc?id=data.c360_a_limits_and_guidelines.htm |
+| Data 360 Limits and Guidelines | data.c360_a_limits_and_guidelines.htm | 46024 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines.htm&language=en_US&type=5 |
 | Data 360 Standard Permission Sets | data.c360_a_userpermissions.htm | 8943 | https://help.salesforce.com/apex/HTViewHelpDoc?id=data.c360_a_userpermissions.htm |
 | Data 360 Usage and Access Changes | data.c360_a_changelog_usage_and_access.htm | 63 | https://help.salesforce.com/apex/HTViewHelpDoc?id=data.c360_a_changelog_usage_and_access.htm |
 | Data Actions in Data 360 | data.c360_a_data_actions_cdp.htm | 5137 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_actions_cdp.htm&language=en_US&type=5 |

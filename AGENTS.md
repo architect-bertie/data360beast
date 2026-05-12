@@ -15,10 +15,13 @@ Salesforce documentation.
 4. Use `docs/skills.md` to route into the specialist `sf-datacloud-*` skills.
 5. Use `docs/mcp-dependencies.md` to install companion MCP servers when docs-on-demand or live Data 360 operations are needed.
 6. Use `docs/data360/help/index.md` and `docs/data360/developer/index.md` for public-safe maps of indexed official docs.
-7. Use `docs/data360/rag-search-index-retriever-playbook.md` for RAG, search index, chunking, retriever, and prompt-grounding work.
-8. Use `docs/llms.txt` for a compact public map.
-9. Use `docs/agent-manifest.json` when a machine-readable entry point is easier.
-10. Use `docs/operating-model.md`, `docs/proof-ledger.md`,
+7. Use `docs/data360/limits-source-precedence.md` before answering limits,
+   licensing, connector-count, billing, quota, or feature-availability
+   questions.
+8. Use `docs/data360/rag-search-index-retriever-playbook.md` for RAG, search index, chunking, retriever, and prompt-grounding work.
+9. Use `docs/llms.txt` for a compact public map.
+10. Use `docs/agent-manifest.json` when a machine-readable entry point is easier.
+11. Use `docs/operating-model.md`, `docs/proof-ledger.md`,
    `docs/labs-interface.md`, and `docs/scorecard.md` only when the task needs
    those details.
 
@@ -34,6 +37,11 @@ Salesforce documentation.
 
 - Do not treat this repository as official Salesforce documentation.
 - Do not hallucinate endpoint paths, fields, limits, or permissions.
+- For limits, prioritize current Data 360 Limits and Guidelines and Data
+  Services Billable Usage Types. Treat Customer Data Platform limits as legacy:
+  use them only when the user explicitly mentions CDP/Customer Data Platform, a
+  target org is known to use that legacy license, or you are making a clearly
+  labeled comparison.
 - Do not publish or request raw Salesforce Help caches, tokens, org metadata, or
   customer data.
 - Do not assume MCP servers are bundled with this repo. If `sf-docs` or

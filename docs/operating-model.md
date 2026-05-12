@@ -10,11 +10,13 @@ Data360 Beast uses one loop for Salesforce Data 360 work:
 5. For RAG work, choose ADL versus manual setup, source object path, field
    roles, chunking, search type, retriever filters, and prompt/action scope.
 6. Identify the proof target.
-7. Fetch official docs on demand.
-8. Search OpenAPI for API shape.
-9. Apply proof ledger evidence.
-10. Validate in org when authorized.
-11. Label confidence as documented, tested, or inferred.
+7. Apply limits-source precedence when limits, billing, licensing, connector
+   counts, quotas, or feature availability matter.
+8. Fetch official docs on demand.
+9. Search OpenAPI for API shape.
+10. Apply proof ledger evidence.
+11. Validate in org when authorized.
+12. Label confidence as documented, tested, or inferred.
 
 ## Beast Preflight
 
@@ -131,6 +133,10 @@ prompt resolution, agent action selection, final answer, and non-admin access.
 ## Source Rules
 
 - Official docs are fetched on demand.
+- For limits, use `docs/data360/limits-source-precedence.md`: current Data 360
+  Limits and Guidelines first, Data Services Billable Usage Types when current
+  docs route there, and Customer Data Platform limits only for explicit legacy
+  CDP scope or labeled comparison.
 - OpenAPI is used for exact API shape.
 - Proof ledger evidence is used for working surfaces, validation readbacks, and
   known caveats.

@@ -18,6 +18,7 @@ Beast references:
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
+- Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -44,6 +45,10 @@ Beast references:
 - For performance or refresh problems, separate source extraction, DLO write, transform execution, and DMO mapping. A downstream query result is not proof that the upstream processing job is healthy.
 - Choose ingestion mode from business need: real-time for sub-second operational value, streaming for minute-level incremental freshness, and batch for historical, low-velocity, or cost-sensitive data.
 - Use selective fields, filters, incremental refresh, CDC, micro-batching, and source-side aggregation to control storage, network I/O, and processing cost.
+- For ingestion limits, including CRM-org counts, CRM custom objects, stream
+  counts, file sizes, and usage categories, use current Data 360 Limits and
+  Guidelines first. Use Customer Data Platform limits only for explicit legacy
+  CDP orgs or labeled comparison.
 - The developer guide frames ingestion as bulk, recurring bulk, and small-batch
   streaming patterns. Match that pattern to the source and workload before
   creating DLOs or transforms.
@@ -102,6 +107,11 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 
 **Notes:**
 - Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
+- Prioritize current Data 360 limits over legacy Customer Data Platform limits;
+  use CDP limits only for explicit legacy scope or labeled comparison.
+- If the current limit row points to Data Services Billable Usage Types for
+  Data 360, label the number as license/contract-sensitive until proven in the
+  target org or Digital Wallet.
 - Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
 - Before recommending stream count, refresh cadence, file volume, transform shape, or retry behavior, check the captured ingestion and transform limit families.
 - Prefer smaller probes and explicit readback when a design can affect metered ingestion, processing, or storage.

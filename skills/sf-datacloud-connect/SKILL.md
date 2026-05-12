@@ -20,6 +20,7 @@ Beast references:
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
+- Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
 
@@ -50,6 +51,10 @@ Beast references:
 - Reuse the OpenAPI catalog through [sf-datacloud-connectapi](../sf-datacloud-connectapi/SKILL.md); Postman is optional comparison only.
 - For local development, CLI-auth or direct access token is usually faster than creating a new connected app.
 - Review source prerequisites before creating streams. Help docs separate source configuration from stream setup.
+- For connector-count and CRM-org-count questions, use current Data 360 Limits
+  and Guidelines first. Follow Data Services Billable Usage Types when the
+  current page points there. Use legacy Customer Data Platform CRM-org limits
+  only when CDP is explicitly in scope or as a labeled comparison.
 - Inspect connector metadata and test the connection before handing off to Prepare.
 - If data spaces are involved, confirm where the connection, stream, and resulting DLOs are scoped.
 - For external lakehouses, choose the interoperability pattern before creating assets: ingestion for canonical governance, live query for maximum freshness, accelerated query for frequent reads with stale tolerance, file federation for large object-store/open-table workloads, or hybrid for governed core plus fresh edge.

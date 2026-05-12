@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data360 Beast | Salesforce Data 360 Agent Kit</title>
-    <meta name="description" content="A Salesforce Data 360 operating-model kit with docs-on-demand, OpenAPI lookup, public model-gallery guidance, RAG/search-index guidance, tested caveats, and agent-readable entry points.">
+    <meta name="description" content="A Salesforce Data 360 operating-model kit with docs-on-demand, limits-source precedence, OpenAPI lookup, public model-gallery guidance, RAG/search-index guidance, tested caveats, and agent-readable entry points.">
     <meta property="og:title" content="Data360 Beast">
     <meta property="og:description" content="Salesforce Data 360, made agent-ready: docs, APIs, evidence, skills, and live proof.">
     <meta property="og:type" content="website">
@@ -36,13 +36,14 @@
           <p class="eyebrow">Salesforce Data 360, made agent-ready</p>
           <h1 id="hero-title">The Data 360 kit for teams that want answers with proof.</h1>
           <p class="lead">
-            Data360 Beast packages the preflight contract, phase proof matrix, model-gallery lessons, RAG retrieval playbook,
-              proof ledger evidence, and validation loop an AI agent needs to work with Salesforce Data 360 without guessing.
+            Data360 Beast packages the preflight contract, phase proof matrix, limits-source precedence,
+              model-gallery lessons, RAG retrieval playbook, proof ledger evidence, and validation loop an AI agent needs to work with Salesforce Data 360 without guessing.
           </p>
           <div class="actions">
             <a class="button primary" href="./llms.txt">Read llms.txt</a>
             <a class="button" href="./beast-preflight.md">Preflight</a>
             <a class="button" href="./skills.md">View skill pack</a>
+            <a class="button" href="./data360/limits-source-precedence.md">Limits rule</a>
             <a class="button" href="./data360/rag-search-index-retriever-playbook.md">RAG playbook</a>
             <a class="button" href="./mcp-dependencies.md">MCP installs</a>
           </div>
@@ -151,7 +152,8 @@ Use Data360 Beast when:
             <li><strong>Classify the phase.</strong> Use the proof matrix to route connect, prepare, harmonize, govern, retrieve, insight, semantic, AI/search, segment, act, automate, or package work.</li>
             <li><strong>Choose the model path.</strong> Use the public model-gallery map for anchor DMO, grain, and relationship design.</li>
             <li><strong>Design retrieval deliberately.</strong> For RAG, choose ADL or manual setup, field roles, chunking, search type, retriever filters, and prompt scope.</li>
-            <li><strong>Fetch official docs.</strong> Use Salesforce docs for setup, limits, permissions, and behavior.</li>
+            <li><strong>Apply limits precedence.</strong> Use current Data 360 limits first; use legacy CDP limits only for explicit legacy scope or comparison.</li>
+            <li><strong>Fetch official docs.</strong> Use Salesforce docs for setup, permissions, behavior, and exact limit readback.</li>
             <li><strong>Search OpenAPI.</strong> Use the catalog for method, path, params, schemas, and version gates.</li>
             <li><strong>Apply proof ledger evidence.</strong> Start from tested caveats and known validation paths.</li>
             <li><strong>Validate in org.</strong> Prove with status, counts, metadata, data space, and readback.</li>
@@ -283,6 +285,7 @@ Use Data360 Beast when:
     `-- data360/
         |-- architecture-engine-map.md
         |-- interoperability-decision-map.md
+        |-- limits-source-precedence.md
         |-- model-gallery-implementation-map.md
         |-- rag-search-index-retriever-playbook.md
         |-- help/index.md

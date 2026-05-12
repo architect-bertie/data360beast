@@ -14,6 +14,7 @@ Capture these facts when they are available:
 | Target org or alias | Prevents accidental reliance on global CLI state. |
 | API version | Data 360 API shapes and data-space parameters can be versioned. |
 | Data space | Data space affects visibility, names, tokens, API parameters, and proof. |
+| License posture | Limits and billing can differ for current Data 360, Data 360 Profiles, and legacy Customer Data Platform orgs. |
 | User persona | Admin visibility is not proof of governed runtime behavior. |
 | Asset lifecycle | Disposable lab asset, sandbox implementation, or production change. |
 | Authorization boundary | Docs-only, metadata read, live validation, create/update, or production mutation. |
@@ -29,6 +30,7 @@ Check available proof tools before choosing the path:
 | --- | --- | --- |
 | User-provided files | Org-specific schemas, OpenAPI, examples, exports | Ask only if required; otherwise label as inferred. |
 | `sf-docs` | Current official Help and Developer docs | Use indexed pages to locate sources and label docs as not freshly fetched. |
+| Limits source precedence | Data 360 limits, Data Services usage, legacy CDP comparison | Use `docs/data360/limits-source-precedence.md`; default to current Data 360 docs. |
 | OpenAPI or Swagger | Method, path, params, body, response, version mechanics | Avoid exact payload claims or mark path/schema as unverified. |
 | `data360` MCP | Authorized live Data 360 operations | Use `sf` CLI or explain that live proof is unavailable. |
 | `sf` CLI auth | Org metadata, API requests, deployment/readback | Do not imply target-org validation. |
@@ -64,7 +66,7 @@ Production-sensitive changes need an explicit callout when they touch:
 For substantial answers, include or internally satisfy this line:
 
 ```text
-Preflight: org=<alias|none>, api=<version|unknown>, data space=<name|unknown>, tools=<sf-docs:data360:sf:openapi>, proof=<target>, confidence=<documented|tested|inferred>
+Preflight: org=<alias|none>, api=<version|unknown>, data space=<name|unknown>, license=<Data 360|Data 360 Profiles|legacy CDP|unknown>, tools=<sf-docs:data360:sf:openapi>, proof=<target>, confidence=<documented|tested|inferred>
 ```
 
 If the final answer is intentionally brief, preserve the same facts in the
