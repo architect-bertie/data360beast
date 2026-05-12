@@ -9,7 +9,7 @@ description: >
 license: MIT
 metadata:
   version: "1.0.0"
-  author: "Codex"
+  author: "architect-bertie"
   validated: "Built from official Salesforce Help, OpenAPI/Data 360 Connect API surfaces, and live project CI/segment work"
 ---
 

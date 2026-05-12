@@ -2,11 +2,11 @@
 
 Salesforce Data 360, made agent-ready.
 
-Data360 Beast is a portable skill pack for teams using Claude, Codex, Cursor,
-or another agentic IDE to design, build, and troubleshoot Salesforce Data 360.
+Data360 Beast is an agent-facing operating kit for teams that design, build,
+and troubleshoot Salesforce Data 360.
 It combines a top-level Beast router, 16 specialist Data 360 skills, an explicit
 preflight, a machine-readable proof matrix, OpenAPI-first API lookup,
-tested evidence, and clean LLM entry points.
+tested evidence, and clean project-owned agent entry points.
 
 Site: <https://architect-bertie.github.io/data360beast/>
 
@@ -101,8 +101,6 @@ data360beast/
 |-- skills/sf-datacloud-connectapi/SKILL.md
 |-- skills/sf-datacloud-*/SKILL.md
 |-- AGENTS.md
-|-- CLAUDE.md
-|-- CODEX.md
 |-- manifest.json
 |-- llms.txt
 |-- tools/github_readiness.sh

@@ -7,7 +7,13 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const HELP_DIR = path.join(ROOT, "docs/data360/help");
-const MCP_ROOT = "/Users/bertie/.codex/mcp-servers/sf-docs-mcp";
+const DEFAULT_MCP_ROOT = path.join(
+  process.env.HOME ?? ".",
+  ".data360beast",
+  "mcp-servers",
+  "sf-docs-mcp",
+);
+const MCP_ROOT = process.env.SF_DOCS_MCP_ROOT ?? DEFAULT_MCP_ROOT;
 const requireFromMcp = createRequire(path.join(MCP_ROOT, "package.json"));
 const TurndownService = requireFromMcp("turndown");
 const { gfm } = requireFromMcp("turndown-plugin-gfm");

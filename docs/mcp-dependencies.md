@@ -10,8 +10,8 @@ MCP servers next.
 
 | Server | Direct URL | Suggested Local Path | Purpose |
 | --- | --- | --- | --- |
-| `sf-docs` | https://github.com/kvirtue123/sf-docs-mcp | `$HOME/.codex/mcp-servers/sf-docs-mcp` | Fetch public `help.salesforce.com` and `developer.salesforce.com` pages as clean Markdown. |
-| `data360` | https://github.com/forcedotcom/d360-mcp-server | `$HOME/.codex/mcp-servers/d360-mcp-server` | Expose Salesforce Data 360 Connect API operations through `search`, `payload_examples`, and `execute`. |
+| `sf-docs` | https://github.com/kvirtue123/sf-docs-mcp | `$HOME/.data360beast/mcp-servers/sf-docs-mcp` | Fetch public `help.salesforce.com` and `developer.salesforce.com` pages as clean Markdown. |
+| `data360` | https://github.com/forcedotcom/d360-mcp-server | `$HOME/.data360beast/mcp-servers/d360-mcp-server` | Expose Salesforce Data 360 Connect API operations through `search`, `payload_examples`, and `execute`. |
 
 Note: `https://github.com/kvirtue/sf-docs-mcp` currently redirects to
 `https://github.com/kvirtue123/sf-docs-mcp`; use the canonical `kvirtue123`
@@ -23,9 +23,10 @@ Requirements: Git, Node 18-24, npm. Node 20 or 22 LTS is recommended. Install
 Chromium after dependencies so developer.salesforce.com extraction works.
 
 ```bash
-mkdir -p "$HOME/.codex/mcp-servers"
-git clone https://github.com/kvirtue123/sf-docs-mcp.git "$HOME/.codex/mcp-servers/sf-docs-mcp"
-cd "$HOME/.codex/mcp-servers/sf-docs-mcp"
+export DATA360BEAST_MCP_ROOT="${DATA360BEAST_MCP_ROOT:-$HOME/.data360beast/mcp-servers}"
+mkdir -p "$DATA360BEAST_MCP_ROOT"
+git clone https://github.com/kvirtue123/sf-docs-mcp.git "$DATA360BEAST_MCP_ROOT/sf-docs-mcp"
+cd "$DATA360BEAST_MCP_ROOT/sf-docs-mcp"
 npm install
 npm run build
 npx playwright install chromium
@@ -39,10 +40,10 @@ MCP client snippet:
     "sf-docs": {
       "command": "node",
       "args": [
-        "/absolute/path/to/.codex/mcp-servers/sf-docs-mcp/dist/mcp-server.js"
+        "/absolute/path/to/.data360beast/mcp-servers/sf-docs-mcp/dist/mcp-server.js"
       ],
       "env": {
-        "SF_DOCS_CACHE_DB": "/absolute/path/to/.codex/mcp-servers/sf-docs-mcp/sf-docs-cache.db"
+        "SF_DOCS_CACHE_DB": "/absolute/path/to/.data360beast/mcp-servers/sf-docs-mcp/sf-docs-cache.db"
       }
     }
   }
@@ -61,9 +62,10 @@ Connect API access. The server is developer preview and should run through
 stdio, not as a public network service.
 
 ```bash
-mkdir -p "$HOME/.codex/mcp-servers"
-git clone https://github.com/forcedotcom/d360-mcp-server.git "$HOME/.codex/mcp-servers/d360-mcp-server"
-cd "$HOME/.codex/mcp-servers/d360-mcp-server"
+export DATA360BEAST_MCP_ROOT="${DATA360BEAST_MCP_ROOT:-$HOME/.data360beast/mcp-servers}"
+mkdir -p "$DATA360BEAST_MCP_ROOT"
+git clone https://github.com/forcedotcom/d360-mcp-server.git "$DATA360BEAST_MCP_ROOT/d360-mcp-server"
+cd "$DATA360BEAST_MCP_ROOT/d360-mcp-server"
 mvn clean package -DskipTests
 ```
 
@@ -76,7 +78,7 @@ Preferred MCP client snippet for refreshable client-credentials auth:
       "command": "java",
       "args": [
         "-jar",
-        "/absolute/path/to/.codex/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
+        "/absolute/path/to/.data360beast/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
       ],
       "env": {
         "DATA360_CLIENT_ID": "your_client_id",
@@ -99,7 +101,7 @@ Fast local proof snippet for an existing `sf` CLI session:
       "command": "java",
       "args": [
         "-jar",
-        "/absolute/path/to/.codex/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
+        "/absolute/path/to/.data360beast/mcp-servers/d360-mcp-server/target/data360-mcp-server-1.0.0.jar"
       ],
       "env": {
         "DATA360_INSTANCE_URL": "https://your-instance.my.salesforce.com",

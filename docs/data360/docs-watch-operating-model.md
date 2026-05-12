@@ -86,7 +86,7 @@ repo.
 
 The job must also report and fail when:
 
-- `CLAUDE.md` or `CODEX.md` stops being a thin shim to `AGENTS.md`.
+- legacy tool-specific root instruction shims appear in the public repo.
 - root `llms.txt` and `docs/llms.txt` diverge without a documented reason.
 - `docs/api-cookbook.md` grows beyond compatibility-stub purpose.
 - `docs/phase-proof-matrix.json` drops below the 12 expected phases or gains
