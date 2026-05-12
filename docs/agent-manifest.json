@@ -1,7 +1,7 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, phase proof matrix, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, tested proof ledger evidence, and validation rules.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, phase proof matrix, limits-source precedence, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, tested proof ledger evidence, and validation rules.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
@@ -19,6 +19,7 @@
     "developerGuideIndex": "https://architect-bertie.github.io/data360beast/data360/developer/index.md",
     "developerLearningMap": "https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md",
     "modelGalleryImplementationMap": "https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md",
+    "limitsSourcePrecedence": "https://architect-bertie.github.io/data360beast/data360/limits-source-precedence.md",
     "ragSearchIndexRetrieverPlaybook": "https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "proofLedger": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
@@ -79,6 +80,7 @@
   "validationContract": [
     "preflight",
     "phase proof matrix",
+    "limits source precedence",
     "returned ID",
     "readback",
     "status",
@@ -155,6 +157,7 @@
     "promptLevelEvals": 8
   },
   "knownCaveats": [
+    "Use current Data 360 Limits and Guidelines before legacy Customer Data Platform limits; follow Data Services Billable Usage Types when current docs route there",
     "DBT segment create used includeDbt.models.models[] successfully",
     "Data stream formula fields use the Data 360 formula library, not Query SQL",
     "The public Data 360 model gallery is a normalized subject-area map for anchor DMO, grain, and relationship-path design",
@@ -181,5 +184,5 @@
     "overall": 9.8
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-05-11"
+  "lastReviewed": "2026-05-12"
 }

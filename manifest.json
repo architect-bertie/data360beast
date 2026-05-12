@@ -2,7 +2,7 @@
   "name": "data360beast",
   "displayName": "Data360 Beast",
   "version": "1.4.0",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and proof-ledger-driven validation.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, limits-source precedence, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and proof-ledger-driven validation.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "skill": "skills/data360beast/SKILL.md",
@@ -76,6 +76,7 @@
     "docs/api-cookbook.md",
     "docs/data360/architecture-engine-map.md",
     "docs/data360/interoperability-decision-map.md",
+    "docs/data360/limits-source-precedence.md",
     "docs/data360/model-gallery-implementation-map.md",
     "docs/data360/rag-search-index-retriever-playbook.md",
     "docs/data360/help/index.md",
@@ -112,5 +113,5 @@
     "overallScore": 9.8
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-05-11"
+  "lastReviewed": "2026-05-12"
 }

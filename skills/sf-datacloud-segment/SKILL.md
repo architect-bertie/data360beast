@@ -19,6 +19,7 @@ Beast references:
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
+- Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
 - For endpoint shape, use OpenAPI from the official spec or the user-supplied Swagger before writing payloads.
 

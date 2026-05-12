@@ -16,6 +16,12 @@
     ],
     "fallbackRule": "If a field is unknown and the task can proceed, state the assumption and lower confidence to documented, inferred, docs-unverified, or live-validation-unavailable."
   },
+  "limitSourcePolicy": {
+    "default": "Use current Data 360 Limits and Guidelines before legacy Customer Data Platform limits.",
+    "followThrough": "When the current Data 360 limits page points to Data Services Billable Usage Types for Data 360, follow that source and treat the value as entitlement, usage, billing, or contract sensitive until proven in the target org.",
+    "legacyCdpUse": "Use Customer Data Platform limits only when the user explicitly mentions CDP or Customer Data Platform, the target org is known to operate under that legacy license, or the answer is a labeled comparison.",
+    "unknownLicense": "If license posture is unknown, answer from current Data 360 docs and call out that legacy CDP orgs can differ."
+  },
   "confidenceLabels": {
     "documented": "Supported by current official Salesforce docs or OpenAPI, without target-org proof.",
     "tested": "Validated in an explicitly authorized live org with readback evidence.",
@@ -34,6 +40,7 @@
       ],
       "requiredSources": [
         "Official connector/setup docs when behavior or permissions matter",
+        "Current Data 360 Limits and Guidelines, not legacy CDP limits by default, when connector or connected CRM-org limits matter",
         "OpenAPI for connector, connection, or stream payload mechanics",
         "Target-org connection metadata for live proof"
       ],
@@ -46,6 +53,7 @@
       ],
       "forbiddenAssumptions": [
         "Do not assume the connector creates only the assets named in the UI.",
+        "Do not apply legacy Customer Data Platform CRM-org limits unless CDP is explicitly in scope or used as labeled comparison.",
         "Do not assume global CLI org or default data space.",
         "Do not expose connector secrets or copied source credentials."
       ]
@@ -62,6 +70,7 @@
       ],
       "requiredSources": [
         "Official docs for stream, transform, and formula behavior",
+        "Current Data 360 Limits and Guidelines plus Data Services Billable Usage Types when current docs route ingestion limits there",
         "OpenAPI for stream, DLO, or transform payloads",
         "Target-org DLO schema and transform output"
       ],
