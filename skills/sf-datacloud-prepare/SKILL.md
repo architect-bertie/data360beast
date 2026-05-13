@@ -99,6 +99,100 @@ For data spaces, tags, masking, and access policies, use [sf-datacloud-governanc
 
 ## Doc-Synced Notes
 
+<!-- SF_DOC_SYNC_START:prepare-and-model -->
+### Prepare and Model Data (Cleansing, Transforms, Modeling Pipeline)
+
+_Distilled from official Salesforce sources only._
+
+**Sources:**
+- data.c360_a_prepare_and_model_data.htm — Prepare and Model Data overview
+- data.c360_a_cleansing_data.htm — Data Cleansing and Preparation
+- data.c360_a_batch_transform_overview.htm — Batch Data Transforms
+- data.c360_a_batch_transform_create.htm — Create a Batch Data Transform
+- data.c360_a_streaming_transform_overview.htm — Streaming Data Transforms
+- data.c360_a_batch_transform_join_operations.htm — Join Operations
+- data.c360_a_transform_record_event_flow.htm — Data Transform Record Event Flow
+- developer.salesforce.com/docs/data/data-cloud-code-ext/guide/create-batch-transform.html — Code Extension Batch Transform
+
+**The Prepare-and-Model pipeline (canonical order):**
+1. **Ingest** raw data into Data Lake Objects (DLOs) via data streams.
+2. **Cleanse** with batch or streaming transforms (formula fields,
+   normalization, deduplication signals).
+3. **Map** DLOs to Data Model Objects (DMOs) using the Customer 360 Data
+   Model schema (or Starter Data Bundles for auto-mapped sources).
+4. **Resolve identities** to build unified profiles (handoff to harmonize).
+5. **Enrich** with calculated insights, data graphs (downstream).
+
+**Streaming Data Transforms:**
+- Clean and enrich data in **near real-time** as records enter the system.
+- Read records from a source DLO → run SQL query → write to target DLO →
+  map to DMO.
+- Required ingredients: source DLO, target DLO, SQL query, DMO mapping.
+- Use cases: phone normalization (split mobile/home/work into separate
+  contact-point records via `UNION`), credit-card fraud detection
+  (aggregating across processing systems), email standardization.
+- For modifying selected data on a scheduled interval, use a **batch
+  transform** instead.
+- Streaming transforms feed Streaming Insights for real-time event
+  detection.
+
+**Batch Data Transforms:**
+- For complex, scheduled transformations across volumes of historical or
+  reference data.
+- Created from the **Data Transforms** tab → New → Batch Data Transform.
+- Naming: alphanumeric + underscore, starts with letter, max 40 chars,
+  unique API name.
+- Capabilities:
+  - Input nodes (read from DLOs/DMOs)
+  - Output nodes (write to DLOs/DMOs)
+  - Join operations (inner, left, right, full, cross)
+  - SQL-based transformation logic
+  - Custom code via Code Extension (Beta) — invocable Apex equivalent
+    for transforms.
+- Permission required: **Data Cloud Architect**.
+- Available editions: Developer, Enterprise, Performance, Unlimited.
+
+**Choosing between Batch and Streaming:**
+| Factor | Batch | Streaming |
+|---|---|---|
+| Latency | Scheduled (minutes to hours) | Near real-time |
+| Volume | High (millions of records per run) | Per-record |
+| Source | DLO/DMO | DLO only |
+| Use case | History reshape, periodic enrichment, joins | Live normalization, fraud signals, event flows |
+| Pairs with | Calculated Insights, Activations | Streaming Insights, Data Actions |
+
+**Data Cleansing best practices:**
+- Cleanse before unification (identity resolution); cleaner inputs produce
+  better unified profiles.
+- Standardize phone formats (`+1XXXXXXXXXX`), email casing, address
+  components before identity match.
+- Deduplicate at the source level when possible; identity resolution
+  handles cross-source duplication.
+- Use formula fields for inline cleansing during ingest; reserve
+  transforms for cross-DLO logic.
+- Track cleansing decisions in field-level descriptions / tags for
+  governance.
+
+**Data Transform Record Event Flow:**
+- Lightweight event-driven transformation that fires on individual record
+  events (rather than scheduled batch).
+- Useful when downstream consumers need per-record cleansing in event
+  context.
+
+**Inline transformations (formula fields):**
+- Applied during ingest within a data stream definition.
+- Use cases: simple casts, concatenation, normalization, conditional
+  defaults.
+- Reserve heavy logic for batch/streaming transforms.
+
+**Validation gates for the Prepare phase:**
+- Source DLO is populated with the expected schema and record count.
+- Cleansing rules are documented and traceable.
+- Transform definitions exist for every non-trivial cleansing step.
+- Target DLO/DMO mapping is verified (no field type mismatches).
+- Schedule cadence aligns with downstream identity resolution and CI runs.
+<!-- SF_DOC_SYNC_END:prepare-and-model -->
+
 <!-- SF_DOC_SYNC_START:limits-data-ingestion -->
 ### Data ingestion and transform limit gate
 
