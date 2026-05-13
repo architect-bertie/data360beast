@@ -82,6 +82,157 @@ Default habit:
 
 ## Doc-Synced Notes
 
+<!-- SF_DOC_SYNC_START:segment-types-lifecycle -->
+### Segment Types and Lifecycle
+
+_Distilled from official Salesforce Help and Trailhead._
+
+**Sources:**
+- data.c360_a_segments.htm — Create Segments in Data 360
+- data.c360_a_create_a_segment.htm — Create a Standard Segment
+- data.c360_a_create_a_dynamic_segment.htm — Create a Dynamic Segment
+- data.c360_a_create_a_realtime_segment.htm — Create a Real-Time Segment
+- data.c360_a_publish_segment.htm — Publish a Segment
+
+**Standard segments:**
+- Default 90-day lookback (configurable up to 2 years depending on org).
+- Publish on a schedule (daily, weekly, monthly) or manually on demand.
+- Populate `Segment Membership` DMOs; downstream activations consume these.
+- For segment-on-CI scenarios, the profile DMO primary key must be a CI
+  dimension and the segmented DMO must be joined in the CI SQL.
+
+**Dynamic segments:**
+- Query-only; do not persist membership data.
+- Use filters with placeholder values that arrive at runtime.
+- Triggered through API calls via broadcast flow.
+- Cannot be published or scheduled.
+
+**Real-time segments:**
+- Complete in milliseconds against a real-time data graph.
+- Require Segment ID and Timestamp fields in the real-time data graph.
+- Limitations: no exclusion criteria, no nested batch segments, no counts,
+  no manual publish.
+
+**Rapid publish segments:**
+- 1-hour or 4-hour refresh; uses only the past 7 days of engagement data.
+- Maximum 20 rapid segments per org.
+- Activates only to Marketing Cloud Engagement and Cloud File Storage.
+
+**Waterfall segments:**
+- Process existing segments in priority order for mutually exclusive audiences.
+- Support up to 20 segments in the waterfall.
+
+**Lookback and publishing rules:**
+- Lookback applies only to standard and dynamic segments, not rapid or
+  real-time.
+- Adjust lookback for the campaign type: 30 days for flash sales, 90 days
+  default, 6-12 months for win-back.
+- Publishing is a separate step from segment creation; verify
+  `MarketSegment.PublishStatus` and publish history.
+- Segmentation and activation consume credits; keep test audiences small.
+<!-- SF_DOC_SYNC_END:segment-types-lifecycle -->
+
+<!-- SF_DOC_SYNC_START:segment-creation-canvas -->
+### Creating and Configuring Segments (UI and API)
+
+_Distilled from official Salesforce Help, Trailhead, and community guides._
+
+**Sources:**
+- data.c360_a_create_a_segment.htm — Create a Standard Segment
+- trailhead.salesforce.com/content/learn/projects/explore-data-cloud-core-functionality/build-a-segment-and-report
+
+**Standard segment creation steps:**
+1. Segments tab → New.
+2. Select **Use a Visual Builder** → **Standard Segment** → Next.
+3. Choose **Segment On** object (Unified Individual, Account, or custom DMO).
+4. Enter name, API name, description.
+5. Set lookback window (default 90 days; filter-container lookback overrides
+   if shorter).
+6. Configure publish schedule: Standard (every 12 or 24 hours), Rapid
+   (1 or 4 hours), or No Refresh (manual only).
+7. Build segment logic on the Segment Canvas → Save.
+8. Optionally preview count before publishing.
+
+**Segment Canvas anatomy:**
+- **Direct attributes** — one-to-one fields on the Segment On object (e.g.,
+  postal code, first name).
+- **Related attributes** — multi-record relationships (e.g., orders,
+  interactions, calculated insights).
+- **Containers** — group filters; container-level lookback overrides the
+  segment-level lookback when shorter.
+- **Filter operators** — vary by data type (date, numeric, text, Boolean).
+- **Aggregation** — Count, Sum, Average, Max, Min on related attributes.
+- **Logic** — AND / OR to combine filters within or across containers.
+- **Container Path** — join path when multiple relationships exist between
+  Segment On and the related DMO.
+
+**Einstein Segments (AI-assisted):**
+- Describe the audience in natural language; get a suggested segment with
+  relevant attributes.
+- System blocks biased/unethical descriptions and deselects demographic
+  attributes that introduce bias.
+- Uses sample data for grounding without exposing PII.
+
+**Segment from a Data Kit:**
+- Choose a predefined segment from a data kit.
+- Check dependencies (child segments, insights) → edit and schedule.
+
+**Waterfall segment creation:**
+- Select **Waterfall Segment** at creation.
+- Add up to 20 existing active segments in priority order.
+- Result: mutually exclusive audiences (each profile lands in highest-
+  priority segment only).
+- Cannot nest waterfalls or use Rapid Publish.
+
+**Dynamic segment creation:**
+- Select **Dynamic Segment** at creation.
+- Define filter criteria with placeholder parameters.
+- Runtime invocation via API / broadcast flow supplies actual values.
+- No publish schedule; no membership DMO persisted.
+
+**Real-time segment creation:**
+- Select **Real-Time Segment** at creation.
+- Requires Segment ID and Timestamp fields in real-time data graph config.
+- Returns results in milliseconds; cannot use exclusion criteria or manual
+  publish.
+
+**Publishing behaviour:**
+- Standard publish runs every 12 or 24 hours (configurable).
+- When concurrent publish limit is reached, Data Cloud queues and defers
+  segments until capacity frees.
+- Rapid Publish uses incremental mode (indexes by profile ID).
+- Manual publish takes priority over scheduled runs.
+- Each publish creates or updates two membership DMOs:
+  - **Latest** — current audience after publish.
+  - **History** — previous audience within the last 30 days.
+- Removed members are dropped at next publish cycle.
+
+**Segment statuses:**
+| Status | Meaning |
+|---|---|
+| Active | Segment is healthy and publishing on schedule |
+| Processing | Segment build or publish in progress |
+| Recounting | Audience recount running |
+| Error | Definition, publish, or downstream failure |
+| Inactive | Segment paused or deactivated |
+
+**Publish statuses:** Succeeded, Failed, Skipped, In Progress, Deferred.
+
+**Billing considerations:**
+- Segmentation consumes credits based on processing volume and frequency.
+- Preview, reduced cadence, narrower lookback, and limited end dates reduce
+  consumption.
+- Max 9,950 segments per org.
+
+**Troubleshooting checklist:**
+1. Segment references too many data objects → simplify rules or use CI.
+2. Count mismatches → check DMO grain, relationships, Segment On key,
+   identity resolution config, governance.
+3. Inactive segments → verify all referenced DMOs and CIs are still published.
+4. Date/timezone issues → use absolute timestamp literals; confirm timezone.
+5. Publish deferral → reduce concurrent segment publishes or shift schedules.
+<!-- SF_DOC_SYNC_END:segment-creation-canvas -->
+
 <!-- SF_DOC_SYNC_START:limits-segmentation -->
 ### Segmentation limit gate
 

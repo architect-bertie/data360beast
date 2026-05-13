@@ -110,7 +110,6 @@ _Distilled from official Salesforce Help, Developer blogs, and product documenta
 - developer.salesforce.com/blogs/2023/08/bring-your-own-ai-models-to-salesforce-with-einstein-studio
 - developer.salesforce.com/blogs/2024/12/using-ai-model-output-in-data-cloud-with-prediction-jobs
 - developer.salesforce.com/blogs/2024/08/how-to-use-data-cloud-ai-model-predictions-in-flow
-- salesforceblogger.com/2024/02/19/build-an-ai-model-with-clicks-in-data-cloud
 
 **Built-in predictive models (Einstein Studio Model Builder):**
 - Train a binary classification or regression model from a single DMO using a
