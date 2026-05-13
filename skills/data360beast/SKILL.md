@@ -8,6 +8,20 @@ description: Use this skill for Salesforce Data 360 or Data Cloud architecture, 
 Data360 Beast turns Salesforce Data 360 work into a proof-driven agent loop. Use
 it whenever the user is designing, building, validating, or debugging Data 360.
 
+## Companion MCP Setup (do this first)
+
+Without these two servers, the agent falls back to web search and cannot
+retrieve official Salesforce docs on demand or execute live Data 360 operations:
+
+1. **`sf-docs`** — fetches `help.salesforce.com` and `developer.salesforce.com`
+   pages as clean Markdown. Install: [docs/mcp-dependencies.md §sf-docs](../../docs/mcp-dependencies.md).
+2. **`data360`** — exposes Data 360 Connect API tools (`search`,
+   `payload_examples`, `execute`). Install: [docs/mcp-dependencies.md §data360](../../docs/mcp-dependencies.md).
+
+If neither is available, label answers as `docs-unverified` or
+`live-validation-unavailable` and continue with the skill pack's static
+references and OpenAPI catalog.
+
 ## Operating Loop
 
 1. Run Beast preflight: business goal, target org, API version, data space,

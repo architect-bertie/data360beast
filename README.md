@@ -24,7 +24,7 @@ Start with:
 - [`docs/phase-proof-matrix.json`](docs/phase-proof-matrix.json) for the
   machine-readable phase, source, proof, and forbidden-assumption matrix.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
-- [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for optional companion MCP installs.
+- [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for companion MCP installs (**strongly recommended** — without these the agent cannot fetch official docs on demand or execute live org operations).
 - [`docs/data360/help/index.md`](docs/data360/help/index.md) and
   [`docs/data360/developer/index.md`](docs/data360/developer/index.md) for
   public-safe official doc indexes.
