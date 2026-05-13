@@ -16,6 +16,8 @@ metadata:
 Use this skill for the **AI Models / Einstein Studio plane**.
 
 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)

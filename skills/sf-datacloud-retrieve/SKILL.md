@@ -15,6 +15,8 @@ metadata:
 Use this skill for the **query and metadata plane**.
 
 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)

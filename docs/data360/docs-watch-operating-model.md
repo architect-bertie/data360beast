@@ -19,7 +19,13 @@ Salesforce documentation while preserving the repo's public boundary.
    keep `skills/data360beast/SKILL.md` as a lean router.
 8. Validate generated JSON.
 9. Run Beast boundary checks for Labs-style language and shim drift.
-10. Commit and push public-safe changes when the git diff is non-empty.
+10. Run `python3 tools/validate_proof_compliance.py` to confirm every SKILL.md
+    cites the four proof contracts (`docs/phase-proof-matrix.json`,
+    `docs/beast-preflight.md`, `docs/proof-ledger.md`,
+    `docs/data360/limits-source-precedence.md`), no banned phrases appear,
+    `references/*.md` and `scripts/*.py` pointers resolve, and matrix
+    `specialistSkill` entries match `manifest.json`.
+11. Commit and push public-safe changes when the git diff is non-empty.
 
 ## Labs Promotion Pipeline
 

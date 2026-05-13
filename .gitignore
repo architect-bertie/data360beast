@@ -28,3 +28,4 @@ tools/*
 !tools/refresh_skills_from_sf_docs.py
 !tools/sf_docs_developer_guide_crawl.mjs
 !tools/sf_docs_help_crawl.mjs
+!tools/validate_proof_compliance.py

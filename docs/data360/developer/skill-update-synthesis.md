@@ -1,9 +1,8 @@
 # Data 360 Developer Guide Skill Update Synthesis
 
-Local source index:
-- `docs/data360/developer/index.md`
-- `docs/data360/developer/manifest.json`
-- `docs/data360/developer/raw/*.md`
+Public source map: [docs/data360/developer/index.md](index.md) lists the 23
+official `developer.salesforce.com` Data 360 Developer Guide pages this
+synthesis was distilled from.
 
 Official source root:
 - https://developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-get-started.html
@@ -116,3 +115,11 @@ Indexed scope: 23 official `developer.salesforce.com` Data 360 Developer Guide p
 - `sf-datacloud-analytics`, `sf-datacloud-segment`, and `sf-datacloud-act`:
   add credit-consumption proof habits for query, segment, activation, and ad
   audience recommendations.
+
+---
+
+_Maintainer-only:_ this synthesis is regenerated from a local sf-docs cache
+(`docs/data360/developer/manifest.json` and `docs/data360/developer/raw/*.md`)
+that lives outside the public clone. The `tools/refresh_skills_from_sf_docs.py`
+script and the docs-watch automation pipeline rebuild this file from that
+cache; the public clone keeps only the distilled output.

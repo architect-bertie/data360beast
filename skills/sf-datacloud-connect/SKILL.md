@@ -15,6 +15,8 @@ metadata:
 Use this skill for the **connection plane**.
 
 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)

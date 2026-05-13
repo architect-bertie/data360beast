@@ -65,7 +65,7 @@ Public-safe operating references:
   caveats, confidence labels, labs references, and promotion status.
 - [docs/labs-interface.md](../../docs/labs-interface.md): boundary between
   Beast and the Labs proving ground for golden scenarios, synthetic journeys,
-  raw payload experiments, traces, and future cookbook candidates.
+  payload experiments, traces, and future cookbook candidates.
 - [docs/beast-evals.md](../../docs/beast-evals.md): lightweight eval checks for
   future Beast mode changes.
 

@@ -15,6 +15,8 @@ metadata:
 Use this skill for the **schema and unification plane**.
 
 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)

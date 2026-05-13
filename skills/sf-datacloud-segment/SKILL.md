@@ -15,6 +15,8 @@ metadata:
 Use this skill for the **CI and segment lifecycle plane**.
 
 Beast references:
+- Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
+- Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
