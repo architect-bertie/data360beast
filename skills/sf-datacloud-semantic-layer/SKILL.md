@@ -51,6 +51,32 @@ Beast references:
 - Semantic models are Salesforce metadata. API names are fixed after creation.
 - Use relationships before logical views unless joins, unions, dedupe, or custom SQL are truly needed.
 - Do not remove required primary key fields or calculated insight fields from semantic models.
+- A Semantic Model must consist of one or more data objects with relationships
+  and semantic definitions tailored for a specific analytical use case.
+- Semantic Definitions are reusable and composable across Semantic Models and
+  other Data 360 concepts. They can be extended or overridden at different
+  levels to allow flexibility while keeping a mutual baseline.
+- Distinguish definition types: Dimensions (basic or hierarchical), Calculated
+  Dimensions (formula-based grouping), Measures (numerical with default
+  aggregation), Calculated Measures (runtime formula across tables),
+  Relationships (physical or logical joins with cardinality), Metrics (business
+  KPIs tracked over time), and Logical Views (multi-table joins).
+- Use the Tableau Semantics Authoring API to create and customize Semantic
+  Models and definitions programmatically; use the Semantic Query API to answer
+  business questions with customizable queries based on Semantic Models.
+- A Logical View connects multiple tables via specific join types to preserve
+  granularity while enabling cross-object calculations.
+- Calculated Measures are evaluated at runtime according to query context and
+  can reference measures and dimensions from different source tables. Use them
+  for cross-object KPIs that cannot be pre-computed in a single CI.
+- Treat Metrics as the business-user-facing artifact: they are derived from
+  measures, carry time-tracking behavior, and should enforce consistent
+  semantics across all consumers (Tableau, reports, AI, apps).
+- When building C360 Semantic Models, verify that relationships in the semantic
+  layer match the governed relationships in the DMO model; semantic override of
+  a relationship must document the business reason.
+- Keep API name discipline: API names are fixed after creation. Plan naming
+  conventions before the first semantic model publish.
 
 ## Validation Gates
 
@@ -80,3 +106,55 @@ Report:
 6. logical views
 7. validation query/results
 8. governance and packaging notes
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:tableau-semantics-design -->
+### Tableau Semantics Design and Build Guidance
+
+_Distilled from official Salesforce Help and Developer docs._
+
+**Sources:**
+- analytics.tua_ai_sm_design.htm — Design a Semantic Model
+- analytics.tua_ai_build_guide.htm — Build Guide for Semantic Models
+- analytics.tua_ai_optimize_model.htm — Optimize a Semantic Model
+- analytics.tua_data_sdm.htm — Semantic Data Model (SDM) section
+- data.c360_a_sl.htm — Build a Semantic Model in Data 360
+- data.c360_a_sl_data_models_create_new.htm — Create a Semantic Model in Tableau Semantics
+- data.c360_a_sl_get_started.htm — Get Started with Tableau Semantics
+- data.c360_a_sl_C360SDM_considerations.htm — Understand the C360 Semantic Model
+- Tableau Semantics Layer APIs Developer Guide (developer.salesforce.com)
+
+**Design principles:**
+- Start from business questions and stakeholder needs, not from the data model.
+- Define canonical metrics before building views or models.
+- A Semantic Model is first-class Salesforce metadata integrated across Data 360
+  for analytical and data-driven experiences.
+- Semantic Models group Semantic Definitions; they override, enrich, or rename
+  definitions from the lake layer for business-user consumption.
+- Dimensions can be Basic (attributes) or Hierarchical; always include a human-
+  readable label alongside the stable ID.
+- Measures require Default aggregation type (SUM, AVG, COUNT, MIN, MAX, or
+  custom), data type (number, currency, duration), and optional filters.
+- Relationships in the semantic layer are flexible connections via common fields;
+  they preserve granularity and have cardinality metadata. They can be physical
+  (mirroring DMO relationships) or logical (semantic-layer-only).
+- Metrics are business KPIs tracked over time, derived from one or more
+  measures; they carry behavior that applies consistently across all queries.
+- Logical Views are multi-table objects joined in the semantic layer; use them
+  only for union, dedupe, conformed join, calculated field, or standardized
+  naming scenarios.
+- Tableau Semantics APIs comprise two surfaces: the Authoring API (CRUD for
+  models and definitions) and the Semantic Query API (answer business questions
+  via customizable queries).
+
+**Optimization guidance:**
+- Remove unused definitions to reduce model complexity.
+- Use Calculated Measures for cross-table runtime formulas rather than
+  duplicating aggregation logic in calculated insights.
+- Keep metric descriptions and time semantics up to date so downstream
+  consumers (reports, dashboards, AI, Tableau Next) reference a single truth.
+- Test with non-admin users to validate governance affects metric visibility.
+- Version semantic models through data kits for deployment; keep separate from
+  platform metadata packaging unless officially supported.
+<!-- SF_DOC_SYNC_END:tableau-semantics-design -->

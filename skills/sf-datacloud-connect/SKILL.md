@@ -14,6 +14,8 @@ metadata:
 
 Use this skill for the **connection plane**.
 
+Connector catalog: [references/connector-implementation-cards.md](references/connector-implementation-cards.md)
+
 Beast references:
 - Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)

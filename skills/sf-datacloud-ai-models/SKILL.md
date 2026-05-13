@@ -95,3 +95,81 @@ Report:
 6. governance and PII controls
 7. validation evidence
 8. monitoring plan
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:ai-models-predictive-byom -->
+### Predictive AI and BYOM in Data 360
+
+_Distilled from official Salesforce Help, Developer blogs, and product documentation._
+
+**Sources:**
+- data.c360_a_ai_use_ai_models.htm — Use AI Models in Data Cloud (section)
+- data.c360_a_ai_predictive.htm — Einstein Predictive AI (26k chars)
+- developer.salesforce.com/blogs/2024/07/how-to-build-a-predictive-ai-model-in-data-cloud
+- developer.salesforce.com/blogs/2023/08/bring-your-own-ai-models-to-salesforce-with-einstein-studio
+- developer.salesforce.com/blogs/2024/12/using-ai-model-output-in-data-cloud-with-prediction-jobs
+- developer.salesforce.com/blogs/2024/08/how-to-use-data-cloud-ai-model-predictions-in-flow
+- salesforceblogger.com/2024/02/19/build-an-ai-model-with-clicks-in-data-cloud
+
+**Built-in predictive models (Einstein Studio Model Builder):**
+- Train a binary classification or regression model from a single DMO using a
+  clicks-not-code approach.
+- Prepare training data with Batch Data Transforms to create a denormalized DMO
+  with the outcome (labeled) column.
+- Model Builder auto-selects algorithm (XGBoost default); supports up to 50
+  input variables.
+- Minimum requirements: at least 400 rows total, 25 rows per outcome value.
+- Uses 4-fold cross validation for metrics; threshold is user-adjustable.
+- Model versions allow iterating on filter criteria, input features, and
+  algorithms; prior versions are preserved.
+- Activate a model before creating prediction jobs or using it in flows.
+
+**Prediction Jobs (operationalization):**
+- Inference Builder / Prediction Jobs write scores to an auto-created ML
+  Prediction DMO connected to a base DMO via relationship.
+- Batch mode: one-off predictions for segmentation, analytics, or back-testing.
+- Streaming mode: rescores on record creation or update; triggers Data Actions
+  or Data Cloud Triggered Flows based on prediction scores.
+- Control which field updates trigger rescoring to avoid unnecessary processing.
+- Streaming jobs can also run a batch pass to score all existing records.
+
+**BYOM / Connected Models:**
+- Connect externally-built models from Amazon SageMaker, Google Vertex AI, or
+  Databricks through Einstein Studio.
+- Zero-copy data federation eliminates ETL for BYOM scoring; supports real-time,
+  streaming, or batch predictions.
+- Connected models appear alongside built-in models in the Einstein Studio tab.
+
+**Flow integration:**
+- All active Einstein Studio models are available as Data Cloud Actions in any
+  Flow type (record-triggered, screen, autolaunched).
+- Map model inputs from any flow variable or prior step; inputs need not
+  originate from Data Cloud.
+- Use decision nodes on prediction scores to drive alerts, escalation, case
+  creation, or personalization.
+
+**Model output consumption paths:**
+- Prediction DMO → segmentation criteria
+- Prediction DMO → Batch Data Transform node → compare actual vs predicted
+- Streaming prediction + Data Action → Data Cloud Triggered Flow
+- Flow Action → real-time scoring at point of decision
+- Prediction DMO → reports, dashboards, Tableau, CRM Analytics
+
+**Explainability:**
+- Predictions include top predictors (record-specific variables explaining the
+  outcome) and recommendations (actionable steps if variables are marked
+  actionable).
+
+**Governance rules:**
+- Do not put model scores into segmentation or automation without threshold
+  validation and calibration.
+- Model creators and consumers must have access to every governed input object
+  and field; save-time failures can differ from metadata visibility.
+- Training data leakage, PII fields, and protected attributes must be excluded
+  unless explicitly approved.
+- Document the model card: purpose, data, features, output, limitations, owner,
+  monitoring cadence.
+- Test governed behavior with a non-admin user when policies, masking, or data
+  spaces affect model inputs or outputs.
+<!-- SF_DOC_SYNC_END:ai-models-predictive-byom -->
