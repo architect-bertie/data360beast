@@ -172,9 +172,11 @@ and agent entry points.
 
 ## Status
 
-Current score: **9.8/10 overall evidence maturity** after adding the
-RAG/search-index/retriever playbook, preflight contract, phase proof matrix, and
-lightweight Beast evals.
+Current score: **9.9/10 overall evidence maturity** after Phase 3 — Full
+Coverage Sweep. The skill pack now distills 64 official Salesforce Help
+articles into 38 doc-synced blocks across 17 specialist skills, catalogs
+140+ Data 360 connectors, and ships per-topic reference files for the
+heaviest doc-synced content so each `SKILL.md` stays context-cheap.
 
 Remaining frontier: external activation destinations and search-index creation
 evidence still need enabled assets in a live org before promotion into tested

@@ -57,6 +57,12 @@ npx skills add architect-bertie/data360beast
 - `sf-datacloud-calculated-insights/references/ci-sql-patterns.md`: reusable CI SQL patterns.
 - `sf-datacloud-calculated-insights/scripts/ci_sql_guard.py`: static CI SQL guard.
 - `sf-datacloud-governance/references/policy-enforcement-matrix.md`: runtime policy behavior map.
+- `sf-datacloud-governance/references/{govern-and-secure-overview,policy-based-governance,tagging-and-classification,data-spaces-detailed}.md`: extended doc-synced governance distillations (Phase 3B).
+- `sf-datacloud-connect/references/connector-implementation-cards.md`: full A-Z catalog of 140+ Data 360 connectors with GA/Beta status, direction, data type, ingestion method, and authoritative dev guide URL.
+- `sf-datacloud-harmonize/references/{dmo-and-mapping,dmo-relationships,identity-resolution-and-graphs}.md`: extended doc-synced DMO, mapping, relationship, identity-resolution, and Data Graph distillations (Phase 3C).
+- `sf-datacloud-unstructured-retrieval/references/process-content.md`: extended UDLO -> UDMO -> Index -> Retriever pipeline distillation (Phase 3E).
+- `sf-datacloud-automation/references/{data-cloud-triggered-flows,activation-triggered-flows,api-activations-and-orchestration,flow-creation-editing}.md`: extended flow distillations sourced from official Salesforce Help, Trailhead, and the official MuleSoft blog (Phase 3H).
+- `sf-datacloud-act/references/activation-target-cards.md`: activation target type cards.
 - `sf-datacloud-metadata-agentic/scripts/metadata_semantic_score.py`: metadata description scoring.
 - `sf-datacloud/references/production-implementation-checklist.md`: end-to-end production checklist.
 - `docs/beast-evals.md`: prompt-level evals for endpoint discipline, data-space handling, RAG troubleshooting, governance proof, and confidence labels.

@@ -14,7 +14,7 @@ evidence.
 | Unstructured retrieval and RAG | 6.8 | 9.5 | Public RAG best-practices PDF distilled into ADL/manual setup, chunking, field roles, hybrid search, retrievers, prompt grounding, Flow/Apex fallbacks, and debug metrics |
 | Deterministic proof routing | 7.0 | 9.6 | Beast preflight, machine-readable phase proof matrix, docs-watch discipline, mutation gate, and prompt-level evals |
 | Evidence promotion | 6.0 | 9.4 | Labs boundary, proof ledger status model, public-safe promotion rules, and compatibility stub for old links |
-| Overall Beast mode | 7.3 | 9.8 | Full specialist skill pack, curated docs, model-gallery map, RAG playbook, operating model, preflight, proof matrix, and validation contract |
+| Overall Beast mode | 7.3 | 9.9 | Full specialist skill pack, curated docs, model-gallery map, RAG playbook, operating model, preflight, proof matrix, validation contract, 64 distilled Help articles, 38 doc-synced blocks, 140+ connector catalog, and per-topic reference files for context hygiene |
 
 Scores are evidence maturity scores. They reflect how reliably an agent can
 route to the right source and proof path, not a claim that every Data 360 asset
