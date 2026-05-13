@@ -73,3 +73,87 @@ Beast references:
 ## Validation gate
 
 Connection work is not done until connector metadata is understood, auth is healthy, schema is discovered or uploaded, the integration pattern is explicit, and the next Data Stream/DLO/federated-query step is clear.
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:connect-data-help-side -->
+### Connect Data: Help-Side Concepts (Data Sources, Data Streams, Schedules)
+
+_Distilled from official Salesforce sources only._
+
+**Sources:**
+- data.c360_a_connectors.htm — Data Sources in Data 360
+- data.c360_a_connection_tasks.htm — Data Source Configuration in Data 360
+- data.c360_a_data_streams.htm — Data Streams in Data 360
+- data.c360_a_data_stream_schedule.htm — Data Stream Schedule
+- data.c360_a_data_streams_tab.htm — Data Streams Tab Navigation
+- developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-ingestion-data-stream.html — Create an Ingestion API Data Stream
+- developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-sftp-data-stream.html — Create an SFTP Data Stream
+
+**Data Source vs Data Stream:**
+- A **Data Source** is the connector-level connection (auth, endpoint,
+  credentials). Configured once per source system.
+- A **Data Stream** is an ingestion pipeline from a Data Source into a
+  specific Data Lake Object. Many streams can use one source.
+- The "Data Sources" tab manages connections; the "Data Streams" tab
+  manages ingestion pipelines and schedules.
+
+**Creating a Data Stream (UI flow):**
+1. App Launcher → Data Streams → New (or Data Streams tab → New).
+2. Choose connector source (Ingestion API, SFTP, Salesforce CRM, S3,
+   Snowflake, etc.).
+3. Select or create the **Data Lake Object (DLO)** — the landing object
+   in the Data 360 data lake.
+4. Assign a label, API name, and category (Profile, Engagement, Other).
+5. Choose **Primary Key** — required, must uniquely identify each record.
+   - Platform Events: Event Identifier field.
+   - Ingestion API / SFTP: any unique field.
+6. Map fields if needed (or use auto-detected schema).
+7. Choose **Refresh Mode**: Incremental (insert new), Full Refresh, or
+   Partial (Profile/Other only — partial record updates without full
+   replace).
+8. Configure **Schedule** (see below).
+9. Click Deploy.
+10. Optionally click **Refresh Data Stream Immediately** to start ingest
+    right after deployment.
+
+**Refresh modes:**
+| Mode | Behavior | Best for |
+|---|---|---|
+| Incremental | Inserts/updates new records by primary key | Append-only or high-volume streams |
+| Full Refresh | Replaces all records on every run | Reference data, small dimension tables |
+| Partial | Updates specified fields without full replace | Profile/Other category, partial CDC |
+
+**Schedule options:**
+- Frequencies: hourly (where supported), daily, weekly, monthly, or
+  manual-only.
+- Different connectors support different schedule granularities; check
+  connector page.
+- Manual refresh always available — overrides schedule when invoked.
+- Concurrent refresh limits apply per org; long-running streams may
+  defer if capacity is constrained.
+
+**Data Streams Tab Navigation:**
+- Lists all streams with status (Active, Error, Inactive, Processing).
+- Filter by data source, refresh mode, or DLO.
+- Inspect stream history (run logs, record counts, error counts).
+- Edit, deactivate, or refresh from this tab.
+
+**Pre-flight checks before creating a stream:**
+- Connector authenticated and tested? (`POST /ssot/connections/actions/test`)
+- Schema discovered or uploaded? (Ingestion API requires OAS/YAML upload.)
+- DLO category chosen (Profile, Engagement, Other)?
+- Primary key chosen?
+- Refresh mode aligned with use case?
+- Schedule frequency aligned with downstream consumer cadence?
+- Data space scoping correct?
+
+**Common errors and remedies:**
+- "Schema mismatch" → re-upload schema or align field types in the source.
+- "Primary key not unique" → choose a different field or composite key not
+  supported (must use single-field uniqueness).
+- "Authentication expired" → rotate credentials in the Data Source, then
+  retest the connection.
+- Stream stuck in Processing → check connector page for source-specific
+  rate limits; verify source-side scheduling.
+<!-- SF_DOC_SYNC_END:connect-data-help-side -->
