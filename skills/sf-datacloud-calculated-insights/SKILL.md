@@ -153,3 +153,106 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - Separate SQL validity from job/runtime proof; limits can apply after a query compiles.
 - Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
 <!-- SF_DOC_SYNC_END:limits-insights -->
+
+<!-- SF_DOC_SYNC_START:insights-authoring -->
+### Insights Authoring (Calculated and Streaming)
+
+_Distilled from official Salesforce sources only._
+
+**Sources:**
+- data.c360_a_insights.htm — Enhance Data with Insights overview
+- data.c360_a_calculated_insights.htm — Calculated Insights
+- data.c360_a_streaming_insights.htm — Streaming Insights
+- data.c360_a_create_streaming_insight.htm — Create a Streaming Insight
+- developer.salesforce.com/docs/data/data-cloud-query-guide/references/dc-sql-reference/aggregate.html — Data 360 SQL Aggregate Reference
+- developer.salesforce.com/docs/data/data-cloud-query-guide/references/data-cloud-query-api-reference/c360a-api-ci-call-overview.html — Calculated Insights API
+
+**Calculated vs Streaming Insights (different runtimes):**
+
+| Aspect | Calculated Insight (CI) | Streaming Insight |
+|---|---|---|
+| Runtime | Batch on schedule | Continuous on event arrival |
+| Source | DMOs (any category) | Streaming DMOs (engagement only) |
+| Output | CIO (Calculated Insight Object), persisted | Time-series aggregates, fed to Data Actions |
+| Latency | Hours | Sub-second to seconds |
+| Use cases | Customer lifetime value, RFM scoring, rolling 90-day metrics | Fraud signals, real-time engagement scoring, threshold alerts |
+| Segment usage | Yes (preferred for stable metrics) | No — use for orchestration, not segments |
+| Dashboards | Yes | No (event flow only) |
+
+**SQL structure (both kinds use the same shape):**
+```sql
+SELECT <Dimensions>, <Aggregation_Measures>
+FROM <Data Model Object>
+JOIN [Inner | Left | Right | Full] <Data Model Object>
+WHERE <predicate>
+GROUP BY <Dimensions>
+```
+
+**Authoring options:**
+- **Visual (drag-and-drop) Builder** — generates SQL behind the scenes;
+  good for analysts without SQL expertise.
+- **SQL editor** — direct authoring; required for advanced patterns
+  (joins, complex predicates, window functions where supported).
+
+**Dimensions vs Measures:**
+- **Dimensions** are the grouping fields (categorical attributes).
+  Examples: Unified Individual ID, Region, Product Category, Date.
+  At least one dimension is required; the segment-on profile primary
+  key must be a dimension if the CI participates in segmentation.
+- **Measures** are aggregated metrics computed across the grouping.
+  Examples: `COUNT(orders)`, `SUM(amount)`, `AVG(score)`,
+  `MAX(last_purchase_date)`.
+
+**Supported aggregate functions:**
+| Family | Functions |
+|---|---|
+| Counts | COUNT, COUNT_DISTINCT |
+| Numeric | SUM, AVG, MIN, MAX |
+| Statistical | STDDEV, VARIANCE, CORR, COVAR |
+| Boolean/Bitwise | BIT_AND, BIT_OR, BOOL_AND, BOOL_OR |
+
+**Streaming Insights specifics:**
+- Author via Data Actions tab → New Streaming Insight (or via Insights
+  Builder).
+- SQL expression interface includes pickers for: data model fields,
+  previously created insights, functions (Aggregation, Datetime, Other).
+- Cannot be created from streaming profile data — only engagement DMOs.
+- Outputs feed Data Actions for downstream orchestration (Platform Event,
+  webhook, MC Engagement).
+- Real-time ingestion: ~95% of events complete end-to-end within ~500ms
+  under typical load (Web SDK, Mobile SDK, Server-to-Server).
+
+**Calculated Insights specifics:**
+- Created via the Calculated Insights tab → New.
+- Schedule: hourly, daily, weekly, or manual run.
+- Output stored in CIO; can be queried via Query Editor, Calculated
+  Insights API, or used in segments and dashboards.
+- API row limit: max 4,999 rows returned per query call.
+- For non-aggregatable CI metrics, preserve required dimensions and
+  validate supported filters at the segment plane.
+
+**Best practices:**
+- Author CIs over governed DMOs only (not raw DLOs) to inherit
+  classification tags.
+- Keep CI SQL deterministic — avoid `NOW()` or unbounded windows.
+- Use absolute date predicates (`WHERE event_date >= '2025-01-01'`)
+  rather than relative for reproducibility.
+- For segment-on-CI flows, ensure the profile DMO primary key is a CI
+  dimension and the segmented DMO is joined in the CI SQL.
+- Don't use streaming insights as segment inputs; use CIs instead.
+- Validate CI run status (`MarketCalculatedInsight` object) before
+  declaring it healthy.
+- Tag CIO outputs explicitly — derived dimensions may not auto-inherit
+  source tags.
+
+**Pitfalls:**
+- A CI SQL that compiles in Query Editor may fail at run time due to
+  governance, schedule conflict, or join cardinality issues.
+- Joining DMOs on `ssot__Id__c` alone (without `KQ_Id__c`) can produce
+  cross-source duplicates.
+- Using a CI in a segment requires the profile DMO primary key to be a
+  CI dimension — adding/removing dimensions can break dependent segments.
+- Streaming insight aggregation windows are typically short
+  (seconds/minutes); long-window aggregation belongs in Calculated
+  Insights.
+<!-- SF_DOC_SYNC_END:insights-authoring -->

@@ -110,3 +110,80 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - If results differ by user or environment, confirm whether the query path is scoped by a data space (token exchange, connector property, or API extra parameter).
 - Treat data space selection as part of proof: include the data space in readbacks and troubleshooting probes.
 <!-- SF_DOC_SYNC_END:data-spaces-retrieve -->
+
+<!-- SF_DOC_SYNC_START:explore-and-query -->
+### Explore and Query Tooling (Data Explorer, Profile Explorer, Query Editor)
+
+_Distilled from official Salesforce sources only._
+
+**Sources:**
+- data.c360_a_data_explorer.htm — Data Explorer
+- data.c360_a_profile_explorer.htm — Profile Explorer
+- data.c360_a_query_editor.htm — Query Editor
+- developer.salesforce.com/docs/data/data-cloud-query-guide/guide/dc-query-section.html — Get Started With Data 360 SQL
+- developer.salesforce.com/docs/data/data-cloud-query-guide/guide/int-apps-data-cloud.html — Data 360 Integrated Apps
+- developer.salesforce.com/docs/data/data-cloud-query-guide/guide/write-simple-query.html — Write a Simple Query
+
+**Three query/exploration surfaces — pick the right one:**
+
+| Tool | Best for | Output |
+|---|---|---|
+| Data Explorer | Browse DLO/DMO records, inspect schema, filter rows without writing SQL | UI grid, downloadable CSV |
+| Profile Explorer | Inspect a specific Unified Individual: contact points, engagement, related DMOs, calculated insights | Per-profile JSON-like view |
+| Query Editor | Write SQL across DLOs and DMOs, save queries, share workspaces | Tabular results, save/share |
+
+**Data Explorer workflow:**
+1. Data Explorer tab → select Data Lake or Data Model.
+2. Choose object → see record count and schema.
+3. Browse records (paginated) → apply filters via UI controls.
+4. Download a CSV slice for offline inspection.
+5. Use this as a first-pass before writing SQL — confirm record counts
+   and field shapes before designing CIs/segments.
+
+**Profile Explorer workflow:**
+1. Profile Explorer tab → search for an individual by name, email, or
+   profile ID.
+2. Inspect the unified profile and all linked source profiles.
+3. View related contact points, engagement events, calculated insights.
+4. Trace identity resolution decisions (which records merged, which
+   reconciliation rules fired).
+5. Use this to debug identity resolution issues and to confirm that
+   activation contact-point selection is what the user expects.
+
+**Query Editor workflow:**
+1. Query Editor tab → select or create a Workspace.
+2. Workspace defines the DMOs/DLOs accessible to your queries (data
+   space scoped).
+3. Write SQL: `SELECT … FROM <DMO/DLO> WHERE …`.
+4. Click Run; inspect tabular results.
+5. Click Save to persist the query.
+6. Share the workspace with collaborators (subject to permissions).
+
+**Data 360 SQL essentials:**
+- Use `SELECT *` for exploration; explicit field lists for production
+  queries (FLS-aware).
+- Filters via `WHERE` clause: `BETWEEN`, `LIKE`, comparison operators,
+  combined with `AND`/`OR`.
+- Aggregations: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`, `STDDEV`, `CORR`.
+- Joins: inner, left outer, right outer, full outer.
+- Join records on **both** `ssot__Id__c` and `KQ_Id__c` (key qualifier)
+  for accurate matches — fully qualified key uniqueness.
+- `GROUP BY` for aggregations; `ORDER BY` for sorting; `LIMIT` for
+  pagination.
+
+**Integrated apps for query/visualization:**
+- Tableau (native via Tableau Semantics).
+- DBeaver (JDBC connection).
+- Custom apps via Connect API and Query API.
+
+**Pitfalls:**
+- A query that succeeds in Query Editor may not compile as a segment SQL
+  (DBT segment compiler is stricter). Validate at the segment plane.
+- Profile Explorer may show data the running user cannot see in segments
+  due to RLS/masking differences — use Profile Explorer as admin-debug
+  tool, not as governance proof.
+- Workspace selection scopes the result; switching workspace can change
+  query results.
+- Cached query results may not reflect very recent ingestion — refresh
+  the workspace if results look stale.
+<!-- SF_DOC_SYNC_END:explore-and-query -->
