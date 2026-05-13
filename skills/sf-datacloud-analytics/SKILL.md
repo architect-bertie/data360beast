@@ -91,3 +91,96 @@ Report:
 6. permission/folder setup
 7. validation query/results
 8. limits and consumption notes
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:analyze-data -->
+### Analyze Data from Data 360
+
+_Distilled from official Salesforce sources only._
+
+**Sources:**
+- Help "Analyze Data from Data 360" section
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-cost-usage.html — Cost and Usage
+- developer.salesforce.com/docs/data/data-cloud-query-guide/references — Query Data in Data 360
+
+**Two report types in Data 360:**
+
+| Type | Source | Best for |
+|---|---|---|
+| Standard Report | One DMO, semantic model, or CIO | Single-source analysis (Engagement, Account, CI metric) |
+| Custom Report | Up to **4 related DMOs** | Joined views (Individual + Engagement + Order + Product) |
+
+Beyond 4 DMOs, push the join into a Calculated Insight or Semantic Model
+and report on the result.
+
+**Reportable surfaces (priority order):**
+1. **Semantic Model metrics** — best for governed cross-team KPIs.
+2. **Calculated Insights** — best for heavy joins, windows, custom logic.
+3. **Standard DMOs** — Profile, Engagement, Other categories all
+   reportable with appropriate licensing.
+4. **Data Lake Objects (DLOs)** — limited reporting surface; prefer DMO.
+
+**Dashboard limits to know (Salesforce platform-wide):**
+- Dashboard component cap: **1,000 groupings per component**.
+- Report viewer rows: **2,000 rows displayed**.
+- Summary/Matrix grouping cap: **2,000 groupings**.
+- Analytics REST API: **2,000-row limit** per call.
+- Calculated Insights API: **4,999 rows** per query call (different limit).
+
+**Analytics tool integration:**
+
+| Tool | How it consumes Data 360 |
+|---|---|
+| Data 360 Reports & Dashboards | Native reporting on DMOs/CIs/semantic models — no external license |
+| Tableau Next | Personalized contextual insights, deep Data 360 integration |
+| Tableau (legacy) | JDBC + Tableau Semantics; full visualization platform |
+| CRM Analytics | "Direct Data for Data 360" — real-time queries, no preload |
+| Power BI XMLA | XMLA endpoint via the Microsoft Power BI XMLA Connector |
+| Custom apps | Connect API + Query API for embedded analytics |
+
+**KPI Dashboards (consumption insights):**
+- Data 360 emits credit consumption events across these usage families:
+  - **Analyze and Predict** — batch + streaming CIs.
+  - **Act** — data queries (reports, dashboards), streaming actions.
+  - **Segment and Activate** — segment processing, activations.
+- A single feature can consume from multiple usage types simultaneously.
+- Reference the Data 360 Billable Usage Types page in Help and the Data
+  360 Limits and Guidelines page when sizing dashboard refresh cadence.
+- Build a dedicated "Data 360 Consumption" dashboard early — make
+  credit usage visible to admins before scaling.
+
+**Standard DMOs heavily used in dashboards:**
+- Engagement: Email Engagement, Web Engagement, Product Browse, Order
+- Profile: Individual, Account, Contact Point Email/Phone/Address
+- Service: Case, Service Appointment
+- Consent: Consent Log, Communication Subscription Consent
+
+**Best practices:**
+- Build the validation query in Query Editor first; compare to the
+  report total before publishing.
+- Filter early — top-of-report filters reduce credit consumption more
+  than dashboard-level filters.
+- Avoid `SELECT *` in custom report types; explicit fields preserve FLS
+  and reduce credit usage.
+- Tag every published dashboard with metric owner, data freshness, and
+  refresh cadence.
+- For executive dashboards, prefer semantic-model-backed reports — the
+  metric definition is governed and shared.
+- Test dashboards with a business user AND a non-admin user; admin view
+  is not governance proof.
+
+**Calculated Insight report restrictions:**
+- Non-aggregatable CI measures require all CI required dimensions to be
+  present in the report grouping.
+- Detail-only export from a CI report can be restricted.
+- Row-level formulas on CI fields can be restricted; build derived
+  measures in the CI itself.
+
+**Semantic Model analytics:**
+- Tableau Semantics provides metric governance — same metric definition
+  across Tableau, Tableau Next, AI prompts, and CRM Analytics.
+- Use it for "single source of truth" KPIs.
+- See [sf-datacloud-semantic-layer](../sf-datacloud-semantic-layer/SKILL.md)
+  for authoring details.
+<!-- SF_DOC_SYNC_END:analyze-data -->

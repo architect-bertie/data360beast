@@ -183,3 +183,112 @@ Report:
 5. agent-safe summary
 6. update mechanism or manual setup path
 7. validation prompts and expected routing
+
+## Doc-Synced Notes
+
+<!-- SF_DOC_SYNC_START:data-kits-and-packaging -->
+### Data Kits and Packaging (Build and Share Functionality)
+
+_Distilled from official Salesforce sources only._
+
+**Sources:**
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/packages-data-kits.html — Packages and Data Kits
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/data-cloud-2gp-workflow.htm — 2GP Workflow for Data 360
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/component-cheatsheet.html — Metadata Components Cheat Sheet
+- developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360a-api-isv-readiness-data.html — Data 360 Extensibility Readiness Matrix
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-deploy_data_kit_components.html — Deploy Data Kit Components Flow
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/app-dev-comparison.html — Differences Between Developing Apps on Data 360 and the Platform
+
+**What is a Data Kit?**
+- A Data Kit is a container for **Data 360 metadata definitions**
+  (calculated insights, profiles, data streams, DMOs, identity rules,
+  search indexes, segments, activations) — NOT the actual data.
+- Streamlines packaging and deployment of related Data 360 configurations.
+- A package can contain one or more data kits.
+- When packaging Data 360 metadata, you MUST add components to a data
+  kit first, then add the data kit to a package.
+
+**Two types of Data Kits:**
+
+| Type | Created from | Deployed to | Use case |
+|---|---|---|---|
+| **Standard Data Kit** | Default data space | Any data space in target org | AppExchange solutions, partner-distributed apps |
+| **DevOps Data Kit** | Any data space | The same data space in target org | Sandbox-to-prod migration, internal CI/CD |
+
+**The Two-Package Rule (Winter '25 mandatory):**
+- You CANNOT include both Data 360 metadata and non-Data 360 metadata
+  in the same package.
+- Create two separate packages: one for Data 360, one for everything else.
+- Applies to all package types (managed and unmanaged).
+- Reason: Data 360 metadata lifecycle and deployment model differs from
+  Salesforce Platform metadata.
+
+**Packaging types — pick by audience:**
+
+| Package Type | Audience | Behavior |
+|---|---|---|
+| Unmanaged | Internal customer dev → prod | Editable in target org, no upgrade path |
+| Managed (1GP) | Salesforce Partner → AppExchange | Locked components; legacy path |
+| Managed 2GP (Second-Gen) | Modern Partner / customer | Locked, namespaced, version-managed; preferred for new ISV apps |
+
+All Data 360 feature metadata in **managed packages is locked** —
+protects components from unauthorized changes in the subscriber org.
+
+**Packageable Data 360 components:**
+- Data Package Kit Definition (the kit itself)
+- Data Package Kit Object (each component reference inside)
+- Data Source / Data Source Bundle Definition
+- Activation Platform (in unlocked + 1GP managed)
+- Data Streams
+- Data Lake Objects (DLOs)
+- Data Model Objects (DMOs) — standard and custom
+- Calculated Insights
+- Identity Resolution Rulesets
+- Segments (definitions)
+- Activation Targets and Activations (definitions)
+- Search Index Configurations
+- Retrievers
+- Data Mappings
+
+**Not all components are packageable** — check the Data 360
+Extensibility Readiness Matrix before designing kit contents.
+
+**DevOps tooling for Data Kits:**
+- DevOps Center supports Data 360 metadata.
+- Data 360 Metadata API for programmatic kit assembly.
+- Salesforce CLI (`sf project deploy/retrieve`) supports kit deployment.
+- "Deploy Data Kit Components" flow in target org orchestrates installs.
+
+**2GP Workflow (Salesforce Partners):**
+1. Create a development scratch org or sandbox with Data 360 enabled.
+2. Build and validate Data 360 metadata in the dev environment.
+3. Add components to a Data Kit (Standard type).
+4. Create a 2GP managed package (Data 360 metadata only — NOT mixed).
+5. Create a package version; tag with semantic versioning.
+6. Promote to released (managed-released).
+7. Distribute via AppExchange or direct install link.
+8. Subscribers install; deploy data kit flow runs to apply metadata to
+   their target data space.
+
+**Pre-flight before building a kit:**
+- Every component in the kit appears on the Extensibility Readiness Matrix.
+- DMO references are resolved (no hanging references to non-packageable DMOs).
+- Identity rulesets reference DMOs that ARE in the kit.
+- Calculated Insights reference DMOs that ARE in the kit.
+- Data Streams reference Data Sources that ARE in the kit.
+- Tags and classifications used by policies are documented (policies
+  themselves may not be packageable — verify in matrix).
+- Target data space exists in the subscriber org.
+- License/edition requirements documented for subscribers (Data 360
+  edition, add-on licenses for activation connectors, etc.).
+
+**Validation gates after deploying a Data Kit:**
+- All components landed in the expected data space.
+- Data Streams successfully connect to the subscriber's Data Source.
+- DMO mappings resolve to source DLOs.
+- Identity Resolution Ruleset publishes successfully.
+- Calculated Insight runs successfully on first scheduled execution.
+- Search Index produces chunks; retriever returns results.
+- Segments compile (DBT validation passes).
+- Test the kit in a clean subscriber sandbox before production rollout.
+<!-- SF_DOC_SYNC_END:data-kits-and-packaging -->
