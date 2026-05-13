@@ -5,7 +5,63 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-### Added
+### Added (Phase 3 — Full Coverage Sweep)
+- **Phase 3A:** complete connector catalog. `references/connector-implementation-cards.md`
+  expanded from ~18 detailed cards to a full A-Z inventory of 140+ Data 360
+  connectors organized by 10 families (Apache, Microsoft/Azure, Google,
+  Amazon/AWS, IBM, Oracle, SAP, Salesforce-native, Activation-only,
+  Long-tail SaaS), with GA/Beta status, direction, data type, ingestion
+  method, and authoritative dev guide URL per connector. Beta-for-Zero-Copy
+  split-status entries flagged for Jira Structured, LinkedIn, LinkedIn Ads,
+  WordPress, Workday.
+- **Phase 3B:** distilled Govern and Secure (7 articles) into
+  `sf-datacloud-governance` SKILL.md as four new doc-synced blocks
+  (overview, policy-based governance, tagging and classification,
+  data-spaces detail). Distilled Connect Data Help-side (5 articles) into
+  `sf-datacloud-connect` SKILL.md as `connect-data-help-side` block
+  covering Data Sources, Data Streams, Schedules, refresh modes.
+- **Phase 3C:** distilled Prepare and Model (7 articles) into
+  `sf-datacloud-prepare` SKILL.md as `prepare-and-model` block (cleansing,
+  batch + streaming transforms, formula fields). Distilled DMO/mapping
+  (8 articles) and identity-resolution/data-graphs (2 articles) into
+  `sf-datacloud-harmonize` SKILL.md as three blocks
+  (`dmo-and-mapping`, `dmo-relationships`, `identity-resolution-and-graphs`).
+- **Phase 3D:** distilled Query and Generate Insights (3 articles) into
+  `sf-datacloud-retrieve` SKILL.md as `explore-and-query` block. Distilled
+  Insights authoring (3 articles) into `sf-datacloud-calculated-insights`
+  SKILL.md as `insights-authoring` block (CI vs Streaming, dimensions,
+  measures, aggregate functions).
+- **Phase 3E:** distilled Process Content + Use Search (6 articles) into
+  `sf-datacloud-unstructured-retrieval` SKILL.md as `process-content` block
+  (UDLO/UDMO mapping, chunking strategies, three index types, easy and
+  advanced setup, individual retriever creation, downstream consumers).
+- **Phase 3F:** distilled Analyze Data into `sf-datacloud-analytics`
+  SKILL.md as `analyze-data` block (report types, dashboard limits, KPI
+  consumption insights). Distilled Build and Share Functionality / Data
+  Kits into `sf-datacloud-metadata-agentic` SKILL.md as
+  `data-kits-and-packaging` block (Standard vs DevOps kits, Two-Package
+  Rule, packageable components, 2GP workflow).
+- **Phase 3G:** distilled About / Get Started / Plan Data Strategy /
+  Editions / Lifecycle into `sf-datacloud` router SKILL.md as
+  `about-and-get-started` block (orientation-only; deep mechanics remain
+  in specialists).
+
+### Changed (Phase 3)
+- **Phase 3H:** re-sourced `activation-triggered-flows` and
+  `flow-orchestrated-activations` (now `api-activations-and-flow-orchestrated`)
+  blocks in `sf-datacloud-automation` SKILL.md from official Help, Trailhead,
+  and MuleSoft (Salesforce-owned) sources only. Removed all
+  `salesforceblogger.com` citations.
+- Removed remaining community-blog citations (`salesforcegeek.in`,
+  `davidpalencia.com`) from `sf-datacloud-segment` SKILL.md,
+  `sf-datacloud-act` SKILL.md, and
+  `sf-datacloud-act/references/activation-target-cards.md` to align with
+  the strict-official source policy.
+- Skill pack now meets a uniform doc-synced quality bar: every one of the
+  16 specialist skills has at least one substantive doc-synced block
+  beyond the limit-gate block.
+
+### Added (pre-Phase-3 work in Unreleased)
 - `tools/validate_proof_compliance.py` lint that asserts every SKILL.md cites
   the four proof contracts (`docs/phase-proof-matrix.json`,
   `docs/beast-preflight.md`, `docs/proof-ledger.md`,
@@ -14,7 +70,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   pointers resolve.
 - `CHANGELOG.md` (this file) at repo root.
 
-### Changed
+### Changed (pre-Phase-3 work in Unreleased)
 - All 14 specialist SKILL.md files now reference the phase proof matrix and
   Beast preflight in their `Beast references` block.
 - `docs/data360/docs-watch-operating-model.md` pipeline gains a step 10 that

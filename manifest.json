@@ -101,17 +101,20 @@
     "apiOperationsAnalyzed": 194,
     "schemasAnalyzed": 813,
     "helpDocsAnalyzed": 77,
+    "helpDocsDistilled": 64,
     "developerGuidePagesAnalyzed": 23,
+    "connectorPagesCataloged": 140,
     "officialDocsIndexed": 100,
     "specialistSkills": 17,
+    "docSyncedBlocksTotal": 38,
     "modelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
     "phaseProofMatrixEntries": 12,
     "promptLevelEvals": 8,
     "proofLedgerEntries": 7,
-    "overallScore": 9.8
+    "overallScore": 9.9
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-05-12"
+  "lastReviewed": "2026-05-13"
 }
