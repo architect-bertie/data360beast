@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed (Post-Phase-3 De-Clutter)
+- Extracted long doc-synced blocks from the four largest skill files into
+  per-topic reference files under each skill's `references/` directory,
+  keeping `SF_DOC_SYNC_*` markers inside the new files so the doc-watch
+  pipeline still locates them. Net `SKILL.md` size dropped by ~734 lines:
+  - `sf-datacloud-governance/SKILL.md` 389 → 207 lines (-182). Bodies of
+    `govern-and-secure-overview`, `policy-based-governance`,
+    `tagging-and-classification`, and `data-spaces-detailed` now live in
+    matching `references/<topic>.md` files.
+  - `sf-datacloud-automation/SKILL.md` 373 → 138 lines (-235). Bodies of
+    `data-cloud-triggered-flows`, `activation-triggered-flows`,
+    `flow-orchestrated-activations`, and `flow-creation-editing` moved
+    to `references/`. Skill keeps the limit-gate block inline.
+  - `sf-datacloud-unstructured-retrieval/SKILL.md` 379 → 255 lines (-124).
+    Body of the long `process-content` block moved to
+    `references/process-content.md`. Skill keeps `search-index-and-retrievers`
+    and `limits-unstructured-search` inline.
+  - `sf-datacloud-harmonize/SKILL.md` 314 → 121 lines (-193). Bodies of
+    `dmo-and-mapping`, `dmo-relationships`, and
+    `identity-resolution-and-graphs` moved to `references/<topic>.md`.
+- Compliance lint still passes: 17 skills compliant, 0 failures, 8
+  warnings (no change from pre-extraction state).
+
 ### Added (Phase 3 — Full Coverage Sweep)
 - **Phase 3A:** complete connector catalog. `references/connector-implementation-cards.md`
   expanded from ~18 detailed cards to a full A-Z inventory of 140+ Data 360
