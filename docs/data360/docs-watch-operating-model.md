@@ -25,7 +25,12 @@ Salesforce documentation while preserving the repo's public boundary.
     `docs/data360/limits-source-precedence.md`), no banned phrases appear,
     `references/*.md` and `scripts/*.py` pointers resolve, and matrix
     `specialistSkill` entries match `manifest.json`.
-11. Commit and push public-safe changes when the git diff is non-empty.
+11. Run `python3 tools/run_beast_evals.py`,
+    `python3 tools/skill_install_smoke.py`,
+    `python3 tools/release_readiness.py`, and
+    `python3 tools/mcp_readiness.py --json` to validate eval fixtures,
+    install layout, release hygiene, and local MCP posture.
+12. Commit and push public-safe changes when the git diff is non-empty.
 
 ## Labs Promotion Pipeline
 

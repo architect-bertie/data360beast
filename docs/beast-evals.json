@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Data360 Beast Executable Eval Fixtures",
+  "description": "Deterministic text checks for prompt-level Beast evals. These checks do not replace human review or live org validation; they catch missing proof habits and known bad shortcuts.",
+  "answerFileConvention": "tools/run_beast_evals.py --answers-dir eval-answers expects one Markdown or text file per eval id, such as api-payload-discipline.md.",
+  "evals": [
+    {
+      "id": "api-payload-discipline",
+      "name": "API payload discipline",
+      "prompt": "Create a Data 360 segment through the API.",
+      "mustMentionAny": [
+        ["api version", "v6", "v65", "v66"],
+        ["data space", "dataspace"],
+        ["openapi", "swagger", "schema"],
+        ["readback", "returned id", "segment id"],
+        ["status"]
+      ],
+      "mustNotMention": [
+        "/services/data/vXX.X/ssot/segments without schema verification",
+        "create response proves the segment is healthy"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "data-space-handling",
+      "name": "Data space handling",
+      "prompt": "Run a Query SQL example in a non-default data space.",
+      "mustMentionAny": [
+        ["data space", "dataspace"],
+        ["parameter", "token", "connection property", "ConnectApi"],
+        ["target org", "metadata"],
+        ["readback", "query result"]
+      ],
+      "mustNotMention": [
+        "default data space is fine",
+        "global cli state"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "segment-proof",
+      "name": "Segment proof",
+      "prompt": "My query works but segment creation fails.",
+      "mustMentionAny": [
+        ["query plane", "query success"],
+        ["segment compiler", "DBT"],
+        ["grain", "segment on"],
+        ["relationship", "join path"],
+        ["status", "count"]
+      ],
+      "mustNotMention": [
+        "query success proves segment",
+        "just publish it"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "rag-troubleshooting",
+      "name": "RAG troubleshooting",
+      "prompt": "The agent answers without citations.",
+      "mustMentionAny": [
+        ["source object", "source DMO", "source UDMO"],
+        ["chunk", "index DMO"],
+        ["retriever"],
+        ["return fields", "citation"],
+        ["prompt", "grounding"],
+        ["access", "policy"]
+      ],
+      "mustNotMention": [
+        "use a bigger model first",
+        "change the prompt only"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "governance-proof",
+      "name": "Governance proof",
+      "prompt": "Who can see this DMO field?",
+      "mustMentionAny": [
+        ["data space"],
+        ["permission set", "object access", "field access"],
+        ["tag", "classification"],
+        ["policy", "masking"],
+        ["non-admin", "user profile"]
+      ],
+      "mustNotMention": [
+        "system admin visibility proves",
+        "metadata visibility proves"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "activation-proof",
+      "name": "Activation proof",
+      "prompt": "Publish this audience to a destination.",
+      "mustMentionAny": [
+        ["activation target", "target"],
+        ["segment status", "segment count"],
+        ["publish history", "activation status"],
+        ["delivery", "destination"],
+        ["readback"]
+      ],
+      "mustNotMention": [
+        "visible segment can be activated",
+        "publish button proves delivery"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "formula-syntax",
+      "name": "Formula syntax",
+      "prompt": "Add a formula field to a data stream.",
+      "mustMentionAny": [
+        ["formula library", "Data 360 formula"],
+        ["source field label", "field label"],
+        ["stream", "data stream"],
+        ["check", "validate"]
+      ],
+      "mustNotMention": [
+        "use Query SQL syntax",
+        "use SOQL syntax"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "confidence-labeling",
+      "name": "Confidence labeling",
+      "prompt": "Explain this architecture to a customer.",
+      "mustMentionAny": [
+        ["documented"],
+        ["tested"],
+        ["inferred"],
+        ["caveat"],
+        ["next proof"]
+      ],
+      "mustNotMention": [
+        "guaranteed by Salesforce without source",
+        "contractual fact"
+      ],
+      "confidenceRequired": true
+    }
+  ]
+}

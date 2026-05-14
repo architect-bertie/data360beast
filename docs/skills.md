@@ -38,7 +38,12 @@ npx skills add architect-bertie/data360beast
 
 - `docs/beast-preflight.md`: required envelope, tool inventory, proof target, and mutation gate.
 - `docs/phase-proof-matrix.json`: machine-readable phase routing, source requirements, proof targets, and forbidden assumptions.
+- `docs/phase-coverage-matrix.json`: machine-readable phase coverage by source, proof, helper, and frontier.
 - `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.
+- `docs/data360/mcp-tool-selection.md`: decision guide for `sf-docs`, `data360`, `datacloud-mcp-query`, and direct `sf` REST calls.
+- `docs/data360/cost-usage-sizing-contract.md`: qualitative cost and usage sizing contract.
+- `docs/data360/develop-package-deployment-matrix.md`: develop/package/deploy proof matrix.
+- `docs/release-discipline.md`: release, validation, and publishing discipline.
 - `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
 - `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
 - `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
@@ -53,6 +58,11 @@ npx skills add architect-bertie/data360beast
 - `tools/audit_indexed_docs.py`: validates indexed Help and Developer capture completeness.
 - `tools/capture_help_prerendered.mjs`: captures oversized official Help pages when sf-docs returns placeholders.
 - `tools/refresh_skills_from_sf_docs.py`: refreshes marker-delimited docs-side evidence and specialist skill guidance from official-doc exports.
+- `tools/run_beast_evals.py`: executable prompt-eval harness for `docs/beast-evals.json`.
+- `tools/skill_install_smoke.py`: portable skill-pack install/layout smoke test.
+- `tools/mcp_readiness.py`: local MCP dependency readiness check.
+- `tools/data360_cost_usage_estimator.py`: qualitative cost/usage sizing review from a scenario JSON file.
+- `tools/release_readiness.py`: release hygiene validator for manifests, docs, and changelog.
 - `sf-datacloud-connectapi/scripts/data360_accelerator.py`: portable snippets and optional Postman/DMO helpers.
 - `sf-datacloud-calculated-insights/references/ci-sql-patterns.md`: reusable CI SQL patterns.
 - `sf-datacloud-calculated-insights/scripts/ci_sql_guard.py`: static CI SQL guard.

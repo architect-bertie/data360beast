@@ -23,6 +23,8 @@ Start with:
   data-space, tool, authorization, and proof preflight.
 - [`docs/phase-proof-matrix.json`](docs/phase-proof-matrix.json) for the
   machine-readable phase, source, proof, and forbidden-assumption matrix.
+- [`docs/phase-coverage-matrix.json`](docs/phase-coverage-matrix.json) for
+  machine-readable coverage by phase, source, proof, helper, and frontier.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
 - [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for companion MCP installs (**strongly recommended** — without these the agent cannot fetch official docs on demand or execute live org operations).
 - [`docs/data360/help/index.md`](docs/data360/help/index.md) and
@@ -41,6 +43,15 @@ Start with:
 - [`docs/data360/docs-watch-operating-model.md`](docs/data360/docs-watch-operating-model.md)
   for the weekly official-doc refresh, oversized Help fallback, audit, skill
   sync, and publishing workflow.
+- [`docs/data360/cost-usage-sizing-contract.md`](docs/data360/cost-usage-sizing-contract.md)
+  for qualitative cost and usage sizing.
+- [`docs/data360/develop-package-deployment-matrix.md`](docs/data360/develop-package-deployment-matrix.md)
+  for data kit, packageability, deployment, and readback gates.
+- [`docs/data360/mcp-tool-selection.md`](docs/data360/mcp-tool-selection.md)
+  for choosing between `sf-docs`, `data360`, `datacloud-mcp-query`, and direct
+  `sf` REST calls.
+- [`docs/release-discipline.md`](docs/release-discipline.md) for validation and
+  publishing discipline.
 - [`docs/proof-ledger.md`](docs/proof-ledger.md) for public-safe evidence,
   caveats, confidence labels, and promotion status.
 - [`docs/labs-interface.md`](docs/labs-interface.md) for the boundary between
@@ -58,6 +69,8 @@ in [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md):
 
 - `sf-docs`: <https://github.com/kvirtue123/sf-docs-mcp>
 - `data360`: <https://github.com/forcedotcom/d360-mcp-server>
+- `datacloud-mcp-query`: <https://github.com/forcedotcom/datacloud-mcp-query>
+  for optional retrieve-plane SQL/list/describe work
 
 ## GitHub Readiness
 
@@ -70,6 +83,20 @@ tools/github_readiness.sh
 
 The check validates `gh` API access, repo write permission, git remote access,
 and the GitHub credential helper without printing tokens.
+
+## Validation Tools
+
+```bash
+python3 tools/validate_proof_compliance.py
+python3 tools/run_beast_evals.py
+python3 tools/skill_install_smoke.py
+python3 tools/release_readiness.py
+python3 tools/mcp_readiness.py --json
+```
+
+Use `tools/data360_cost_usage_estimator.py <scenario.json>` for qualitative
+cost/usage sizing. It produces risk bands and proof questions, not credit or
+dollar estimates.
 
 ## Full Skill Pack
 
@@ -112,8 +139,11 @@ data360beast/
     |-- agent-quickstart.md
     |-- beast-preflight.md
     |-- beast-evals.md
+    |-- beast-evals.json
     |-- phase-proof-matrix.json
+    |-- phase-coverage-matrix.json
     |-- mcp-dependencies.md
+    |-- release-discipline.md
     |-- skills.md
     |-- operating-model.md
     |-- proof-ledger.md
@@ -124,7 +154,10 @@ data360beast/
     |-- architecture-engine-map.md
     |-- interoperability-decision-map.md
     |-- docs-watch-operating-model.md
+    |-- cost-usage-sizing-contract.md
+    |-- develop-package-deployment-matrix.md
     |-- limits-source-precedence.md
+    |-- mcp-tool-selection.md
     |-- model-gallery-implementation-map.md
     |-- rag-search-index-retriever-playbook.md
     |-- help/index.md
@@ -139,6 +172,8 @@ data360beast/
   lifecycle, authorization boundary, available tools, and proof target.
 - Uses a machine-readable proof matrix to pick the specialist skill, required
   source type, minimum proof target, and forbidden assumptions.
+- Uses a machine-readable phase coverage matrix to expose source, proof,
+  helper, and frontier coverage by phase.
 - Uses official Salesforce docs on demand instead of stale pasted docs.
 - Publishes public-safe indexes for 77 Help pages and 23 Developer Guide pages
   without publishing raw scraped content.
@@ -147,7 +182,7 @@ data360beast/
   returns as placeholders.
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
 - Documents companion MCP install paths for `sf-docs` and the official Data 360
-  MCP server.
+  MCP server, plus optional `datacloud-mcp-query` for retrieve-plane SQL work.
 - Captures public Data 360 model-gallery patterns across 14 diagrams so agents
   choose the right DMO anchor, grain, and relationship path before building.
 - Captures public-facing Data 360 RAG guidance from a 45-page Salesforce PDF so
@@ -158,6 +193,8 @@ data360beast/
   activation work.
 - Requires org validation through status, counts, metadata, data space, and
   readback before treating an answer as proven.
+- Adds executable validation helpers for prompt evals, install smoke tests,
+  MCP readiness, release readiness, proof compliance, and cost/usage sizing.
 - Keeps golden scenarios, synthetic journeys, raw payload experiments, traces,
   and future cookbook candidates in
   [`data360beast-labs`](https://github.com/architect-bertie/data360beast-labs);

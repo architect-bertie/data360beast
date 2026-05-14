@@ -4,6 +4,23 @@ Use these lightweight checks when changing Data360 Beast skills or docs. They
 are prompt-level evals, not live org tests, and should fail loudly when an agent
 guesses endpoint paths, skips proof, or blurs documented and tested confidence.
 
+The machine-readable fixtures live in [`beast-evals.json`](beast-evals.json).
+Run the deterministic harness with:
+
+```bash
+python3 tools/run_beast_evals.py
+```
+
+When an agent or CI job has generated answers, put one Markdown or text file per
+eval ID in an answers directory and run:
+
+```bash
+python3 tools/run_beast_evals.py --answers-dir eval-answers
+```
+
+The runner checks required proof-habit terms, forbidden shortcuts, and
+confidence labels. It does not call an LLM and does not replace human review.
+
 ## Scoring
 
 Each eval is pass/fail. A change is promotion-ready when every applicable eval
@@ -29,3 +46,11 @@ Before raising the Beast score, confirm the update adds at least one of:
 - a proof ledger entry with caveats and failure modes
 - a guardrail that prevents a known bad assumption
 - a machine-readable routing or validation artifact
+
+Release-ready changes should also pass:
+
+```bash
+python3 tools/validate_proof_compliance.py
+python3 tools/skill_install_smoke.py
+python3 tools/release_readiness.py
+```

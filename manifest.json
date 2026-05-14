@@ -1,7 +1,7 @@
 {
   "name": "data360beast",
   "displayName": "Data360 Beast",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, limits-source precedence, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and proof-ledger-driven validation.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
@@ -61,22 +61,39 @@
         "payload_examples",
         "execute"
       ]
+    },
+    {
+      "name": "datacloud-mcp-query",
+      "repository": "https://github.com/forcedotcom/datacloud-mcp-query",
+      "suggestedLocalPath": "$HOME/.data360beast/mcp-servers/datacloud-mcp-query",
+      "tools": [
+        "query",
+        "list_tables",
+        "describe_table"
+      ],
+      "decision": "optional retrieve-plane accelerator; not a replacement for d360-mcp-server"
     }
   ],
   "docs": [
     "docs/agent-quickstart.md",
     "docs/beast-preflight.md",
     "docs/phase-proof-matrix.json",
+    "docs/phase-coverage-matrix.json",
     "docs/beast-evals.md",
+    "docs/beast-evals.json",
     "docs/skills.md",
     "docs/mcp-dependencies.md",
+    "docs/release-discipline.md",
     "docs/operating-model.md",
     "docs/proof-ledger.md",
     "docs/labs-interface.md",
     "docs/api-cookbook.md",
     "docs/data360/architecture-engine-map.md",
     "docs/data360/interoperability-decision-map.md",
+    "docs/data360/cost-usage-sizing-contract.md",
+    "docs/data360/develop-package-deployment-matrix.md",
     "docs/data360/limits-source-precedence.md",
+    "docs/data360/mcp-tool-selection.md",
     "docs/data360/model-gallery-implementation-map.md",
     "docs/data360/rag-search-index-retriever-playbook.md",
     "docs/data360/help/index.md",
@@ -107,6 +124,9 @@
     "officialDocsIndexed": 100,
     "specialistSkills": 17,
     "docSyncedBlocksTotal": 38,
+    "executableEvalFixtures": 8,
+    "operationalHardeningTools": 6,
+    "phaseCoverageMatrixEntries": 12,
     "modelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
@@ -116,5 +136,5 @@
     "overallScore": 9.9
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-05-13"
+  "lastReviewed": "2026-05-14"
 }
