@@ -14,6 +14,7 @@ evidence.
 | Unstructured retrieval and RAG | 6.8 | 9.5 | Public RAG best-practices PDF distilled into ADL/manual setup, chunking, field roles, hybrid search, retrievers, prompt grounding, Flow/Apex fallbacks, and debug metrics |
 | Deterministic proof routing | 7.0 | 9.6 | Beast preflight, machine-readable phase proof matrix, docs-watch discipline, mutation gate, and prompt-level evals |
 | Evidence promotion | 6.0 | 9.4 | Labs boundary, proof ledger status model, public-safe promotion rules, and compatibility stub for old links |
+| Operational hardening | 5.0 | 9.3 | Executable eval fixtures, install smoke test, MCP readiness check, release readiness check, phase coverage matrix, cost/usage sizing contract, and develop/package/deploy matrix |
 | Overall Beast mode | 7.3 | 9.9 | Full specialist skill pack, curated docs, model-gallery map, RAG playbook, operating model, preflight, proof matrix, validation contract, 64 distilled Help articles, 38 doc-synced blocks, 140+ connector catalog, and per-topic reference files for context hygiene |
 
 Scores are evidence maturity scores. They reflect how reliably an agent can
@@ -29,6 +30,8 @@ or destination has been live-tested.
   generating org-specific SQL, segments, activations, or Data Graphs.
 - Customer-specific architecture patterns should be documented as short evidence,
   not raw scrape dumps.
+- The operational hardening tools are deterministic checks; they do not replace
+  live org playbooks, delivery recipes, or Beast Labs promotion evidence.
 
 ## Promotion Rule
 

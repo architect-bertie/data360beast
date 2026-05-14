@@ -68,12 +68,17 @@ Public-safe operating references:
 - [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json):
   machine-readable phase routing, required sources, proof targets, and forbidden
   assumptions.
+- [docs/phase-coverage-matrix.json](../../docs/phase-coverage-matrix.json):
+  machine-readable coverage by phase, source, proof, helper, and frontier.
 - [docs/data360/help/index.md](../../docs/data360/help/index.md): 77 indexed Salesforce Help pages.
 - [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 - [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md): current Data 360 limits first, Data Services usage follow-through, and legacy CDP comparison rules.
 - [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
+- [docs/data360/cost-usage-sizing-contract.md](../../docs/data360/cost-usage-sizing-contract.md): cost and usage sizing contract for ingestion, query, insights, RAG, segmentation, activation, automation, and environment replay.
+- [docs/data360/develop-package-deployment-matrix.md](../../docs/data360/develop-package-deployment-matrix.md): develop, package, data kit, deploy, and readback matrix.
+- [docs/data360/mcp-tool-selection.md](../../docs/data360/mcp-tool-selection.md): tool-selection guidance for `sf-docs`, `data360`, `datacloud-mcp-query`, and direct `sf` REST calls.
 - [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
 - [docs/proof-ledger.md](../../docs/proof-ledger.md): public-safe evidence,
   caveats, confidence labels, labs references, and promotion status.
@@ -232,6 +237,9 @@ small and enforce these cross-cutting rules:
 - Choose external data architecture before payloads: ingestion, real-time
   ingestion, streaming ingestion, batch ingestion, live query, accelerated
   query, file federation, or hybrid.
+- Use the cost and usage sizing contract when a recommendation affects
+  ingestion volume, query volume, refresh cadence, RAG indexing, AI processing,
+  activation payloads, or multi-environment replay.
 - For limits, quotas, connector counts, licensing, billing, and feature
   availability, default to current Data 360 Limits and Guidelines. Follow Data
   Services Billable Usage Types when current docs route there. Treat Customer
@@ -245,6 +253,9 @@ small and enforce these cross-cutting rules:
 - Cost is a design gate: query only required fields, filter early, ingest
   selectively, aggregate before ingest when raw detail is unnecessary, and keep
   test data small.
+- Use `datacloud-mcp-query` only as a retrieve-phase accelerator for Query SQL,
+  list tables, and describe table. Use `data360` MCP or direct REST for broader
+  Connect API operations.
 
 ## Output Contract
 

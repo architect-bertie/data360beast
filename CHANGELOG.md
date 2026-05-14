@@ -5,6 +5,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added (Operational Hardening)
+- Executable Beast eval harness: `docs/beast-evals.json` plus
+  `tools/run_beast_evals.py` for deterministic prompt-answer checks around
+  endpoint discipline, data spaces, proof separation, RAG troubleshooting,
+  governance proof, activation proof, formula syntax, and confidence labels.
+- Portable install/layout smoke test: `tools/skill_install_smoke.py`.
+- MCP readiness check: `tools/mcp_readiness.py`, covering `sf-docs`,
+  `data360`, and optional `datacloud-mcp-query`.
+- Machine-readable phase coverage matrix:
+  `docs/phase-coverage-matrix.json`.
+- Cost and usage sizing contract:
+  `docs/data360/cost-usage-sizing-contract.md` plus
+  `tools/data360_cost_usage_estimator.py`.
+- Develop/package/deploy proof matrix:
+  `docs/data360/develop-package-deployment-matrix.md`.
+- MCP tool-selection guide:
+  `docs/data360/mcp-tool-selection.md`, including the decision to treat
+  `forcedotcom/datacloud-mcp-query` as an optional retrieve-plane accelerator,
+  not a replacement for `forcedotcom/d360-mcp-server`.
+- Release discipline guide and validator:
+  `docs/release-discipline.md` plus `tools/release_readiness.py`.
+
 ### Changed (Post-Phase-3 De-Clutter)
 - Extracted long doc-synced blocks from the four largest skill files into
   per-topic reference files under each skill's `references/` directory,

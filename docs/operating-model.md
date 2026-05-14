@@ -16,7 +16,9 @@ Data360 Beast uses one loop for Salesforce Data 360 work:
 9. Search OpenAPI for API shape.
 10. Apply proof ledger evidence.
 11. Validate in org when authorized.
-12. Label confidence as documented, tested, or inferred.
+12. Run cost/usage sizing when the design affects material volume, cadence,
+    AI/RAG processing, activation delivery, or environment replay.
+13. Label confidence as documented, tested, or inferred.
 
 ## Beast Preflight
 
@@ -41,6 +43,10 @@ routing table for:
 
 The matrix is the machine-readable contract. The human phase table below is a
 quick reference.
+
+Use [`phase-coverage-matrix.json`](phase-coverage-matrix.json) to understand
+which phases have strong source/proof/helper coverage and which still need
+Beast Labs evidence before promotion.
 
 ## Phase Router
 
@@ -117,6 +123,19 @@ workload -> freshness need -> governance need -> cost/I/O profile -> access patt
 | File federation | large object-store/open-table workloads | table metadata, partition/pruning probe |
 | Hybrid | governed core plus fresh/high-volume edge | proof for both ingested core and federated edge |
 
+## Cost And Usage Loop
+
+Use `docs/data360/cost-usage-sizing-contract.md` when the workload has
+meaningful ingestion, query, insight refresh, segmentation, activation, RAG,
+AI-model, automation, or multi-environment replay volume.
+
+```text
+business outcome -> workload driver -> billable usage family -> telemetry proof -> reduction option
+```
+
+The contract is qualitative. Do not turn it into a price quote without current
+Salesforce docs, Digital Wallet, contract, or Account Executive proof.
+
 ## RAG Retrieval Loop
 
 Use `docs/data360/rag-search-index-retriever-playbook.md` when the task
@@ -140,6 +159,9 @@ prompt resolution, agent action selection, final answer, and non-admin access.
 - OpenAPI is used for exact API shape.
 - Proof ledger evidence is used for working surfaces, validation readbacks, and
   known caveats.
+- `datacloud-mcp-query` is optional for retrieve-plane Query SQL, table listing,
+  and table description. It does not replace `data360` MCP for broad Connect
+  API operations.
 - Labs remains the home for golden scenarios, synthetic journeys, raw payload
   experiments, traces, and future cookbook candidates.
 - Live org validation upgrades confidence from documented to tested.

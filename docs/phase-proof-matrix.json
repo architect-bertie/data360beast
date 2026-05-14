@@ -149,6 +149,7 @@
       "owns": "Query SQL, Query v2, Profile API, metadata discovery, and query MCP usage.",
       "preferredTools": [
         "data360 MCP",
+        "datacloud-mcp-query",
         "sf CLI",
         "ConnectApi.CdpQuery",
         "metadata discovery"
@@ -349,10 +350,15 @@
         "sf-docs",
         "OpenAPI or Swagger",
         "Metadata API",
-        "data kit readback"
+        "data kit readback",
+        "develop-package deployment matrix",
+        "release readiness checks",
+        "cost and usage sizing contract"
       ],
       "requiredSources": [
         "Official Developer Guide docs for auth, APIs, metadata, and packageability",
+        "Develop/package/deploy matrix for environment gates and readback proof",
+        "Cost and usage sizing contract for multi-environment replay and test data volume",
         "OpenAPI for runtime API mechanics",
         "Target-org data kit and metadata coverage proof"
       ],

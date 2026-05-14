@@ -25,6 +25,9 @@ Data360 Beast references:
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
+- Cost and usage sizing contract: [docs/data360/cost-usage-sizing-contract.md](../../docs/data360/cost-usage-sizing-contract.md)
+- Develop/package/deploy matrix: [docs/data360/develop-package-deployment-matrix.md](../../docs/data360/develop-package-deployment-matrix.md)
+- MCP tool selection: [docs/data360/mcp-tool-selection.md](../../docs/data360/mcp-tool-selection.md)
 - Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
@@ -78,7 +81,8 @@ Default to these surfaces unless the user explicitly asks for a different runtim
 - Data 360 API / Direct API when tenant-side read performance is the point
 - Metadata API and data kits for deployable metadata
 - Apex `ConnectApi`
-- query MCP for local SQL discovery
+- `datacloud-mcp-query` for local SQL discovery only: Query SQL, list tables,
+  and describe table
 
 Treat community `sf data360` commands as optional helpers, not the primary architecture.
 
@@ -100,6 +104,9 @@ Use this for non-trivial Data 360 work:
 6. Use the Data360 Beast OpenAPI catalog for endpoint/method/schema lookup.
 7. Use Data 360 MCP `search -> payload_examples -> execute` for live org operations when available; install/configure it from [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) when missing.
 8. Validate with target-org metadata, data space, permission, status, query, count, or publish evidence.
+9. Run the cost and usage sizing contract when the design has meaningful
+   ingestion, query, insight, RAG, activation, automation, or environment-replay
+   volume.
 
 Do not copy long Help pages or endpoint dumps into skills. Keep durable detail in the project reference layer and retrieve exact docs on demand.
 
@@ -113,6 +120,9 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 - Data 360 development is not identical to standard Platform development. Confirm
   customer vs partner path, sandbox vs second org, data kit strategy,
   packageability, and metered test usage before recommending a lifecycle.
+- Treat develop/package/deploy work as its own proof lane: data kit membership,
+  metadata coverage, dependency order, target-org deploy validation, and
+  reauthorization readback are required before claiming portability.
 - Keep Data 360 metadata and Salesforce Platform metadata packaging separate
   unless current docs explicitly allow the target combination.
 - Data spaces, data kit membership, metadata coverage, and connector

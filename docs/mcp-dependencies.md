@@ -12,6 +12,7 @@ MCP servers next.
 | --- | --- | --- | --- |
 | `sf-docs` | https://github.com/kvirtue123/sf-docs-mcp | `$HOME/.data360beast/mcp-servers/sf-docs-mcp` | Fetch public `help.salesforce.com` and `developer.salesforce.com` pages as clean Markdown. |
 | `data360` | https://github.com/forcedotcom/d360-mcp-server | `$HOME/.data360beast/mcp-servers/d360-mcp-server` | Expose Salesforce Data 360 Connect API operations through `search`, `payload_examples`, and `execute`. |
+| `datacloud-mcp-query` | https://github.com/forcedotcom/datacloud-mcp-query | `$HOME/.data360beast/mcp-servers/datacloud-mcp-query` | Optional query-plane accelerator for Query SQL, table listing, and table description. |
 
 Note: `https://github.com/kvirtue/sf-docs-mcp` currently redirects to
 `https://github.com/kvirtue123/sf-docs-mcp`; use the canonical `kvirtue123`
@@ -120,6 +121,52 @@ The Data 360 MCP exposes three facade tools:
 
 Use the normal loop: `search -> payload_examples -> execute`.
 
+## Optional `datacloud-mcp-query`
+
+Requirements: Git, Python 3.11+, and a Salesforce org auth path supported by
+the server. Use this server when the task is only retrieve-plane work: Query
+SQL, list tables, or describe table metadata.
+
+```bash
+export DATA360BEAST_MCP_ROOT="${DATA360BEAST_MCP_ROOT:-$HOME/.data360beast/mcp-servers}"
+mkdir -p "$DATA360BEAST_MCP_ROOT"
+git clone https://github.com/forcedotcom/datacloud-mcp-query.git "$DATA360BEAST_MCP_ROOT/datacloud-mcp-query"
+cd "$DATA360BEAST_MCP_ROOT/datacloud-mcp-query"
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+```
+
+MCP client snippet for SF CLI auth:
+
+```json
+{
+  "mcpServers": {
+    "datacloud-query": {
+      "command": "/absolute/path/to/python3",
+      "args": [
+        "/absolute/path/to/.data360beast/mcp-servers/datacloud-mcp-query/server.py"
+      ],
+      "env": {
+        "SF_ORG_ALIAS": "my-datacloud-org"
+      }
+    }
+  }
+}
+```
+
+Decision note: treat `datacloud-mcp-query` as optional and query-specific. It
+does not replace `d360-mcp-server` for broader Connect API operations such as
+segments, activations, data actions, connector lifecycle, payload examples, or
+search index work. See
+[`docs/data360/mcp-tool-selection.md`](data360/mcp-tool-selection.md).
+
+Readiness check:
+
+```bash
+python3 tools/mcp_readiness.py
+```
+
 ## Agent Install Checklist
 
 After installing `architect-bertie/data360beast`, an agent should check:
@@ -128,9 +175,11 @@ After installing `architect-bertie/data360beast`, an agent should check:
    Salesforce docs are needed.
 2. Is `data360` available? If not, install it from the URL above when live Data
    360 org operations are authorized.
-3. Are credentials stored only in local MCP client config or environment
+3. Is `datacloud-mcp-query` useful for this task? Install it only when the
+   proof target is Query SQL, table listing, or table description.
+4. Are credentials stored only in local MCP client config or environment
    variables? Never commit tokens, client secrets, caches, org metadata, or
    customer data.
-4. If either MCP server is unavailable, continue with OpenAPI, official docs
+5. If an MCP server is unavailable, continue with OpenAPI, official docs
    fetched through approved browser/web tools, and label live validation as
    unavailable.

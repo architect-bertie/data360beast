@@ -12,15 +12,21 @@
     "quickstart": "https://architect-bertie.github.io/data360beast/agent-quickstart.md",
     "beastPreflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",
     "phaseProofMatrix": "https://architect-bertie.github.io/data360beast/phase-proof-matrix.json",
+    "phaseCoverageMatrix": "https://architect-bertie.github.io/data360beast/phase-coverage-matrix.json",
     "beastEvals": "https://architect-bertie.github.io/data360beast/beast-evals.md",
+    "beastEvalFixtures": "https://architect-bertie.github.io/data360beast/beast-evals.json",
     "skills": "https://architect-bertie.github.io/data360beast/skills.md",
     "mcpDependencies": "https://architect-bertie.github.io/data360beast/mcp-dependencies.md",
+    "releaseDiscipline": "https://architect-bertie.github.io/data360beast/release-discipline.md",
     "helpIndex": "https://architect-bertie.github.io/data360beast/data360/help/index.md",
     "developerGuideIndex": "https://architect-bertie.github.io/data360beast/data360/developer/index.md",
     "developerLearningMap": "https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md",
     "modelGalleryImplementationMap": "https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md",
     "limitsSourcePrecedence": "https://architect-bertie.github.io/data360beast/data360/limits-source-precedence.md",
     "ragSearchIndexRetrieverPlaybook": "https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md",
+    "costUsageSizingContract": "https://architect-bertie.github.io/data360beast/data360/cost-usage-sizing-contract.md",
+    "developPackageDeploymentMatrix": "https://architect-bertie.github.io/data360beast/data360/develop-package-deployment-matrix.md",
+    "mcpToolSelection": "https://architect-bertie.github.io/data360beast/data360/mcp-tool-selection.md",
     "operatingModel": "https://architect-bertie.github.io/data360beast/operating-model.md",
     "proofLedger": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
     "labsInterface": "https://architect-bertie.github.io/data360beast/labs-interface.md",
@@ -33,6 +39,7 @@
   "proofArtifacts": {
     "preflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",
     "phaseProofMatrix": "https://architect-bertie.github.io/data360beast/phase-proof-matrix.json",
+    "phaseCoverageMatrix": "https://architect-bertie.github.io/data360beast/phase-coverage-matrix.json",
     "proofLedger": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
     "labsInterface": "https://architect-bertie.github.io/data360beast/labs-interface.md",
     "evals": "https://architect-bertie.github.io/data360beast/beast-evals.md"
@@ -121,6 +128,18 @@
         "execute"
       ],
       "purpose": "Authorized live Data 360 Connect API operations"
+    },
+    {
+      "name": "datacloud-mcp-query",
+      "repository": "https://github.com/forcedotcom/datacloud-mcp-query",
+      "suggestedLocalPath": "$HOME/.data360beast/mcp-servers/datacloud-mcp-query",
+      "runtime": "python",
+      "tools": [
+        "query",
+        "list_tables",
+        "describe_table"
+      ],
+      "purpose": "Optional retrieve-plane accelerator for Query SQL, list tables, and describe table; not a replacement for d360-mcp-server"
     }
   ],
   "liveTestedAreas": [
@@ -157,9 +176,12 @@
   "proofArtifactStats": {
     "phaseProofMatrixEntries": 12,
     "promptLevelEvals": 8,
+    "executableEvalFixtures": 8,
     "proofLedgerEntries": 7,
     "docSyncedBlocksTotal": 38,
-    "specialistSkills": 17
+    "specialistSkills": 17,
+    "phaseCoverageMatrixEntries": 12,
+    "operationalHardeningTools": 6
   },
   "knownCaveats": [
     "Use current Data 360 Limits and Guidelines before legacy Customer Data Platform limits; follow Data Services Billable Usage Types when current docs route there",
@@ -176,7 +198,8 @@
     "DBT segment readback can normalize to includeDbt.models[]",
     "Approximate segment count can fail when the feature is disabled",
     "Segment member retrieval depends on a delta window",
-    "External activation destinations and search-index creation need enabled assets before proof-ledger promotion"
+    "External activation destinations and search-index creation need enabled assets before proof-ledger promotion",
+    "datacloud-mcp-query is optional for retrieve-plane SQL/list/describe operations and does not replace d360-mcp-server for broad Connect API work"
   ],
   "scores": {
     "connectApiReadiness": 9.7,
@@ -189,5 +212,5 @@
     "overall": 9.9
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-05-13"
+  "lastReviewed": "2026-05-14"
 }

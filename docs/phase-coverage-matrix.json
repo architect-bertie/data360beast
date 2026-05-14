@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Data360 Beast Phase Coverage Matrix",
+  "updated": "2026-05-14",
+  "purpose": "Machine-readable view of source, proof, helper, and frontier coverage by Data 360 phase. This complements docs/phase-proof-matrix.json, which owns routing and proof expectations.",
+  "coverageLevels": {
+    "strong": "Public docs and specialist guidance exist, plus proof ledger or helper coverage.",
+    "documented": "Official-doc or OpenAPI-backed guidance exists, but target-org proof still depends on implementation.",
+    "frontier": "Design guidance exists, but live proof should be generated in Beast Labs before promotion.",
+    "lab-required": "Scenario-rich proof belongs in data360beast-labs before core guidance should be raised."
+  },
+  "phases": [
+    {
+      "phase": "connect",
+      "specialistSkill": "sf-datacloud-connect",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "64 Help article distillation plus 140+ connector catalog",
+      "openApiCoverage": "Connect API payload mechanics via sf-datacloud-connectapi",
+      "proofLedgerCoverage": "candidate; connection-specific proof still belongs in Labs",
+      "helperCoverage": "data360 MCP for broad operations; connector catalog reference",
+      "frontier": "Connector-specific create/test/readback recipes by source family"
+    },
+    {
+      "phase": "prepare",
+      "specialistSkill": "sf-datacloud-prepare",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "prepare/model Help distillation and formula syntax guidance",
+      "openApiCoverage": "stream, DLO, and transform mechanics through OpenAPI when supplied",
+      "proofLedgerCoverage": "BEAST-PROOF-006 documents formula syntax boundary",
+      "helperCoverage": "audit and docs-watch tools; no live stream helper yet",
+      "frontier": "Repeatable stream/transform status probes by connector and data space"
+    },
+    {
+      "phase": "harmonize",
+      "specialistSkill": "sf-datacloud-harmonize",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "DMO, mapping, relationship, identity, graph, and model-gallery maps",
+      "openApiCoverage": "mapping and DMO endpoints through OpenAPI when supplied",
+      "proofLedgerCoverage": "documented; model-gallery guidance requires target metadata proof",
+      "helperCoverage": "model-gallery map and metadata-agentic scoring",
+      "frontier": "Live identity-resolution and relationship-path proof by scenario"
+    },
+    {
+      "phase": "govern",
+      "specialistSkill": "sf-datacloud-governance",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "governance, tags, classifications, data spaces, and policy references",
+      "openApiCoverage": "metadata and policy readback paths when available",
+      "proofLedgerCoverage": "documented; non-admin proof remains scenario-specific",
+      "helperCoverage": "policy-enforcement matrix",
+      "frontier": "Non-admin cross-surface access fixtures and propagation timing proof"
+    },
+    {
+      "phase": "retrieve",
+      "specialistSkill": "sf-datacloud-retrieve",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "query/explore docs plus data-space API notes",
+      "openApiCoverage": "Query SQL, Query v2, Profile API, and metadata endpoints",
+      "proofLedgerCoverage": "BEAST-PROOF-001 promoted",
+      "helperCoverage": "datacloud-mcp-query optional for SQL/list/describe; data360 MCP for broader APIs",
+      "frontier": "Governed-user query packs by data space"
+    },
+    {
+      "phase": "insight",
+      "specialistSkill": "sf-datacloud-calculated-insights",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "insight authoring, CI SQL rules, and limits gate",
+      "openApiCoverage": "CI lifecycle endpoints through OpenAPI when supplied",
+      "proofLedgerCoverage": "BEAST-PROOF-005 candidate and CI SQL documented patterns",
+      "helperCoverage": "ci_sql_guard.py",
+      "frontier": "Published CIO output proof across common grains"
+    },
+    {
+      "phase": "semantic",
+      "specialistSkill": "sf-datacloud-semantic-layer",
+      "sourceCoverage": "documented",
+      "officialDocsCoverage": "Phase 2 semantic-layer docs distillation",
+      "openApiCoverage": "metadata/deployment coverage depends on current org and docs",
+      "proofLedgerCoverage": "not yet promoted",
+      "helperCoverage": "none beyond routing and metadata guidance",
+      "frontier": "Metric readback and dashboard parity proof"
+    },
+    {
+      "phase": "ai-search",
+      "specialistSkill": "sf-datacloud-unstructured-retrieval",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "RAG playbook, process-content, search-index, retriever, and limits docs",
+      "openApiCoverage": "query/vector/hybrid paths where supported",
+      "proofLedgerCoverage": "BEAST-PROOF-005 candidate and BEAST-PROOF-007 documented",
+      "helperCoverage": "RAG debug chain and eval guidance",
+      "frontier": "Search-index creation, retriever output, citation, and access proof in Labs"
+    },
+    {
+      "phase": "segment",
+      "specialistSkill": "sf-datacloud-segment",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "segmentation docs and limits gate",
+      "openApiCoverage": "segment REST and Apex ConnectApi patterns",
+      "proofLedgerCoverage": "BEAST-PROOF-002 promoted",
+      "helperCoverage": "data360_accelerator.py segment snippets",
+      "frontier": "Member retrieval and publish-to-activation pickup by scenario"
+    },
+    {
+      "phase": "act",
+      "specialistSkill": "sf-datacloud-act",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "activation limits and activation target cards",
+      "openApiCoverage": "activation targets and activations through OpenAPI when supplied",
+      "proofLedgerCoverage": "BEAST-PROOF-004 promoted for target readback",
+      "helperCoverage": "activation-target-cards reference",
+      "frontier": "External destination delivery proof with enabled targets"
+    },
+    {
+      "phase": "automation",
+      "specialistSkill": "sf-datacloud-automation",
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "Data Cloud-triggered flows, activation-triggered flows, API activations, and flow editing",
+      "openApiCoverage": "data action targets/actions through OpenAPI when supplied",
+      "proofLedgerCoverage": "BEAST-PROOF-003 promoted for configuration proof",
+      "helperCoverage": "flow and activation references",
+      "frontier": "Flow run evidence, payload delivery, and monitoring signals"
+    },
+    {
+      "phase": "develop-package",
+      "specialistSkill": "sf-datacloud",
+      "sourceCoverage": "documented",
+      "officialDocsCoverage": "Data kits and development lifecycle distillation",
+      "openApiCoverage": "metadata/data kit coverage depends on target asset type",
+      "proofLedgerCoverage": "not yet promoted",
+      "helperCoverage": "develop-package deployment matrix and release readiness checks",
+      "frontier": "Sandbox-to-production deploy validation and data kit membership proof"
+    }
+  ]
+}

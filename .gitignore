@@ -11,6 +11,9 @@ docs/data360/*
 !docs/data360/model-gallery-implementation-map.md
 !docs/data360/rag-search-index-retriever-playbook.md
 !docs/data360/docs-watch-operating-model.md
+!docs/data360/cost-usage-sizing-contract.md
+!docs/data360/develop-package-deployment-matrix.md
+!docs/data360/mcp-tool-selection.md
 !docs/data360/help/
 docs/data360/help/*
 !docs/data360/help/index.md
@@ -25,7 +28,12 @@ tools/*
 !tools/data360_openapi_catalog.py
 !tools/export_sf_docs_cache.py
 !tools/github_readiness.sh
+!tools/mcp_readiness.py
 !tools/refresh_skills_from_sf_docs.py
+!tools/release_readiness.py
+!tools/run_beast_evals.py
 !tools/sf_docs_developer_guide_crawl.mjs
 !tools/sf_docs_help_crawl.mjs
+!tools/skill_install_smoke.py
+!tools/data360_cost_usage_estimator.py
 !tools/validate_proof_compliance.py
