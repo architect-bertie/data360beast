@@ -5,6 +5,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed (Execution Architecture)
+- Reframed Data360 Beast as an execution system rooted in proven knowledge with
+  the canonical Think -> Act -> Prove -> Learn loop.
+- Updated the operating model, router skill, public site, llms files, manifests,
+  phase proof matrix, MCP tool selection, and Salesforce `sf-skills` companion
+  contract so docs/skills/OpenAPI planning precedes MCP/API/CLI action.
+- Added the explicit execution outcome contract: skills should produce
+  execution-ready paths for authorized, compatible Data 360 orgs after
+  preflight confirms org, data space, permissions, available tools, and
+  mutation approval.
+
 ### Added (Salesforce sf-skills Data 360 Companion)
 - Public companion contract:
   `docs/data360/sf-skills-data360-companion.md` and

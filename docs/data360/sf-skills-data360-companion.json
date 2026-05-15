@@ -34,7 +34,8 @@
   "authorityRules": [
     "Data360 Beast is the authority for source hierarchy, proof labels, official-doc routing, limits precedence, OpenAPI discipline, public-safe Labs promotion, and confidence.",
     "sf-docs remains the authority path for current Salesforce Help and Developer documentation.",
-    "The Salesforce sf-skills companion is an execution and debugging playbook layer for sf data360 command workflows.",
+    "The Salesforce sf-skills companion helps plan execution and debugging paths for sf data360 command workflows.",
+    "Actual org actions happen through approved CLI, MCP, API, metadata, or helper tools after Beast preflight confirms authorization.",
     "Do not treat forcedotcom/sf-skills as official Data 360 documentation.",
     "Do not treat a successful sf data360 command as proof outside its matching phase without Beast readback requirements."
   ],
@@ -113,11 +114,10 @@
     }
   ],
   "executionLoop": [
-    "Run Beast preflight and phase routing first.",
-    "Use sf-docs for current official Salesforce setup, permission, limit, licensing, and behavior claims.",
-    "Use OpenAPI, data360 MCP, datacloud-mcp-query, or direct sf REST for API shape and readback.",
-    "Use the selected sf-skills companion skill only for sf data360 runtime guidance, templates, readiness checks, and command gotchas.",
-    "Promote only distilled public-safe evidence into Beast; keep scenario bodies and org-connected experiments in Labs."
+    "Think with Beast preflight, phase routing, sf-docs, OpenAPI, Beast specialists, proof ledger, and selected sf-skills companion guidance.",
+    "Act with approved MCP, API, CLI, metadata, or helper tools only after org, data space, permissions, available tools, and mutation approval are clear.",
+    "Prove with returned ID, status, count, data space, metadata, query result, log, event, or delivery signal.",
+    "Learn by promoting only distilled public-safe evidence into Beast; keep scenario bodies and org-connected experiments in Labs."
   ],
   "weeklyWatchRules": [
     "Check only the approved companionSkills list for upstream drift.",

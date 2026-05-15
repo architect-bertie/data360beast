@@ -1,6 +1,7 @@
 # Salesforce sf-skills Data 360 Companion
 
-Data360 Beast is the Data 360 source-of-truth brain. Salesforce
+Data360 Beast is the Data 360 source-of-truth brain and execution router.
+Salesforce
 [`forcedotcom/sf-skills`](https://github.com/forcedotcom/sf-skills) can be
 installed beside Beast as a Data 360 execution and debugging companion.
 
@@ -14,8 +15,10 @@ outside the Beast install path.
   precedence, OpenAPI discipline, public-safe Labs promotion, and confidence.
 - `sf-docs` remains the official-doc path for current Salesforce Help and
   Developer documentation.
-- The Salesforce `sf-skills` companion owns practical `sf data360` command
-  workflows, readiness checks, templates, and CLI gotchas.
+- The Salesforce `sf-skills` companion helps plan practical `sf data360`
+  command workflows, readiness checks, templates, and CLI gotchas.
+- Actual org actions happen through approved CLI, MCP, API, metadata, or helper
+  tools after Beast preflight confirms authorization.
 - Do not treat `forcedotcom/sf-skills` as official Data 360 documentation.
 - Do not vendor upstream `sf-skills` bodies into this repo.
 
@@ -68,18 +71,21 @@ Agentforce Vibes extension package or local `node_modules` package folders.
 
 ## Operating Loop
 
-1. Run Beast preflight.
-2. Use the phase proof matrix to choose the Data 360 phase and Beast
-   specialist.
-3. Fetch current official Salesforce docs with `sf-docs` when setup,
-   permissions, limits, licensing, or behavior can drift.
-4. Use OpenAPI, `data360` MCP, `datacloud-mcp-query`, or direct `sf` REST for
-   API shape and readback.
-5. Use the matching Salesforce `sf-skills` companion skill when the task needs
-   `sf data360` command execution, templates, readiness classification, or CLI
-   troubleshooting.
-6. Promote only distilled public-safe evidence into Beast; keep scenario bodies
-   and org-connected experiments in Labs.
+Use the same four layers as Beast:
+
+1. **Think** with Beast preflight, phase routing, `sf-docs`, OpenAPI, Beast
+   specialists, and the matching Salesforce `sf-skills` companion guidance.
+2. **Act** with approved MCP, API, CLI, metadata, or helper tools only after
+   the org, data space, permissions, tools, and mutation approval are clear.
+3. **Prove** with returned ID, status, count, metadata, query result, log,
+   event, or delivery signal.
+4. **Learn** by promoting only distilled public-safe evidence into Beast; keep
+   scenario bodies and org-connected experiments in Labs.
+
+The companion should help produce an execution-ready path for an authorized,
+compatible Data 360 org. If authorization, feature availability, permissions,
+or required tools are missing, stop with a blocked-with-reason result instead
+of guessing.
 
 ## Upstream Watch
 

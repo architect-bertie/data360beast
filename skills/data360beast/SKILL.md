@@ -5,8 +5,18 @@ description: Use this skill for Salesforce Data 360 architecture, implementation
 
 # Data360 Beast
 
-Data360 Beast turns Salesforce Data 360 work into a proof-driven agent loop. Use
-it whenever the user is designing, building, validating, or debugging Data 360.
+Data360 Beast turns Salesforce Data 360 work into a proof-driven execution
+loop. Use it whenever the user is designing, building, validating, executing, or
+debugging Data 360.
+
+Beast is not only a knowledge system. It is an execution system rooted in
+proven knowledge with proof and learning loops. The skill outcome should be
+execution-ready for the target org, not just advice:
+
+```text
+Execute in any authorized, compatible Data 360 org after preflight confirms
+org, data space, permissions, available tools, and mutation approval.
+```
 
 ## Companion MCP Setup (do this first)
 
@@ -50,31 +60,30 @@ an incorrect production mutation, or a security boundary violation.
 
 ## Operating Loop
 
-1. Run Beast preflight: business goal, target org, API version, data space,
-   persona, asset lifecycle, authorization boundary, available tools, and proof
-   target.
-2. Classify the phase with the proof matrix: connect, prepare, harmonize,
-   govern, retrieve, insight, semantic layer, AI/search, segment, act,
-   automation, or develop/package.
-3. Identify the object layer and execution plane when relevant: DSO, DLO, DMO,
-   CIO, data graph, query plane, processing job, analytics serving path, or
-   orchestration.
-4. Identify the proof target: docs-only guidance, payload generation, metadata
-   discovery, live validation, troubleshooting, or customer explanation.
-5. Fetch official Salesforce docs on demand for current setup, limits,
-   permissions, and behavior. If `sf-docs` is unavailable, use
-   [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md) for the install
-   source or label the answer as docs-unverified.
-   For limits, use
-   [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md):
-   current Data 360 limits first, Data Services usage when referenced, and
-   legacy Customer Data Platform limits only when explicitly in scope.
-6. Use OpenAPI for Connect API method, path, params, body schema, response
-   schema, and version requirements.
-7. Apply proof ledger evidence for known working payloads and known gotchas.
-8. Validate against the target org when authorized. Prefer returned ID,
-   readback, status, count, data space, metadata, and sample query proof.
-9. State the confidence level: documented, tested, or inferred.
+Use the four-layer loop from
+[docs/operating-model.md](../../docs/operating-model.md):
+
+```text
+Think -> Act -> Prove -> Learn
+```
+
+1. **Think** with Beast preflight, phase proof matrix, official docs, OpenAPI,
+   Beast specialists, proof ledger evidence, and optional Salesforce `sf-skills`
+   companion guidance.
+2. **Act** only after authorization is clear, using the right MCP, direct `sf`
+   REST, `sf data360` CLI, metadata/deployment tool, or helper script.
+3. **Prove** with returned ID, readback, status, count, data space, metadata,
+   query result, log, event, or delivery signal.
+4. **Learn** by promoting only distilled public-safe lessons into Beast or
+   routing scenario-heavy work to Labs.
+
+For limits, use
+[docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md):
+current Data 360 limits first, Data Services usage when referenced, and legacy
+Customer Data Platform limits only when explicitly in scope.
+
+End non-trivial responses as one of: execution-ready plan, executed-and-proven
+result, done-but-waiting result, blocked-with-reason, or lab-required.
 
 ## Source Hierarchy
 
@@ -99,6 +108,10 @@ the authority for source order, proof labels, limits precedence, official-doc
 routing, OpenAPI discipline, confidence, and Labs promotion. `sf-docs` remains
 the official-doc path for current Salesforce setup, permission, limit,
 licensing, and behavior claims.
+
+The companion helps with command planning and runtime gotchas. Actual org
+actions still happen through approved CLI, MCP, API, metadata, or helper tools
+inside the preflight authorization boundary.
 
 Install or dry-run the companion with:
 
@@ -155,9 +168,12 @@ For non-trivial work, capture or infer:
 - asset lifecycle: disposable lab, sandbox, or production
 - authorization boundary: docs-only, metadata read, live validation, create or
   update, or production mutation
-- available tools: `sf-docs`, OpenAPI/Swagger, `data360` MCP,
-  `datacloud-mcp-query`, direct `sf` REST, optional Salesforce `sf-skills`
-  Data 360 companion, and user-provided files
+- available thinking sources: `sf-docs`, OpenAPI/Swagger, Beast specialists,
+  proof ledger, optional Salesforce `sf-skills` Data 360 companion, and
+  user-provided files
+- available action/proof tools: `data360` MCP,
+  `datacloud-mcp-query`, direct `sf` REST, `sf data360` CLI commands planned
+  through the companion, metadata/deployment tools, and helper scripts
 - proof target and confidence label
 
 If a required fact is missing, continue only when the task can safely proceed

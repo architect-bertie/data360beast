@@ -1,9 +1,23 @@
 # Data360 Beast Full Agent Context
 
 Data360 Beast is a curated Salesforce Data 360 skill pack for agentic IDEs.
-It is not a Salesforce docs mirror. It gives agents a top-level Beast router,
-16 specialist Data 360 skills, a source hierarchy, preflight contract, phase
-proof matrix, API workflow, eval checks, and validation contract.
+It is not a Salesforce docs mirror. It is an execution system rooted in proven
+knowledge with proof and learning loops. It gives agents a top-level Beast
+router, 16 specialist Data 360 skills, a source hierarchy, preflight contract,
+phase proof matrix, API workflow, eval checks, and validation contract.
+
+Core model:
+
+```text
+Think with Beast, docs, OpenAPI, and skills.
+Act with MCPs, APIs, and CLI.
+Prove with readback.
+Learn through Labs and the proof ledger.
+```
+
+The skill outcome should be execution-ready for the target org, not just
+advice. Execute only in an authorized, compatible Data 360 org after preflight
+confirms org, data space, permissions, available tools, and mutation approval.
 
 ## Entry Points
 
@@ -12,6 +26,7 @@ proof matrix, API workflow, eval checks, and validation contract.
 - Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - Compact LLM file: https://architect-bertie.github.io/data360beast/llms.txt
 - Beast preflight: https://architect-bertie.github.io/data360beast/beast-preflight.md
+- Operating model: https://architect-bertie.github.io/data360beast/operating-model.md
 - Phase proof matrix: https://architect-bertie.github.io/data360beast/phase-proof-matrix.json
 - Beast evals: https://architect-bertie.github.io/data360beast/beast-evals.md
 - Skill map: https://architect-bertie.github.io/data360beast/skills.md
@@ -98,25 +113,20 @@ proof matrix, API workflow, eval checks, and validation contract.
 
 ## Operating Loop
 
-1. Run Beast preflight: target org, API version, data space, persona, asset
-   lifecycle, authorization boundary, available tools, and proof target.
-2. Classify the phase with the proof matrix.
-3. Identify the object layer and likely execution plane.
-4. For model design, choose the public model-gallery subject area, anchor DMO,
-   grain, and relationship path.
-5. For RAG, choose ADL versus manual setup, source object path, field roles,
-   chunking, search type, retriever filters, and prompt/action scope.
-6. For external data, choose ingestion, live query, accelerated query, file federation, or hybrid.
-7. Apply limits-source precedence when limits, billing, licensing, connector
-   counts, quotas, or feature availability matter.
-8. Identify the proof target.
-9. Fetch official docs on demand.
-10. Search OpenAPI for the API shape.
-11. Use the Salesforce `sf-skills` Data 360 companion for `sf data360`
-    command execution guidance when the task calls for it.
-12. Apply proof ledger evidence.
-13. Validate in org when authorized.
-14. Label confidence as documented, tested, or inferred.
+1. Think: run Beast preflight.
+2. Think: classify the phase with the proof matrix.
+3. Think: fetch official docs on demand when facts can drift.
+4. Think: search OpenAPI for exact API shape.
+5. Think: use Beast specialists and optional Salesforce `sf-skills` companion
+   guidance to prepare the execution path.
+6. Act: run MCP, API, CLI, metadata, or helper operations only inside the
+   authorization boundary.
+7. Prove: validate with returned ID, status, count, data space, metadata, query
+   result, log, event, or delivery signal.
+8. Answer: report executed-and-proven, execution-ready, done-but-waiting,
+   blocked-with-reason, inferred, or lab-required.
+9. Learn: promote reusable public-safe lessons into Beast or route scenarios to
+   Labs.
 
 ## Deterministic Proof Artifacts
 

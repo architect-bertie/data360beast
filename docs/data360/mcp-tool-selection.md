@@ -1,6 +1,11 @@
 # Data 360 MCP Tool Selection
 
-Use this guide when deciding between companion MCP servers for Data360 Beast.
+Use this guide when choosing **action and proof tools** for Data360 Beast.
+Thinking happens first with Beast preflight, official docs, OpenAPI, specialist
+skills, and optional Salesforce `sf-skills` companion guidance. MCPs, APIs, and
+CLI commands act only after the org, data space, permissions, tools, and
+mutation approval are clear.
+
 The repo does not vendor MCP servers; install and configure them locally when
 the proof target requires them.
 
@@ -12,11 +17,12 @@ the proof target requires them.
 | Broad Data 360 Connect API operations, payload examples, and API families | `data360` (`forcedotcom/d360-mcp-server`) |
 | Fast Query SQL, list tables, and describe table operations | `datacloud-mcp-query` (`forcedotcom/datacloud-mcp-query`) |
 | One-off REST call with existing org auth | `sf api request rest --target-org <alias>` |
-| `sf data360` command playbooks, readiness checks, templates, and CLI gotchas | Salesforce `sf-skills` Data 360 companion subset |
+| Choosing `sf data360` command playbooks, readiness checks, templates, and CLI gotchas before action | Salesforce `sf-skills` Data 360 companion subset |
 
 The Salesforce `sf-skills` companion is not an MCP server and does not replace
-`sf-docs`. Use it after Beast phase routing when the task needs execution
-guidance for `sf data360` command workflows. See
+`sf-docs`. Use it in the Think layer after Beast phase routing when the task
+needs execution guidance for `sf data360` command workflows. The actual action
+still happens through CLI, MCP, API, metadata, or helper tools. See
 [`sf-skills-data360-companion.md`](sf-skills-data360-companion.md).
 
 ## `datacloud-mcp-query` Evaluation

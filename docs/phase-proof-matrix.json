@@ -28,6 +28,47 @@
     "authority": "The companion provides sf data360 command playbooks, readiness checks, templates, and CLI gotchas. It does not replace sf-docs, OpenAPI, Data 360 MCP, direct sf REST readback, or Beast proof labels.",
     "naming": "Use Data 360 in Beast-facing guidance; preserve upstream *-datacloud names only for exact forcedotcom/sf-skills folders, package references, or command surfaces."
   },
+  "toolLayerPolicy": {
+    "model": "Think -> Act -> Prove -> Learn",
+    "thinkingSources": [
+      "Beast preflight",
+      "phase proof matrix",
+      "sf-docs",
+      "OpenAPI or Swagger",
+      "Beast specialist skills",
+      "Salesforce sf-skills Data 360 companion",
+      "proof ledger"
+    ],
+    "executionTools": [
+      "data360 MCP",
+      "datacloud-mcp-query",
+      "direct sf REST",
+      "sf data360 CLI",
+      "Metadata API or deployment tools",
+      "repo helper scripts"
+    ],
+    "proofSignals": [
+      "returned ID",
+      "status",
+      "count",
+      "data space",
+      "metadata",
+      "query result",
+      "log or event",
+      "destination delivery signal"
+    ],
+    "learningTargets": [
+      "proof ledger",
+      "specialist skill update",
+      "operating-model update",
+      "Beast Labs when scenario proof is still needed"
+    ]
+  },
+  "executionOutcomePolicy": {
+    "default": "Every non-trivial skill response should end in one of: execution-ready plan, executed-and-proven result, done-but-waiting result, blocked-with-reason, or lab-required.",
+    "executionPromise": "Execute in any authorized, compatible Data 360 org after preflight confirms org, data space, permissions, available tools, and mutation approval.",
+    "blockedRule": "If authorization, compatibility, permission, feature availability, required tools, or proof readback is missing, stop with a blocked-with-reason result instead of guessing."
+  },
   "confidenceLabels": {
     "documented": "Supported by current official Salesforce docs or OpenAPI, without target-org proof.",
     "tested": "Validated in an explicitly authorized live org with readback evidence.",

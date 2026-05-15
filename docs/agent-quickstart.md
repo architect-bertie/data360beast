@@ -5,6 +5,19 @@ API, DMO modeling, segmentation, activation, governance, search, semantic
 models, calculated insights, or org validation. Installing the repo gives the
 agent the Beast router plus the specialist `sf-datacloud-*` skills.
 
+The operating model is simple:
+
+```text
+Think with Beast, docs, OpenAPI, and skills.
+Act with MCPs, APIs, and CLI.
+Prove with readback.
+Learn through Labs and the proof ledger.
+```
+
+The skill outcome should be execution-ready for the target org, not just
+advice. Execute only in an authorized, compatible Data 360 org after preflight
+confirms org, data space, permissions, available tools, and mutation approval.
+
 ## Install
 
 ```bash
@@ -52,20 +65,20 @@ If your IDE does not support skill installation, load these files in order:
    authorization boundary, tools, and proof target
 4. `docs/phase-proof-matrix.json` for deterministic specialist routing and
    minimum proof targets
-5. `docs/skills.md`
-6. `docs/mcp-dependencies.md` if companion MCP tools are missing
-7. `docs/data360/sf-skills-data360-companion.md` when `sf data360` execution
+5. `docs/operating-model.md` for Think -> Act -> Prove -> Learn
+6. `docs/skills.md`
+7. `docs/mcp-dependencies.md` if companion MCP tools are missing
+8. `docs/data360/sf-skills-data360-companion.md` when `sf data360` execution
    playbooks are useful
-8. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
-9. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
+9. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
+10. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
    model grain, relationship paths, or Data Graph shape
-10. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
+11. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
    Agentforce Data Libraries, search indexes, chunking, retrievers, prompt
    grounding, or Flow/Apex retrieval paths
-11. `docs/llms.txt`
-12. The one task-specific doc you need: `operating-model.md`,
-   `proof-ledger.md`, `labs-interface.md`, `scorecard.md`, or a phase-specific
-   reference.
+12. `docs/llms.txt`
+13. The one task-specific doc you need: `proof-ledger.md`,
+   `labs-interface.md`, `scorecard.md`, or a phase-specific reference.
 
 ## Good Starting Prompts
 
