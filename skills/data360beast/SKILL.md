@@ -1,6 +1,6 @@
 ---
 name: data360beast
-description: Use this skill for Salesforce Data 360 or Data Cloud architecture, implementation, troubleshooting, Connect API payloads, metadata discovery, query SQL, calculated insights, semantic layer, search, segmentation, activation, data actions, governance, data spaces, and agentic validation workflows.
+description: Use this skill for Salesforce Data 360 architecture, implementation, troubleshooting, Connect API payloads, metadata discovery, query SQL, calculated insights, semantic layer, search, segmentation, activation, data actions, governance, data spaces, and agentic validation workflows.
 ---
 
 # Data360 Beast
@@ -10,17 +10,43 @@ it whenever the user is designing, building, validating, or debugging Data 360.
 
 ## Companion MCP Setup (do this first)
 
-Without these two servers, the agent falls back to web search and cannot
-retrieve official Salesforce docs on demand or execute live Data 360 operations:
+Without these two servers the agent runs in degraded mode:
 
-1. **`sf-docs`** — fetches `help.salesforce.com` and `developer.salesforce.com`
-   pages as clean Markdown. Install: [docs/mcp-dependencies.md §sf-docs](../../docs/mcp-dependencies.md).
-2. **`data360`** — exposes Data 360 Connect API tools (`search`,
-   `payload_examples`, `execute`). Install: [docs/mcp-dependencies.md §data360](../../docs/mcp-dependencies.md).
+1. **sf-docs** - fetches help.salesforce.com and developer.salesforce.com
+   pages as clean Markdown. Install: docs/mcp-dependencies.md.
+2. **data360** - exposes Data 360 Connect API tools (search,
+   payload_examples, execute). Install: docs/mcp-dependencies.md.
 
-If neither is available, label answers as `docs-unverified` or
-`live-validation-unavailable` and continue with the skill pack's static
-references and OpenAPI catalog.
+### Degraded-Mode Rules
+
+Apply these rules when one or both companion MCPs are unavailable.
+
+**When sf-docs is unavailable**
+
+- Use only static references listed in this skill.
+- Do not state limits, quotas, feature availability, or billing figures from memory.
+- Label answers: source: docs-unverified (sf-docs unavailable)
+- Lower confidence to inferred for any claim requiring a live doc check.
+
+**When data360 MCP is unavailable**
+
+- Do not attempt live Connect API calls or org validation.
+- Generate payloads from OpenAPI shape and proof ledger evidence only.
+- Label answers: validation: live-validation-unavailable (data360 MCP unavailable)
+- Do not fabricate returned IDs, status codes, or org-specific behavior.
+
+**When both are unavailable**
+
+- Restrict to architecture guidance and structural payload design from static references.
+- Open every response with: [degraded mode: static references only]
+- Stop rather than guess for: field names not in the OpenAPI spec, current feature
+  availability, limit values, connector behavior, and production mutation steps.
+
+**Stop condition**
+
+Stop and ask for authoritative input when: both MCPs are unavailable, the fact
+is absent from every static reference, and a wrong answer would cause data loss,
+an incorrect production mutation, or a security boundary violation.
 
 ## Operating Loop
 
@@ -62,6 +88,32 @@ Companion MCP install paths are documented in
 [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md). Do not assume
 `sf-docs` or `data360` MCP servers are bundled with the skill pack.
 
+## Salesforce sf-skills Data 360 Companion
+
+After installing Beast, agents can optionally install the Salesforce
+`forcedotcom/sf-skills` Data 360 companion subset for `sf data360` execution
+playbooks, readiness checks, command templates, and CLI troubleshooting.
+
+Use the companion only after Beast preflight and phase routing. Beast remains
+the authority for source order, proof labels, limits precedence, official-doc
+routing, OpenAPI discipline, confidence, and Labs promotion. `sf-docs` remains
+the official-doc path for current Salesforce setup, permission, limit,
+licensing, and behavior claims.
+
+Install or dry-run the companion with:
+
+```bash
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run
+```
+
+The companion contract is documented in
+[docs/data360/sf-skills-data360-companion.md](../../docs/data360/sf-skills-data360-companion.md)
+and the router reference is
+[references/sf-skills-data360-companion.md](references/sf-skills-data360-companion.md).
+Use **Data 360** in Beast-facing guidance; preserve upstream `*-datacloud`
+names only for exact Salesforce `sf-skills` folders, install paths, package
+metadata, or command surfaces.
+
 Public-safe operating references:
 - [docs/beast-preflight.md](../../docs/beast-preflight.md): required envelope,
   tool inventory, proof target, and mutation gate.
@@ -79,6 +131,7 @@ Public-safe operating references:
 - [docs/data360/cost-usage-sizing-contract.md](../../docs/data360/cost-usage-sizing-contract.md): cost and usage sizing contract for ingestion, query, insights, RAG, segmentation, activation, automation, and environment replay.
 - [docs/data360/develop-package-deployment-matrix.md](../../docs/data360/develop-package-deployment-matrix.md): develop, package, data kit, deploy, and readback matrix.
 - [docs/data360/mcp-tool-selection.md](../../docs/data360/mcp-tool-selection.md): tool-selection guidance for `sf-docs`, `data360`, `datacloud-mcp-query`, and direct `sf` REST calls.
+- [docs/data360/sf-skills-data360-companion.md](../../docs/data360/sf-skills-data360-companion.md): Salesforce `sf-skills` Data 360 companion contract for optional `sf data360` execution playbooks.
 - [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
 - [docs/proof-ledger.md](../../docs/proof-ledger.md): public-safe evidence,
   caveats, confidence labels, labs references, and promotion status.
@@ -102,8 +155,9 @@ For non-trivial work, capture or infer:
 - asset lifecycle: disposable lab, sandbox, or production
 - authorization boundary: docs-only, metadata read, live validation, create or
   update, or production mutation
-- available tools: `sf-docs`, OpenAPI/Swagger, `data360` MCP, `sf` CLI, and
-  user-provided files
+- available tools: `sf-docs`, OpenAPI/Swagger, `data360` MCP,
+  `datacloud-mcp-query`, direct `sf` REST, optional Salesforce `sf-skills`
+  Data 360 companion, and user-provided files
 - proof target and confidence label
 
 If a required fact is missing, continue only when the task can safely proceed

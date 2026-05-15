@@ -22,6 +22,7 @@ python3 tools/run_beast_evals.py
 python3 tools/skill_install_smoke.py
 python3 tools/release_readiness.py
 python3 tools/mcp_readiness.py --json
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run
 python3 tools/audit_indexed_docs.py
 ```
 

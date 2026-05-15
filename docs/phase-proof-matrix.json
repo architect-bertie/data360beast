@@ -22,6 +22,12 @@
     "legacyCdpUse": "Use Customer Data Platform limits only when the user explicitly mentions CDP or Customer Data Platform, the target org is known to operate under that legacy license, or the answer is a labeled comparison.",
     "unknownLicense": "If license posture is unknown, answer from current Data 360 docs and call out that legacy CDP orgs can differ."
   },
+  "companionExecutionPolicy": {
+    "source": "docs/data360/sf-skills-data360-companion.json",
+    "default": "Use the Salesforce sf-skills Data 360 companion only after Beast preflight and phase routing.",
+    "authority": "The companion provides sf data360 command playbooks, readiness checks, templates, and CLI gotchas. It does not replace sf-docs, OpenAPI, Data 360 MCP, direct sf REST readback, or Beast proof labels.",
+    "naming": "Use Data 360 in Beast-facing guidance; preserve upstream *-datacloud names only for exact forcedotcom/sf-skills folders, package references, or command surfaces."
+  },
   "confidenceLabels": {
     "documented": "Supported by current official Salesforce docs or OpenAPI, without target-org proof.",
     "tested": "Validated in an explicitly authorized live org with readback evidence.",

@@ -14,6 +14,8 @@ docs/data360/*
 !docs/data360/cost-usage-sizing-contract.md
 !docs/data360/develop-package-deployment-matrix.md
 !docs/data360/mcp-tool-selection.md
+!docs/data360/sf-skills-data360-companion.md
+!docs/data360/sf-skills-data360-companion.json
 !docs/data360/help/
 docs/data360/help/*
 !docs/data360/help/index.md

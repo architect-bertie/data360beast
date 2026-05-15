@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0",
+  "name": "Salesforce sf-skills Data 360 Companion Contract",
+  "updated": "2026-05-14",
+  "purpose": "Machine-readable contract for using the Salesforce sf-skills repository as a Data 360 execution and debugging companion to Data360 Beast without vendoring upstream skill content.",
+  "upstream": {
+    "repository": "https://github.com/forcedotcom/sf-skills",
+    "packageName": "@salesforce/afv-skills",
+    "observedPackageVersion": "1.9.0",
+    "observedRef": "c0deadad628bf8730c27a2782db358f064b1888a",
+    "observedRefDate": "2026-05-14",
+    "license": "CC-BY-NC-4.0",
+    "installRoot": "skills/"
+  },
+  "installPolicy": {
+    "scope": "data360-only",
+    "mode": "subset",
+    "defaultDestination": "$CODEX_HOME/skills or $HOME/.codex/skills",
+    "installer": "skills/data360beast/scripts/install_sf_skills_data360_companion.py",
+    "defaultCommand": "python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py",
+    "dryRunCommand": "python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run",
+    "doNotWriteInto": [
+      "VS Code Agentforce Vibes globalStorage",
+      "salesforce.salesforcedx-agentforce-vibes-2/npm-afv-skills/node_modules",
+      "local node_modules package folders"
+    ],
+    "vendoring": "Do not vendor upstream skill bodies into Data360 Beast. Fetch the selected upstream skill folders at install time."
+  },
+  "namingPolicy": {
+    "beastFacingProductName": "Data 360",
+    "upstreamExactNames": "Keep upstream folder names unchanged when installing or linking to forcedotcom/sf-skills.",
+    "allowedLegacyUse": "Use Data Cloud only when quoting upstream skill names, upstream metadata, CLI/plugin compatibility text, historical source names, or user-provided text."
+  },
+  "authorityRules": [
+    "Data360 Beast is the authority for source hierarchy, proof labels, official-doc routing, limits precedence, OpenAPI discipline, public-safe Labs promotion, and confidence.",
+    "sf-docs remains the authority path for current Salesforce Help and Developer documentation.",
+    "The Salesforce sf-skills companion is an execution and debugging playbook layer for sf data360 command workflows.",
+    "Do not treat forcedotcom/sf-skills as official Data 360 documentation.",
+    "Do not treat a successful sf data360 command as proof outside its matching phase without Beast readback requirements."
+  ],
+  "companionSkills": [
+    {
+      "upstreamName": "orchestrating-datacloud",
+      "beastPhase": "cross-phase",
+      "beastSpecialistSkill": "sf-datacloud",
+      "purpose": "Multi-phase setup, readiness classification, data spaces, data kits, and cross-phase troubleshooting.",
+      "upstreamPath": "skills/orchestrating-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/orchestrating-datacloud"
+    },
+    {
+      "upstreamName": "connecting-datacloud",
+      "beastPhase": "connect",
+      "beastSpecialistSkill": "sf-datacloud-connect",
+      "purpose": "Connection, connector, source discovery, connector metadata, and connection health command workflows.",
+      "upstreamPath": "skills/connecting-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/connecting-datacloud"
+    },
+    {
+      "upstreamName": "preparing-datacloud",
+      "beastPhase": "prepare",
+      "beastSpecialistSkill": "sf-datacloud-prepare",
+      "purpose": "Data stream, DLO, transform, document processing, and ingestion command workflows.",
+      "upstreamPath": "skills/preparing-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/preparing-datacloud"
+    },
+    {
+      "upstreamName": "harmonizing-datacloud",
+      "beastPhase": "harmonize",
+      "beastSpecialistSkill": "sf-datacloud-harmonize",
+      "purpose": "DMO, mapping, relationship, identity resolution, data graph, profile, and universal ID command workflows.",
+      "upstreamPath": "skills/harmonizing-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/harmonizing-datacloud"
+    },
+    {
+      "upstreamName": "segmenting-datacloud",
+      "beastPhase": "segment",
+      "beastSpecialistSkill": "sf-datacloud-segment",
+      "purpose": "Segment, calculated insight, publish, count, and audience troubleshooting command workflows.",
+      "upstreamPath": "skills/segmenting-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/segmenting-datacloud"
+    },
+    {
+      "upstreamName": "activating-datacloud",
+      "beastPhase": "act",
+      "beastSpecialistSkill": "sf-datacloud-act",
+      "purpose": "Activation, activation target, data action, data action target, and destination setup command workflows.",
+      "upstreamPath": "skills/activating-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/activating-datacloud"
+    },
+    {
+      "upstreamName": "retrieving-datacloud",
+      "beastPhase": "retrieve",
+      "beastSpecialistSkill": "sf-datacloud-retrieve",
+      "purpose": "Data 360 SQL, async query, table describe, search index, vector search, and hybrid search command workflows.",
+      "upstreamPath": "skills/retrieving-datacloud",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/retrieving-datacloud"
+    },
+    {
+      "upstreamName": "getting-datacloud-schema",
+      "beastPhase": "retrieve",
+      "beastSpecialistSkill": "sf-datacloud-retrieve",
+      "purpose": "DLO and DMO schema inspection helpers for target-org metadata discovery.",
+      "upstreamPath": "skills/getting-datacloud-schema",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/getting-datacloud-schema"
+    },
+    {
+      "upstreamName": "developing-datacloud-code-extension",
+      "beastPhase": "develop-package",
+      "beastSpecialistSkill": "sf-datacloud",
+      "purpose": "Data 360 code extension development, local test, scan, and deployment workflows.",
+      "upstreamPath": "skills/developing-datacloud-code-extension",
+      "upstreamUrl": "https://github.com/forcedotcom/sf-skills/tree/main/skills/developing-datacloud-code-extension"
+    }
+  ],
+  "executionLoop": [
+    "Run Beast preflight and phase routing first.",
+    "Use sf-docs for current official Salesforce setup, permission, limit, licensing, and behavior claims.",
+    "Use OpenAPI, data360 MCP, datacloud-mcp-query, or direct sf REST for API shape and readback.",
+    "Use the selected sf-skills companion skill only for sf data360 runtime guidance, templates, readiness checks, and command gotchas.",
+    "Promote only distilled public-safe evidence into Beast; keep scenario bodies and org-connected experiments in Labs."
+  ],
+  "weeklyWatchRules": [
+    "Check only the approved companionSkills list for upstream drift.",
+    "Update this contract when upstream changes affect install, routing, command behavior, templates, readiness checks, or gotchas.",
+    "Do not copy upstream skill bodies into Beast.",
+    "Run the installer in dry-run mode as a health check."
+  ]
+}

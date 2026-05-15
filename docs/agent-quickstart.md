@@ -1,6 +1,6 @@
 # Agent Quickstart
 
-Use Data360 Beast when the task touches Salesforce Data 360, Data Cloud, Connect
+Use Data360 Beast when the task touches Salesforce Data 360, Connect
 API, DMO modeling, segmentation, activation, governance, search, semantic
 models, calculated insights, or org validation. Installing the repo gives the
 agent the Beast router plus the specialist `sf-datacloud-*` skills.
@@ -24,6 +24,24 @@ Direct sources:
 - `sf-docs`: https://github.com/kvirtue123/sf-docs-mcp
 - `data360`: https://github.com/forcedotcom/d360-mcp-server
 
+## Salesforce sf-skills Data 360 Companion
+
+Keep `sf-docs` in the loop for current official Salesforce docs. When the task
+also needs `sf data360` command execution, readiness checks, templates, or CLI
+debugging, install the optional Data 360 companion subset from Salesforce
+`sf-skills` after Beast is installed:
+
+```bash
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
+```
+
+The companion contract is
+[`docs/data360/sf-skills-data360-companion.md`](data360/sf-skills-data360-companion.md).
+Beast-facing guidance says Data 360; upstream folder names such as
+`orchestrating-datacloud` are preserved only because they are exact install
+paths from `forcedotcom/sf-skills`.
+
 ## Manual Context
 
 If your IDE does not support skill installation, load these files in order:
@@ -36,14 +54,16 @@ If your IDE does not support skill installation, load these files in order:
    minimum proof targets
 5. `docs/skills.md`
 6. `docs/mcp-dependencies.md` if companion MCP tools are missing
-7. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
-8. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
+7. `docs/data360/sf-skills-data360-companion.md` when `sf data360` execution
+   playbooks are useful
+8. `docs/data360/help/index.md` or `docs/data360/developer/index.md` when you need to locate official docs quickly
+9. `docs/data360/model-gallery-implementation-map.md` when choosing DMOs,
    model grain, relationship paths, or Data Graph shape
-9. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
+10. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
    Agentforce Data Libraries, search indexes, chunking, retrievers, prompt
    grounding, or Flow/Apex retrieval paths
-10. `docs/llms.txt`
-11. The one task-specific doc you need: `operating-model.md`,
+11. `docs/llms.txt`
+12. The one task-specific doc you need: `operating-model.md`,
    `proof-ledger.md`, `labs-interface.md`, `scorecard.md`, or a phase-specific
    reference.
 

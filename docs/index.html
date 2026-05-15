@@ -23,6 +23,7 @@
           <a href="#reality">Reality</a>
           <a href="#agent-ready">Agent-ready</a>
           <a href="#skills">Skills</a>
+          <a href="#companion">Companion</a>
           <a href="#system">System</a>
           <a href="#proof-ledger">Proof Ledger</a>
           <a href="#frontier">Frontier</a>
@@ -40,7 +41,8 @@
           <p class="lead">
             Data360 Beast is the public-safe control layer for Salesforce Data 360 work:
             preflight, phase routing, official-doc maps, OpenAPI lookup, MCP selection,
-            limits precedence, proof ledger evidence, and Labs promotion rules.
+            limits precedence, proof ledger evidence, Labs promotion rules, and an
+            optional Salesforce sf-skills execution companion.
           </p>
           <div class="actions">
             <a class="button primary" href="./agent-quickstart.md">Start here</a>
@@ -51,6 +53,7 @@
             <a class="button" href="./phase-coverage-matrix.json">Coverage</a>
             <a class="button" href="./release-discipline.md">Release gate</a>
             <a class="button" href="./mcp-dependencies.md">MCP installs</a>
+            <a class="button" href="./data360/sf-skills-data360-companion.md">sf-skills companion</a>
           </div>
           <div class="hero-proof" aria-label="Project proof">
             <span>17 agent skills</span>
@@ -60,6 +63,7 @@
             <span>38 doc-synced blocks</span>
             <span>140+ connectors</span>
             <span>100 docs indexed</span>
+            <span>9 companion execution skills</span>
           </div>
         </div>
         <div class="terminal-card" aria-label="Agent quickstart">
@@ -74,6 +78,7 @@ Use Data360 Beast when:
 - a limit, license, or feature claim needs precedence
 - a payload needs OpenAPI grounding
 - a tool needs sf-docs, data360, datacloud-mcp-query, or sf REST
+- sf data360 execution needs Salesforce sf-skills playbooks
 - an org move needs data kit/packageability checks
 - a live claim needs status, count, metadata, or readback</code></pre>
         </div>
@@ -177,6 +182,47 @@ Use Data360 Beast when:
         </div>
       </section>
 
+      <section id="companion" aria-labelledby="companion-title" class="band">
+        <div class="section-heading">
+          <p class="eyebrow">Execution companion</p>
+          <h2 id="companion-title">Beast knows what is true. Salesforce sf-skills helps run the commands.</h2>
+          <p>
+            The optional Data 360 companion subset installs nine approved
+            Salesforce <code>sf-skills</code> folders for <code>sf data360</code>
+            command playbooks, readiness checks, templates, and CLI gotchas.
+            It does not replace <code>sf-docs</code>, and Beast still owns
+            source order, proof, limits, OpenAPI discipline, and Labs promotion.
+          </p>
+        </div>
+        <div class="status-grid">
+          <article class="status-card strong">
+            <span class="mini-label">Install</span>
+            <h3>Data 360 subset only</h3>
+            <p><code>install_sf_skills_data360_companion.py</code> fetches only the approved Data 360-relevant upstream folders.</p>
+          </article>
+          <article class="status-card documented">
+            <span class="mini-label">Source</span>
+            <h3>Upstream stays upstream</h3>
+            <p><code>forcedotcom/sf-skills</code> is referenced and installed on demand; Beast does not vendor Salesforce skill bodies.</p>
+          </article>
+          <article class="status-card tested">
+            <span class="mini-label">Truth</span>
+            <h3>sf-docs remains central</h3>
+            <p>Official Salesforce docs still govern setup, permissions, limits, licensing, and behavior claims.</p>
+          </article>
+          <article class="status-card frontier">
+            <span class="mini-label">Names</span>
+            <h3>Data 360 first</h3>
+            <p>Beast-facing prose says Data 360; upstream <code>*-datacloud</code> names remain only as exact folder references.</p>
+          </article>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="./data360/sf-skills-data360-companion.md">Read companion contract</a>
+          <a class="button" href="./data360/sf-skills-data360-companion.json">View companion JSON</a>
+          <a class="button" href="https://github.com/forcedotcom/sf-skills">Open Salesforce sf-skills</a>
+        </div>
+      </section>
+
       <section id="system" aria-labelledby="system-title">
         <div class="split">
           <div>
@@ -195,6 +241,7 @@ Use Data360 Beast when:
             <li><strong>Apply limits precedence.</strong> Use current Data 360 limits first; use legacy CDP limits only for explicit legacy scope or comparison.</li>
             <li><strong>Choose the tool.</strong> Use sf-docs for docs, data360 for broad Connect API work, datacloud-mcp-query for SQL/list/describe, or direct sf REST when needed.</li>
             <li><strong>Fetch official docs.</strong> Use Salesforce docs for setup, permissions, behavior, limits, and packageability facts that can drift.</li>
+            <li><strong>Use the companion when helpful.</strong> Use Salesforce sf-skills only for sf data360 execution playbooks, readiness checks, templates, and CLI gotchas.</li>
             <li><strong>Search OpenAPI.</strong> Use the catalog for method, path, params, schemas, and version gates.</li>
             <li><strong>Apply proof ledger evidence.</strong> Start from tested caveats, known validation paths, and current frontier labels.</li>
             <li><strong>Validate in org.</strong> Prove with status, counts, metadata, data space, and readback.</li>
@@ -328,6 +375,7 @@ Use Data360 Beast when:
         <div class="repo-map">
           <pre><code>data360beast/
 |-- skills/data360beast/SKILL.md
+|-- skills/data360beast/scripts/install_sf_skills_data360_companion.py
 |-- skills/sf-datacloud-connectapi/SKILL.md
 |-- skills/sf-datacloud-*/SKILL.md
 |-- AGENTS.md
@@ -359,6 +407,8 @@ Use Data360 Beast when:
         |-- mcp-tool-selection.md
         |-- model-gallery-implementation-map.md
         |-- rag-search-index-retriever-playbook.md
+        |-- sf-skills-data360-companion.md
+        |-- sf-skills-data360-companion.json
         |-- help/index.md
         `-- developer/index.md</code></pre>
         </div>
