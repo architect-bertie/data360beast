@@ -1,7 +1,7 @@
 {
   "id": "data360beast",
   "name": "Data360 Beast",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, phase proof matrix, limits-source precedence, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, tested proof ledger evidence, validation rules, and an optional Salesforce sf-skills Data 360 execution companion.",
+  "description": "Portable Salesforce Data 360 execution system with a Beast router, 16 specialist skills, docs-on-demand, a preflight contract, Think-Act-Prove-Learn operating model, phase proof matrix, limits-source precedence, OpenAPI-first API lookup, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, tested proof ledger evidence, validation rules, and an optional Salesforce sf-skills Data 360 execution companion.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "entrypoints": {
@@ -98,6 +98,45 @@
     "metadata",
     "sample query proof"
   ],
+  "executionModel": {
+    "model": "Think -> Act -> Prove -> Learn",
+    "principle": "Beast is not only a knowledge system; it is an execution system rooted in proven knowledge with proof and learning loops.",
+    "outcome": "The skill outcome should be execution-ready for the target org, not just advice.",
+    "executionPromise": "Execute in any authorized, compatible Data 360 org after preflight confirms org, data space, permissions, available tools, and mutation approval.",
+    "thinkingSources": [
+      "Beast preflight",
+      "phase proof matrix",
+      "sf-docs",
+      "OpenAPI or Swagger",
+      "Beast specialist skills",
+      "Salesforce sf-skills Data 360 companion",
+      "proof ledger"
+    ],
+    "executionTools": [
+      "data360 MCP",
+      "datacloud-mcp-query",
+      "direct sf REST",
+      "sf data360 CLI",
+      "metadata/deployment tools",
+      "repo helper scripts"
+    ],
+    "proofSignals": [
+      "returned ID",
+      "status",
+      "count",
+      "data space",
+      "metadata",
+      "query result",
+      "log or event",
+      "destination delivery signal"
+    ],
+    "learningTargets": [
+      "proof ledger",
+      "specialist skills",
+      "operating model",
+      "Beast Labs"
+    ]
+  },
   "companionMcpServers": [
     {
       "name": "sf-docs",

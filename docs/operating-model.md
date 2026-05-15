@@ -1,24 +1,122 @@
 # Operating Model
 
-Data360 Beast uses one loop for Salesforce Data 360 work:
+Data360 Beast is not only a knowledge system. It is an execution system rooted
+in proven knowledge with proof and learning loops.
 
-1. Run Beast preflight.
-2. Classify the phase with the proof matrix.
-3. Identify the object layer and likely execution plane.
-4. For model work, choose the public model-gallery subject area, anchor DMO,
-   grain, and relationship path.
-5. For RAG work, choose ADL versus manual setup, source object path, field
-   roles, chunking, search type, retriever filters, and prompt/action scope.
-6. Identify the proof target.
-7. Apply limits-source precedence when limits, billing, licensing, connector
-   counts, quotas, or feature availability matter.
-8. Fetch official docs on demand.
-9. Search OpenAPI for API shape.
-10. Apply proof ledger evidence.
-11. Validate in org when authorized.
-12. Run cost/usage sizing when the design affects material volume, cadence,
-    AI/RAG processing, activation delivery, or environment replay.
-13. Label confidence as documented, tested, or inferred.
+Every non-trivial skill outcome should be execution-ready for the target org,
+not just advice. The execution promise is:
+
+```text
+Execute in any authorized, compatible Data 360 org after preflight confirms
+org, data space, permissions, available tools, and mutation approval.
+```
+
+Use this operating loop:
+
+```text
+Think -> Act -> Prove -> Learn
+```
+
+## Plain-English Architecture
+
+```mermaid
+flowchart TD
+  A["User asks for Data 360 work"] --> B["Think<br/>Beast, docs, OpenAPI, and skills decide the safe plan"]
+  B --> C["Act<br/>MCPs, APIs, CLI, or approved org tools do the work"]
+  C --> D["Prove<br/>Read back IDs, status, counts, metadata, logs, or query results"]
+  D --> E["Answer<br/>Tell the user what happened and how sure we are"]
+  D --> F["Learn<br/>Improve Beast or send scenario work to Labs"]
+```
+
+## Think
+
+Use thinking sources before acting:
+
+- Beast preflight for org, API version, data space, persona, lifecycle,
+  authorization boundary, available tools, and proof target.
+- Phase proof matrix for routing, required sources, proof targets, and forbidden
+  assumptions.
+- `sf-docs` for current official Salesforce setup, permissions, limits,
+  licensing, billing, and behavior.
+- OpenAPI or Swagger for exact API method, path, parameters, request body, and
+  response shape.
+- Beast specialist skills for phase-specific design, caveats, and validation
+  habits.
+- Salesforce `sf-skills` Data 360 companion for `sf data360` command planning,
+  readiness checks, templates, and CLI gotchas.
+
+Thinking produces one of these outcomes:
+
+- an execution-ready plan for an authorized compatible org;
+- a safe docs-only answer with a confidence label;
+- a blocked-with-reason answer when preflight, permissions, tools, or features
+  are missing;
+- a lab-required answer when the work needs scenario proof before promotion.
+
+## Act
+
+Act only after the preflight and mutation boundary are clear.
+
+Use action tools for the work itself:
+
+- `data360` MCP for broad live Data 360 Connect API operations.
+- `datacloud-mcp-query` for retrieve-plane SQL, table listing, and table
+  description.
+- Direct `sf` REST calls for exact live API readback when needed.
+- `sf data360` CLI workflows when the Salesforce `sf-skills` companion gives
+  the right command path.
+- Metadata, deployment, or local helper scripts when the phase requires them.
+
+If live validation or mutation is not authorized, stop at an execution-ready
+plan and label live validation as unavailable.
+
+## Prove
+
+Do not treat a successful command as proof for the whole outcome. Proof must
+match the phase and surface.
+
+Use readback signals such as:
+
+- returned ID;
+- status or run state;
+- count;
+- data space;
+- metadata;
+- query result;
+- destination or event delivery signal;
+- log, failure response, or monitor output.
+
+Then label confidence as documented, tested, or inferred.
+
+## Learn
+
+When execution teaches something reusable, promote only the distilled,
+public-safe lesson:
+
+- update the proof ledger for tested caveats and readback patterns;
+- update specialist skills or docs when a rule becomes durable;
+- send scenario-heavy journey design, request/response experiments, traces, and
+  failure work to Beast Labs first;
+- keep credentials, org metadata, customer data, and raw experiment artifacts
+  out of the core repo.
+
+## Detailed Loop
+
+1. Think: run Beast preflight.
+2. Think: classify the phase with the proof matrix.
+3. Think: identify the object layer and likely execution plane.
+4. Think: fetch official docs on demand when facts can drift.
+5. Think: search OpenAPI for exact API shape.
+6. Think: use Beast specialists and optional Salesforce `sf-skills` companion to
+   prepare the execution path.
+7. Act: run MCP, API, CLI, metadata, or helper operations only within the
+   authorization boundary.
+8. Prove: validate with phase-specific readback.
+9. Prove: run cost/usage sizing when the design affects material volume,
+   cadence, AI/RAG processing, activation delivery, or environment replay.
+10. Answer: report done/proven, done/waiting, blocked, inferred, or lab-required.
+11. Learn: promote reusable public-safe lessons into Beast or route scenarios
+    to Labs.
 
 ## Beast Preflight
 
@@ -37,7 +135,7 @@ routing table for:
 
 - specialist skill selection
 - required source type
-- preferred tool path
+- thinking source and execution tool path
 - minimum proof target
 - forbidden assumptions
 

@@ -410,6 +410,27 @@ main section {
   font-weight: 850;
 }
 
+.flow-strip {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.flow-strip span {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 750;
+}
+
 .map-figure {
   margin: 34px 0 0;
 }
@@ -561,7 +582,8 @@ main section {
   .status-grid,
   .lane-grid,
   .grid.four,
-  .grid.two {
+  .grid.two,
+  .flow-strip {
     grid-template-columns: 1fr;
   }
 

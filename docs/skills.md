@@ -3,6 +3,18 @@
 Install this repository to give an agent the top-level Beast router plus the
 full Salesforce Data 360 specialist layer.
 
+The skills are meant to produce execution-ready outcomes, not just advice:
+
+```text
+Think with Beast, docs, OpenAPI, and skills.
+Act with MCPs, APIs, and CLI.
+Prove with readback.
+Learn through Labs and the proof ledger.
+```
+
+Execute only in an authorized, compatible Data 360 org after preflight confirms
+org, data space, permissions, available tools, and mutation approval.
+
 ```bash
 npx skills add architect-bertie/data360beast
 ```
@@ -65,6 +77,7 @@ only for exact folders, package references, and command surfaces from
 ## Supporting References And Scripts
 
 - `docs/beast-preflight.md`: required envelope, tool inventory, proof target, and mutation gate.
+- `docs/operating-model.md`: plain-English Think -> Act -> Prove -> Learn loop.
 - `docs/phase-proof-matrix.json`: machine-readable phase routing, source requirements, proof targets, and forbidden assumptions.
 - `docs/phase-coverage-matrix.json`: machine-readable phase coverage by source, proof, helper, and frontier.
 - `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.

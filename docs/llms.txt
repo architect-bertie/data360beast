@@ -17,6 +17,7 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Beast evals](https://architect-bertie.github.io/data360beast/beast-evals.md): prompt-level checks for endpoint discipline, data-space handling, proof, and confidence labels.
 - [Release discipline](https://architect-bertie.github.io/data360beast/release-discipline.md): validation, release, and publishing checks.
 - [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
+- [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): Think -> Act -> Prove -> Learn execution loop.
 - [MCP dependencies](https://architect-bertie.github.io/data360beast/mcp-dependencies.md): companion `sf-docs` and `data360` MCP install paths.
 - [Salesforce sf-skills Data 360 companion](https://architect-bertie.github.io/data360beast/data360/sf-skills-data360-companion.md): optional Data 360-only execution/debug subset from `forcedotcom/sf-skills`.
 - [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
@@ -38,6 +39,14 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 
 ## Core Rules
 
+- Beast is not only a knowledge system; it is an execution system rooted in
+  proven knowledge with proof and learning loops.
+- Think with Beast, docs, OpenAPI, and skills. Act with MCPs, APIs, and CLI.
+  Prove with readback. Learn through Labs and the proof ledger.
+- The skill outcome should be execution-ready for the target org, not just
+  advice. Execute only in an authorized, compatible Data 360 org after
+  preflight confirms org, data space, permissions, available tools, and
+  mutation approval.
 - Use official Salesforce docs on demand for current setup, limits, permissions,
   and behavior.
 - For limits, connector counts, quotas, billing, and feature availability,

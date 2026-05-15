@@ -2,11 +2,24 @@
 
 Salesforce Data 360, made agent-ready.
 
-Data360 Beast is an agent-facing operating kit for teams that design, build,
-and troubleshoot Salesforce Data 360.
+Data360 Beast is an agent-facing execution kit for teams that design, build,
+troubleshoot, validate, and improve Salesforce Data 360.
 It combines a top-level Beast router, 16 specialist Data 360 skills, an explicit
 preflight, a machine-readable proof matrix, OpenAPI-first API lookup,
 tested evidence, and clean project-owned agent entry points.
+
+Architecture anchor:
+
+```text
+Think with Beast, docs, OpenAPI, and skills.
+Act with MCPs, APIs, and CLI.
+Prove with readback.
+Learn through Labs and the proof ledger.
+```
+
+Beast is not only a knowledge system; it is an execution system rooted in
+proven knowledge with proof and learning loops. The skill outcome should be
+execution-ready for the target org, not just advice.
 
 Site: <https://architect-bertie.github.io/data360beast/>
 
@@ -25,6 +38,8 @@ Start with:
   machine-readable phase, source, proof, and forbidden-assumption matrix.
 - [`docs/phase-coverage-matrix.json`](docs/phase-coverage-matrix.json) for
   machine-readable coverage by phase, source, proof, helper, and frontier.
+- [`docs/operating-model.md`](docs/operating-model.md) for the plain-English
+  Think -> Act -> Prove -> Learn architecture and execution outcome contract.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
 - [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for companion MCP installs (**strongly recommended** — without these the agent cannot fetch official docs on demand or execute live org operations).
 - [`docs/data360/sf-skills-data360-companion.md`](docs/data360/sf-skills-data360-companion.md)
@@ -194,6 +209,9 @@ data360beast/
 
 ## What It Does
 
+- Produces execution-ready paths for authorized, compatible Data 360 orgs after
+  preflight confirms org, data space, permissions, available tools, and mutation
+  approval.
 - Routes work by Data 360 phase: connect, prepare, harmonize, govern, retrieve,
   insight, semantic layer, AI/search, segment, act, and automation.
 - Runs a preflight for target org, API version, data space, persona, asset
@@ -224,6 +242,9 @@ data360beast/
   activation work.
 - Requires org validation through status, counts, metadata, data space, and
   readback before treating an answer as proven.
+- Uses a learning loop: reusable public-safe lessons can strengthen Beast docs,
+  specialist skills, and proof ledger entries; scenario-heavy work stays in
+  Labs until distilled.
 - Adds executable validation helpers for prompt evals, install smoke tests,
   MCP readiness, release readiness, proof compliance, and cost/usage sizing.
 - Keeps golden scenarios, synthetic journeys, raw payload experiments, traces,
