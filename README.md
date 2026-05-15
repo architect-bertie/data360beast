@@ -27,6 +27,10 @@ Start with:
   machine-readable coverage by phase, source, proof, helper, and frontier.
 - [`docs/skills.md`](docs/skills.md) for the full specialist skill map.
 - [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md) for companion MCP installs (**strongly recommended** — without these the agent cannot fetch official docs on demand or execute live org operations).
+- [`docs/data360/sf-skills-data360-companion.md`](docs/data360/sf-skills-data360-companion.md)
+  for the optional Salesforce `sf-skills` Data 360 companion subset that adds
+  `sf data360` execution playbooks, readiness checks, templates, and CLI
+  gotchas after Beast is installed.
 - [`docs/data360/help/index.md`](docs/data360/help/index.md) and
   [`docs/data360/developer/index.md`](docs/data360/developer/index.md) for
   public-safe official doc indexes.
@@ -72,6 +76,26 @@ in [`docs/mcp-dependencies.md`](docs/mcp-dependencies.md):
 - `datacloud-mcp-query`: <https://github.com/forcedotcom/datacloud-mcp-query>
   for optional retrieve-plane SQL/list/describe work
 
+## Salesforce sf-skills Data 360 Companion
+
+Beast stays the source-of-truth brain: `sf-docs` for current official
+Salesforce documentation, OpenAPI/Data 360 MCP/direct REST for API shape and
+readback, proof labels for confidence, and Labs for promoted evidence.
+
+Install the optional Salesforce `sf-skills` Data 360 companion subset when the
+agent also needs `sf data360` command playbooks, readiness classifiers,
+templates, and runtime troubleshooting:
+
+```bash
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
+```
+
+The installer fetches only the nine approved Data 360-relevant folders from
+[`forcedotcom/sf-skills`](https://github.com/forcedotcom/sf-skills). It does
+not vendor upstream skill bodies into this repo and refuses to write into VS
+Code Agentforce Vibes `globalStorage` or local `node_modules` package folders.
+
 ## GitHub Readiness
 
 For Data360 Beast publishing work, use the repo readiness check before commit,
@@ -92,6 +116,7 @@ python3 tools/run_beast_evals.py
 python3 tools/skill_install_smoke.py
 python3 tools/release_readiness.py
 python3 tools/mcp_readiness.py --json
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run
 ```
 
 Use `tools/data360_cost_usage_estimator.py <scenario.json>` for qualitative
@@ -125,6 +150,7 @@ The repo now ships the Beast router plus specialist skills:
 ```text
 data360beast/
 |-- skills/data360beast/SKILL.md
+|-- skills/data360beast/scripts/install_sf_skills_data360_companion.py
 |-- skills/sf-datacloud-connectapi/SKILL.md
 |-- skills/sf-datacloud-*/SKILL.md
 |-- AGENTS.md
@@ -160,6 +186,8 @@ data360beast/
     |-- mcp-tool-selection.md
     |-- model-gallery-implementation-map.md
     |-- rag-search-index-retriever-playbook.md
+    |-- sf-skills-data360-companion.md
+    |-- sf-skills-data360-companion.json
     |-- help/index.md
     `-- developer/index.md
 ```
@@ -183,6 +211,9 @@ data360beast/
 - Uses OpenAPI shape first for Connect API method, path, params, and schemas.
 - Documents companion MCP install paths for `sf-docs` and the official Data 360
   MCP server, plus optional `datacloud-mcp-query` for retrieve-plane SQL work.
+- Documents and installs an optional Salesforce `sf-skills` Data 360 companion
+  subset for `sf data360` execution playbooks, while keeping `sf-docs` as the
+  official-doc truth path and Beast as the proof router.
 - Captures public Data 360 model-gallery patterns across 14 diagrams so agents
   choose the right DMO anchor, grain, and relationship path before building.
 - Captures public-facing Data 360 RAG guidance from a 45-page Salesforce PDF so

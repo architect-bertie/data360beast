@@ -16,6 +16,7 @@ proof matrix, API workflow, eval checks, and validation contract.
 - Beast evals: https://architect-bertie.github.io/data360beast/beast-evals.md
 - Skill map: https://architect-bertie.github.io/data360beast/skills.md
 - MCP dependencies: https://architect-bertie.github.io/data360beast/mcp-dependencies.md
+- Salesforce sf-skills Data 360 companion: https://architect-bertie.github.io/data360beast/data360/sf-skills-data360-companion.md
 - Help index: https://architect-bertie.github.io/data360beast/data360/help/index.md
 - Developer Guide index: https://architect-bertie.github.io/data360beast/data360/developer/index.md
 - Developer learning map: https://architect-bertie.github.io/data360beast/data360/developer/learning-map.md
@@ -84,6 +85,17 @@ proof matrix, API workflow, eval checks, and validation contract.
 - Keep caches, access tokens, client secrets, and org metadata local. Do not
   publish them in this repository.
 
+## Salesforce sf-skills Data 360 Companion
+
+- Install the optional Data 360-only companion subset from
+  https://github.com/forcedotcom/sf-skills when the agent needs `sf data360`
+  execution playbooks, readiness checks, templates, or CLI gotchas.
+- Use `skills/data360beast/scripts/install_sf_skills_data360_companion.py`.
+- Keep `sf-docs` as the official-doc truth path; `sf-skills` is an execution
+  and debugging companion, not official Data 360 documentation.
+- Use Data 360 in Beast-facing prose. Preserve upstream `*-datacloud` names
+  only for exact folders, package references, or command surfaces.
+
 ## Operating Loop
 
 1. Run Beast preflight: target org, API version, data space, persona, asset
@@ -100,9 +112,11 @@ proof matrix, API workflow, eval checks, and validation contract.
 8. Identify the proof target.
 9. Fetch official docs on demand.
 10. Search OpenAPI for the API shape.
-11. Apply proof ledger evidence.
-12. Validate in org when authorized.
-13. Label confidence as documented, tested, or inferred.
+11. Use the Salesforce `sf-skills` Data 360 companion for `sf data360`
+    command execution guidance when the task calls for it.
+12. Apply proof ledger evidence.
+13. Validate in org when authorized.
+14. Label confidence as documented, tested, or inferred.
 
 ## Deterministic Proof Artifacts
 
@@ -177,4 +191,4 @@ the curated operating layer.
 - Governance and data spaces: 9.0/10
 - Segment, act, automation: 9.2/10
 - Deterministic proof routing: 9.6/10
-- Overall Beast mode: 9.8/10
+- Overall Beast mode: 9.9/10

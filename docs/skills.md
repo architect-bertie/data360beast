@@ -34,6 +34,34 @@ npx skills add architect-bertie/data360beast
 | `sf-datacloud-analytics` | Reports, dashboards, reportability, analytics validation |
 | `sf-datacloud-metadata-agentic` | Metadata description quality and agentic semantics |
 
+## Optional Salesforce sf-skills Data 360 Companion
+
+Install this companion only when the agent needs `sf data360` execution
+playbooks, readiness checks, command templates, or CLI troubleshooting. Beast
+keeps ownership of source hierarchy, proof labels, official-doc routing, limits
+precedence, OpenAPI discipline, and Labs promotion.
+
+```bash
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run
+python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
+```
+
+| Beast phase | Beast specialist | Salesforce `sf-skills` companion |
+| --- | --- | --- |
+| Cross-phase | `sf-datacloud` | `orchestrating-datacloud` |
+| Connect | `sf-datacloud-connect` | `connecting-datacloud` |
+| Prepare | `sf-datacloud-prepare` | `preparing-datacloud` |
+| Harmonize | `sf-datacloud-harmonize` | `harmonizing-datacloud` |
+| Segment | `sf-datacloud-segment` | `segmenting-datacloud` |
+| Act | `sf-datacloud-act` | `activating-datacloud` |
+| Retrieve | `sf-datacloud-retrieve` | `retrieving-datacloud` |
+| Retrieve schema | `sf-datacloud-retrieve` | `getting-datacloud-schema` |
+| Develop/package | `sf-datacloud` | `developing-datacloud-code-extension` |
+
+Use **Data 360** in Beast-facing prose. Preserve upstream `*-datacloud` names
+only for exact folders, package references, and command surfaces from
+[`forcedotcom/sf-skills`](https://github.com/forcedotcom/sf-skills).
+
 ## Supporting References And Scripts
 
 - `docs/beast-preflight.md`: required envelope, tool inventory, proof target, and mutation gate.
@@ -44,6 +72,8 @@ npx skills add architect-bertie/data360beast
 - `docs/data360/cost-usage-sizing-contract.md`: qualitative cost and usage sizing contract.
 - `docs/data360/develop-package-deployment-matrix.md`: develop/package/deploy proof matrix.
 - `docs/release-discipline.md`: release, validation, and publishing discipline.
+- `docs/data360/sf-skills-data360-companion.md`: Salesforce `sf-skills` Data 360 companion contract.
+- `docs/data360/sf-skills-data360-companion.json`: machine-readable companion install, naming, authority, and phase crosswalk.
 - `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
 - `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
 - `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
@@ -61,6 +91,7 @@ npx skills add architect-bertie/data360beast
 - `tools/run_beast_evals.py`: executable prompt-eval harness for `docs/beast-evals.json`.
 - `tools/skill_install_smoke.py`: portable skill-pack install/layout smoke test.
 - `tools/mcp_readiness.py`: local MCP dependency readiness check.
+- `skills/data360beast/scripts/install_sf_skills_data360_companion.py`: installs only the approved Data 360 companion subset from `forcedotcom/sf-skills`.
 - `tools/data360_cost_usage_estimator.py`: qualitative cost/usage sizing review from a scenario JSON file.
 - `tools/release_readiness.py`: release hygiene validator for manifests, docs, and changelog.
 - `sf-datacloud-connectapi/scripts/data360_accelerator.py`: portable snippets and optional Postman/DMO helpers.

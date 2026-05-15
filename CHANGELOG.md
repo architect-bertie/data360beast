@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added (Salesforce sf-skills Data 360 Companion)
+- Public companion contract:
+  `docs/data360/sf-skills-data360-companion.md` and
+  `docs/data360/sf-skills-data360-companion.json`, documenting the
+  Data 360-only Salesforce `sf-skills` subset, upstream observed version/ref,
+  authority rules, naming policy, and phase crosswalk.
+- Beast-owned installer:
+  `skills/data360beast/scripts/install_sf_skills_data360_companion.py`, which
+  installs only the nine approved Data 360-relevant `forcedotcom/sf-skills`
+  folders and refuses to write into VS Code Vibes globalStorage or
+  `node_modules` package paths.
+- Companion routing references across README, quickstart, skill map, llms files,
+  agent manifests, homepage, phase matrices, release discipline, and docs-watch
+  operating model. `sf-docs` remains the official-doc truth path; `sf-skills`
+  is an optional `sf data360` execution/debug companion.
+
 ### Added (Operational Hardening)
 - Executable Beast eval harness: `docs/beast-evals.json` plus
   `tools/run_beast_evals.py` for deterministic prompt-answer checks around

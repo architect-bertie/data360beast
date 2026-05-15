@@ -17,20 +17,28 @@ Salesforce documentation while preserving the repo's public boundary.
 7. Refresh marker-delimited notes from the official-doc cache. Keep broad
    guidance in docs-side evidence artifacts such as `docs/proof-ledger.md`;
    keep `skills/data360beast/SKILL.md` as a lean router.
-8. Validate generated JSON.
-9. Run Beast boundary checks for Labs-style language and shim drift.
-10. Run `python3 tools/validate_proof_compliance.py` to confirm every SKILL.md
+8. Check `forcedotcom/sf-skills` for drift in the approved Data 360 companion
+   subset documented in `docs/data360/sf-skills-data360-companion.json`.
+   Update the companion markdown/JSON only when upstream changes affect install,
+   routing, command behavior, templates, readiness checks, or gotchas. Do not
+   vendor upstream skill bodies into Beast.
+9. Run
+   `python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry-run`
+   as the companion installer health check.
+10. Validate generated JSON.
+11. Run Beast boundary checks for Labs-style language, naming drift, and shim drift.
+12. Run `python3 tools/validate_proof_compliance.py` to confirm every SKILL.md
     cites the four proof contracts (`docs/phase-proof-matrix.json`,
     `docs/beast-preflight.md`, `docs/proof-ledger.md`,
     `docs/data360/limits-source-precedence.md`), no banned phrases appear,
     `references/*.md` and `scripts/*.py` pointers resolve, and matrix
     `specialistSkill` entries match `manifest.json`.
-11. Run `python3 tools/run_beast_evals.py`,
+13. Run `python3 tools/run_beast_evals.py`,
     `python3 tools/skill_install_smoke.py`,
     `python3 tools/release_readiness.py`, and
     `python3 tools/mcp_readiness.py --json` to validate eval fixtures,
     install layout, release hygiene, and local MCP posture.
-12. Commit and push public-safe changes when the git diff is non-empty.
+14. Commit and push public-safe changes when the git diff is non-empty.
 
 ## Labs Promotion Pipeline
 
@@ -93,12 +101,20 @@ future-cookbook pipeline language, or explicit Labs boundary language. Prefer
 `proof ledger`, `evidence`, `tested caveat`, and `promotion status` in this
 repo.
 
+Use **Data 360** in Beast-facing docs, UI, manifests, and guidance. Upstream
+Salesforce `sf-skills` folder names such as `orchestrating-datacloud` may
+remain unchanged only when they are exact install paths, package metadata, or
+command-surface references.
+
 ## Structural Guardrails
 
 The job must also report and fail when:
 
 - legacy tool-specific root instruction shims appear in the public repo.
 - root `llms.txt` and `docs/llms.txt` diverge without a documented reason.
+- `docs/data360/sf-skills-data360-companion.json` and
+  `docs/data360/sf-skills-data360-companion.md` disagree on the approved
+  companion skills or observed upstream source.
 - `docs/api-cookbook.md` grows beyond compatibility-stub purpose.
 - `docs/phase-proof-matrix.json` drops below the 12 expected phases or gains
   customer-journey/golden-scenario sequencing.

@@ -2,7 +2,7 @@
   "name": "data360beast",
   "displayName": "Data360 Beast",
   "version": "1.5.0",
-  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, limits-source precedence, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, and proof-ledger-driven validation.",
+  "description": "Portable Salesforce Data 360 skill pack with a Beast router, 16 specialist skills, a preflight contract, phase proof matrix, limits-source precedence, OpenAPI-first API guidance, public model-gallery DMO design guidance, RAG/search-index/retriever guidance, live validation rules, proof-ledger-driven validation, and an optional Salesforce sf-skills Data 360 execution companion.",
   "homepage": "https://architect-bertie.github.io/data360beast/",
   "repository": "https://github.com/architect-bertie/data360beast",
   "skill": "skills/data360beast/SKILL.md",
@@ -74,6 +74,31 @@
       "decision": "optional retrieve-plane accelerator; not a replacement for d360-mcp-server"
     }
   ],
+  "companionSkillPacks": [
+    {
+      "name": "salesforce-sf-skills-data360",
+      "repository": "https://github.com/forcedotcom/sf-skills",
+      "packageName": "@salesforce/afv-skills",
+      "observedPackageVersion": "1.9.0",
+      "observedRef": "c0deadad628bf8730c27a2782db358f064b1888a",
+      "installMode": "subset",
+      "scope": "data360-only",
+      "contract": "docs/data360/sf-skills-data360-companion.json",
+      "installer": "skills/data360beast/scripts/install_sf_skills_data360_companion.py",
+      "authority": "execution and debugging companion for sf data360 command workflows; not official Data 360 documentation",
+      "skills": [
+        "orchestrating-datacloud",
+        "connecting-datacloud",
+        "preparing-datacloud",
+        "harmonizing-datacloud",
+        "segmenting-datacloud",
+        "activating-datacloud",
+        "retrieving-datacloud",
+        "getting-datacloud-schema",
+        "developing-datacloud-code-extension"
+      ]
+    }
+  ],
   "docs": [
     "docs/agent-quickstart.md",
     "docs/beast-preflight.md",
@@ -96,6 +121,8 @@
     "docs/data360/mcp-tool-selection.md",
     "docs/data360/model-gallery-implementation-map.md",
     "docs/data360/rag-search-index-retriever-playbook.md",
+    "docs/data360/sf-skills-data360-companion.md",
+    "docs/data360/sf-skills-data360-companion.json",
     "docs/data360/help/index.md",
     "docs/data360/developer/index.md",
     "docs/data360/developer/learning-map.md",
@@ -133,6 +160,8 @@
     "phaseProofMatrixEntries": 12,
     "promptLevelEvals": 8,
     "proofLedgerEntries": 7,
+    "companionSkillPacks": 1,
+    "companionSkillsApproved": 9,
     "overallScore": 9.9
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",

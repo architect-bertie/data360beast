@@ -18,6 +18,7 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Release discipline](https://architect-bertie.github.io/data360beast/release-discipline.md): validation, release, and publishing checks.
 - [Skill map](https://architect-bertie.github.io/data360beast/skills.md): Beast router plus all specialist skills.
 - [MCP dependencies](https://architect-bertie.github.io/data360beast/mcp-dependencies.md): companion `sf-docs` and `data360` MCP install paths.
+- [Salesforce sf-skills Data 360 companion](https://architect-bertie.github.io/data360beast/data360/sf-skills-data360-companion.md): optional Data 360-only execution/debug subset from `forcedotcom/sf-skills`.
 - [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
 - [Data 360 Developer Guide index](https://architect-bertie.github.io/data360beast/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
 - [Data 360 model-gallery implementation map](https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md): public Data 360 diagrams translated into DMO anchors, relationship paths, grain guidance, and live-build guardrails.
@@ -55,6 +56,12 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
   grounding, or Flow/Apex RAG pipelines.
 - Install companion MCP servers from `mcp-dependencies.md` when docs-on-demand
   or live org operations are needed.
+- Keep `sf-docs` as the official-doc truth path. Use the Salesforce
+  `sf-skills` Data 360 companion only for `sf data360` execution playbooks,
+  readiness checks, templates, and CLI gotchas.
+- Use Data 360 in Beast-facing prose. Preserve upstream `*-datacloud` names
+  only for exact `forcedotcom/sf-skills` folders, package references, or
+  command surfaces.
 - Use OpenAPI or user-provided Swagger for Connect API method, path, params, and
   schema shape.
 - Use the proof ledger for live-tested patterns and caveats.
