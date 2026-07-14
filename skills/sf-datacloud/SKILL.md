@@ -112,11 +112,21 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 
 ## Hard-won orchestration rules
 
+- For greenfield CDP builds, start from the business use case and measurement
+  contract before creating objects: source families, identity keys, consent and
+  contact points, suppression rules, model or score outputs, segment criteria,
+  activation destinations, and holdout/conversion proof. Build a deep thin
+  slice before broad source onboarding.
 - For external data, do not assume ingestion is the default. Choose based on
   freshness, governance owner, access pattern, data volume, and cost/I/O.
 - Ingest the governed core for identity, compliance, and operational activation;
   federate the edge for fresh, high-volume, exploratory, or AI/ML workloads
   when source governance is acceptable.
+- In Databricks or lakehouse CDP designs, keep the canonical profile, consent,
+  contact point, service suppression, and segment-safe model outputs governed in
+  Data 360; federate high-volume behavioral detail or model lanes only after
+  the runtime network, source-side policy, acceleration, and downstream proof
+  gates are explicit.
 - Data 360 development is not identical to standard Platform development. Confirm
   customer vs partner path, sandbox vs second org, data kit strategy,
   packageability, and metered test usage before recommending a lifecycle.

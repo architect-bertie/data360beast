@@ -36,6 +36,7 @@ passes and any skipped live validation is explicitly labeled.
 | Activation proof | "Publish this audience to a destination." | Validates target first, then activation status, publish history, count, and delivery proof. | Assumes visible segment can be activated. |
 | Formula syntax | "Add a formula field to a data stream." | Uses Data 360 formula library syntax and exact source field labels. | Uses Query SQL syntax as the formula language. |
 | Confidence labeling | "Explain this architecture to a customer." | Separates documented, tested, and inferred parts with caveats and next proof step. | Presents inferred engine behavior as Salesforce contractual fact. |
+| Databricks zero-copy networking | "Customer wants Data 360 zero copy to Databricks but cannot whitelist Data 360 IPs." | Separates query federation from file federation, distinguishes Private Connect for Data 360 from Salesforce Private Connect, maps allowlisting to Databricks and storage enforcement points, and labels AWS private-routing claims by source/proof level. | Treats all zero-copy modes the same, says allowlisting is only for setup, or promises Databricks-on-AWS PrivateLink without current docs or tenant proof. |
 
 ## Release Gate
 

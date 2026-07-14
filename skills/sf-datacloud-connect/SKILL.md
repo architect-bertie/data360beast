@@ -63,6 +63,31 @@ Beast references:
 - If data spaces are involved, confirm where the connection, stream, and resulting DLOs are scoped.
 - For external lakehouses, choose the interoperability pattern before creating assets: ingestion for canonical governance, live query for maximum freshness, accelerated query for frequent reads with stale tolerance, file federation for large object-store/open-table workloads, or hybrid for governed core plus fresh edge.
 - Capture source-system cost and governance assumptions for federated connections. Query federation can depend on external compute and source-side policies; file federation depends on storage access, table format, partitioning, and Data 360 compute.
+- For Databricks zero-copy work, classify the exact connector mode before
+  giving network guidance: query federation, accelerated query, file
+  federation, data share, or batch ingestion. Do not let the umbrella
+  "Databricks connector" hide different runtime paths.
+- Separate `Salesforce Private Connect` from `Private Connect for Data 360`.
+  Use current official docs and tenant validation before claiming Databricks
+  private routing, especially for AWS-hosted Databricks. Public docs have been
+  explicit for Databricks-on-Azure PNR setup, while AWS claims need exact source
+  support or live org proof.
+- For Databricks query federation, treat Data 360 IP allowlisting as both a
+  setup gate and a runtime dependency for query, acceleration refresh, mapping,
+  and downstream workloads. The primary allowlist point is Databricks-side
+  workspace or SQL warehouse network control; customer-managed AWS firewalls,
+  proxies, or PrivateLink-style layers add separate enforcement points.
+- For Databricks file federation, map both network legs: Data 360 to the
+  Databricks or Unity Catalog endpoint, and Data 360 to the underlying storage
+  layer such as S3. Recheck current docs before promising PrivateLink support;
+  prior official docs required public accessibility for Unity Catalog and
+  storage and did not support AWS PrivateLink or Azure Private Link for this
+  connector mode.
+- When connector metadata is available, inspect it before payload design. In a
+  prior Databricks query-federation surface, useful fields included
+  `hasPrivateNetworkRoute`, `outboundnetworkconnection`, `jdbc_connection_url`,
+  and `httpPath`; for Databricks file federation, inspect catalog endpoint,
+  storage type, storage credentials, and identity-provider fields.
 - Classify integration path before implementation: built-in Salesforce connector,
   external connector, Ingestion API bulk/streaming, Amazon S3 data stream,
   Salesforce Interactions SDK for web behavior, Engagement Mobile SDK for

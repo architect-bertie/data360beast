@@ -53,6 +53,39 @@ workload -> freshness need -> governance need -> cost/I/O profile -> access patt
 | Accelerated query / caching | Data 360 cache over external data | frequent reads, BI dashboards, segmentation-style analytics with stale tolerance | freshness depends on refresh interval; cache management becomes design work |
 | File federation | Data 360 compute directly reads external storage | object-store lakehouse data, large historical analytics, AI/ML training | read-only; performance depends on format, partitioning, pruning, and region/I/O |
 
+## Databricks Zero-Copy Checklist
+
+For Databricks, do not give a single generic "zero copy" answer. First choose
+and prove the connector mode.
+
+| Mode | Network Path To Validate | Security / Governance Gate | Proof Habit |
+| --- | --- | --- | --- |
+| Query federation | Data 360 to Databricks SQL warehouse or workspace endpoint | Data 360 IP allowlist or supported private route, Databricks auth, Unity Catalog grants, source-side audit | connection test, virtual DLO/data stream, query result, source-side query/audit proof |
+| Accelerated query | Same as query federation plus Data 360 cache refresh | Refresh frequency, stale-data tolerance, incremental column, cache usage and storage impact | cache setting readback, refresh status, result comparison before downstream use |
+| File federation | Data 360 to Unity Catalog/Iceberg REST endpoint and to object storage such as S3 | Catalog access, storage access, partitioning, table-format support, source-side policy | catalog/table discovery, partition probe, scan estimate, storage-policy proof |
+| Data share | Direction-specific share target/source path | Share ownership, target creation network path, destination policy | target/share readback, query from receiving side |
+
+Rules from prior field work:
+
+- Treat allowlisting as a runtime dependency, not only a connection-test step.
+  Queries, acceleration refreshes, mappings, and downstream jobs continue to use
+  the same network path.
+- For query federation, the primary allowlist is usually in Databricks-side
+  network controls for the workspace or SQL warehouse endpoint. Add AWS-side
+  firewall/proxy controls only when the customer introduced that enforcement
+  layer.
+- For file federation, expect two enforcement points: the Databricks or Unity
+  Catalog endpoint and the underlying storage layer. If the storage is S3, check
+  whether Data 360 uses a VPC endpoint for same-region bucket access before
+  adding raw IP source rules.
+- Separate `Private Connect for Data 360` from `Salesforce Private Connect`.
+  Do not claim Databricks-on-AWS private networking from the older Salesforce
+  Private Connect product. Use current official docs or tenant proof before
+  promising a PrivateLink route.
+- External DMOs used for activation-style downstream work can require
+  acceleration; verify the target surface before assuming live federation is
+  enough.
+
 ## Governance Decision
 
 | Question | If Yes | If No |

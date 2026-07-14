@@ -47,6 +47,23 @@ source of truth for billable quantities.
 | Act/Automation | How many payloads leave Data 360 and where? | Target readback, run history, destination delivery proof. |
 | Develop/Package | How many environments replay setup and consume test usage? | Data kit membership, deploy validation, cleanup proof. |
 
+## Databricks And Zero-Copy Cost Gates
+
+For Databricks or other lakehouse federation, separate Data 360 consumption
+from source-side consumption before recommending a pattern:
+
+- Live query can spend source-side SQL warehouse or cluster compute on every
+  Data 360 workflow that touches the external object.
+- Acceleration can reduce repeated source scans, but it creates refresh,
+  storage, and staleness decisions in Data 360.
+- File federation cost depends on table format, partition pruning, storage
+  region, object-store access, and Data 360 scan behavior.
+- Private networking or Private Connect can add network-transfer consumption
+  separately from row-accessed or query usage.
+- Allowlist success proves reachability only; cost proof still needs query
+  shape, selected fields, predicate pushdown, row counts, refresh frequency, and
+  source-side warehouse telemetry.
+
 ## Output Shape
 
 For customer-facing estimates, report:

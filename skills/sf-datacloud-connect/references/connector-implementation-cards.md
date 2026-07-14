@@ -82,6 +82,13 @@ a complete A-Z master table at the bottom.
 | Status note | Connector page reports GA across batch + QF + FF + Data Share; some family pages list as Beta — connector page is authoritative |
 | Dev Guide | https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-databricks-connector.html |
 
+Implementation note: Before advising on network or security setup, separate
+query federation, accelerated query, file federation, data share, and batch
+ingestion. Query federation reaches the Databricks SQL warehouse/workspace
+endpoint and can require Databricks-side allowlisting. File federation reaches
+both the Unity Catalog/Iceberg REST endpoint and underlying storage such as S3;
+verify current docs before claiming PrivateLink support for that mode.
+
 ### Amazon Redshift
 
 | Field | Value |
