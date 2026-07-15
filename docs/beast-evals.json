@@ -138,6 +138,27 @@
         "contractual fact"
       ],
       "confidenceRequired": true
+    },
+    {
+      "id": "databricks-zero-copy-networking",
+      "name": "Databricks zero-copy networking",
+      "prompt": "Customer wants Data 360 zero copy to Databricks but cannot whitelist Data 360 IPs.",
+      "mustMentionAny": [
+        ["query federation", "file federation", "accelerated query"],
+        ["Private Connect for Data 360", "Salesforce Private Connect"],
+        ["allowlist", "whitelist", "Data 360 IP"],
+        ["Databricks", "SQL warehouse", "workspace"],
+        ["Unity Catalog", "S3", "storage"],
+        ["runtime", "refresh", "ongoing"],
+        ["documented", "tenant proof", "current docs"]
+      ],
+      "mustNotMention": [
+        "Salesforce Private Connect works for Data 360",
+        "allowlisting is only needed for setup",
+        "all Databricks zero copy modes use the same network path",
+        "Databricks on AWS PrivateLink is supported without verification"
+      ],
+      "confidenceRequired": true
     }
   ]
 }
