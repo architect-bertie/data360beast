@@ -13,7 +13,7 @@
     {
       "phase": "connect",
       "specialistSkill": "sf-datacloud-connect",
-      "companionExecutionSkill": "connecting-datacloud",
+      "companionExecutionSkill": "data360-connect",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "64 Help article distillation plus 140+ connector catalog",
       "openApiCoverage": "Connect API payload mechanics via sf-datacloud-connectapi",
@@ -24,7 +24,7 @@
     {
       "phase": "prepare",
       "specialistSkill": "sf-datacloud-prepare",
-      "companionExecutionSkill": "preparing-datacloud",
+      "companionExecutionSkill": "data360-prepare",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "prepare/model Help distillation and formula syntax guidance",
       "openApiCoverage": "stream, DLO, and transform mechanics through OpenAPI when supplied",
@@ -35,7 +35,7 @@
     {
       "phase": "harmonize",
       "specialistSkill": "sf-datacloud-harmonize",
-      "companionExecutionSkill": "harmonizing-datacloud",
+      "companionExecutionSkill": "data360-harmonize",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "DMO, mapping, relationship, identity, graph, and model-gallery maps",
       "openApiCoverage": "mapping and DMO endpoints through OpenAPI when supplied",
@@ -57,7 +57,7 @@
     {
       "phase": "retrieve",
       "specialistSkill": "sf-datacloud-retrieve",
-      "companionExecutionSkill": "retrieving-datacloud; getting-datacloud-schema",
+      "companionExecutionSkill": "data360-query; data360-schema-get",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "query/explore docs plus data-space API notes",
       "openApiCoverage": "Query SQL, Query v2, Profile API, and metadata endpoints",
@@ -68,7 +68,7 @@
     {
       "phase": "insight",
       "specialistSkill": "sf-datacloud-calculated-insights",
-      "companionExecutionSkill": "segmenting-datacloud",
+      "companionExecutionSkill": "data360-segment",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "insight authoring, CI SQL rules, and limits gate",
       "openApiCoverage": "CI lifecycle endpoints through OpenAPI when supplied",
@@ -90,7 +90,7 @@
     {
       "phase": "ai-search",
       "specialistSkill": "sf-datacloud-unstructured-retrieval",
-      "companionExecutionSkill": "retrieving-datacloud",
+      "companionExecutionSkill": "data360-query",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "RAG playbook, process-content, search-index, retriever, and limits docs",
       "openApiCoverage": "query/vector/hybrid paths where supported",
@@ -101,7 +101,7 @@
     {
       "phase": "segment",
       "specialistSkill": "sf-datacloud-segment",
-      "companionExecutionSkill": "segmenting-datacloud",
+      "companionExecutionSkill": "data360-segment",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "segmentation docs and limits gate",
       "openApiCoverage": "segment REST and Apex ConnectApi patterns",
@@ -112,7 +112,7 @@
     {
       "phase": "act",
       "specialistSkill": "sf-datacloud-act",
-      "companionExecutionSkill": "activating-datacloud",
+      "companionExecutionSkill": "data360-activate",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "activation limits and activation target cards",
       "openApiCoverage": "activation targets and activations through OpenAPI when supplied",
@@ -123,7 +123,7 @@
     {
       "phase": "automation",
       "specialistSkill": "sf-datacloud-automation",
-      "companionExecutionSkill": "activating-datacloud",
+      "companionExecutionSkill": "data360-activate",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "Data Cloud-triggered flows, activation-triggered flows, API activations, and flow editing",
       "openApiCoverage": "data action targets/actions through OpenAPI when supplied",
@@ -134,7 +134,7 @@
     {
       "phase": "develop-package",
       "specialistSkill": "sf-datacloud",
-      "companionExecutionSkill": "orchestrating-datacloud; developing-datacloud-code-extension",
+      "companionExecutionSkill": "data360-orchestrate; data360-code-extension-generate",
       "sourceCoverage": "documented",
       "officialDocsCoverage": "Data kits and development lifecycle distillation",
       "openApiCoverage": "metadata/data kit coverage depends on target asset type",

@@ -248,6 +248,10 @@ async function main() {
     `Seed: ${seed}`,
     `Pages: ${manifest.length}`,
     "",
+    "This public index lists the official Salesforce Developer Guide pages analyzed",
+    "for Data360 Beast. Raw extracted page bodies and generated local summaries are",
+    "not published.",
+    "",
     "| Title | Guide Path | What It Covers | Key Topics | Source |",
     "| --- | --- | --- | --- | --- |",
     ...manifest.map((item) =>

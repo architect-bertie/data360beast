@@ -60,15 +60,15 @@ python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
 
 | Beast phase | Beast specialist | Salesforce `sf-skills` companion |
 | --- | --- | --- |
-| Cross-phase | `sf-datacloud` | `orchestrating-datacloud` |
-| Connect | `sf-datacloud-connect` | `connecting-datacloud` |
-| Prepare | `sf-datacloud-prepare` | `preparing-datacloud` |
-| Harmonize | `sf-datacloud-harmonize` | `harmonizing-datacloud` |
-| Segment | `sf-datacloud-segment` | `segmenting-datacloud` |
-| Act | `sf-datacloud-act` | `activating-datacloud` |
-| Retrieve | `sf-datacloud-retrieve` | `retrieving-datacloud` |
-| Retrieve schema | `sf-datacloud-retrieve` | `getting-datacloud-schema` |
-| Develop/package | `sf-datacloud` | `developing-datacloud-code-extension` |
+| Cross-phase | `sf-datacloud` | `data360-orchestrate` |
+| Connect | `sf-datacloud-connect` | `data360-connect` |
+| Prepare | `sf-datacloud-prepare` | `data360-prepare` |
+| Harmonize | `sf-datacloud-harmonize` | `data360-harmonize` |
+| Segment | `sf-datacloud-segment` | `data360-segment` |
+| Act | `sf-datacloud-act` | `data360-activate` |
+| Retrieve | `sf-datacloud-retrieve` | `data360-query` |
+| Retrieve schema | `sf-datacloud-retrieve` | `data360-schema-get` |
+| Develop/package | `sf-datacloud` | `data360-code-extension-generate` |
 
 Use **Data 360** in Beast-facing prose. Preserve upstream `*-datacloud` names
 only for exact folders, package references, and command surfaces from

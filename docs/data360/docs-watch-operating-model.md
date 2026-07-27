@@ -5,15 +5,16 @@ Salesforce documentation while preserving the repo's public boundary.
 
 ## Pipeline
 
-1. Refresh all indexed Salesforce Help pages from `docs/data360/help/index.md`.
-2. Refresh all indexed Salesforce Developer Guide pages from
-   `docs/data360/developer/index.md`.
+1. Refresh indexed Salesforce Help pages and follow relevant official Data 360
+   child links from the current Help seed to discover unindexed pages.
+2. Refresh the Salesforce Developer Guide from its current sidebar so newly
+   added official guide pages enter `docs/data360/developer/index.md`.
 3. Export the local sf-docs cache.
 4. Capture oversized Help placeholders with official Help prerendered HTML.
 5. Rebuild the Connect API catalog from the local official Swagger file when it
    is present.
-6. Audit indexed Help and Developer pages for missing, placeholder, or
-   suspiciously small captures.
+6. Reject Help shells, soft 404s, untitled pages, and suspiciously small
+   captures, then audit every indexed Help and Developer page.
 7. Refresh marker-delimited notes from the official-doc cache. Keep broad
    guidance in docs-side evidence artifacts such as `docs/proof-ledger.md`;
    keep `skills/data360beast/SKILL.md` as a lean router.
@@ -102,9 +103,8 @@ future-cookbook pipeline language, or explicit Labs boundary language. Prefer
 repo.
 
 Use **Data 360** in Beast-facing docs, UI, manifests, and guidance. Upstream
-Salesforce `sf-skills` folder names such as `orchestrating-datacloud` may
-remain unchanged only when they are exact install paths, package metadata, or
-command-surface references.
+Salesforce `sf-skills` folder names may remain unchanged only when they are
+exact install paths, package metadata, or command-surface references.
 
 ## Structural Guardrails
 

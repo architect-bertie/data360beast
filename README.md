@@ -221,7 +221,7 @@ data360beast/
 - Uses a machine-readable phase coverage matrix to expose source, proof,
   helper, and frontier coverage by phase.
 - Uses official Salesforce docs on demand instead of stale pasted docs.
-- Publishes public-safe indexes for 77 Help pages and 23 Developer Guide pages
+- Publishes public-safe indexes for 369 Help pages and 24 Developer Guide pages
   without publishing raw scraped content.
 - Audits the indexed Help and Developer pages weekly and uses official Help
   prerendered HTML to capture oversized pages that the standard sf-docs path

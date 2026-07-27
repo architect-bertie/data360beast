@@ -123,9 +123,9 @@ The companion contract is documented in
 [docs/data360/sf-skills-data360-companion.md](../../docs/data360/sf-skills-data360-companion.md)
 and the router reference is
 [references/sf-skills-data360-companion.md](references/sf-skills-data360-companion.md).
-Use **Data 360** in Beast-facing guidance; preserve upstream `*-datacloud`
-names only for exact Salesforce `sf-skills` folders, install paths, package
-metadata, or command surfaces.
+Use **Data 360** in Beast-facing guidance; preserve exact Salesforce
+`sf-skills` names only for folders, install paths, package metadata, or command
+surfaces.
 
 Public-safe operating references:
 - [docs/beast-preflight.md](../../docs/beast-preflight.md): required envelope,
@@ -135,8 +135,8 @@ Public-safe operating references:
   assumptions.
 - [docs/phase-coverage-matrix.json](../../docs/phase-coverage-matrix.json):
   machine-readable coverage by phase, source, proof, helper, and frontier.
-- [docs/data360/help/index.md](../../docs/data360/help/index.md): 77 indexed Salesforce Help pages.
-- [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
+- [docs/data360/help/index.md](../../docs/data360/help/index.md): 369 indexed Salesforce Help pages.
+- [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 24 indexed Salesforce Developer Guide pages.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 - [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md): current Data 360 limits first, Data Services usage follow-through, and legacy CDP comparison rules.

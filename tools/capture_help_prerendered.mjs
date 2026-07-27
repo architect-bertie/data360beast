@@ -177,6 +177,23 @@ async function writeManifestEntry(payload) {
   await writeFile(path.join(HELP_DIR, "cache-index.md"), indexLines.join("\n"), "utf8");
 }
 
+async function updatePublicIndexRow(payload) {
+  const indexPath = path.join(HELP_DIR, "index.md");
+  let index = await readFile(indexPath, "utf8");
+  const lines = index.split("\n");
+  const rowIndex = lines.findIndex((line) => line.includes(`| ${payload.articleId} |`));
+  if (rowIndex === -1) return;
+
+  const parts = lines[rowIndex].split("|").map((part) => part.trim());
+  if (parts.length < 7) return;
+  const depth = parts[3];
+  lines[rowIndex] =
+    `| ${payload.title.replace(/\s*\|\s*Salesforce Help$/, "")} | ` +
+    `${payload.articleId} | ${depth} | ${payload.markdownChars} | ${payload.source} |`;
+  index = lines.join("\n");
+  await writeFile(indexPath, index, "utf8");
+}
+
 async function articleIdsFromPlaceholders() {
   const manifestPath = path.join(HELP_DIR, "cache-manifest.json");
   const manifest = await readJsonIfExists(manifestPath, []);
@@ -243,6 +260,7 @@ async function captureArticle(articleId) {
   };
   await writeFile(summaryPath, JSON.stringify(summaryPayload, null, 2) + "\n", "utf8");
   await writeManifestEntry(summaryPayload);
+  await updatePublicIndexRow(summaryPayload);
   return summaryPayload;
 }
 

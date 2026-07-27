@@ -20,8 +20,8 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): Think -> Act -> Prove -> Learn execution loop.
 - [MCP dependencies](https://architect-bertie.github.io/data360beast/mcp-dependencies.md): companion `sf-docs` and `data360` MCP install paths.
 - [Salesforce sf-skills Data 360 companion](https://architect-bertie.github.io/data360beast/data360/sf-skills-data360-companion.md): optional Data 360-only execution/debug subset from `forcedotcom/sf-skills`.
-- [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 77 indexed Salesforce Help pages.
-- [Data 360 Developer Guide index](https://architect-bertie.github.io/data360beast/data360/developer/index.md): 23 indexed Salesforce Developer Guide pages.
+- [Data 360 Help index](https://architect-bertie.github.io/data360beast/data360/help/index.md): 369 indexed Salesforce Help pages.
+- [Data 360 Developer Guide index](https://architect-bertie.github.io/data360beast/data360/developer/index.md): 24 indexed Salesforce Developer Guide pages.
 - [Data 360 model-gallery implementation map](https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md): public Data 360 diagrams translated into DMO anchors, relationship paths, grain guidance, and live-build guardrails.
 - [Data 360 limits source precedence](https://architect-bertie.github.io/data360beast/data360/limits-source-precedence.md): current Data 360 limits first, Data Services usage follow-through, and legacy CDP comparison rules.
 - [Data 360 RAG search-index retriever playbook](https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md): Agentforce Data Libraries, manual search indexes, field roles, chunking, hybrid/vector search, retriever filters, prompt grounding, Flow/Apex fallbacks, and RAG troubleshooting.

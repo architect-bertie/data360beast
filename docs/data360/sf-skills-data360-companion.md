@@ -27,9 +27,8 @@ outside the Beast install path.
 Use **Data 360** in Beast-facing docs, UI, manifests, and guidance.
 
 Keep upstream names unchanged only when referencing exact Salesforce skill
-folders, install paths, package metadata, or command surfaces. That is why the
-companion installs upstream folder names such as `orchestrating-datacloud` even
-though Beast-facing prose says Data 360.
+folders, install paths, package metadata, or command surfaces. Current upstream
+Data 360 companion folders use the `data360-*` domain-first convention.
 
 ## Install
 
@@ -59,15 +58,15 @@ Agentforce Vibes extension package or local `node_modules` package folders.
 
 | Beast phase | Beast specialist | Upstream companion skill |
 | --- | --- | --- |
-| Cross-phase | `sf-datacloud` | `orchestrating-datacloud` |
-| Connect | `sf-datacloud-connect` | `connecting-datacloud` |
-| Prepare | `sf-datacloud-prepare` | `preparing-datacloud` |
-| Harmonize | `sf-datacloud-harmonize` | `harmonizing-datacloud` |
-| Segment | `sf-datacloud-segment` | `segmenting-datacloud` |
-| Act | `sf-datacloud-act` | `activating-datacloud` |
-| Retrieve | `sf-datacloud-retrieve` | `retrieving-datacloud` |
-| Retrieve schema | `sf-datacloud-retrieve` | `getting-datacloud-schema` |
-| Develop/package | `sf-datacloud` | `developing-datacloud-code-extension` |
+| Cross-phase | `sf-datacloud` | `data360-orchestrate` |
+| Connect | `sf-datacloud-connect` | `data360-connect` |
+| Prepare | `sf-datacloud-prepare` | `data360-prepare` |
+| Harmonize | `sf-datacloud-harmonize` | `data360-harmonize` |
+| Segment | `sf-datacloud-segment` | `data360-segment` |
+| Act | `sf-datacloud-act` | `data360-activate` |
+| Retrieve | `sf-datacloud-retrieve` | `data360-query` |
+| Retrieve schema | `sf-datacloud-retrieve` | `data360-schema-get` |
+| Develop/package | `sf-datacloud` | `data360-code-extension-generate` |
 
 ## Operating Loop
 
@@ -100,6 +99,6 @@ Current observed upstream:
 
 - Repository: <https://github.com/forcedotcom/sf-skills>
 - Package: `@salesforce/afv-skills`
-- Version: `1.9.0`
-- Commit: `c0deadad628bf8730c27a2782db358f064b1888a`
-- Observed: 2026-05-14
+- Version: `1.32.0`
+- Commit: `7baeb07b36799eada4dce06d85664c0c16a269a8`
+- Observed: 2026-07-24

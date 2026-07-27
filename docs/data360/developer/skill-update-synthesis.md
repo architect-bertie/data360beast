@@ -1,13 +1,13 @@
 # Data 360 Developer Guide Skill Update Synthesis
 
-Public source map: [docs/data360/developer/index.md](index.md) lists the 23
+Public source map: [docs/data360/developer/index.md](index.md) lists the 24
 official `developer.salesforce.com` Data 360 Developer Guide pages this
 synthesis was distilled from.
 
 Official source root:
 - https://developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-get-started.html
 
-Indexed scope: 23 official `developer.salesforce.com` Data 360 Developer Guide pages.
+Indexed scope: 24 official `developer.salesforce.com` Data 360 Developer Guide pages.
 
 ## Durable Learnings
 
@@ -77,6 +77,12 @@ Indexed scope: 23 official `developer.salesforce.com` Data 360 Developer Guide p
 - Sandbox-to-production movement uses a DevOps data kit, downloaded
   `package.xml`, `sf project retrieve start --manifest`, and
   `sf project deploy start --manifest`.
+- Programmatic data-kit deployment uses the Connect REST deploy-data-kit
+  endpoint with `asyncMode=true`. A successful request returns `202 Accepted`
+  and a job ID; poll deployment status to `Completed` or `Error`.
+- Treat the flow-based single-click deployment method as legacy for new
+  programmatic guidance. Standard and DevOps data kits have different request
+  bodies, and the target data-space name must match.
 - Deployment gotchas to teach the agent: data space prefixes must match between
   source and target, generated key qualifier files can need deletion, missing
   `FieldSrcTrgtRelationship` metadata can block DMO relationship deployments,

@@ -5,6 +5,24 @@ import { pathToFileURL } from "node:url";
 
 const DEFAULT_SEED =
   "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5";
+const FALLBACK_DISCOVERY_ARTICLE_IDS = [
+  "data.c360_a_activations_publish_history.htm",
+  "data.c360_a_bring_your_own_model.htm",
+  "data.c360_a_considerations_and_guidelines.htm",
+  "data.c360_a_considerations_for_related_attributes.htm",
+  "data.c360_a_data_cloud_sandbox.htm",
+  "data.c360_a_data_explorer.htm",
+  "data.c360_a_data_governance.htm",
+  "data.c360_a_dc_ai_finserv.htm",
+  "data.c360_a_identity_resolution_match_type_compare.htm",
+  "data.c360_a_limits_and_guidelines_dev_ed.htm",
+  "data.c360_a_omni_audience.htm",
+  "data.c360_a_profile_explorer.htm",
+  "data.c360_a_query_data_in_dc.htm",
+  "data.c360_a_query_secondary_indexes.htm",
+  "data.c360_a_segment_types_statuses.htm",
+  "data.c360_a_sl.htm",
+];
 const DEFAULT_MCP_ROOT = path.join(
   process.env.HOME ?? ".",
   ".data360beast",
@@ -76,20 +94,42 @@ function compactSummary(markdown) {
   };
 }
 
+function isAcceptableResult(result) {
+  const title = String(result.title ?? "").trim();
+  const markdown = String(result.markdown ?? "").trim();
+  const oversizedPlaceholder = /Cannot populate due to large Document size/i.test(markdown);
+  const rejectedBody =
+    /We looked high and low but couldn't find that page|Sorry to interrupt|CSS Error/i;
+  return (
+    title &&
+    !/^untitled$/i.test(title) &&
+    (markdown.length >= 500 || oversizedPlaceholder) &&
+    !rejectedBody.test(markdown)
+  );
+}
+
 async function main() {
   const outdir = path.resolve(argValue("--outdir", "docs/data360/help"));
-  const maxPages = Number(argValue("--max-pages", "60"));
+  const maxPages = Number(argValue("--max-pages", "0"));
   const maxDepth = Number(argValue("--depth", "2"));
   const seed = argValue("--seed", DEFAULT_SEED);
   const refresh = hasFlag("--refresh");
-  const queue = [{ url: normalizeHelpUrl(seed) ?? seed, depth: 0, parent: null }];
+  const fallbackDiscoverySeeds = FALLBACK_DISCOVERY_ARTICLE_IDS.map((id) => ({
+    url: `https://help.salesforce.com/s/articleView?id=${id}&language=en_US&type=5`,
+    depth: maxDepth,
+    parent: "oversized-help-fallback",
+  }));
+  const queue = [
+    { url: normalizeHelpUrl(seed) ?? seed, depth: 0, parent: null },
+    ...fallbackDiscoverySeeds,
+  ];
   const seen = new Set();
   const manifest = [];
 
   await mkdir(path.join(outdir, "raw"), { recursive: true });
   await mkdir(path.join(outdir, "summaries"), { recursive: true });
 
-  while (queue.length && manifest.length < maxPages) {
+  while (queue.length && (maxPages <= 0 || manifest.length < maxPages)) {
     const current = queue.shift();
     if (!current || seen.has(current.url)) continue;
     seen.add(current.url);
@@ -100,6 +140,17 @@ async function main() {
     const rawPath = path.join(outdir, "raw", `${fileBase}.md`);
     const links = extractHelpLinks(result.markdown);
     const summary = compactSummary(result.markdown);
+    if (!isAcceptableResult(result)) {
+      process.stderr.write(
+        `Rejected Help shell or suspicious capture: ${id} (${result.title}, ${result.markdown.length} chars)\n`,
+      );
+      if (current.depth < maxDepth) {
+        for (const link of links) {
+          if (!seen.has(link)) queue.push({ url: link, depth: current.depth + 1, parent: id });
+        }
+      }
+      continue;
+    }
     const frontmatter = [
       "---",
       `title: ${JSON.stringify(result.title)}`,
@@ -139,11 +190,22 @@ async function main() {
     "utf8",
   );
   const index = [
-    "# Data 360 Help Crawl Manifest",
+    "# Data 360 Help Index",
     "",
-    `Seed: ${seed}`,
-    `Pages: ${manifest.length}`,
-    `Depth: ${maxDepth}`,
+    `Indexed articles: ${manifest.length}`,
+    "",
+    "This public index lists the official Salesforce Help pages analyzed for",
+    "Data360 Beast. Raw extracted article bodies and generated local summaries are",
+    "not published.",
+    "",
+    "Limit-source rule: use current Data 360 Limits and Guidelines first. When that",
+    "page points to Data Services Billable Usage Types for Data 360, follow that",
+    "source and treat the value as license, entitlement, usage, or contract",
+    "sensitive. Use Customer Data Platform limits only for explicit legacy CDP scope",
+    "or a clearly labeled comparison.",
+    "",
+    `Discovery seed: ${seed}`,
+    `Discovery depth: ${maxDepth}`,
     "",
     "| Title | Article ID | Depth | Chars | Source |",
     "| --- | --- | --- | --- | --- |",

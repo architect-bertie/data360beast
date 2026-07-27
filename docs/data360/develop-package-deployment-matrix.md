@@ -11,6 +11,7 @@ public-safe proof contract.
 | --- | --- |
 | Is the user creating or validating an API payload? | `sf-datacloud-connectapi` plus OpenAPI. |
 | Is the user moving supported metadata between orgs? | Data kits and Metadata API coverage checks. |
+| Is the user deploying a data kit programmatically? | Connect REST with asynchronous job-status readback. |
 | Is the user proving a full implementation path? | Beast Labs scenario, then promote distilled proof. |
 | Is the user estimating cost or environment replay? | Cost and usage sizing contract. |
 
@@ -27,6 +28,7 @@ public-safe proof contract.
 | Segments | Separate definition, count, publish, and membership proof. | Segment status, count, publish history. |
 | Activations/data actions | Reauthorize destinations and avoid moving secrets. | Target readback, activation/data action status, delivery proof. |
 | Governance policies | Policies depend on data spaces, tags, classifications, users, and custom permissions. | Policy readback and non-admin runtime test. |
+| Data kit deployment | Prefer Connect REST asynchronous deployment for programmatic standard or DevOps data-kit deployment; treat the single-click flow path as legacy. | `202 Accepted`, returned job ID, terminal `Completed` or `Error` status, target data space, and component errors. |
 
 ## Environment Gates
 
@@ -35,10 +37,13 @@ public-safe proof contract.
 3. Confirm data spaces and naming drift.
 4. Confirm connector credentials are reauthorized locally, not committed.
 5. Confirm package/data kit membership is complete.
-6. Deploy or recreate metadata in dependency order.
-7. Run readback proof by returned ID, status, count, metadata, or query.
-8. Run governed-user proof when access controls are in scope.
-9. Record only distilled evidence in the proof ledger.
+6. For Connect REST data-kit deployment, require `asyncMode=true`, the correct
+   standard or DevOps request shape, and the target data-space name.
+7. Deploy or recreate metadata in dependency order.
+8. Poll asynchronous jobs to a terminal status and inspect component errors.
+9. Run readback proof by returned ID, status, count, metadata, or query.
+10. Run governed-user proof when access controls are in scope.
+11. Record only distilled evidence in the proof ledger.
 
 ## Forbidden Assumptions
 

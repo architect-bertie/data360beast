@@ -196,6 +196,7 @@ _Distilled from official Salesforce sources only._
 - developer.salesforce.com/docs/data/data-cloud-dev/guide/data-cloud-2gp-workflow.htm — 2GP Workflow for Data 360
 - developer.salesforce.com/docs/data/data-cloud-dev/guide/component-cheatsheet.html — Metadata Components Cheat Sheet
 - developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360a-api-isv-readiness-data.html — Data 360 Extensibility Readiness Matrix
+- developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-deploy-data-kits-using-connect-api.html — Deploy Data 360 Data Kits with Connect REST
 - developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-deploy_data_kit_components.html — Deploy Data Kit Components Flow
 - developer.salesforce.com/docs/data/data-cloud-dev/guide/app-dev-comparison.html — Differences Between Developing Apps on Data 360 and the Platform
 
@@ -257,7 +258,14 @@ Extensibility Readiness Matrix before designing kit contents.
 - DevOps Center supports Data 360 metadata.
 - Data 360 Metadata API for programmatic kit assembly.
 - Salesforce CLI (`sf project deploy/retrieve`) supports kit deployment.
-- "Deploy Data Kit Components" flow in target org orchestrates installs.
+- Connect REST is the current programmatic deployment path for standard and
+  DevOps data kits. Set `asyncMode=true`, capture the returned job ID, and poll
+  status to `Completed` or `Error`.
+- Treat the "Deploy Data Kit Components" flow as a legacy compatibility path
+  for new automation guidance.
+- Standard and DevOps data kits use different request shapes. Confirm package
+  installation, Data 360 Architect permission, data-kit developer name, and
+  target data-space parity before deployment.
 
 **2GP Workflow (Salesforce Partners):**
 1. Create a development scratch org or sandbox with Data 360 enabled.

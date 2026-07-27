@@ -11,21 +11,20 @@ checks, templates, and CLI troubleshooting.
 
 ## Approved Upstream Skills
 
-- `orchestrating-datacloud`
-- `connecting-datacloud`
-- `preparing-datacloud`
-- `harmonizing-datacloud`
-- `segmenting-datacloud`
-- `activating-datacloud`
-- `retrieving-datacloud`
-- `getting-datacloud-schema`
-- `developing-datacloud-code-extension`
+- `data360-orchestrate`
+- `data360-connect`
+- `data360-prepare`
+- `data360-harmonize`
+- `data360-segment`
+- `data360-activate`
+- `data360-query`
+- `data360-schema-get`
+- `data360-code-extension-generate`
 
 ## Source Boundary
 
-Use **Data 360** in Beast-facing guidance. Preserve upstream `*-datacloud`
-folder names only for exact install paths, package references, or command
-surfaces.
+Use **Data 360** in Beast-facing guidance. Preserve exact upstream names only
+for install paths, package references, or command surfaces.
 
 Do not copy upstream skill bodies into Beast. Use
 [`docs/data360/sf-skills-data360-companion.md`](../../../docs/data360/sf-skills-data360-companion.md)

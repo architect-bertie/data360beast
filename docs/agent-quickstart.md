@@ -51,9 +51,9 @@ python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
 
 The companion contract is
 [`docs/data360/sf-skills-data360-companion.md`](data360/sf-skills-data360-companion.md).
-Beast-facing guidance says Data 360; upstream folder names such as
-`orchestrating-datacloud` are preserved only because they are exact install
-paths from `forcedotcom/sf-skills`.
+Beast-facing guidance says Data 360; exact upstream folder names such as
+`data360-orchestrate` are preserved for install paths from
+`forcedotcom/sf-skills`.
 
 ## Manual Context
 

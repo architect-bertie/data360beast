@@ -5,7 +5,7 @@ This is a local synthesis index for Data360 Beast skill updates. It is derived f
 ## Crawl Scope
 
 - Source: https://developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-get-started.html
-- Pages indexed: 23
+- Pages indexed: 24
 - Source type: developer.salesforce.com guide pages
 - Public repo rule: summarize learnings; do not publish raw extracted pages.
 
@@ -21,7 +21,7 @@ This is a local synthesis index for Data360 Beast skill updates. It is derived f
 
 - Get Started with Data 360 Development: With Data 360, you can consolidate and process large volumes of data from various sources and integrate it with Salesforce CRM data, avoiding data silos. Data 360 uses a lakehouse to store your data and connect it with the Salesforce Platform. You can process data at scale, query the data, and create insights from billions of records. Customer data is unified so that you can create rich insights for customer profiles.
 - Quick Start: Use this section to understand the prerequisites and steps for integrating with Data 360 APIs.
-- Data 360 Architecture: Data 360's architecture is designed to ingest, process, unify, and activate customer data from various sources. It encompasses several key capabilities, forming a comprehensive platform for managing customer experiences.
+- Data 360 Architecture: Data 360’s architecture is designed to ingest, process, unify, and activate customer data from various sources. It encompasses several key capabilities, forming a comprehensive platform for managing customer experiences.
 - Data 360 Features Brief Overview: If you’re new to Data 360, this section provides a brief overview of what Data 360 is used for. It also provides resources so that you can learn more about Data 360.
 - Object Model in Data 360: The Customer 360 Data Model includes different types of data objects.
 - Data 360 Development Cycle: Use APIs and SDKs to integrate data, query data, and manipulate calculated insights and profiles.
@@ -36,19 +36,20 @@ This is a local synthesis index for Data360 Beast skill updates. It is derived f
 - Data 360 Development Environments: Learn about the development environments that are available for Salesforce partners and customer developers.
 - App Development Lifecycle: The app development lifecycle includes planning and gathering requirements, creating the app, testing the app, making iterative changes to fix issues, and performing user-acceptance testing as a final test. The final step for an app developed in-house is the app’s release to production. The final step for an app developed by a Salesforce partner is app distribution to other Data 360 customers who purchase the app.
 - Packages and Data Kits: A package is a container to which you can add metadata components. It holds the set of related features, customizations, and schema that comprise your app. When packaging Data 360 metadata, you must add the metadata to a data kit, and then add the data kit to the package. Data kits streamline the package creation and installation process.
-- Workflow for Data 360 Second-Generation Managed Packages: Second-generation managed packaging (managed 2GP) for Data 360 is a way for AppExchange partners to develop, distribute, and manage their Data 360 apps and metadata. You can use managed 2GP packaging to organize your source data, build small modular packages, integrate with your version control system, and better utilize your custom Apex code. To learn more about when to use a 2GP packaging, see Why Switch to Second-Generation Managed Packaging?
+- Workflow for Data 360 Second-Generation Managed Packages: Second-generation managed packaging (managed 2GP) for Data 360 is a way for AgentExchange partners to develop, distribute, and manage their Data 360 apps and metadata. You can use managed 2GP packaging to organize your source data, build small modular packages, integrate with your version control system, and better utilize your custom Apex code. To learn more about when to use a 2GP packaging, see Why Switch to Second-Generation Managed Packaging?
 - Deploy Data Kit Components by Using Deploy Data Kit Components Flow: Deploy all standard data kit components sequentially to a target org using the Deploy Data Kit Components flow.
-- Use CLI to Deploy Changes from a Sandbox to Data 360: As a Salesforce developer, you can move your Data 360 metadata and process definitions for Data 360 features from one sandbox org to another sandbox org or to a production org. To accomplish this, you use a sandbox org that has Data 360 enabled and provisioned. The feature metadata that you want to deploy must be added to a DevOps data kit. Once the metadata is in the data kit, you can retrieve it into a Salesforce DX project manifest. Finally, you can deploy the metadata to the production org.
+- Use CLI to Deploy Changes from a Sandbox to Data 360: As a Salesforce developer, you can move your Data 360 metadata and process definitions for Data 360 features between sandbox orgs or between production orgs. To accomplish this, you use a temporary sandbox org that has Data 360 enabled and provisioned.
+- Use the Connect REST API to Deploy Data 360 Data Kits: Use the deploy data kit components Connect REST API endpoint to programmatically deploy components from a specific data kit to a Data 360 instance. The Connect API offers a seamless, asynchronous deployment process for both standard and DevOps data kits. This API replaces the legacy, flow-based single-click deploy method.
 - Metadata Components for Data 360 Cheat Sheet: This cheat sheet lists the available metadata components that you can package for each feature set in Data 360.
 - Cost and Usage: Your use of certain Data 360 features is metered and results in consumption of credits.
 - Best Practices for Optimizing Usage: To stay within your consumption credits, follow best practices to optimize your service and data usage.
 
 ## Frequent Headings
 
-- See Also: 5
+- See Also: 7
 - Before You Begin: 2
 - 1. Create a Salesforce DX Project: 1
-- 1. Create a Salesforce DX Project With Manifest: 1
+- 1. Create a Salesforce DX Project with Manifest: 1
 - 2. Authorize Sandbox Org and Production Org: 1
 - 2. Create a Scratch Org: 1
 - 3. Create a Data Space in the Sandbox Org and Production Org: 1
