@@ -168,13 +168,16 @@ Report:
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_using_data_cloud_apis_with_data_spaces.htm (2026-05-11T18:36:20.467Z) — Use Data Cloud APIs with Data Spaces
+- data.c360_a_using_data_cloud_apis_with_data_spaces.htm — Use Data Cloud APIs with Data Spaces
+
+**Source fingerprint:** `914b475541498c62cea77808`
 
 **Notes:**
 - Token exchange: include a body parameter named `dataspace` with the data space name to get a Data 360 token scoped to that data space.
 - SQL clients: set a driver/user property named `dataspace` to query in a specific data space.
 - Python connector: pass an additional connection parameter named `dataspace` with the data space name.
 - Connect APIs: pass the data space name as an extra parameter (example shown in the Help page). Validate per-endpoint support in OpenAPI before assuming it exists everywhere.
+
 <!-- SF_DOC_SYNC_END:data-spaces-api -->
 
 <!-- SF_DOC_SYNC_START:limits-api -->
@@ -183,12 +186,15 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+- data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
+
+**Source fingerprint:** `1ce0aa69b0b275b02c26170b`
 
 **Notes:**
 - Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
 - Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
 - Before writing reusable API guidance, check the API Guidelines and Limits family and OpenAPI catalog together.
 - Do not treat a method/path as production-ready until limits, data space mechanics, permissions, and readback proof are named.
-- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
+
 <!-- SF_DOC_SYNC_END:limits-api -->

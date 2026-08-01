@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
   "name": "Salesforce sf-skills Data 360 Companion Contract",
-  "updated": "2026-07-27",
+  "updated": "2026-08-01",
   "purpose": "Machine-readable contract for using the Salesforce sf-skills repository as a Data 360 execution and debugging companion to Data360 Beast without vendoring upstream skill content.",
   "upstream": {
     "repository": "https://github.com/forcedotcom/sf-skills",
     "packageName": "@salesforce/afv-skills",
-    "observedPackageVersion": "1.32.0",
-    "observedRef": "7baeb07b36799eada4dce06d85664c0c16a269a8",
-    "observedRefDate": "2026-07-24",
+    "observedPackageVersion": "1.33.0",
+    "observedRef": "fe3e2edad0f763edd1927420d1d4b0e31d252452",
+    "observedRefDate": "2026-08-01",
     "license": "CC-BY-NC-4.0",
     "installRoot": "skills/"
   },
@@ -124,5 +124,211 @@
     "Update this contract when upstream changes affect install, routing, command behavior, templates, readiness checks, or gotchas.",
     "Do not copy upstream skill bodies into Beast.",
     "Run the installer in dry-run mode as a health check."
-  ]
+  ],
+  "observedFiles": {
+    "skills/data360-activate/README.md": {
+      "bytes": 1445,
+      "sha256": "3aaf366c3fae7a9c155b5d2e9d4c27bc5cef976bc1e2324125fee0b719dd9e67"
+    },
+    "skills/data360-activate/SKILL.md": {
+      "bytes": 5024,
+      "sha256": "e95926161f83cad3deb1d758c0db4bee1b87c0950438349fb864b9b6e9fa4e23"
+    },
+    "skills/data360-code-extension-generate/SKILL.md": {
+      "bytes": 10911,
+      "sha256": "54db69aef31d3f76fdc1863818d9f806c8e166fee864a326dea8c4903bc36ff0"
+    },
+    "skills/data360-code-extension-generate/references/README.md": {
+      "bytes": 5091,
+      "sha256": "b271472515c5f8e354dd79e9e5f75b9b7ac5803f099355d727f698e23c866f39"
+    },
+    "skills/data360-code-extension-generate/references/quick-reference.md": {
+      "bytes": 6628,
+      "sha256": "cf3949da535e692c3bb21b66a13edc6b87d1ebbe45dff295797cae84fbdc24c5"
+    },
+    "skills/data360-connect/README.md": {
+      "bytes": 2531,
+      "sha256": "6a065e723dc73c5bf1257fe2f5ff031f4f00ea9ff0b43c19abf7f6e28346c227"
+    },
+    "skills/data360-connect/SKILL.md": {
+      "bytes": 7562,
+      "sha256": "909a1c605c80c9f94c72fb68465f46dcb9374cb398ac0223b3779561111d940b"
+    },
+    "skills/data360-connect/examples/connections/heroku-postgres.json": {
+      "bytes": 498,
+      "sha256": "06fc36f45d4b8f294c320d6ef99351daf36b8db8b1f1a1af0ed2dad21c782274"
+    },
+    "skills/data360-connect/examples/connections/ingest-api-connection.json": {
+      "bytes": 97,
+      "sha256": "705ea433d8c4b255844c34fd4f0a0c30485416212b1abacd5d8ad049fd46fbc2"
+    },
+    "skills/data360-connect/examples/connections/ingest-api-schema.json": {
+      "bytes": 582,
+      "sha256": "3a319f09b728b53a71ae297c652faeab4b17902fe20899c17dc995fa6073449d"
+    },
+    "skills/data360-connect/examples/connections/redshift.json": {
+      "bytes": 536,
+      "sha256": "b2a47761554eb098ab1c61280c6d43eadf33b9996b1a3389789b487f9ddb902b"
+    },
+    "skills/data360-connect/examples/connections/sharepoint-unstructured.json": {
+      "bytes": 469,
+      "sha256": "03802b4e05be0b15b8a21e4c67d0c9c283433d1ee55b7ca8b919b5fb0234a6bb"
+    },
+    "skills/data360-connect/examples/connections/snowflake-connection.json": {
+      "bytes": 860,
+      "sha256": "5e1d8c054a6225eef98182843e86d49a556978816362b22b87516569e8d6e3d4"
+    },
+    "skills/data360-harmonize/README.md": {
+      "bytes": 792,
+      "sha256": "7739f4aa09d4f03f8281758c63218fc390dbc939187948bd3373dc7b4a13bc40"
+    },
+    "skills/data360-harmonize/SKILL.md": {
+      "bytes": 5008,
+      "sha256": "d0c7f14f14e6d3fa1ebf329d9a79127bdd21ac9f4859e7fb443ceffb499dc9f1"
+    },
+    "skills/data360-orchestrate/README.md": {
+      "bytes": 4384,
+      "sha256": "12b2463147d00b7ccbd2f62c1c590204c30067f2e09a528cbb49c94ea390fee9"
+    },
+    "skills/data360-orchestrate/SKILL.md": {
+      "bytes": 11099,
+      "sha256": "598c6efdf1ae193a349ea071ef6d41bc40b1bc84e3838d59b093ab5448dd4f00"
+    },
+    "skills/data360-orchestrate/assets/definitions/activation-target.template.json": {
+      "bytes": 153,
+      "sha256": "fb0c5c6438bd2c696f71bfbdb7e06b7a79d8d39dbcfc8f325327e7b55d8c04e0"
+    },
+    "skills/data360-orchestrate/assets/definitions/activation.template.json": {
+      "bytes": 281,
+      "sha256": "d9e24ae22c00ef615ccf1b3919683a21e039e1bd93a752f3b9398c561f5e68e3"
+    },
+    "skills/data360-orchestrate/assets/definitions/calculated-insight.template.json": {
+      "bytes": 335,
+      "sha256": "65b3887d86ebce428e61f37112009efef064a0a03543daf2d64b3146ef1c9318"
+    },
+    "skills/data360-orchestrate/assets/definitions/data-action-target.template.json": {
+      "bytes": 146,
+      "sha256": "b9afda7e0ce80cda1df0231b10e846e512ec811a3e082a515467ec9efb050f1f"
+    },
+    "skills/data360-orchestrate/assets/definitions/data-action.template.json": {
+      "bytes": 206,
+      "sha256": "3c9cb0f3edc4d701c9c379a11cf12bd32f47db9fd2ba0f3b104c4f753be08e55"
+    },
+    "skills/data360-orchestrate/assets/definitions/data-graph.template.json": {
+      "bytes": 453,
+      "sha256": "e2fc2d5c439a4272b86a4d5020f5b242b20ea5458dd6984f41b80b6b6f94bbff"
+    },
+    "skills/data360-orchestrate/assets/definitions/data-stream.template.json": {
+      "bytes": 1140,
+      "sha256": "7ec89bf9ac7fca0ef191020b174df13b8c8c422e16c63ee4cfd21e5bfbc09b23"
+    },
+    "skills/data360-orchestrate/assets/definitions/dmo.template.json": {
+      "bytes": 323,
+      "sha256": "1b985ad30beb3bae88be9411fde2140adaa0a86e24c76faa3e0fdf1db4a43b8c"
+    },
+    "skills/data360-orchestrate/assets/definitions/identity-resolution.template.json": {
+      "bytes": 759,
+      "sha256": "c926c4a36ea05a7a0efc3eb2ba69715b4e511dc67485ed8dd051882b974505ca"
+    },
+    "skills/data360-orchestrate/assets/definitions/mapping.template.json": {
+      "bytes": 318,
+      "sha256": "57d3d86e15b5c88e045d20e879a601272dc504fc9c63f06c7ec6e5455f4af9e7"
+    },
+    "skills/data360-orchestrate/assets/definitions/relationship.template.json": {
+      "bytes": 302,
+      "sha256": "4c6c02fb3c29553fb5af6d78baccabc40259f1a50063f6f05955335b978e72f2"
+    },
+    "skills/data360-orchestrate/assets/definitions/search-index.template.json": {
+      "bytes": 339,
+      "sha256": "3bf6ba23a557e63fb239452f3f074bc696ddbc1708d9de796430c459379a5983"
+    },
+    "skills/data360-orchestrate/assets/definitions/segment.template.json": {
+      "bytes": 523,
+      "sha256": "449e2fd76d6c95909c9f022c2a3428b973ddf953224ae3cc824fb15dc6584526"
+    },
+    "skills/data360-orchestrate/references/feature-readiness.md": {
+      "bytes": 7390,
+      "sha256": "0e666785c04a57f4a6401c1e83735b950a9a431f96156c14cbe0667c7a48082f"
+    },
+    "skills/data360-orchestrate/references/plugin-setup.md": {
+      "bytes": 4559,
+      "sha256": "449e86c87753856eb7463450be6085800ec2cac6701dc313fe0c1861ddb62f42"
+    },
+    "skills/data360-orchestrate/scripts/bootstrap-plugin.sh": {
+      "bytes": 1211,
+      "sha256": "a04ff3f5888d5d14f35c7c83ac1ee0d78f00e164bf864837e7cef092dd5521a5"
+    },
+    "skills/data360-orchestrate/scripts/diagnose-org.mjs": {
+      "bytes": 19004,
+      "sha256": "880d96da0f18e0051de4e445182162ecfc20f420c455265770478daa36fb0ee1"
+    },
+    "skills/data360-orchestrate/scripts/generate-manifest.mjs": {
+      "bytes": 2719,
+      "sha256": "d45f3127efc2ff116ec697030de6467d3bf84b06c9aa26d44443d3726c4aefcc"
+    },
+    "skills/data360-orchestrate/scripts/verify-plugin.sh": {
+      "bytes": 1769,
+      "sha256": "4d5237d6ea843ebf254e1325fc28aa05be20f874d492b3a41808c75851765a76"
+    },
+    "skills/data360-prepare/README.md": {
+      "bytes": 2038,
+      "sha256": "337caeb60ba392a9b63f2d00249a8b6490e71fd13cff7b079f669adf60102116"
+    },
+    "skills/data360-prepare/SKILL.md": {
+      "bytes": 8347,
+      "sha256": "f1abccf7e9e07bf82dc1c71a5d25592ed36ed36fe93d80127dfa0c4bc0e461b4"
+    },
+    "skills/data360-prepare/examples/ingestion-api/.env.example": {
+      "bytes": 319,
+      "sha256": "96f55fbb1f5c959cadb425a6b3da332d7ea0627f3b0150658950f017142e5267"
+    },
+    "skills/data360-prepare/examples/ingestion-api/README.md": {
+      "bytes": 1819,
+      "sha256": "79420218b56b335bf9b25bcfb9ff7f0d336cb81920533b2ae54f45369f19a762"
+    },
+    "skills/data360-prepare/examples/ingestion-api/send-data.py": {
+      "bytes": 4271,
+      "sha256": "4e60745879d3a7451bdfb44f16a07e6f22fc50d5a522deeeccfab06d717b320e"
+    },
+    "skills/data360-query/README.md": {
+      "bytes": 1426,
+      "sha256": "66c800a9fbd18c64eef9427876aef45fec933f53865b5d9d822a71e68a62c614"
+    },
+    "skills/data360-query/SKILL.md": {
+      "bytes": 5534,
+      "sha256": "0024d050f284e80013ffeab0187c9fd2c74698f3247d456afeda8eb1ff638473"
+    },
+    "skills/data360-query/examples/search-indexes/hybrid-structured.json": {
+      "bytes": 1229,
+      "sha256": "1c6a78b4c5a7e277e21cad6b3ebb3f2fb3075352a9df3af53e41101a97f0ce99"
+    },
+    "skills/data360-query/examples/search-indexes/vector-knowledge.json": {
+      "bytes": 1154,
+      "sha256": "d37ca54768ff79076f91da0c7a2eab326523302041922b9d3e0a1afa7564629a"
+    },
+    "skills/data360-schema-get/SKILL.md": {
+      "bytes": 9678,
+      "sha256": "cfea108fc82035b1fae1a0e9bcece41a5d6454a00da85d1418144aec41acd009"
+    },
+    "skills/data360-schema-get/references/README.md": {
+      "bytes": 4425,
+      "sha256": "02cfddcc57bbac78a6e7c925f4751a686dd06bf050bddfe2e37dad9bc5b13c71"
+    },
+    "skills/data360-schema-get/scripts/get_dlo_schema.py": {
+      "bytes": 7880,
+      "sha256": "31fd8c6398bb204e795925cf78314a4fe6325646a47b2220c0a0ff54387522d9"
+    },
+    "skills/data360-schema-get/scripts/get_dmo_schema.py": {
+      "bytes": 7523,
+      "sha256": "a9d580bed1ba40a0e6ee577386bc9871f0f2ce2ed9ad77d85e1c8208b84e07d9"
+    },
+    "skills/data360-segment/README.md": {
+      "bytes": 1138,
+      "sha256": "25bfbf15a0933f9268ccc8d0715d47e17fc01bfb77e83ca67c3a941ea99d2508"
+    },
+    "skills/data360-segment/SKILL.md": {
+      "bytes": 4676,
+      "sha256": "4ff25e496a77a308bcbf28d03070866d07c4af503bdcfe374fda40be1b9ad315"
+    }
+  }
 }

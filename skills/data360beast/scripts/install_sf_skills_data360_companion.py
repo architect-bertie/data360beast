@@ -88,7 +88,7 @@ def validate_source(root: Path) -> None:
 
 def install_skills(root: Path, dest: Path, force: bool, dry_run: bool) -> int:
     existing = [skill for skill in COMPANION_SKILLS if (dest / skill).exists()]
-    if existing and not force:
+    if existing and not force and not dry_run:
         print(
             "Refusing to overwrite existing skills without --force: "
             + ", ".join(existing),

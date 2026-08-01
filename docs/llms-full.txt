@@ -75,8 +75,8 @@ confirms org, data space, permissions, available tools, and mutation approval.
 
 ## Official Doc Indexes
 
-- 77 Salesforce Help pages are indexed at `/data360/help/index.md`.
-- 23 Salesforce Developer Guide pages are indexed at `/data360/developer/index.md`.
+- 369 Salesforce Help pages are indexed at `/data360/help/index.md`.
+- 24 Salesforce Developer Guide pages are indexed at `/data360/developer/index.md`.
 - The public Data 360 model-gallery implementation map covers 14 public
   Salesforce Developer diagrams and translates them into DMO anchor, grain,
   relationship, and implementation guidance.

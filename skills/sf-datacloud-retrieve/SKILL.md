@@ -104,11 +104,14 @@ workspace and the user authorizes live org access.
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_using_data_cloud_apis_with_data_spaces.htm (2026-05-11T18:36:20.467Z) — Use Data Cloud APIs with Data Spaces
+- data.c360_a_using_data_cloud_apis_with_data_spaces.htm — Use Data Cloud APIs with Data Spaces
+
+**Source fingerprint:** `914b475541498c62cea77808`
 
 **Notes:**
 - If results differ by user or environment, confirm whether the query path is scoped by a data space (token exchange, connector property, or API extra parameter).
 - Treat data space selection as part of proof: include the data space in readbacks and troubleshooting probes.
+
 <!-- SF_DOC_SYNC_END:data-spaces-retrieve -->
 
 <!-- SF_DOC_SYNC_START:explore-and-query -->

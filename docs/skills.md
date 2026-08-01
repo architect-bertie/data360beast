@@ -87,8 +87,8 @@ only for exact folders, package references, and command surfaces from
 - `docs/release-discipline.md`: release, validation, and publishing discipline.
 - `docs/data360/sf-skills-data360-companion.md`: Salesforce `sf-skills` Data 360 companion contract.
 - `docs/data360/sf-skills-data360-companion.json`: machine-readable companion install, naming, authority, and phase crosswalk.
-- `docs/data360/help/index.md`: public-safe index of 77 Salesforce Help pages analyzed for Data 360.
-- `docs/data360/developer/index.md`: public-safe index of 23 Salesforce Developer Guide pages analyzed for Data 360 development.
+- `docs/data360/help/index.md`: public-safe index of 369 Salesforce Help pages analyzed for Data 360.
+- `docs/data360/developer/index.md`: public-safe index of 24 Salesforce Developer Guide pages analyzed for Data 360 development.
 - `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
 - `docs/data360/model-gallery-implementation-map.md`: public Data 360 model-gallery synthesis for anchor DMOs, grain, relationship paths, and live-build traps.
 - `docs/data360/rag-search-index-retriever-playbook.md`: public-safe RAG/search-index/retriever playbook for ADL versus manual setup, field roles, chunking, hybrid search, dynamic filters, prompt grounding, Flow/Apex fallbacks, and debugging.

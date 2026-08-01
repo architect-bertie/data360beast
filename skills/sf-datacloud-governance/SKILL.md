@@ -167,11 +167,14 @@ Report:
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_data_spaces.htm (2026-05-11T18:36:14.319Z) — About Data Spaces
+- data.c360_a_data_spaces.htm — About Data Spaces
+
+**Source fingerprint:** `818dba70f9cc90d3590c0a4a`
 
 **Notes:**
 - Treat a data space as a logical partition; it scopes data, metadata, and processes for teams (brand/region/department).
 - Data space assignment via permission sets controls what users can work on in that context; it is not the same thing as granting data access (policies still matter).
+
 <!-- SF_DOC_SYNC_END:data-spaces -->
 
 <!-- SF_DOC_SYNC_START:permission-sets -->
@@ -180,11 +183,14 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_userpermissions.htm (2026-05-11T18:33:50.890Z) — Data 360 Standard Permission Sets
+- data.c360_a_userpermissions.htm — Data 360 Standard Permission Sets
+
+**Source fingerprint:** `50ee4df04ff1f2c142273c2c`
 
 **Notes:**
 - Standard Data 360 permission sets can change over time; avoid custom clones unless you have a specific reason and a review process.
 - System Administrator profile can have broad data space definition access; validate governed runtime behavior with a non-admin user when proving policies.
+
 <!-- SF_DOC_SYNC_END:permission-sets -->
 
 ### Extended Doc-Synced References

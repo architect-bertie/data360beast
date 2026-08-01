@@ -213,9 +213,11 @@ Report:
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- sf.c360_a_search_index_ground_ai.htm (2026-05-11T18:38:46.532Z) — Use Search for AI, Automation, and Analytics
-- data.c360_a_hybridsearch_index_create.htm (2026-05-11T18:38:47.245Z) — Create a Hybrid Search Index with Advanced Setup
-- data.c360_a_ai_retriever_create.htm (2026-05-11T18:38:48.058Z) — Create an Individual Retriever
+- sf.c360_a_search_index_ground_ai.htm — Use Search for AI, Automation, and Analytics
+- data.c360_a_hybridsearch_index_create.htm — Create a Hybrid Search Index with Advanced Setup
+- data.c360_a_ai_retriever_create.htm — Create an Individual Retriever
+
+**Source fingerprint:** `74b719c72614030ef5b5c19e`
 
 **Notes:**
 - Hybrid search is intended to combine semantic (vector) and lexical (keyword) matching; choose it when vocabulary precision matters.
@@ -223,6 +225,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - Index configuration can include filter fields and ranking factors; retriever filters depend on filter fields being defined on the index.
 - Creating an index can produce related objects (chunk/index DMOs); include them in governance and monitoring.
 - Retriever configuration includes selecting the data space, DMO, index, optional filters, return fields, and (optional) citations; activate a version before use in prompts.
+
 <!-- SF_DOC_SYNC_END:search-index-and-retrievers -->
 
 ### Extended Doc-Synced References
@@ -244,12 +247,15 @@ pipeline. It retains the SF_DOC_SYNC markers for the doc-watch pipeline.
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_limits_and_guidelines.htm (2026-05-11T20:20:31.057Z) — Data 360 Limits and Guidelines
+- data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
+
+**Source fingerprint:** `1ce0aa69b0b275b02c26170b`
 
 **Notes:**
 - Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
 - Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
 - Before recommending chunking, parser mode, ranking fields, index refresh, or retriever shape, check the unstructured-data and search-index limit family.
 - Keep reindexing, embedding, query, storage, and intelligent-processing cost in the design review.
-- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits (Beta), Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits, Data Transforms Guidelines and Limits.
+- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
+
 <!-- SF_DOC_SYNC_END:limits-unstructured-search -->

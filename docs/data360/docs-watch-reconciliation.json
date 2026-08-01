@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-01T17:35:35.921484+00:00",
+  "scope": {
+    "helpSeed": "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5",
+    "developerSeed": "https://developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-get-started.html",
+    "maxDepth": 4,
+    "officialDomains": [
+      "help.salesforce.com",
+      "developer.salesforce.com"
+    ]
+  },
+  "summary": {
+    "currentPages": 393,
+    "newPages": 0,
+    "removedPages": 0,
+    "changedPages": 0,
+    "staleReferences": 0,
+    "uncoveredPhases": 0
+  },
+  "newPages": [],
+  "removedPages": [],
+  "changedPages": [],
+  "staleBeastReferences": [],
+  "uncoveredTopics": [],
+  "uncoveredPhases": [],
+  "extractionFailures": [],
+  "candidateDiscrepancies": []
+}

@@ -47,6 +47,7 @@ This is a local synthesis index for Data360 Beast skill updates. It is derived f
 ## Frequent Headings
 
 - See Also: 7
+- Required Permissions: 3
 - Before You Begin: 2
 - 1. Create a Salesforce DX Project: 1
 - 1. Create a Salesforce DX Project with Manifest: 1
@@ -75,4 +76,3 @@ This is a local synthesis index for Data360 Beast skill updates. It is derived f
 - Authenticate to the Salesforce Platform: 1
 - Authentication: 1
 - Authorization for Data 360 API for the Data Cloud Tenant: 1
-- Available Data 360 Components in Data Kits: 1

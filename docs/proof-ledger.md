@@ -64,10 +64,13 @@ from a future cookbook candidate.
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_changelog_usage_and_access.htm (2026-05-11T20:20:32.153Z) — Data 360 Usage and Access Changes
+- data.c360_a_changelog_usage_and_access.htm — Data 360 Usage and Access Changes | Salesforce Help
+
+**Source fingerprint:** `605fd9a0b6ac010e940b297c`
 
 **Notes:**
 - Check this changelog before treating older Beast guidance as durable; it tracks licensing, access, availability, billing, limits, and permission-set documentation changes.
 - When a changelog entry touches a phase, update the owning specialist skill and any public-safe markdown map in the same run.
-- Most recent captured entry headings: Apr 28, 2026, Apr 14, 2026, Mar 13, 2026, Mar 2, 2026, Feb 6, 2026, Feb 3, 2026, Jan 30, 2026, Jan 9, 2026.
+- Most recent captured entry headings: July 7, 2026, June 23, 2026, June 22, 2026, June 12, 2026, June 5, 2026, May 22, 2026, May 19, 2026, May 12, 2026.
+
 <!-- SF_DOC_SYNC_END:weekly-watch-gate -->

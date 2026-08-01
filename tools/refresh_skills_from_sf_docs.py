@@ -15,6 +15,7 @@ This script is intentionally narrow and deterministic:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from dataclasses import dataclass
@@ -66,12 +67,16 @@ def find_extracted_at_in_raw(article_id: str) -> str | None:
 
 
 def render_block(header: str, sources: Iterable[HelpSummary], bullets: list[str]) -> str:
+    source_list = list(sources)
     src_lines = []
-    for s in sources:
-        extracted = find_extracted_at_in_raw(s.article_id) or "unknown"
-        src_lines.append(f"- {s.article_id} ({extracted}) — {s.title}")
+    for s in source_list:
+        src_lines.append(f"- {s.article_id} — {s.title}")
     src_section = "\n".join(src_lines) if src_lines else "- (none)"
     bullet_section = "\n".join([f"- {b}" for b in bullets]) if bullets else "- (no extracted bullets)"
+    fingerprint_input = "\n".join(
+        [s.article_id + "|" + s.title + "|" + s.source + "|" + "|".join(s.headings + s.bullets) for s in source_list]
+    )
+    fingerprint = hashlib.sha256(fingerprint_input.encode("utf-8")).hexdigest()[:24]
     return "\n".join(
         [
             f"### {header}",
@@ -80,6 +85,8 @@ def render_block(header: str, sources: Iterable[HelpSummary], bullets: list[str]
             "",
             "**Sources (sf-docs cached Help):**",
             src_section,
+            "",
+            f"**Source fingerprint:** `{fingerprint}`",
             "",
             "**Notes:**",
             bullet_section,
@@ -102,18 +109,10 @@ def replace_marked_section(text: str, key: str, replacement_markdown: str) -> st
 
 
 def apply_doc_synced_blocks(text: str, blocks: dict[str, str]) -> str:
-    base = text.split("\n## Doc-Synced Notes\n", 1)[0].rstrip()
-    rendered = ["## Doc-Synced Notes", ""]
+    updated = text
     for key, markdown in blocks.items():
-        rendered.extend(
-            [
-                f"<!-- SF_DOC_SYNC_START:{key} -->",
-                markdown.rstrip(),
-                f"<!-- SF_DOC_SYNC_END:{key} -->",
-                "",
-            ]
-        )
-    return base + "\n\n" + "\n".join(rendered).rstrip() + "\n"
+        updated = replace_marked_section(updated, key, markdown)
+    return updated
 
 
 def render_limits_gate(label: str, source: HelpSummary, phase_notes: list[str]) -> str:

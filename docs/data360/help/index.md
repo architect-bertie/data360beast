@@ -20,7 +20,7 @@ Discovery depth: 4
 | Get Started with Data 360 | data.c360_a_product_considerations.htm | 0 | 7378 | https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5 |
 | Publish History of Your Activation | data.c360_a_activations_publish_history.htm | 4 | 2743 | https://help.salesforce.com/s/articleView?id=data.c360_a_activations_publish_history.htm&language=en_US&type=5 |
 | Bring Your Own Model | data.c360_a_bring_your_own_model.htm | 4 | 3235 | https://help.salesforce.com/s/articleView?id=data.c360_a_bring_your_own_model.htm&language=en_US&type=5 |
-| Data 360 Limits and Guidelines | data.c360_a_considerations_and_guidelines.htm | 4 | 47366 | https://help.salesforce.com/s/articleView?id=data.c360_a_considerations_and_guidelines.htm&language=en_US&type=5 |
+| Data 360 Limits and Guidelines | data.c360_a_considerations_and_guidelines.htm | 4 | 63 | https://help.salesforce.com/s/articleView?id=data.c360_a_considerations_and_guidelines.htm&language=en_US&type=5 |
 | Considerations for Selecting Related Attributes in Data 360 Activations | data.c360_a_considerations_for_related_attributes.htm | 4 | 7571 | https://help.salesforce.com/s/articleView?id=data.c360_a_considerations_for_related_attributes.htm&language=en_US&type=5 |
 | Data 360 in a Sandbox | data.c360_a_data_cloud_sandbox.htm | 4 | 48850 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_sandbox.htm&language=en_US&type=5 |
 | Data Explorer | data.c360_a_data_explorer.htm | 4 | 1687 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_explorer.htm&language=en_US&type=5 |
@@ -42,10 +42,10 @@ Discovery depth: 4
 | Data Target Configuration in Data 360 | data.c360_a_data_target_configuration_in_data_cloud.htm | 1 | 1478 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_target_configuration_in_data_cloud.htm&language=en_US&type=5 |
 | AI and Data Usage in Data 360 | data.c360_a_einstein_data_usage_in_data_cloud.htm | 1 | 4346 | https://help.salesforce.com/s/articleView?id=data.c360_a_einstein_data_usage_in_data_cloud.htm&language=en_US&type=5 |
 | General Set Up Tasks in Data 360 | data.c360_a_admin_maintenance_tasks.htm | 1 | 2656 | https://help.salesforce.com/s/articleView?id=data.c360_a_admin_maintenance_tasks.htm&language=en_US&type=5 |
-| Data 360 Usage and Access Changes | data.c360_a_changelog_usage_and_access.htm | 1 | 56544 | https://help.salesforce.com/s/articleView?id=data.c360_a_changelog_usage_and_access.htm&language=en_US&type=5 |
+| Data 360 Usage and Access Changes | data.c360_a_changelog_usage_and_access.htm | 1 | 63 | https://help.salesforce.com/s/articleView?id=data.c360_a_changelog_usage_and_access.htm&language=en_US&type=5 |
 | Find Your Instance and Endpoint Information | data.c360_a_find_your_functional_domain.htm | 1 | 1777 | https://help.salesforce.com/s/articleView?id=data.c360_a_find_your_functional_domain.htm&language=en_US&type=5 |
 | Connect Salesforce Data to Data 360 | data.c360_a_connect_data_task_steps.htm | 2 | 5333 | https://help.salesforce.com/s/articleView?id=data.c360_a_connect_data_task_steps.htm&language=en_US&type=5 |
-| Data 360 Limits and Guidelines | data.c360_a_limits_and_guidelines.htm | 2 | 47366 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines.htm&language=en_US&type=5 |
+| Data 360 Limits and Guidelines | data.c360_a_limits_and_guidelines.htm | 2 | 63 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines.htm&language=en_US&type=5 |
 | Data Services Billable Usage Types for Data 360 | data.c360_a_data_usage_types.htm | 2 | 13256 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_usage_types.htm&language=en_US&type=5 |
 | Data 360 Standard Permission Sets | data.c360_a_userpermissions.htm | 2 | 8943 | https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions.htm&language=en_US&type=5 |
 | Unlock Hidden Insights with Tableau | data.c360_a_dc_for_tableau.htm | 2 | 17485 | https://help.salesforce.com/s/articleView?id=data.c360_a_dc_for_tableau.htm&language=en_US&type=5 |
@@ -68,7 +68,7 @@ Discovery depth: 4
 | Data 360 Profiles License Billing Considerations | data.c360_a_d360_profile_billing_considerations.htm | 2 | 5937 | https://help.salesforce.com/s/articleView?id=data.c360_a_d360_profile_billing_considerations.htm&language=en_US&type=5 |
 | Data 360 Profiles License Base License Limits | data.c360_a_limits_and_guidelines_d360_profiles.htm | 2 | 3816 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines_d360_profiles.htm&language=en_US&type=5 |
 | Customer Data Platform Billable Usage Calculations | data.c360_a_billing.htm | 2 | 8398 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing.htm&language=en_US&type=5 |
-| Customer Data Platform Limits and Guidelines | data.c360_a_limits_and_guidelines_cdp.htm | 2 | 37633 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines_cdp.htm&language=en_US&type=5 |
+| Customer Data Platform Limits and Guidelines | data.c360_a_limits_and_guidelines_cdp.htm | 2 | 63 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines_cdp.htm&language=en_US&type=5 |
 | Data 360 Reportable Resource References | data.c360_a_data_usage_resource_references.htm | 2 | 4014 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_usage_resource_references.htm&language=en_US&type=5 |
 | Data Space References in Standard Consumption Tags | data.c360_a_data_usage_data_space_attribution.htm | 2 | 1612 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_usage_data_space_attribution.htm&language=en_US&type=5 |
 | Reduce Credit Consumption in Data 360 | data.c360_a_reduce_credit_consumption.htm | 2 | 2419 | https://help.salesforce.com/s/articleView?id=data.c360_a_reduce_credit_consumption.htm&language=en_US&type=5 |
