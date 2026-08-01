@@ -48,6 +48,49 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(result["count"], 1)
         self.assertEqual(result["claims"][0]["id"], "KC-006")
 
+    def test_discover_target_uses_org_api_version_and_redacts_identifiers(self):
+        commands = []
+
+        def runner(command):
+            commands.append(command)
+            if command[:3] == ["sf", "org", "display"]:
+                return type("R", (), {
+                    "returncode": 0,
+                    "stdout": json.dumps({
+                        "result": {
+                            "id": "redacted-org-id",
+                            "apiVersion": "67.0",
+                            "instanceUrl": "https://example.my.salesforce.com",
+                            "isSandbox": False,
+                        }
+                    }),
+                })()
+            return type("R", (), {
+                "returncode": 0,
+                "stdout": json.dumps({"dataSpaces": [{"name": "default"}]}),
+            })()
+
+        discovery = runtime.discover_target({"orgAlias": "example", "dataSpace": "default"}, runner=runner)
+
+        self.assertEqual(discovery["apiVersion"], "67.0")
+        self.assertEqual(discovery["dataSpaces"], ["default"])
+        self.assertNotIn("orgId", discovery)
+        self.assertNotIn("instanceUrl", discovery)
+        self.assertIn("/services/data/v67.0/ssot/data-spaces", commands[1])
+        self.assertNotIn("--url", commands[1])
+        self.assertNotIn("--json", commands[1])
+
+    def test_capabilities_require_verified_target_data_space(self):
+        spec = self.spec()
+        spec["target"]["dataSpace"] = "default"
+        discovery = {"org": "supported", "dataSpaces": ["other"]}
+        matrix = runtime.capability_matrix(spec, discovery)
+        self.assertEqual(matrix[0]["status"], "unverified")
+
+        discovery["dataSpaces"].append("default")
+        matrix = runtime.capability_matrix(spec, discovery)
+        self.assertEqual(matrix[0]["status"], "supported")
+
     def test_destroy_requires_lab_and_execute(self):
         with tempfile.TemporaryDirectory() as temp:
             old_home = runtime.run_home
