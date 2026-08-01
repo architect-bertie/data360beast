@@ -124,7 +124,7 @@ when the user is designing or debugging a specific flow shape:
 <!-- SF_DOC_SYNC_START:limits-data-actions -->
 ### Data action and event limit gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help

@@ -22,6 +22,7 @@ Data360 Beast references:
 - Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Implementation foundation: [docs/data360/implementation-foundation.md](../../docs/data360/implementation-foundation.md)
 - Data 360 model-gallery implementation map: [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
@@ -163,7 +164,7 @@ Do not copy long Help pages or endpoint dumps into skills. Keep durable detail i
 <!-- SF_DOC_SYNC_START:limits-first-architecture -->
 ### Limits-first architecture gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help

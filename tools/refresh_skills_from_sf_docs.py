@@ -39,6 +39,44 @@ class HelpSummary:
     bullets: list[str]
 
 
+def load_developer_manifest(path: Path | None) -> list[dict]:
+    if path is None or not path.is_file():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return [item for item in payload if item.get("extractionStatus") == "captured"]
+
+
+def developer_item(items: list[dict], path_suffix: str) -> dict:
+    for item in items:
+        if str(item.get("source", "")).endswith(path_suffix):
+            return item
+    raise FileNotFoundError(f"Developer manifest is missing required source: {path_suffix}")
+
+
+def render_developer_block(header: str, sources: list[dict], bullets: list[str]) -> str:
+    source_lines = [f"- {item['source']} - {item['title']}" for item in sources]
+    fingerprint_input = "\n".join(
+        f"{item.get('source')}|{item.get('contentHash')}" for item in sources
+    )
+    fingerprint = hashlib.sha256(fingerprint_input.encode("utf-8")).hexdigest()[:24]
+    return "\n".join(
+        [
+            f"### {header}",
+            "",
+            "_Auto-synced from sf-docs captures of official Salesforce Developer documentation._",
+            "",
+            "**Sources:**",
+            *source_lines,
+            "",
+            f"**Source fingerprint:** `{fingerprint}`",
+            "",
+            "**Implementation notes:**",
+            *[f"- {bullet}" for bullet in bullets],
+            "",
+        ]
+    )
+
+
 def load_summary(article_id: str) -> HelpSummary:
     path = SUMMARIES_DIR / f"{article_id.removesuffix('.htm')}.json"
     payload = json.loads(path.read_text(encoding="utf-8"))
@@ -81,7 +119,7 @@ def render_block(header: str, sources: Iterable[HelpSummary], bullets: list[str]
         [
             f"### {header}",
             "",
-            "_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).",
+            "_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._",
             "",
             "**Sources (sf-docs cached Help):**",
             src_section,
@@ -105,11 +143,24 @@ def replace_marked_section(text: str, key: str, replacement_markdown: str) -> st
     suffix = "\n".join([start, replacement_markdown, end, ""])
     if not text.endswith("\n"):
         text += "\n"
-    return text + "\n## Doc-Synced Notes\n\n" + suffix
+    heading = "## Doc-Synced Notes"
+    if heading in text:
+        return text + "\n" + suffix
+    return text + "\n" + heading + "\n\n" + suffix
+
+
+def normalize_doc_synced_headings(text: str) -> str:
+    heading = "## Doc-Synced Notes"
+    first = text.find(heading)
+    if first == -1:
+        return text
+    prefix = text[: first + len(heading)]
+    suffix = text[first + len(heading) :].replace(f"\n\n{heading}\n", "\n")
+    return prefix + suffix
 
 
 def apply_doc_synced_blocks(text: str, blocks: dict[str, str]) -> str:
-    updated = text
+    updated = normalize_doc_synced_headings(text)
     for key, markdown in blocks.items():
         updated = replace_marked_section(updated, key, markdown)
     return updated
@@ -143,7 +194,7 @@ def render_changelog_gate(source: HelpSummary) -> str:
     return render_block("Usage and access changelog gate", [source], bullets)
 
 
-def build_skill_updates() -> dict[Path, dict[str, str]]:
+def build_skill_updates(developer_manifest: Path | None = None) -> dict[Path, dict[str, str]]:
     """
     Returns { skill_path: { marker_key: replacement_markdown } }.
     """
@@ -230,8 +281,127 @@ def build_skill_updates() -> dict[Path, dict[str, str]]:
         ),
     )
 
+    developer = load_developer_manifest(developer_manifest)
+    if developer:
+        code_overview = developer_item(developer, "/data-cloud-code-ext/guide/use-custom-code.html")
+        code_setup = developer_item(developer, "/data-cloud-code-ext/guide/set-up-sdk.html")
+        code_dmo = developer_item(developer, "/data-cloud-code-ext/guide/configure-dmo-schema.html")
+        code_logs = developer_item(developer, "/data-cloud-code-ext/guide/query-logs-api.html")
+        code_migrate = developer_item(developer, "/data-cloud-code-ext/guide/migrate-code-to-prod.html")
+        add(
+            "skills/sf-datacloud-prepare/SKILL.md",
+            "developer-code-extension",
+            render_developer_block(
+                "Code Extension implementation gate",
+                [code_overview, code_setup, code_dmo, code_logs, code_migrate],
+                [
+                    "Separate scripts, which run as batch data transforms, from functions, which run in the search-index chunking pipeline.",
+                    "Preflight the documented local toolchain and exact runtime versions before scaffold, scan, local run, or deploy.",
+                    "For DMO-to-DMO transforms, configure the DMO write schema explicitly; do not assume the CLI scan command can infer it.",
+                    "Use `DataCustomCodeLogs__dll` plus deployment and transform status as execution proof; deployment success alone is insufficient.",
+                    "Move validated code through a DevOps data kit and include referenced DLOs or DMOs explicitly when the data kit does not add them automatically.",
+                ],
+            ),
+        )
+
+        connect_overview = developer_item(developer, "/connectapi/overview")
+        dbt_validations = developer_item(developer, "/connectapi/guide/features_cdp_dbt_validations.html")
+        query_use_case = developer_item(developer, "/connectapi/guide/query-use-case.html")
+        data_kit_payloads = developer_item(developer, "/connectapi/guide/deploy-data-kit-payloads.html")
+        add(
+            "skills/sf-datacloud-connectapi/SKILL.md",
+            "developer-connect-rest",
+            render_developer_block(
+                "Connect REST implementation gate",
+                [connect_overview, dbt_validations, query_use_case, data_kit_payloads],
+                [
+                    "Use the current Connect REST OpenAPI reference before writing paths or request bodies; guide examples explain workflows but do not replace schema validation.",
+                    "DBT segment SQL has a narrower compiler contract than Query SQL, including Segment On primary-key projection and top-level expression restrictions.",
+                    "Carry `dataspace` and a useful `workloadName` where the query surface supports them, then prove job state and page through results with the documented pagination controls.",
+                    "For data-kit deployment, select component payload shapes from the current supported-component list and verify the asynchronous deployment job in the target data space.",
+                ],
+            ),
+        )
+
+        dmo_root = developer_item(developer, "/data-cloud-dmo-mapping/guide/c360dm-model-data.html")
+        add(
+            "skills/sf-datacloud-harmonize/SKILL.md",
+            "developer-dmo-catalog",
+            render_developer_block(
+                "DMO and mapping reference gate",
+                [dmo_root],
+                [
+                    "Use the official DMO catalog to discover standard schemas, standard DLO-to-DMO mappings, data bundles, extensibility readiness, and legacy schemas.",
+                    "The catalog currently carries developer-preview language; verify target-org metadata and current Help before production implementation.",
+                    "Prefer standard DMOs when their grain and semantics fit, but do not force source fields into misleading standard attributes; preserve lineage with a justified custom DMO or field when needed.",
+                ],
+            ),
+        )
+
+        integration_root = developer_item(developer, "/data-cloud-int/guide/c360-a-data-cloud-integrations.html")
+        databricks = developer_item(developer, "/data-cloud-int/guide/c360-a-databricks-connector.html")
+        databricks_file = developer_item(developer, "/data-cloud-int/guide/c360-a-set-up-databricks-file-federation-connection.html")
+        ingestion_api = developer_item(developer, "/data-cloud-int/guide/c360-a-ingestion-api.html")
+        add(
+            "skills/sf-datacloud-connect/SKILL.md",
+            "developer-integration-catalog",
+            render_developer_block(
+                "Integration and connector catalog gate",
+                [integration_root, databricks, databricks_file, ingestion_api],
+                [
+                    "Classify each connector by supported direction and mode: ingestion, query federation, file federation, data share, unstructured ingestion, activation, or bidirectional use.",
+                    "For Databricks, select the exact mode before setup; batch ingestion, query federation, file federation, and data sharing have different network, compute, catalog, and storage proof paths.",
+                    "For file federation, verify both the catalog endpoint and underlying object storage path, supported table format, source table eligibility, and required grants.",
+                    "For Ingestion API, treat schema agreement, connector setup, External Client App auth, data-stream deployment, object-endpoint delivery, and DMO mapping as separate gates.",
+                    "Connector availability, authentication, limitations, and supported objects change frequently; route current claims back through the exact connector page and Help limits.",
+                ],
+            ),
+        )
+
+        query_root = developer_item(developer, "/data-cloud-query-guide/guide/query-guide-get-started.html")
+        object_api = developer_item(developer, "/data-cloud-query-guide/guide/obj-specific-apis.html")
+        sql_api = developer_item(developer, "/data-cloud-query-guide/guide/dc-sql-query-apis.html")
+        apex_query = developer_item(developer, "/data-cloud-query-guide/guide/dc-apex-query.html")
+        soql = developer_item(developer, "/data-cloud-query-guide/guide/dc-soql.html")
+        add(
+            "skills/sf-datacloud-retrieve/SKILL.md",
+            "developer-query-selection",
+            render_developer_block(
+                "Query surface selection gate",
+                [query_root, object_api, sql_api, apex_query, soql],
+                [
+                    "Prefer an object-specific API when it covers the target object and workflow; use custom Data 360 SQL when joins, aggregation, or unsupported objects require it.",
+                    "Use asynchronous query and polling patterns for large Apex workloads, and start with limited data to protect governor limits and validate semantics.",
+                    "Treat SOQL as a constrained Platform query path: no `SELECT *`, and Data 360 SOQL does not currently provide the relationship behavior needed to replace SQL joins.",
+                    "Calculated insights and data transforms use SQL contracts that differ from the Query Guide; validate in the owning phase rather than reusing Query SQL unchanged.",
+                ],
+            ),
+        )
+
     s_limits = load_summary("data.c360_a_limits_and_guidelines.htm")
     s_changelog = load_summary("data.c360_a_changelog_usage_and_access.htm")
+    s_get_started = load_summary("data.c360_a_product_considerations.htm")
+    s_architecture = load_summary("data.c360_a_data_cloud_architecture_strategy.htm")
+    s_governance = load_summary("data.c360_a_data_gov_capabilities.htm")
+    s_sandbox = load_summary("data.c360_a_data_cloud_sandbox_create.htm")
+    s_companion_sandbox = load_summary("data.c360_a_data_cloud_one_sandboxes.htm")
+    s_companion = load_summary("data.c360_a_companion_connections.htm")
+    add(
+        "docs/data360/implementation-foundation.md",
+        "implementation-foundation",
+        render_block(
+            "Implementation foundation evidence",
+            [s_get_started, s_architecture, s_governance, s_sandbox, s_companion_sandbox, s_companion],
+            [
+                "Choose business outcomes, source/data strategy, users, permissions, limits, and topology before asset creation.",
+                "Treat home-org placement, instance count, control, growth, region, and residency as explicit architecture decisions.",
+                "In multi-org designs, distinguish standard CRM connections from Data Cloud One companion connections and prove shared data spaces, metadata visibility, permissions, and health.",
+                "Apply purpose limitation, data minimization, sensitivity handling, preference/consent enforcement, and partner custody review as implementation gates.",
+                "Data 360 sandboxes receive metadata rather than replicated production Data 360 data; provision the sandbox, seed approved test data, reauthorize environment-specific integrations, and repeat runtime readbacks after deployment.",
+                "Respect Data Cloud One sandbox ordering and topology restrictions, including the prohibition on connecting a sandbox org to a production org.",
+            ],
+        ),
+    )
     add("docs/proof-ledger.md", "weekly-watch-gate", render_changelog_gate(s_changelog))
     add(
         "skills/sf-datacloud/SKILL.md",
@@ -349,9 +519,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--apply", action="store_true", help="Write changes to disk")
     parser.add_argument("--check", action="store_true", help="Exit non-zero if changes would be made")
+    parser.add_argument("--developer-manifest", type=Path, help="Generated Developer manifest from the current sf-docs crawl")
     args = parser.parse_args()
 
-    updates = build_skill_updates()
+    updates = build_skill_updates(args.developer_manifest)
     changed: list[Path] = []
 
     for path, blocks in updates.items():

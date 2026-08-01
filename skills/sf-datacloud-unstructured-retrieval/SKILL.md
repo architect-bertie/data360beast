@@ -210,7 +210,7 @@ Report:
 <!-- SF_DOC_SYNC_START:search-index-and-retrievers -->
 ### Search Index + Retriever Setup (UI path)
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - sf.c360_a_search_index_ground_ai.htm — Use Search for AI, Automation, and Analytics
@@ -244,7 +244,7 @@ pipeline. It retains the SF_DOC_SYNC markers for the doc-watch pipeline.
 <!-- SF_DOC_SYNC_START:limits-unstructured-search -->
 ### Unstructured data and search index limit gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help

@@ -43,6 +43,7 @@ confirms org, data space, permissions, available tools, and mutation approval.
 - Labs repository: https://github.com/architect-bertie/data360beast-labs
 - Architecture engine map: https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md
 - Interoperability decision map: https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md
+- Implementation foundation: https://architect-bertie.github.io/data360beast/data360/implementation-foundation.md
 - Manifest: https://architect-bertie.github.io/data360beast/agent-manifest.json
 
 ## Skills
@@ -76,7 +77,7 @@ confirms org, data space, permissions, available tools, and mutation approval.
 ## Official Doc Indexes
 
 - 369 Salesforce Help pages are indexed at `/data360/help/index.md`.
-- 24 Salesforce Developer Guide pages are indexed at `/data360/developer/index.md`.
+- Data 360 Developer Center guide and reference families are indexed at `/data360/developer/index.md`.
 - The public Data 360 model-gallery implementation map covers 14 public
   Salesforce Developer diagrams and translates them into DMO anchor, grain,
   relationship, and implementation guidance.

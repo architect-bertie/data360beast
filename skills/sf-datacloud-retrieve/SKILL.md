@@ -101,7 +101,7 @@ workspace and the user authorizes live org access.
 <!-- SF_DOC_SYNC_START:data-spaces-retrieve -->
 ### Data Spaces in Query Tooling
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_using_data_cloud_apis_with_data_spaces.htm — Use Data Cloud APIs with Data Spaces
@@ -190,3 +190,25 @@ _Distilled from official Salesforce sources only._
 - Cached query results may not reflect very recent ingestion — refresh
   the workspace if results look stale.
 <!-- SF_DOC_SYNC_END:explore-and-query -->
+
+<!-- SF_DOC_SYNC_START:developer-query-selection -->
+### Query surface selection gate
+
+_Auto-synced from sf-docs captures of official Salesforce Developer documentation._
+
+**Sources:**
+- https://developer.salesforce.com/docs/data/data-cloud-query-guide/guide/query-guide-get-started.html - Query Data in Data 360 | Data 360 Query Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-query-guide/guide/obj-specific-apis.html - Object Specific APIs | Query Data in Data 360 | Data 360 Query Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-query-guide/guide/dc-sql-query-apis.html - Data 360 SQL Query APIs | Query Data in Data 360 | Data 360 Query Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-query-guide/guide/dc-apex-query.html - Query Data 360 Data with Apex | Query Data in Data 360 | Data 360 Query Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-query-guide/guide/dc-soql.html - SOQL With Apex | Query Data in Data 360 | Data 360 Query Guide | Salesforce Developers
+
+**Source fingerprint:** `f5688f5a26555828fd52169a`
+
+**Implementation notes:**
+- Prefer an object-specific API when it covers the target object and workflow; use custom Data 360 SQL when joins, aggregation, or unsupported objects require it.
+- Use asynchronous query and polling patterns for large Apex workloads, and start with limited data to protect governor limits and validate semantics.
+- Treat SOQL as a constrained Platform query path: no `SELECT *`, and Data 360 SOQL does not currently provide the relationship behavior needed to replace SQL joins.
+- Calculated insights and data transforms use SQL contracts that differ from the Query Guide; validate in the owning phase rather than reusing Query SQL unchanged.
+
+<!-- SF_DOC_SYNC_END:developer-query-selection -->

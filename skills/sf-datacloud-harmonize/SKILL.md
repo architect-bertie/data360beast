@@ -63,6 +63,9 @@ Beast references:
 - Relationship cardinality cannot be changed after creation. A bad cardinality choice becomes a downstream segment/activation problem.
 - Standard relationships become active only when both participating fields are mapped.
 - Treat identity resolution as asynchronous; verify resulting unified shapes after runs.
+- A published identity ruleset proves the definition is available, not that an
+  identity job has completed or unified outputs are populated. Require a
+  terminal job state plus UDMO/link-table counts before downstream use.
 - For identity resolution, validate source counts, match/consolidation rate, over-grouping, under-grouping, outlier unified profiles, and contact point quality before trusting segments.
 - Verify governance access to unified result and unified link DMOs before downstream reports, graphs, segments, or agents consume identity outputs.
 - Use Data Graph for retrieval and enrichment, and only turn graph signals into activation criteria when those signals are represented in segment-safe schema.
@@ -107,7 +110,7 @@ pipeline.
 <!-- SF_DOC_SYNC_START:limits-modeling-identity-graphs -->
 ### Modeling, identity, and graph limit gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
@@ -122,3 +125,20 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
 
 <!-- SF_DOC_SYNC_END:limits-modeling-identity-graphs -->
+
+<!-- SF_DOC_SYNC_START:developer-dmo-catalog -->
+### DMO and mapping reference gate
+
+_Auto-synced from sf-docs captures of official Salesforce Developer documentation._
+
+**Sources:**
+- https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-model-data.html - Model Data in Data 360 | Data 360 DMO and Mapping Guide | Salesforce Developers
+
+**Source fingerprint:** `0f6dcc1013a978f8f7038567`
+
+**Implementation notes:**
+- Use the official DMO catalog to discover standard schemas, standard DLO-to-DMO mappings, data bundles, extensibility readiness, and legacy schemas.
+- The catalog currently carries developer-preview language; verify target-org metadata and current Help before production implementation.
+- Prefer standard DMOs when their grain and semantics fit, but do not force source fields into misleading standard attributes; preserve lineage with a justified custom DMO or field when needed.
+
+<!-- SF_DOC_SYNC_END:developer-dmo-catalog -->

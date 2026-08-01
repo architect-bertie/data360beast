@@ -83,12 +83,13 @@ only for exact folders, package references, and command surfaces from
 - `docs/mcp-dependencies.md`: companion MCP install paths for `sf-docs` and the official Data 360 MCP server.
 - `docs/data360/mcp-tool-selection.md`: decision guide for `sf-docs`, `data360`, `datacloud-mcp-query`, and direct `sf` REST calls.
 - `docs/data360/cost-usage-sizing-contract.md`: qualitative cost and usage sizing contract.
+- `docs/data360/implementation-foundation.md`: outcome, org-topology, residency, ethical-data, sandbox, and cross-phase proof gates.
 - `docs/data360/develop-package-deployment-matrix.md`: develop/package/deploy proof matrix.
 - `docs/release-discipline.md`: release, validation, and publishing discipline.
 - `docs/data360/sf-skills-data360-companion.md`: Salesforce `sf-skills` Data 360 companion contract.
 - `docs/data360/sf-skills-data360-companion.json`: machine-readable companion install, naming, authority, and phase crosswalk.
 - `docs/data360/help/index.md`: public-safe index of 369 Salesforce Help pages analyzed for Data 360.
-- `docs/data360/developer/index.md`: public-safe index of 24 Salesforce Developer Guide pages analyzed for Data 360 development.
+- `docs/data360/developer/index.md`: public-safe index of Data 360 Developer Center guide and reference families.
 - `docs/data360/developer/learning-map.md`: synthesized developer-guide learning map for skill routing.
 - `docs/data360/model-gallery-implementation-map.md`: public Data 360 model-gallery synthesis for anchor DMOs, grain, relationship paths, and live-build traps.
 - `docs/data360/rag-search-index-retriever-playbook.md`: public-safe RAG/search-index/retriever playbook for ADL versus manual setup, field roles, chunking, hybrid search, dynamic filters, prompt grounding, Flow/Apex fallbacks, and debugging.

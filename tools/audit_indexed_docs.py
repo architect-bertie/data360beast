@@ -15,6 +15,7 @@ HELP_DIR = ROOT / "docs" / "data360" / "help"
 DEV_DIR = ROOT / "docs" / "data360" / "developer"
 OUT_JSON = ROOT / "docs" / "data360" / "docs-watch-audit.json"
 OUT_MD = ROOT / "docs" / "data360" / "docs-watch-audit.md"
+GRAPH = ROOT / "docs" / "data360" / "docs-knowledge-graph.json"
 PLACEHOLDER_RE = re.compile(r"Cannot populate due to large Document size", re.I)
 
 
@@ -42,6 +43,22 @@ def parse_help_index() -> list[dict[str, str]]:
 
 
 def developer_rows() -> list[dict[str, str]]:
+    graph = read_json(GRAPH, {})
+    graph_rows = [
+        {
+            "title": node.get("title") or "",
+            "guidePath": node.get("identifier") or "",
+            "guideFamily": node.get("guideFamily") or "",
+            "source": node.get("source") or "",
+            "contentHash": node.get("contentHash") or "",
+            "status": node.get("status") or "unknown",
+        }
+        for node in graph.get("nodes", [])
+        if node.get("type") == "official-page" and node.get("sourceType") == "developer"
+    ]
+    if graph_rows:
+        return graph_rows
+
     manifest = read_json(DEV_DIR / "manifest.json", [])
     rows: list[dict[str, str]] = []
     for item in manifest:
@@ -105,6 +122,9 @@ def audit_help() -> list[dict[str, Any]]:
 def audit_developer() -> list[dict[str, Any]]:
     results = []
     for row in developer_rows():
+        if row.get("status"):
+            results.append(row)
+            continue
         raw_path = ROOT / row["rawPath"]
         summary_path = DEV_DIR / "summaries" / f"{Path(row['guidePath']).stem}.json"
         results.append(
@@ -136,7 +156,7 @@ def render_md(payload: dict[str, Any]) -> str:
     problem_rows.extend(
         ("Developer", row.get("guidePath"), row)
         for row in payload["developer"]
-        if row["status"] != "captured"
+        if row["status"] not in {"captured", "cataloged"}
     )
     lines = [
         "# Data360 Beast Docs Watch Audit",
@@ -154,18 +174,21 @@ def render_md(payload: dict[str, Any]) -> str:
         "",
     ]
     if not problem_rows:
-        lines.append("- No missing, placeholder, or suspiciously small indexed docs.")
+        lines.append("- No missing, failed, placeholder, or unclassified indexed docs.")
     else:
         for kind, identifier, row in problem_rows:
             lines.append(
-                f"- {kind}: `{identifier}` -> {row['status']} ({row['chars']} chars)"
+                f"- {kind}: `{identifier}` -> {row['status']} ({row.get('chars', 0)} chars)"
             )
     lines.extend(["", "## Notes", ""])
     lines.append(
         "- Oversized Help articles should be captured with `node tools/capture_help_prerendered.mjs --placeholders`, which uses official Help prerendered HTML."
     )
     lines.append(
-        "- This audit checks indexed pages only; it does not claim coverage of every Salesforce Help or Developer page."
+        "- Developer records marked `cataloged` are official DMO reference entries whose sidebar metadata is indexed without republishing article bodies."
+    )
+    lines.append(
+        "- This audit checks the bounded official corpus represented in the public graph; it does not claim an uncontrolled crawl of every Salesforce page."
     )
     lines.append("")
     return "\n".join(lines)
@@ -191,12 +214,12 @@ def main() -> int:
     gaps = [
         row
         for row in [*help_results, *dev_results]
-        if row["status"] not in {"captured"}
+        if row["status"] not in {"captured", "cataloged"}
     ]
     if gaps:
         print(f"Found {len(gaps)} indexed documentation capture gaps.")
     else:
-        print("All indexed documentation pages are captured.")
+        print("All indexed documentation records satisfy the capture/catalog contract.")
     return 0
 
 

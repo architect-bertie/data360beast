@@ -128,7 +128,7 @@ _Distilled from official Salesforce Help, Developer docs, and community guides._
 <!-- SF_DOC_SYNC_START:limits-activation -->
 ### Activation limit gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help

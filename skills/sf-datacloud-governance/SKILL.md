@@ -164,7 +164,7 @@ Report:
 <!-- SF_DOC_SYNC_START:data-spaces -->
 ### Data Spaces (visibility boundary)
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_data_spaces.htm — About Data Spaces
@@ -180,7 +180,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 <!-- SF_DOC_SYNC_START:permission-sets -->
 ### Standard Permission Sets (operational reminders)
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_userpermissions.htm — Data 360 Standard Permission Sets

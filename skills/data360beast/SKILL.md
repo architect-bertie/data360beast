@@ -135,8 +135,8 @@ Public-safe operating references:
   assumptions.
 - [docs/phase-coverage-matrix.json](../../docs/phase-coverage-matrix.json):
   machine-readable coverage by phase, source, proof, helper, and frontier.
-- [docs/data360/help/index.md](../../docs/data360/help/index.md): 369 indexed Salesforce Help pages.
-- [docs/data360/developer/index.md](../../docs/data360/developer/index.md): 24 indexed Salesforce Developer Guide pages.
+- [docs/data360/help/index.md](../../docs/data360/help/index.md): indexed Salesforce Help coverage.
+- [docs/data360/developer/index.md](../../docs/data360/developer/index.md): Developer Center coverage across Data 360 guide and reference families.
 - [docs/data360/developer/learning-map.md](../../docs/data360/developer/learning-map.md): developer-guide synthesis for routing and skill updates.
 - [docs/data360/model-gallery-implementation-map.md](../../docs/data360/model-gallery-implementation-map.md): public Data 360 model-gallery synthesis for DMO anchors, relationship paths, model grain, and implementation traps.
 - [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md): current Data 360 limits first, Data Services usage follow-through, and legacy CDP comparison rules.

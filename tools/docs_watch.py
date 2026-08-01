@@ -20,40 +20,93 @@ import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HELP_SEED = "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5"
-DEV_SEED = "https://developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-get-started.html"
+DEV_CENTER = "https://developer.salesforce.com/developer-centers/data-cloud"
 HELP_CRAWLER = ROOT / "tools/sf_docs_help_crawl.mjs"
 DEV_CRAWLER = ROOT / "tools/sf_docs_developer_guide_crawl.mjs"
+EXPECTED_DEVELOPER_TOPICS = {
+    "acceleration-and-refresh",
+    "authentication-and-permissions",
+    "code-extension",
+    "connections-and-connectors",
+    "data-shares-and-targets",
+    "data-streams-and-ingestion",
+    "dmo-modeling-and-mapping",
+    "file-federation",
+    "governance-and-security",
+    "identity-resolution",
+    "limits-and-considerations",
+    "packaging-and-deployment",
+    "query-and-sql",
+    "query-federation",
+    "segmentation-and-activation",
+    "troubleshooting-and-readiness",
+    "unstructured-and-search",
+    "web-and-mobile-sdk",
+    "zero-copy-and-federation",
+}
+TOPIC_PATTERNS = {
+    "authentication-and-permissions": r"auth|oauth|permission|credential|access token|external client app",
+    "connections-and-connectors": r"connection|connector|source system",
+    "data-streams-and-ingestion": r"data stream|ingest|\bdlo\b|data lake object",
+    "zero-copy-and-federation": r"zero.?copy|federat|direct access|live query",
+    "file-federation": r"file federation|iceberg|unity catalog",
+    "query-federation": r"query federation|lakehouse federation",
+    "acceleration-and-refresh": r"accelerat|refresh|schedule",
+    "data-shares-and-targets": r"data share|data target|activation target",
+    "dmo-modeling-and-mapping": r"\bdmo\b|data model object|mapping|customer 360 data model",
+    "identity-resolution": r"identity resolution|unified individual|unified profile",
+    "query-and-sql": r"query|\bsql\b|\bsoql\b|jdbc|python connector",
+    "code-extension": r"code extension|custom script|custom function|data custom code",
+    "unstructured-and-search": r"unstructured|search index|chunk|retriever|vector",
+    "packaging-and-deployment": r"data kit|package|deploy|migration|sandbox|production",
+    "limits-and-considerations": r"limit|consideration|guideline|unsupported|preview",
+    "troubleshooting-and-readiness": r"troubleshoot|prerequisite|readiness|monitor|status|error",
+    "segmentation-and-activation": r"segment|audience|activation|data action",
+    "web-and-mobile-sdk": r"web sdk|mobile sdk|interactions sdk|website sitemap",
+    "governance-and-security": r"govern|security|policy|firewall|allowlist|private connect",
+}
 APPROVED_STAGES = {
     ".gitignore",
+    "README.md",
+    "llms.txt",
     "manifest.json",
     "docs/agent-manifest.json",
     "docs/index.html",
     "docs/llms-full.txt",
+    "docs/llms.txt",
     "docs/skills.md",
     "docs/proof-ledger.md",
+    "docs/data360/implementation-foundation.md",
+    "docs/data360/interoperability-decision-map.md",
     "docs/data360/help/index.md",
     "docs/data360/developer/index.md",
     "docs/data360/developer/learning-map.md",
+    "docs/data360/developer/skill-update-synthesis.md",
+    "docs/data360/develop-package-deployment-matrix.md",
     "docs/data360/docs-knowledge-graph.json",
     "docs/data360/docs-watch-reconciliation.json",
     "docs/data360/sf-skills-data360-companion.json",
     "docs/data360/sf-skills-data360-companion.md",
+    "skills/data360beast/SKILL.md",
+    "skills/sf-datacloud/references/production-implementation-checklist.md",
     "skills/data360beast/scripts/install_sf_skills_data360_companion.py",
     "tools/check_sf_skills_drift.py",
+    "tools/audit_indexed_docs.py",
     "tools/docs_watch.py",
     "tools/refresh_skills_from_sf_docs.py",
+    "tools/sf_docs_developer_guide_crawl.mjs",
     "tools/validate_docs_watch.py",
     "tests/test_docs_watch.py",
 }
 APPROVED_STAGES.update({
     f"skills/{name}/SKILL.md"
     for name in (
-        "sf-datacloud", "sf-datacloud-act", "sf-datacloud-automation",
+        "sf-datacloud", "sf-datacloud-act", "sf-datacloud-automation", "sf-datacloud-connect",
         "sf-datacloud-calculated-insights", "sf-datacloud-connectapi",
         "sf-datacloud-governance", "sf-datacloud-harmonize", "sf-datacloud-prepare",
         "sf-datacloud-retrieve", "sf-datacloud-segment", "sf-datacloud-unstructured-retrieval",
@@ -91,6 +144,92 @@ def json_load(path: Path, fallback):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def json_at_head(relative_path: str, fallback):
+    result = subprocess.run(
+        ["git", "show", f"HEAD:{relative_path}"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        return fallback
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError:
+        return fallback
+
+
+def normalize_official_url(value: str) -> str:
+    parsed = urlparse(value)
+    host = (parsed.hostname or "").lower()
+    if host not in {"help.salesforce.com", "developer.salesforce.com"}:
+        raise ValueError(f"unsupported official-doc host: {host or value}")
+    path = re.sub(r"/{2,}", "/", parsed.path or "/")
+    if host == "help.salesforce.com":
+        article_id = parse_qs(parsed.query).get("id", [None])[0]
+        if not article_id:
+            raise ValueError(f"Help URL has no article id: {value}")
+        query = urlencode({"id": article_id, "language": "en_US", "type": "5"})
+        path = "/s/articleView"
+    else:
+        query = ""
+        if path != "/":
+            path = path.rstrip("/")
+    return urlunparse(("https", host, path, "", query, ""))
+
+
+def source_classification(value: str) -> str:
+    host = (urlparse(value).hostname or "").lower()
+    if host == "help.salesforce.com":
+        return "help"
+    if host == "developer.salesforce.com":
+        return "developer"
+    raise ValueError(f"unsupported official-doc source: {value}")
+
+
+def looks_like_shell(title: str, text: str) -> bool:
+    haystack = f"{title}\n{text}".lower()
+    return any(
+        token in haystack
+        for token in (
+            "sorry to interrupt",
+            "css error",
+            "we looked high and low",
+            "couldn't find that page",
+        )
+    ) or (
+        len(text.strip()) < 120
+        and title.strip().lower() in {"salesforce help", "untitled", "loading", "404", "404 error", "page not found"}
+    )
+
+
+def classify_topic_tags(text: str, supplied: list[str] | None = None) -> list[str]:
+    tags = {
+        topic
+        for topic in (supplied or [])
+        if topic in EXPECTED_DEVELOPER_TOPICS
+    }
+    lowered = text.lower()
+    tags.update(
+        topic
+        for topic, pattern in TOPIC_PATTERNS.items()
+        if re.search(pattern, lowered)
+    )
+    return sorted(tags)
+
+
+def deduplicate_records(records: list[dict]) -> list[dict]:
+    by_source: dict[str, dict] = {}
+    for record in records:
+        source = normalize_official_url(record["source"])
+        normalized = {**record, "source": source}
+        existing = by_source.get(source)
+        if existing is None or (existing.get("status") != "captured" and normalized.get("status") == "captured"):
+            by_source[source] = normalized
+    return sorted(by_source.values(), key=lambda item: item["source"])
+
+
 def check_preflight() -> dict:
     if ROOT != Path("/Users/bertie/Documents/projects/data360beast"):
         raise RuntimeError(f"unexpected repository root: {ROOT}")
@@ -126,29 +265,43 @@ def manifest_records(path: Path, source_type: str) -> list[dict]:
         if not url:
             continue
         parsed = urlparse(url)
-        if parsed.hostname not in {"help.salesforce.com", "developer.salesforce.com"}:
-            raise RuntimeError(f"non-official source returned by crawler: {url}")
+        try:
+            normalized_url = normalize_official_url(url)
+        except ValueError as exc:
+            raise RuntimeError(f"non-official source returned by crawler: {url}") from exc
+        if source_classification(normalized_url) != source_type:
+            raise RuntimeError(f"source classification mismatch for {url}: expected {source_type}")
         title = str(item.get("title") or "").strip()
         if not title or title.lower() == "untitled":
             raise RuntimeError(f"untitled source returned by crawler: {url}")
         summary = item.get("summary") or {}
         content = "\n".join([title, summary.get("lead", ""), *summary.get("topics", []), *summary.get("headings", []), *summary.get("bullets", [])])
+        topic_tags = classify_topic_tags(content, summary.get("topics", []))
+        if looks_like_shell(title, content):
+            raise RuntimeError(f"shell or soft-404 source returned by crawler: {url}")
+        parent = item.get("parent")
+        if isinstance(parent, str) and parent.startswith(("https://help.salesforce.com/", "https://developer.salesforce.com/")):
+            parent = normalize_official_url(parent)
         records.append({
-            "id": f"page:{sha256(url)[:20]}",
-            "source": url,
+            "id": f"page:{sha256(normalized_url)[:20]}",
+            "source": normalized_url,
             "sourceType": source_type,
             "title": title,
             "identifier": item.get("articleId") or item.get("guidePath") or parsed.path,
             "depth": item.get("depth", 0),
-            "parent": item.get("parent"),
-            "contentHash": sha256(content),
-            "status": "captured",
+            "parent": parent,
+            "contentHash": item.get("contentHash") or sha256(content),
+            "status": item.get("extractionStatus") or "captured",
+            "extractionMethod": item.get("extractionMethod"),
+            "guideFamily": item.get("guideFamily"),
+            "navLabel": item.get("navLabel"),
+            "topicTags": topic_tags,
             "topics": sorted(set(summary.get("topics", []) + summary.get("headings", []) + summary.get("bullets", [])))[:24],
             "lead": summary.get("lead", "")[:500],
         })
     if not records:
         raise RuntimeError(f"crawler produced no {source_type} records: {path}")
-    return records
+    return deduplicate_records(records)
 
 
 def phase_data() -> list[dict]:
@@ -183,55 +336,187 @@ def phase_matches(record: dict, phases: list[dict]) -> list[str]:
 def build_graph(records: list[dict], phases: list[dict], generated_at: str) -> dict:
     nodes: list[dict] = []
     edges: list[dict] = []
+    node_ids: set[str] = set()
+    edge_keys: set[tuple[str, str, str]] = set()
     topic_ids: dict[str, str] = {}
     skill_by_phase = {phase.get("phase"): phase.get("specialistSkill") for phase in phases}
+
+    def add_node(node: dict) -> None:
+        if node["id"] not in node_ids:
+            nodes.append(node)
+            node_ids.add(node["id"])
+
+    def add_edge(source: str, target: str, edge_type: str) -> None:
+        key = (source, target, edge_type)
+        if key not in edge_keys:
+            edges.append({"from": source, "to": target, "type": edge_type})
+            edge_keys.add(key)
+
     for phase in phases:
         phase_id = phase.get("phase")
-        nodes.append({"id": f"phase:{phase_id}", "type": "phase", "key": phase_id, "label": phase.get("name", phase_id)})
+        add_node({"id": f"phase:{phase_id}", "type": "phase", "key": phase_id, "label": phase.get("name", phase_id)})
         skill = skill_by_phase.get(phase_id)
         if skill:
             skill_id = f"skill:{skill}"
-            if not any(node["id"] == skill_id for node in nodes):
-                nodes.append({"id": skill_id, "type": "specialist-skill", "key": skill, "label": skill})
-            edges.append({"from": f"phase:{phase_id}", "to": skill_id, "type": "routes-to"})
+            add_node({"id": skill_id, "type": "specialist-skill", "key": skill, "label": skill})
+            add_edge(f"phase:{phase_id}", skill_id, "routes-to")
+
+    source_ids = {record["source"]: record["id"] for record in records}
+    label_ids: dict[tuple[str, str, str], str] = {}
+    for record in records:
+        family = record.get("guideFamily") or ""
+        for label in (record.get("navLabel"), record.get("title", "").split(" | ", 1)[0]):
+            if label:
+                label_ids[(record["sourceType"], family, re.sub(r"\s+", " ", label.strip().lower()))] = record["id"]
+
     for record in records:
         page_id = record["id"]
-        nodes.append({key: record[key] for key in ("id", "sourceType", "source", "title", "identifier", "depth", "parent", "contentHash", "status") } | {"type": "official-page"})
-        for phase_id in phase_matches(record, phases):
-            edges.append({"from": page_id, "to": f"phase:{phase_id}", "type": "covers-phase"})
-        for topic in record["topics"][:12]:
+        matched_phases = phase_matches(record, phases)
+        topic_tags = record.get("topicTags") or classify_topic_tags(
+            " ".join([record.get("title", ""), record.get("lead", ""), *record.get("topics", [])])
+        )
+        page_node = {
+            key: record[key]
+            for key in ("id", "sourceType", "source", "title", "identifier", "depth", "parent", "contentHash", "status")
+        } | {
+            "type": "official-page",
+            "topics": topic_tags,
+            "phases": matched_phases,
+        }
+        for optional in ("guideFamily", "extractionMethod"):
+            if record.get(optional):
+                page_node[optional] = record[optional]
+        add_node(page_node)
+        for phase_id in matched_phases:
+            add_edge(page_id, f"phase:{phase_id}", "covers-phase")
+            skill = skill_by_phase.get(phase_id)
+            if skill:
+                add_edge(page_id, f"skill:{skill}", "informs-skill")
+        for topic in topic_tags:
             topic_key = re.sub(r"\s+", " ", topic.strip().lower())
             if len(topic_key) < 3:
                 continue
             topic_id = topic_ids.setdefault(topic_key, f"topic:{sha256(topic_key)[:20]}")
-            if not any(node["id"] == topic_id for node in nodes):
-                nodes.append({"id": topic_id, "type": "topic", "key": topic_key, "label": topic.strip()})
-            edges.append({"from": page_id, "to": topic_id, "type": "covers-topic"})
-    return {"schemaVersion": "1.0", "generatedAt": generated_at, "scope": {"helpSeed": HELP_SEED, "developerSeed": DEV_SEED, "maxDepth": 4, "officialDomains": ["help.salesforce.com", "developer.salesforce.com"]}, "nodes": nodes, "edges": edges}
+            add_node({"id": topic_id, "type": "topic", "key": topic_key, "label": topic.strip()})
+            add_edge(page_id, topic_id, "covers-topic")
+
+        parent = record.get("parent")
+        parent_id = source_ids.get(parent)
+        if not parent_id and isinstance(parent, str):
+            parent_key = re.sub(r"\s+", " ", parent.strip().lower())
+            parent_id = label_ids.get((record["sourceType"], record.get("guideFamily") or "", parent_key))
+        if parent_id and parent_id != page_id:
+            add_edge(page_id, parent_id, "discovered-from")
+
+    return {
+        "schemaVersion": "1.2",
+        "generatedAt": generated_at,
+        "scope": {
+            "helpSeed": HELP_SEED,
+            "developerCenter": DEV_CENTER,
+            "maxDepth": 4,
+            "officialDomains": ["help.salesforce.com", "developer.salesforce.com"],
+            "contentHashContract": "crawler-content-sha256-v1",
+        },
+        "nodes": nodes,
+        "edges": edges,
+    }
 
 
 def old_urls(path: Path) -> set[str]:
     if not path.exists():
         return set()
-    return set(re.findall(r"https://(?:help|developer)\.salesforce\.com/[^\s) |]+", path.read_text(encoding="utf-8")))
+    urls: set[str] = set()
+    for raw in re.findall(r"https://(?:help|developer)\.salesforce\.com/[^\s) |]+", path.read_text(encoding="utf-8")):
+        try:
+            urls.add(normalize_official_url(raw.rstrip(".,;")))
+        except ValueError:
+            continue
+    return urls
 
 
-def reconcile(records: list[dict], graph: dict, generated_at: str) -> dict:
+def reconcile(records: list[dict], graph: dict, generated_at: str, previous_graph: dict | None = None) -> dict:
     current = {record["source"]: record for record in records}
-    previous_graph = json_load(ROOT / "docs/data360/docs-knowledge-graph.json", {})
+    if previous_graph is None:
+        previous_graph = json_at_head("docs/data360/docs-knowledge-graph.json", {})
     previous = {node.get("source"): node for node in previous_graph.get("nodes", []) if node.get("type") == "official-page" and node.get("source")}
     new_pages = sorted(set(current) - set(previous))
     removed_pages = sorted(set(previous) - set(current))
-    changed_pages = sorted(url for url in set(current) & set(previous) if current[url].get("contentHash") != previous[url].get("contentHash"))
-    stale_refs = sorted((old_urls(ROOT / "docs/data360/help/index.md") | old_urls(ROOT / "docs/data360/developer/index.md")) - set(current))
+    hash_deltas = {
+        url
+        for url in set(current) & set(previous)
+        if current[url].get("contentHash") != previous[url].get("contentHash")
+    }
+    same_hash_contract = (
+        previous_graph.get("scope", {}).get("contentHashContract")
+        == graph.get("scope", {}).get("contentHashContract")
+    )
+    changed_pages = sorted(hash_deltas if same_hash_contract else set())
+    rehashed_pages = sorted(set() if same_hash_contract else hash_deltas)
+    referenced = old_urls(ROOT / "docs/data360/help/index.md") | old_urls(ROOT / "docs/data360/developer/index.md")
+    stale_refs = sorted((referenced & set(previous)) - set(current))
     covered_phases = {edge["to"].removeprefix("phase:") for edge in graph["edges"] if edge["type"] == "covers-phase"}
     expected_phases = {phase.get("phase") for phase in phase_data()}
+    observed_topics = {
+        topic
+        for record in records
+        for topic in record.get("topicTags", [])
+    }
+    extraction_failures = [
+        {"url": record["source"], "status": record.get("status", "unknown")}
+        for record in records
+        if record.get("status") not in {"captured", "cataloged"}
+    ]
+    source_counts = {
+        source_type: len([record for record in records if record["sourceType"] == source_type])
+        for source_type in ("help", "developer")
+    }
+    developer_families: dict[str, dict[str, int]] = {}
+    for record in records:
+        family = record.get("guideFamily")
+        if record["sourceType"] != "developer" or not family:
+            continue
+        counts = developer_families.setdefault(family, {"total": 0, "captured": 0, "cataloged": 0})
+        counts["total"] += 1
+        if record.get("status") in counts:
+            counts[record["status"]] += 1
     candidate_discrepancies = [
         {"url": url, "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"}
         for url in changed_pages
         if re.search(r"limit|permission|license|availability|behavior|api|setup|deploy", current[url]["title"] + " " + current[url]["lead"], re.IGNORECASE)
     ]
-    return {"schemaVersion": "1.0", "generatedAt": generated_at, "scope": graph["scope"], "summary": {"currentPages": len(current), "newPages": len(new_pages), "removedPages": len(removed_pages), "changedPages": len(changed_pages), "staleReferences": len(stale_refs), "uncoveredPhases": len(expected_phases - covered_phases)}, "newPages": new_pages, "removedPages": removed_pages, "changedPages": changed_pages, "staleBeastReferences": stale_refs, "uncoveredTopics": [], "uncoveredPhases": sorted(expected_phases - covered_phases), "extractionFailures": [], "candidateDiscrepancies": candidate_discrepancies}
+    uncovered_topics = sorted(EXPECTED_DEVELOPER_TOPICS - observed_topics)
+    return {
+        "schemaVersion": "1.1",
+        "generatedAt": generated_at,
+        "scope": graph["scope"],
+        "summary": {
+            "currentPages": len(current),
+            "helpPages": source_counts["help"],
+            "developerPages": source_counts["developer"],
+            "developerCaptured": sum(counts["captured"] for counts in developer_families.values()),
+            "developerCataloged": sum(counts["cataloged"] for counts in developer_families.values()),
+            "newPages": len(new_pages),
+            "removedPages": len(removed_pages),
+            "changedPages": len(changed_pages),
+            "rehashedPages": len(rehashed_pages),
+            "staleReferences": len(stale_refs),
+            "uncoveredTopics": len(uncovered_topics),
+            "uncoveredPhases": len(expected_phases - covered_phases),
+            "extractionFailures": len(extraction_failures),
+        },
+        "sourceCounts": source_counts,
+        "developerFamilies": dict(sorted(developer_families.items())),
+        "newPages": new_pages,
+        "removedPages": removed_pages,
+        "changedPages": changed_pages,
+        "rehashedPages": rehashed_pages,
+        "staleBeastReferences": stale_refs,
+        "uncoveredTopics": uncovered_topics,
+        "uncoveredPhases": sorted(expected_phases - covered_phases),
+        "extractionFailures": extraction_failures,
+        "candidateDiscrepancies": candidate_discrepancies,
+    }
 
 
 def without_timestamp(payload: dict) -> dict:
@@ -242,7 +527,7 @@ def run_crawlers(work: Path) -> list[dict]:
     help_out = work / "help"
     dev_out = work / "developer"
     help_result = run(node_command() + [str(HELP_CRAWLER), "--outdir", str(help_out), "--seed", HELP_SEED, "--depth", "4", "--refresh"], timeout=3600)
-    dev_result = run(node_command() + [str(DEV_CRAWLER), "--outdir", str(dev_out), "--seed", DEV_SEED], timeout=3600)
+    run(node_command() + [str(DEV_CRAWLER), "--outdir", str(dev_out), "--center", DEV_CENTER], timeout=7200)
     return manifest_records(help_out / "manifest.json", "help") + manifest_records(dev_out / "manifest.json", "developer")
 
 
@@ -280,6 +565,64 @@ def apply_companion_drift(drift: dict) -> None:
     markdown = re.sub(r"- Commit: `[^`]+`", f"- Commit: `{observed.get('commit') or observed.get('ref')}`", markdown)
     markdown = re.sub(r"- Observed: [0-9-]+", f"- Observed: {datetime.now(timezone.utc).date().isoformat()}", markdown)
     markdown_path.write_text(markdown, encoding="utf-8")
+
+
+def update_public_metadata(graph: dict) -> None:
+    pages = [node for node in graph.get("nodes", []) if node.get("type") == "official-page"]
+    help_pages = sum(node.get("sourceType") == "help" for node in pages)
+    developer_pages = [node for node in pages if node.get("sourceType") == "developer"]
+    developer_captured = sum(node.get("status") == "captured" for node in developer_pages)
+    developer_cataloged = sum(node.get("status") == "cataloged" for node in developer_pages)
+    proof_entries = len(
+        re.findall(
+            r"^\| `BEAST-PROOF-\d{3}` \|",
+            (ROOT / "docs/proof-ledger.md").read_text(encoding="utf-8"),
+            re.MULTILINE,
+        )
+    )
+    sync_blocks = sum(
+        path.read_text(encoding="utf-8", errors="ignore").count("SF_DOC_SYNC_START:")
+        for base in (ROOT / "docs", ROOT / "skills")
+        for path in base.rglob("*.md")
+    )
+
+    manifest_path = ROOT / "manifest.json"
+    manifest = json_load(manifest_path, {})
+    if graph.get("generatedAt"):
+        manifest["lastReviewed"] = str(graph["generatedAt"])[:10]
+    stats = manifest.setdefault("sourceStats", {})
+    stats.update({
+        "helpDocsAnalyzed": help_pages,
+        "developerGuidePagesAnalyzed": developer_captured,
+        "developerPagesIndexed": len(developer_pages),
+        "developerReferencePagesCataloged": developer_cataloged,
+        "officialDocsIndexed": len(pages),
+        "docSyncedBlocksTotal": sync_blocks,
+        "proofLedgerEntries": proof_entries,
+    })
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+    agent_path = ROOT / "docs/agent-manifest.json"
+    agent = json_load(agent_path, {})
+    if graph.get("generatedAt"):
+        agent["lastReviewed"] = str(graph["generatedAt"])[:10]
+    agent.setdefault("entrypoints", {})["implementationFoundation"] = (
+        "https://architect-bertie.github.io/data360beast/data360/implementation-foundation.md"
+    )
+    official = agent.setdefault("officialDocIndexes", {})
+    official.update({
+        "helpSalesforcePages": help_pages,
+        "developerSalesforceGuidePages": developer_captured,
+        "developerSalesforcePagesIndexed": len(developer_pages),
+        "developerReferencePagesCataloged": developer_cataloged,
+        "officialPagesIndexed": len(pages),
+    })
+    proof_stats = agent.setdefault("proofArtifactStats", {})
+    proof_stats.update({
+        "proofLedgerEntries": proof_entries,
+        "docSyncedBlocksTotal": sync_blocks,
+    })
+    agent_path.write_text(json.dumps(agent, indent=2) + "\n", encoding="utf-8")
 
 
 def changed_files() -> list[str]:
@@ -335,18 +678,18 @@ def main() -> int:
             records = run_crawlers(work)
             phases = phase_data()
             graph = build_graph(records, phases, generated_at)
-            reconciliation = reconcile(records, graph, generated_at)
+            live_reconciliation = reconcile(records, graph, generated_at)
+            reconciliation = live_reconciliation
             previous_graph = json_load(ROOT / "docs/data360/docs-knowledge-graph.json", {})
             previous_reconciliation = json_load(ROOT / "docs/data360/docs-watch-reconciliation.json", {})
             if (
                 previous_graph
                 and previous_reconciliation
                 and without_timestamp(graph) == without_timestamp(previous_graph)
-                and without_timestamp(reconciliation) == without_timestamp(previous_reconciliation)
             ):
                 generated_at = previous_graph.get("generatedAt") or previous_reconciliation.get("generatedAt") or generated_at
                 graph = build_graph(records, phases, generated_at)
-                reconciliation = reconcile(records, graph, generated_at)
+                reconciliation = previous_reconciliation
             (work / "docs-knowledge-graph.json").write_text(json.dumps(graph, indent=2) + "\n", encoding="utf-8")
             (work / "docs-watch-reconciliation.json").write_text(json.dumps(reconciliation, indent=2) + "\n", encoding="utf-8")
             # The companion check is source-only and its output is never copied.
@@ -354,17 +697,26 @@ def main() -> int:
             drift_payload = json.loads(drift.stdout)
             print(json.dumps({"changed": drift_payload["changed"], "categories": drift_payload["categories"], "changedFiles": len(drift_payload["changedFiles"]), "source": drift_payload["source"]}, indent=2))
             run(["python3", "skills/data360beast/scripts/install_sf_skills_data360_companion.py", "--dry-run"], timeout=300)
-            sync_check = run(["python3", "tools/refresh_skills_from_sf_docs.py", "--check"], check=False, timeout=300)
+            developer_manifest = work / "developer" / "manifest.json"
+            sync_check = run(
+                ["python3", "tools/refresh_skills_from_sf_docs.py", "--developer-manifest", str(developer_manifest), "--check"],
+                check=False,
+                timeout=300,
+            )
             if sync_check.returncode not in (0, 2):
                 raise RuntimeError("marker-delimited docs sync check failed")
-            print(json.dumps({"preflight": preflight, "records": len(records), "reconciliation": reconciliation["summary"], "mode": "dry-run" if args.dry_run else "apply"}, indent=2))
+            print(json.dumps({"preflight": preflight, "records": len(records), "reconciliation": live_reconciliation["summary"], "mode": "dry-run" if args.dry_run else "apply"}, indent=2))
             if args.dry_run:
                 return 0
             copy_public_outputs(work)
             shutil.copyfile(work / "docs-knowledge-graph.json", ROOT / "docs/data360/docs-knowledge-graph.json")
             shutil.copyfile(work / "docs-watch-reconciliation.json", ROOT / "docs/data360/docs-watch-reconciliation.json")
             apply_companion_drift(drift_payload)
-            run(["python3", "tools/refresh_skills_from_sf_docs.py", "--apply"], timeout=300)
+            run(
+                ["python3", "tools/refresh_skills_from_sf_docs.py", "--developer-manifest", str(developer_manifest), "--apply"],
+                timeout=300,
+            )
+            update_public_metadata(graph)
         run(["python3", "tools/validate_docs_watch.py"])
         sha = push_status = None
         if args.commit:

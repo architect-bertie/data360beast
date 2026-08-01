@@ -64,6 +64,9 @@ Start with:
   sync, and publishing workflow.
 - [`docs/data360/cost-usage-sizing-contract.md`](docs/data360/cost-usage-sizing-contract.md)
   for qualitative cost and usage sizing.
+- [`docs/data360/implementation-foundation.md`](docs/data360/implementation-foundation.md)
+  for outcome, org-topology, residency, ethical-data, sandbox, and cross-phase
+  proof gates.
 - [`docs/data360/develop-package-deployment-matrix.md`](docs/data360/develop-package-deployment-matrix.md)
   for data kit, packageability, deployment, and readback gates.
 - [`docs/data360/mcp-tool-selection.md`](docs/data360/mcp-tool-selection.md)
@@ -195,6 +198,7 @@ data360beast/
     |-- architecture-engine-map.md
     |-- interoperability-decision-map.md
     |-- docs-watch-operating-model.md
+    |-- implementation-foundation.md
     |-- cost-usage-sizing-contract.md
     |-- develop-package-deployment-matrix.md
     |-- limits-source-precedence.md
@@ -221,7 +225,7 @@ data360beast/
 - Uses a machine-readable phase coverage matrix to expose source, proof,
   helper, and frontier coverage by phase.
 - Uses official Salesforce docs on demand instead of stale pasted docs.
-- Publishes public-safe indexes for 369 Help pages and 24 Developer Guide pages
+- Publishes public-safe indexes for Salesforce Help and all approved Data 360 Developer Center guide families
   without publishing raw scraped content.
 - Audits the indexed Help and Developer pages weekly and uses official Help
   prerendered HTML to capture oversized pages that the standard sf-docs path

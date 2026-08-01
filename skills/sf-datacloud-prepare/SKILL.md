@@ -44,6 +44,15 @@ Beast references:
 - Data stream formula fields use the Data 360 formula library, not Data 360 Query SQL. Use uppercase function names (`IF`, `AND`, `OR`, `UPPER`, `TRIM`, `COALESCE`), `sourceField['Header Label']` with exact case-sensitive raw header labels, `==` and `!=` for equality checks, and array-style `COALESCE([sourceField['Field'], ''])`.
 - For boolean formula return types, return boolean literals (`true`, `false`) unless the target field is text. Example: `IF(UPPER(TRIM(COALESCE([sourceField['MailingCountry'], '']))) != 'US', true, false)`.
 - Treat DLO work as lakehouse-prep work: validate stream status, DLO field shape, row count, null rate, and transform output before debugging downstream DMO, segment, or activation behavior.
+- Direct-access data can be queryable without a manual stream run. Prove the
+  federated DLO query separately, and treat acceleration configuration,
+  refresh status, and cache freshness as an independent lifecycle.
+- Before creating another stream for the same federated source object, inspect
+  existing streams and source bindings. Some direct-access surfaces reject a
+  duplicate source-object stream rather than creating a second copy.
+- For acceleration schedules, send only fields valid for the selected
+  frequency and prove the saved configuration. Do not populate hourly-only or
+  daily-only fields by analogy.
 - For performance or refresh problems, separate source extraction, DLO write, transform execution, and DMO mapping. A downstream query result is not proof that the upstream processing job is healthy.
 - Choose ingestion mode from business need: real-time for sub-second operational value, streaming for minute-level incremental freshness, and batch for historical, low-velocity, or cost-sensitive data.
 - Use selective fields, filters, incremental refresh, CDC, micro-batching, and source-side aggregation to control storage, network I/O, and processing cost.
@@ -64,6 +73,9 @@ Beast references:
 - Do not modify Marketing Cloud Engagement data stream schedules after creation because supporting automations are dynamically managed.
 - DMO-sourced batch transforms are restricted to a data space; DLO-sourced batch transforms are not associated with a data space.
 - Use lookup when grain must stay one row per left input row; joins can multiply rows when multiple matches exist.
+- Validate both row correctness and metric correctness after joins. Joining a
+  header-grain measure to multiple detail rows can preserve valid-looking rows
+  while inflating sums through fanout.
 - Refresh mode decisions can be hard to change later; record the reason for incremental, partial, or full refresh.
 - Validate transforms with source row count, output row count, null rate, duplicate rate, and schema drift checks.
 - Apply or propagate governance tags to DLOs, DMO outputs, transform outputs, and sensitive fields before downstream consumption.
@@ -196,7 +208,7 @@ _Distilled from official Salesforce sources only._
 <!-- SF_DOC_SYNC_START:limits-data-ingestion -->
 ### Data ingestion and transform limit gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
@@ -211,3 +223,26 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
 
 <!-- SF_DOC_SYNC_END:limits-data-ingestion -->
+
+<!-- SF_DOC_SYNC_START:developer-code-extension -->
+### Code Extension implementation gate
+
+_Auto-synced from sf-docs captures of official Salesforce Developer documentation._
+
+**Sources:**
+- https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/use-custom-code.html - Code Extension in Data 360 | Data 360 Code Extension Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/set-up-sdk.html - Set Up Salesforce CLI for Code Extension | Code Extension in Data 360 | Data 360 Code Extension Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/configure-dmo-schema.html - Configure Data Model Object Schema for DMO-DMO Transforms | Code Extension in Data 360 | Data 360 Code Extension Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/query-logs-api.html - Query Code Extension Logs by Using the Query API | Code Extension in Data 360 | Data 360 Code Extension Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/migrate-code-to-prod.html - Migrate Custom Script to Production | Code Extension in Data 360 | Data 360 Code Extension Guide | Salesforce Developers
+
+**Source fingerprint:** `9036b5bba36903a6a01af098`
+
+**Implementation notes:**
+- Separate scripts, which run as batch data transforms, from functions, which run in the search-index chunking pipeline.
+- Preflight the documented local toolchain and exact runtime versions before scaffold, scan, local run, or deploy.
+- For DMO-to-DMO transforms, configure the DMO write schema explicitly; do not assume the CLI scan command can infer it.
+- Use `DataCustomCodeLogs__dll` plus deployment and transform status as execution proof; deployment success alone is insufficient.
+- Move validated code through a DevOps data kit and include referenced DLOs or DMOs explicitly when the data kit does not add them automatically.
+
+<!-- SF_DOC_SYNC_END:developer-code-extension -->

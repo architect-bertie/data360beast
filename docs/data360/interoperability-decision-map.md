@@ -86,6 +86,31 @@ Rules from prior field work:
   acceleration; verify the target surface before assuming live federation is
   enough.
 
+## Source Eligibility Gate
+
+Do not infer source eligibility from a healthy connection. Prove, in order:
+
+1. the connector exposes the intended mode and source object
+2. the executing identity can discover the catalog/schema/table
+3. source-platform grants cover the query endpoint and underlying storage
+4. the table kind, open-table format, location, and region are supported
+5. a stream or virtual DLO can be created without conflicting source bindings
+6. the DLO is queryable before mapping or downstream work begins
+
+For Databricks file federation, default-storage managed tables can be
+ineligible for external access even when connection authentication succeeds.
+Use an externally accessible supported table/storage path and validate both
+Unity Catalog and object-store grants. Keep the exact rejection behavior as a
+connector-specific caveat until it has repeatable public Labs evidence.
+
+## Join And Metric Correctness
+
+Federated query success is not metric proof. Preserve the grain of each source,
+state expected relationship cardinality, and reconcile measures before and
+after joins. Header-to-line joins can multiply header measures while returning
+otherwise valid rows. Pre-aggregate the detail side, use a lookup when one-row
+left grain is required, or calculate measures at their native grain.
+
 ## Governance Decision
 
 | Question | If Yes | If No |

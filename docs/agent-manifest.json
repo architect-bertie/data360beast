@@ -36,7 +36,8 @@
     "architectureEngineMap": "https://architect-bertie.github.io/data360beast/data360/architecture-engine-map.md",
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
-    "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md"
+    "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md",
+    "implementationFoundation": "https://architect-bertie.github.io/data360beast/data360/implementation-foundation.md"
   },
   "proofArtifacts": {
     "preflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",
@@ -229,22 +230,24 @@
     "RAG debug chain and evaluation metrics"
   ],
   "officialDocIndexes": {
-    "helpSalesforcePages": 77,
+    "helpSalesforcePages": 369,
     "helpDocsDistilled": 64,
-    "developerSalesforceGuidePages": 23,
+    "developerSalesforceGuidePages": 951,
     "connectorPagesCataloged": 140,
     "publicModelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
-    "officialPagesIndexed": 100,
-    "rawCorpusPublished": false
+    "officialPagesIndexed": 3965,
+    "rawCorpusPublished": false,
+    "developerSalesforcePagesIndexed": 3596,
+    "developerReferencePagesCataloged": 2645
   },
   "proofArtifactStats": {
     "phaseProofMatrixEntries": 12,
     "promptLevelEvals": 8,
     "executableEvalFixtures": 8,
-    "proofLedgerEntries": 7,
-    "docSyncedBlocksTotal": 38,
+    "proofLedgerEntries": 15,
+    "docSyncedBlocksTotal": 46,
     "specialistSkills": 17,
     "companionSkillPacks": 1,
     "companionSkillsApproved": 9,
@@ -281,5 +284,5 @@
     "overall": 9.9
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-05-14"
+  "lastReviewed": "2026-08-01"
 }

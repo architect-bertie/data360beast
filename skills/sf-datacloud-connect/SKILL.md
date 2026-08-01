@@ -60,6 +60,14 @@ Beast references:
   current page points there. Use legacy Customer Data Platform CRM-org limits
   only when CDP is explicitly in scope or as a labeled comparison.
 - Inspect connector metadata and test the connection before handing off to Prepare.
+- Treat a successful connection test as control-plane proof only. Before calling
+  a source ready, prove source-object discovery, source-side grants, and any
+  connector-specific eligibility rules; for file federation, include table
+  kind/format, catalog access, and the underlying storage path.
+- When the requested scope continues past connection setup, use the readiness
+  chain `connection -> source discovery -> stream/DLO -> DLO query -> DMO
+  mapping -> DMO query`. Report downstream links as unproved instead of
+  inferring them from healthy authentication.
 - If data spaces are involved, confirm where the connection, stream, and resulting DLOs are scoped.
 - For external lakehouses, choose the interoperability pattern before creating assets: ingestion for canonical governance, live query for maximum freshness, accelerated query for frequent reads with stale tolerance, file federation for large object-store/open-table workloads, or hybrid for governed core plus fresh edge.
 - Capture source-system cost and governance assumptions for federated connections. Query federation can depend on external compute and source-side policies; file federation depends on storage access, table format, partitioning, and Data 360 compute.
@@ -97,7 +105,10 @@ Beast references:
 
 ## Validation gate
 
-Connection work is not done until connector metadata is understood, auth is healthy, schema is discovered or uploaded, the integration pattern is explicit, and the next Data Stream/DLO/federated-query step is clear.
+Connection work is not done until connector metadata is understood, auth is
+healthy, an eligible source object and its grants are proven, schema is
+discovered or uploaded, the integration pattern is explicit, and the next Data
+Stream/DLO/federated-query step is clear.
 
 ## Doc-Synced Notes
 
@@ -182,3 +193,25 @@ _Distilled from official Salesforce sources only._
 - Stream stuck in Processing → check connector page for source-specific
   rate limits; verify source-side scheduling.
 <!-- SF_DOC_SYNC_END:connect-data-help-side -->
+
+<!-- SF_DOC_SYNC_START:developer-integration-catalog -->
+### Integration and connector catalog gate
+
+_Auto-synced from sf-docs captures of official Salesforce Developer documentation._
+
+**Sources:**
+- https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-data-cloud-integrations.html - Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-databricks-connector.html - Databricks Connectors | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-databricks-file-federation-connection.html - Set Up a Databricks File Federation Connection | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-ingestion-api.html - Ingestion API | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
+
+**Source fingerprint:** `189417577b6f42e77f931e75`
+
+**Implementation notes:**
+- Classify each connector by supported direction and mode: ingestion, query federation, file federation, data share, unstructured ingestion, activation, or bidirectional use.
+- For Databricks, select the exact mode before setup; batch ingestion, query federation, file federation, and data sharing have different network, compute, catalog, and storage proof paths.
+- For file federation, verify both the catalog endpoint and underlying object storage path, supported table format, source table eligibility, and required grants.
+- For Ingestion API, treat schema agreement, connector setup, External Client App auth, data-stream deployment, object-endpoint delivery, and DMO mapping as separate gates.
+- Connector availability, authentication, limitations, and supported objects change frequently; route current claims back through the exact connector page and Help limits.
+
+<!-- SF_DOC_SYNC_END:developer-integration-catalog -->

@@ -23,6 +23,7 @@ public-safe proof contract.
 | DMOs, mappings, and relationships | Use data kits or supported metadata movement only; resolve target data-space names. | Mapping status, DMO primary key metadata, relationship readback. |
 | Identity resolution | Treat rulesets and run state separately. | Ruleset metadata readback and run status/counts. |
 | Calculated insights | Package metadata only when supported; run/publish in target. | Syntax check, run status, output CIO query. |
+| Code Extension | Develop and validate scripts/functions in a Data 360 sandbox. Move deployments or batch transforms with a DevOps data kit; add referenced DLOs/DMOs when they are not included automatically. | Deployment status, batch-transform or chunking-function run state, output DLO/DMO or chunk readback, and `DataCustomCodeLogs__dll`. |
 | Search indexes/retrievers | Packageability and index rebuild behavior are availability-sensitive. | Source DMO/UDMO, chunk/index DMO counts, retriever output. |
 | Semantic models | Preserve metric definitions, grain, dimensions, and governed access. | Model readback, metric result, report/dashboard comparison. |
 | Segments | Separate definition, count, publish, and membership proof. | Segment status, count, publish history. |
@@ -35,15 +36,17 @@ public-safe proof contract.
 1. Confirm source and target org aliases explicitly.
 2. Confirm API version and Data 360 feature availability.
 3. Confirm data spaces and naming drift.
-4. Confirm connector credentials are reauthorized locally, not committed.
-5. Confirm package/data kit membership is complete.
-6. For Connect REST data-kit deployment, require `asyncMode=true`, the correct
+4. Confirm the sandbox is provisioned and seed approved test data because Data
+   360 sandbox provisioning copies metadata, not production Data 360 records.
+5. Confirm connector credentials are reauthorized locally, not committed.
+6. Confirm package/data kit membership is complete.
+7. For Connect REST data-kit deployment, require `asyncMode=true`, the correct
    standard or DevOps request shape, and the target data-space name.
-7. Deploy or recreate metadata in dependency order.
-8. Poll asynchronous jobs to a terminal status and inspect component errors.
-9. Run readback proof by returned ID, status, count, metadata, or query.
-10. Run governed-user proof when access controls are in scope.
-11. Record only distilled evidence in the proof ledger.
+8. Deploy or recreate metadata in dependency order.
+9. Poll asynchronous jobs to a terminal status and inspect component errors.
+10. Run readback proof by returned ID, status, count, metadata, or query.
+11. Run governed-user proof when access controls are in scope.
+12. Record only distilled evidence in the proof ledger.
 
 ## Forbidden Assumptions
 

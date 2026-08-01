@@ -165,7 +165,7 @@ Report:
 <!-- SF_DOC_SYNC_START:data-spaces-api -->
 ### Data Spaces in API/Connector Usage (do not guess the mechanism)
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_using_data_cloud_apis_with_data_spaces.htm — Use Data Cloud APIs with Data Spaces
@@ -183,7 +183,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 <!-- SF_DOC_SYNC_START:limits-api -->
 ### API limit gate
 
-_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only).
+_Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
 - data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
@@ -198,3 +198,24 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
 
 <!-- SF_DOC_SYNC_END:limits-api -->
+
+<!-- SF_DOC_SYNC_START:developer-connect-rest -->
+### Connect REST implementation gate
+
+_Auto-synced from sf-docs captures of official Salesforce Developer documentation._
+
+**Sources:**
+- https://developer.salesforce.com/docs/data/connectapi/overview - Data 360 Connect REST API
+- https://developer.salesforce.com/docs/data/connectapi/guide/features_cdp_dbt_validations.html - Supported Validations for DBT Segments | Data 360 Connect REST API | Salesforce Developers
+- https://developer.salesforce.com/docs/data/connectapi/guide/query-use-case.html - Query | Use Case Examples | Data 360 Connect REST API | Salesforce Developers
+- https://developer.salesforce.com/docs/data/connectapi/guide/deploy-data-kit-payloads.html - Supported Component Types for Data Kit Deployment | Data 360 Connect REST API | Salesforce Developers
+
+**Source fingerprint:** `50ecafec88d1a09512cebe19`
+
+**Implementation notes:**
+- Use the current Connect REST OpenAPI reference before writing paths or request bodies; guide examples explain workflows but do not replace schema validation.
+- DBT segment SQL has a narrower compiler contract than Query SQL, including Segment On primary-key projection and top-level expression restrictions.
+- Carry `dataspace` and a useful `workloadName` where the query surface supports them, then prove job state and page through results with the documented pagination controls.
+- For data-kit deployment, select component payload shapes from the current supported-component list and verify the asynchronous deployment job in the target data space.
+
+<!-- SF_DOC_SYNC_END:developer-connect-rest -->
