@@ -520,7 +520,12 @@ def main() -> int:
     parser.add_argument("--apply", action="store_true", help="Write changes to disk")
     parser.add_argument("--check", action="store_true", help="Exit non-zero if changes would be made")
     parser.add_argument("--developer-manifest", type=Path, help="Generated Developer manifest from the current sf-docs crawl")
+    parser.add_argument("--help-summaries-dir", type=Path, help="Current crawl Help summaries directory")
     args = parser.parse_args()
+
+    global SUMMARIES_DIR
+    if args.help_summaries_dir:
+        SUMMARIES_DIR = args.help_summaries_dir.resolve()
 
     updates = build_skill_updates(args.developer_manifest)
     changed: list[Path] = []

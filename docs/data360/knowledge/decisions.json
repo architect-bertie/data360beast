@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "knowledge-decisions/v1",
+  "decisions": [
+    {"id":"KD-001","topic":"external-data-pattern","question":"Which data movement pattern fits the workload?","inputs":["freshness","governance","cost","access-pattern","source-capability"],"outputs":["ingestion","live-query","accelerated-query","file-federation","data-share","hybrid"],"owner":"sf-datacloud-connect"},
+    {"id":"KD-002","topic":"model-grain","question":"Which DMO anchor and relationship path preserve business grain?","inputs":["entity","primary-key","event-time","consent","downstream-segment"],"outputs":["standard-dmo","custom-dmo","relationship-design","identity-input"],"owner":"sf-datacloud-harmonize"},
+    {"id":"KD-003","topic":"api-surface","question":"Which supported execution surface should create or deploy the resource?","inputs":["resource-type","auth-model","org-capability","packageability","proof"],"outputs":["connect-rest","sf-data360","metadata","data-kit","manual-handoff"],"owner":"sf-datacloud-connectapi"}
+  ]
+}

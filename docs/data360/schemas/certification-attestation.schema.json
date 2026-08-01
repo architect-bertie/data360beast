@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data360 Beast CertificationAttestation v1",
+  "type": "object",
+  "required": ["schemaVersion", "pack", "targetProfile", "status", "proofResults", "cleanup"],
+  "properties": {"schemaVersion": {"const": "certification-attestation/v1"}, "status": {"enum": ["planned", "certified", "blocked", "failed"]}}
+}

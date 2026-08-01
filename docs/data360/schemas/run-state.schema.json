@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data360 Beast RunState v1",
+  "type": "object",
+  "required": ["schemaVersion", "runId", "target", "actions", "outcome"],
+  "properties": {"schemaVersion": {"const": "run-state/v1"}, "outcome": {"enum": ["planned", "proven", "needs-repair"]}}
+}

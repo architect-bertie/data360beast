@@ -1,0 +1,22 @@
+name: auto-merge-knowledge
+
+on:
+  pull_request_target:
+    types: [opened, labeled, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+jobs:
+  merge:
+    if: contains(github.event.pull_request.labels.*.name, 'automation:knowledge') && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr checks "$PR" --required --watch
+          gh pr merge "$PR" --auto --squash --delete-branch

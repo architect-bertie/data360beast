@@ -92,7 +92,12 @@ APPROVED_STAGES = {
     "docs/data360/docs-watch-reconciliation.json",
     "docs/data360/sf-skills-data360-companion.json",
     "docs/data360/sf-skills-data360-companion.md",
+    "docs/data360/deployment-runtime.md",
+    "docs/architecture-evals.json",
     "skills/data360beast/SKILL.md",
+    "skills/data360beast/scripts/data360beast.py",
+    "skills/data360beast/runtime/__init__.py",
+    "skills/data360beast/runtime/data360beast_runtime.py",
     "skills/sf-datacloud/references/production-implementation-checklist.md",
     "skills/data360beast/scripts/install_sf_skills_data360_companion.py",
     "tools/check_sf_skills_drift.py",
@@ -101,8 +106,22 @@ APPROVED_STAGES = {
     "tools/refresh_skills_from_sf_docs.py",
     "tools/sf_docs_developer_guide_crawl.mjs",
     "tools/validate_docs_watch.py",
+    "tools/build_knowledge_graph.py",
+    "tools/run_architecture_evals.py",
+    "tools/validate_expertise.py",
     "tests/test_docs_watch.py",
+    "tests/test_data360beast_runtime.py",
 }
+APPROVED_STAGES.update({
+    "docs/data360/schemas/implementation-spec.schema.json",
+    "docs/data360/schemas/deployment-plan.schema.json",
+    "docs/data360/schemas/run-state.schema.json",
+    "docs/data360/schemas/certification-attestation.schema.json",
+    "docs/data360/knowledge/ontology.json",
+    "docs/data360/knowledge/claims.json",
+    "docs/data360/knowledge/decisions.json",
+    "docs/data360/packs/beastwear.json",
+})
 APPROVED_STAGES.update({
     f"skills/{name}/SKILL.md"
     for name in (
@@ -408,7 +427,7 @@ def build_graph(records: list[dict], phases: list[dict], generated_at: str) -> d
         if parent_id and parent_id != page_id:
             add_edge(page_id, parent_id, "discovered-from")
 
-    return {
+    graph = {
         "schemaVersion": "1.2",
         "generatedAt": generated_at,
         "scope": {
@@ -421,6 +440,53 @@ def build_graph(records: list[dict], phases: list[dict], generated_at: str) -> d
         "nodes": nodes,
         "edges": edges,
     }
+    return attach_knowledge_nodes(graph, phases)
+
+
+def attach_knowledge_nodes(graph: dict, phases: list[dict]) -> dict:
+    """Attach public claim and decision records without exposing source bodies."""
+    knowledge_dir = ROOT / "docs" / "data360" / "knowledge"
+    claims_path = knowledge_dir / "claims.json"
+    decisions_path = knowledge_dir / "decisions.json"
+    if not claims_path.is_file():
+        return graph
+    nodes = graph["nodes"]
+    edges = graph["edges"]
+    node_ids = {node["id"] for node in nodes}
+    edge_ids = {(edge["from"], edge["to"], edge["type"]) for edge in edges}
+    skills = {phase.get("phase"): phase.get("specialistSkill") for phase in phases}
+    pages = {node.get("source"): node.get("id") for node in nodes if node.get("type") == "official-page"}
+
+    def add_node(node: dict) -> None:
+        if node["id"] not in node_ids:
+            nodes.append(node)
+            node_ids.add(node["id"])
+
+    def add_edge(source: str, target: str, kind: str) -> None:
+        key = (source, target, kind)
+        if key not in edge_ids:
+            edges.append({"from": source, "to": target, "type": kind})
+            edge_ids.add(key)
+
+    for claim in json_load(claims_path, {}).get("claims", []):
+        claim_id = f"claim:{claim['id']}"
+        add_node({"id": claim_id, "type": "claim", **claim})
+        phase = claim.get("phase")
+        if phase:
+            add_edge(claim_id, f"phase:{phase}", "applies-to")
+            skill = skills.get(phase)
+            if skill:
+                add_edge(claim_id, f"skill:{skill}", "informs-skill")
+        source = claim.get("source")
+        if source in pages:
+            add_edge(claim_id, pages[source], "proved-by")
+    for decision in json_load(decisions_path, {}).get("decisions", []):
+        decision_id = f"decision:{decision['id']}"
+        add_node({"id": decision_id, "type": "decision", **decision})
+        owner = decision.get("owner")
+        if owner:
+            add_edge(decision_id, f"skill:{owner}", "applies-to")
+    return graph
 
 
 def old_urls(path: Path) -> set[str]:
@@ -660,15 +726,39 @@ def stage_and_push() -> tuple[str | None, str | None]:
     return sha, "pushed"
 
 
+def stage_and_open_pr() -> tuple[str | None, str | None]:
+    files = changed_files()
+    if not files:
+        return None, None
+    branch = "automation/docs-watch-" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
+    run(["git", "switch", "-c", branch])
+    run(["git", "add", "--", *files])
+    staged = run(["git", "diff", "--cached", "--name-only"]).stdout.splitlines()
+    if any(path not in APPROVED_STAGES for path in staged):
+        raise RuntimeError("unexpected staged files in PR flow")
+    run(["python3", "tools/validate_docs_watch.py"])
+    run(["python3", "tools/validate_expertise.py"])
+    run(["git", "commit", "-m", "Refresh Data 360 docs watch index"])
+    sha = run(["git", "rev-parse", "HEAD"]).stdout.strip()
+    run(["git", "push", "-u", "origin", branch], timeout=600)
+    pr = run([
+        "gh", "pr", "create", "--base", "main", "--head", branch,
+        "--title", "Refresh Data 360 docs watch index", "--label", "automation:knowledge",
+        "--body", "Automated public-safe documentation and knowledge-claim refresh.",
+    ], timeout=300).stdout.strip()
+    return sha, "pr-opened:" + pr
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true", help="Run source refresh and reports without changing the repository")
     parser.add_argument("--apply", action="store_true", help="Apply public index and graph changes without committing")
     parser.add_argument("--commit", action="store_true", help="Apply, validate, commit, and push the public-safe diff")
+    parser.add_argument("--pr", action="store_true", help="Apply, validate, and open a gated knowledge-refresh pull request")
     args = parser.parse_args()
-    if not (args.dry_run or args.apply or args.commit):
-        parser.error("choose --dry-run, --apply, or --commit")
-    if args.commit:
+    if not (args.dry_run or args.apply or args.commit or args.pr):
+        parser.error("choose --dry-run, --apply, --commit, or --pr")
+    if args.commit or args.pr:
         args.apply = True
     generated_at = datetime.now(timezone.utc).isoformat()
     try:
@@ -699,7 +789,7 @@ def main() -> int:
             run(["python3", "skills/data360beast/scripts/install_sf_skills_data360_companion.py", "--dry-run"], timeout=300)
             developer_manifest = work / "developer" / "manifest.json"
             sync_check = run(
-                ["python3", "tools/refresh_skills_from_sf_docs.py", "--developer-manifest", str(developer_manifest), "--check"],
+                ["python3", "tools/refresh_skills_from_sf_docs.py", "--developer-manifest", str(developer_manifest), "--help-summaries-dir", str(work / "help" / "summaries"), "--check"],
                 check=False,
                 timeout=300,
             )
@@ -713,14 +803,18 @@ def main() -> int:
             shutil.copyfile(work / "docs-watch-reconciliation.json", ROOT / "docs/data360/docs-watch-reconciliation.json")
             apply_companion_drift(drift_payload)
             run(
-                ["python3", "tools/refresh_skills_from_sf_docs.py", "--developer-manifest", str(developer_manifest), "--apply"],
+                ["python3", "tools/refresh_skills_from_sf_docs.py", "--developer-manifest", str(developer_manifest), "--help-summaries-dir", str(work / "help" / "summaries"), "--apply"],
                 timeout=300,
             )
             update_public_metadata(graph)
         run(["python3", "tools/validate_docs_watch.py"])
+        run(["python3", "tools/validate_expertise.py"])
+        run(["python3", "tools/run_architecture_evals.py"])
         sha = push_status = None
         if args.commit:
             sha, push_status = stage_and_push()
+        elif args.pr:
+            sha, push_status = stage_and_open_pr()
         print(json.dumps({"status": "ok", "commitSha": sha, "pushStatus": push_status}, indent=2))
         return 0
     except (subprocess.CalledProcessError, subprocess.TimeoutExpired, RuntimeError, OSError) as exc:

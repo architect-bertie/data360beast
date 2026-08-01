@@ -8,6 +8,7 @@ docs/data360/*
 !docs/data360/architecture-engine-map.md
 !docs/data360/interoperability-decision-map.md
 !docs/data360/implementation-foundation.md
+!docs/data360/deployment-runtime.md
 !docs/data360/limits-source-precedence.md
 !docs/data360/model-gallery-implementation-map.md
 !docs/data360/rag-search-index-retriever-playbook.md
@@ -19,6 +20,12 @@ docs/data360/*
 !docs/data360/mcp-tool-selection.md
 !docs/data360/sf-skills-data360-companion.md
 !docs/data360/sf-skills-data360-companion.json
+!docs/data360/knowledge/
+!docs/data360/knowledge/**
+!docs/data360/schemas/
+!docs/data360/schemas/**
+!docs/data360/packs/
+!docs/data360/packs/**
 !docs/data360/help/
 docs/data360/help/*
 !docs/data360/help/index.md
@@ -45,3 +52,9 @@ tools/*
 !tools/skill_install_smoke.py
 !tools/data360_cost_usage_estimator.py
 !tools/validate_proof_compliance.py
+!tools/validate_expertise.py
+!tools/build_knowledge_graph.py
+!tools/run_architecture_evals.py
+!.github/
+!.github/workflows/
+!.github/workflows/**

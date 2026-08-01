@@ -78,7 +78,10 @@ class DocsWatchTests(unittest.TestCase):
             "contentHash": "hash", "status": "captured", "topics": ["Connectors"], "lead": "Configure a connector",
         }]
         graph = docs_watch.build_graph(records, phases, "now")
-        self.assertEqual({"official-page", "topic", "phase", "specialist-skill"}, {node["type"] for node in graph["nodes"]})
+        self.assertTrue(
+            {"official-page", "topic", "phase", "specialist-skill", "claim", "decision"}
+            .issubset({node["type"] for node in graph["nodes"]})
+        )
         self.assertTrue(any(edge["type"] == "covers-phase" for edge in graph["edges"]))
 
     def test_graph_preserves_developer_family_and_extraction_method(self):

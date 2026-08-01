@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "certification-pack/v1",
+  "id": "beastwear",
+  "targetProfile": {"environment": "lab", "dataSpace": "discover"},
+  "surfaces": [
+    {"name":"CRM and S3 ingestion","status":"documented"},
+    {"name":"Snowflake direct access and acceleration","status":"documented"},
+    {"name":"Databricks federation or BYOM","status":"documented"},
+    {"name":"DMO modeling and identity","status":"documented"},
+    {"name":"Calculated insights and segments","status":"documented"},
+    {"name":"Activation delivery","status":"blocked"}
+  ],
+  "promotionRule": {"successfulReproductions": 3, "requiresCleanup": true, "requiresPublicSafeAttestation": true}
+}

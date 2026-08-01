@@ -67,6 +67,11 @@ Start with:
 - [`docs/data360/implementation-foundation.md`](docs/data360/implementation-foundation.md)
   for outcome, org-topology, residency, ethical-data, sandbox, and cross-phase
   proof gates.
+- [`docs/data360/deployment-runtime.md`](docs/data360/deployment-runtime.md)
+  for portable desired-state planning, execution approval, run journals, and
+  certification contracts.
+- [`docs/data360/knowledge/claims.json`](docs/data360/knowledge/claims.json)
+  for source-backed architectural claims, caveats, proof status, and ownership.
 - [`docs/data360/develop-package-deployment-matrix.md`](docs/data360/develop-package-deployment-matrix.md)
   for data kit, packageability, deployment, and readback gates.
 - [`docs/data360/mcp-tool-selection.md`](docs/data360/mcp-tool-selection.md)

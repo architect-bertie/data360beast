@@ -87851,6 +87851,181 @@
       ],
       "guideFamily": "sql-reference",
       "extractionMethod": "sf-docs-cache"
+    },
+    {
+      "id": "KC-001",
+      "type": "claim",
+      "subject": "Data space",
+      "predicate": "scopes",
+      "object": "Data 360 data, metadata, and processes",
+      "phase": "govern",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces.htm&language=en_US&type=5",
+      "sourceHash": "docs-watch",
+      "confidence": "documented",
+      "proofStatus": "documented",
+      "caveat": "Assignment is not independent data-access proof.",
+      "owner": "sf-datacloud-governance"
+    },
+    {
+      "id": "KC-002",
+      "type": "claim",
+      "subject": "Query SQL success",
+      "predicate": "does-not-prove",
+      "object": "segment, activation, transform, or orchestration success",
+      "phase": "retrieve",
+      "source": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
+      "sourceHash": "BEAST-PROOF-001",
+      "confidence": "tested",
+      "proofStatus": "promoted",
+      "caveat": "Proof must match the target surface.",
+      "owner": "data360beast"
+    },
+    {
+      "id": "KC-003",
+      "type": "claim",
+      "subject": "DMO relationship cardinality",
+      "predicate": "requires",
+      "object": "model-grain design before creation",
+      "phase": "harmonize",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_model_object_relationships.htm&language=en_US&type=5",
+      "sourceHash": "docs-watch",
+      "confidence": "documented",
+      "proofStatus": "documented",
+      "caveat": "Validate target metadata and downstream consumers.",
+      "owner": "sf-datacloud-harmonize"
+    },
+    {
+      "id": "KC-004",
+      "type": "claim",
+      "subject": "Identity resolution",
+      "predicate": "precedes",
+      "object": "unified-profile dependent segmentation and activation",
+      "phase": "harmonize",
+      "source": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
+      "sourceHash": "BEAST-PROOF-010",
+      "confidence": "tested",
+      "proofStatus": "promoted",
+      "caveat": "Published is not terminal-run proof.",
+      "owner": "sf-datacloud-harmonize"
+    },
+    {
+      "id": "KC-005",
+      "type": "claim",
+      "subject": "Data 360 API deployment",
+      "predicate": "requires",
+      "object": "target data-space and asynchronous job readback",
+      "phase": "develop-package",
+      "source": "https://developer.salesforce.com/docs/data/connectapi/guide/deploy-data-kit-payloads.html",
+      "sourceHash": "docs-watch",
+      "confidence": "documented",
+      "proofStatus": "documented",
+      "caveat": "Component coverage and data-space compatibility are target-specific.",
+      "owner": "sf-datacloud-connectapi"
+    },
+    {
+      "id": "KC-006",
+      "type": "claim",
+      "subject": "Activation",
+      "predicate": "requires",
+      "object": "separate target, publish, activation, and destination delivery proof",
+      "phase": "act",
+      "source": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
+      "sourceHash": "BEAST-PROOF-013",
+      "confidence": "tested",
+      "proofStatus": "promoted",
+      "caveat": "ACTIVE or PUBLISHING does not prove downstream delivery.",
+      "owner": "sf-datacloud-act"
+    },
+    {
+      "id": "KC-007",
+      "type": "claim",
+      "subject": "External data architecture",
+      "predicate": "requires",
+      "object": "selection among ingestion, live query, acceleration, file federation, data share, or hybrid",
+      "phase": "connect",
+      "source": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
+      "sourceHash": "public-map",
+      "confidence": "documented",
+      "proofStatus": "documented",
+      "caveat": "Network, storage, catalog, and cost constraints vary by platform.",
+      "owner": "sf-datacloud-connect"
+    },
+    {
+      "id": "KC-008",
+      "type": "claim",
+      "subject": "Search retriever",
+      "predicate": "requires",
+      "object": "source, chunk, index, filter, return-field, citation, and access proof",
+      "phase": "ai-search",
+      "source": "https://architect-bertie.github.io/data360beast/proof-ledger.md",
+      "sourceHash": "BEAST-PROOF-007",
+      "confidence": "documented",
+      "proofStatus": "documented",
+      "caveat": "Search configuration and governance need target validation.",
+      "owner": "sf-datacloud-unstructured-retrieval"
+    },
+    {
+      "id": "KD-001",
+      "type": "decision",
+      "topic": "external-data-pattern",
+      "question": "Which data movement pattern fits the workload?",
+      "inputs": [
+        "freshness",
+        "governance",
+        "cost",
+        "access-pattern",
+        "source-capability"
+      ],
+      "outputs": [
+        "ingestion",
+        "live-query",
+        "accelerated-query",
+        "file-federation",
+        "data-share",
+        "hybrid"
+      ],
+      "owner": "sf-datacloud-connect"
+    },
+    {
+      "id": "KD-002",
+      "type": "decision",
+      "topic": "model-grain",
+      "question": "Which DMO anchor and relationship path preserve business grain?",
+      "inputs": [
+        "entity",
+        "primary-key",
+        "event-time",
+        "consent",
+        "downstream-segment"
+      ],
+      "outputs": [
+        "standard-dmo",
+        "custom-dmo",
+        "relationship-design",
+        "identity-input"
+      ],
+      "owner": "sf-datacloud-harmonize"
+    },
+    {
+      "id": "KD-003",
+      "type": "decision",
+      "topic": "api-surface",
+      "question": "Which supported execution surface should create or deploy the resource?",
+      "inputs": [
+        "resource-type",
+        "auth-model",
+        "org-capability",
+        "packageability",
+        "proof"
+      ],
+      "outputs": [
+        "connect-rest",
+        "sf-data360",
+        "metadata",
+        "data-kit",
+        "manual-handoff"
+      ],
+      "owner": "sf-datacloud-connectapi"
     }
   ],
   "edges": [
@@ -236608,6 +236783,111 @@
       "from": "page:b473e0a7f05ace5c3021",
       "to": "topic:2ce6dd21df02c816e9fa",
       "type": "covers-topic"
+    },
+    {
+      "from": "claim:KC-001",
+      "to": "phase:govern",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-001",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-001",
+      "to": "page:d5affc57cd0cc87ebc3b",
+      "type": "proved-by"
+    },
+    {
+      "from": "claim:KC-002",
+      "to": "phase:retrieve",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-002",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-003",
+      "to": "phase:harmonize",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-003",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-004",
+      "to": "phase:harmonize",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-004",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-005",
+      "to": "phase:develop-package",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-005",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-005",
+      "to": "page:ac8aaf7b886476ab715e",
+      "type": "proved-by"
+    },
+    {
+      "from": "claim:KC-006",
+      "to": "phase:act",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-006",
+      "to": "skill:sf-datacloud-act",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-007",
+      "to": "phase:connect",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-007",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "claim:KC-008",
+      "to": "phase:ai-search",
+      "type": "applies-to"
+    },
+    {
+      "from": "claim:KC-008",
+      "to": "skill:sf-datacloud-unstructured-retrieval",
+      "type": "informs-skill"
+    },
+    {
+      "from": "decision:KD-001",
+      "to": "skill:sf-datacloud-connect",
+      "type": "applies-to"
+    },
+    {
+      "from": "decision:KD-002",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "applies-to"
+    },
+    {
+      "from": "decision:KD-003",
+      "to": "skill:sf-datacloud-connectapi",
+      "type": "applies-to"
     }
   ]
 }

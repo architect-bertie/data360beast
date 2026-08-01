@@ -37,7 +37,11 @@
     "interoperabilityDecisionMap": "https://architect-bertie.github.io/data360beast/data360/interoperability-decision-map.md",
     "apiCookbook": "https://architect-bertie.github.io/data360beast/api-cookbook.md",
     "scorecard": "https://architect-bertie.github.io/data360beast/scorecard.md",
-    "implementationFoundation": "https://architect-bertie.github.io/data360beast/data360/implementation-foundation.md"
+    "implementationFoundation": "https://architect-bertie.github.io/data360beast/data360/implementation-foundation.md",
+    "deploymentRuntime": "https://architect-bertie.github.io/data360beast/data360/deployment-runtime.md",
+    "implementationSpecSchema": "https://architect-bertie.github.io/data360beast/data360/schemas/implementation-spec.schema.json",
+    "knowledgeClaims": "https://architect-bertie.github.io/data360beast/data360/knowledge/claims.json",
+    "beastwearCertificationPack": "https://architect-bertie.github.io/data360beast/data360/packs/beastwear.json"
   },
   "proofArtifacts": {
     "preflight": "https://architect-bertie.github.io/data360beast/beast-preflight.md",

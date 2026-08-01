@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added (Deployment-Grade Foundation)
+- Added the portable Data360 Beast desired-state runtime, public implementation,
+  deployment-plan, run-state, and certification contracts, plus an explicit
+  production approval gate.
+- Added source-backed knowledge claims, architecture decisions, semantic graph
+  nodes, a 72-case architecture benchmark contract, and the Beastwear
+  certification-pack support matrix.
+- Updated docs-watch to use the current temporary Help summaries during marker
+  synchronization rather than a previous local cache.
+
 ### Changed (Execution Architecture)
 - Reframed Data360 Beast as an execution system rooted in proven knowledge with
   the canonical Think -> Act -> Prove -> Learn loop.

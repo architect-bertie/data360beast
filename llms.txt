@@ -27,6 +27,8 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Data 360 RAG search-index retriever playbook](https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md): Agentforce Data Libraries, manual search indexes, field roles, chunking, hybrid/vector search, retriever filters, prompt grounding, Flow/Apex fallbacks, and RAG troubleshooting.
 - [Data 360 cost and usage sizing contract](https://architect-bertie.github.io/data360beast/data360/cost-usage-sizing-contract.md): qualitative sizing gates for ingestion, query, insights, RAG, activation, automation, and environment replay.
 - [Data 360 implementation foundation](https://architect-bertie.github.io/data360beast/data360/implementation-foundation.md): outcome, org-topology, residency, ethical-data, sandbox, and cross-phase proof gates.
+- [Deployment runtime](https://architect-bertie.github.io/data360beast/data360/deployment-runtime.md): portable desired-state preflight, plan, approval, execution, and proof contract.
+- [Knowledge claims](https://architect-bertie.github.io/data360beast/data360/knowledge/claims.json): source-backed architectural claims and caveats.
 - [Data 360 develop/package/deploy matrix](https://architect-bertie.github.io/data360beast/data360/develop-package-deployment-matrix.md): data kit, metadata, deployment, and readback gates.
 - [Data 360 MCP tool selection](https://architect-bertie.github.io/data360beast/data360/mcp-tool-selection.md): when to use `sf-docs`, `data360`, `datacloud-mcp-query`, or direct `sf` REST calls.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.

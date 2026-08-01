@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "knowledge-ontology/v1",
+  "nodeTypes": ["official-page", "claim", "decision", "phase", "specialist-skill", "resource-type", "pack"],
+  "edgeTypes": ["requires", "precedes", "produces", "reads-from", "writes-to", "governed-by", "incompatible-with", "limited-by", "deployable-through", "proved-by", "supersedes", "contradicts", "applies-to"],
+  "claimContract": ["id", "subject", "predicate", "object", "phase", "source", "sourceHash", "confidence", "proofStatus", "caveat", "owner"]
+}

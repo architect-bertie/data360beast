@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "architecture-evals/v1",
+  "description": "Seventy-two deterministic architecture benchmark prompts: six per Data 360 proof phase.",
+  "patterns": ["design", "prerequisite", "tradeoff", "failure-diagnosis", "proof", "deployment"],
+  "phases": [
+    "connect", "prepare", "harmonize", "govern", "retrieve", "insight", "semantic", "ai-search", "segment", "act", "automation", "develop-package"
+  ],
+  "requiredOutput": ["preflight", "recommendation", "source", "proof", "caveat", "next-step"]
+}

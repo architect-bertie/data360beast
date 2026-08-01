@@ -128,6 +128,9 @@ Use **Data 360** in Beast-facing guidance; preserve exact Salesforce
 surfaces.
 
 Public-safe operating references:
+- [scripts/data360beast.py](scripts/data360beast.py): portable desired-state preflight, plan, apply, and knowledge-query runtime. Planning is safe by default; mutation requires an explicit execution flag and production approval.
+- [docs/data360/deployment-runtime.md](../../docs/data360/deployment-runtime.md): implementation-spec, deployment-plan, run-state, certification, portability, and approval contract.
+- [docs/data360/knowledge/claims.json](../../docs/data360/knowledge/claims.json): source-backed public claims, caveats, proof status, and owning specialist skill.
 - [docs/beast-preflight.md](../../docs/beast-preflight.md): required envelope,
   tool inventory, proof target, and mutation gate.
 - [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json):
@@ -157,6 +160,11 @@ Public-safe operating references:
 Do not treat this repository as official Salesforce documentation. Do not
 hallucinate endpoint paths, payload fields, limits, permissions, or feature
 availability.
+
+For implementation work, create an `implementation-spec/v1`, run the runtime
+preflight and plan commands, and execute only after target capability discovery
+and mutation approval. Treat unsupported surfaces as blocked or manual handoff;
+never turn a plan into a production mutation by assumption.
 
 ## Beast Preflight
 

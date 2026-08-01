@@ -34,6 +34,11 @@ def main() -> int:
     for rel in manifest.get("skills", []):
         if not (ROOT / rel).exists():
             issues.append(f"manifest skills entry missing: {rel}")
+    if manifest.get("version") == "2.0.0":
+        required = {"architectureEvalCases": 72, "knowledgeClaims": 8}
+        for key, minimum in required.items():
+            if manifest.get("stats", {}).get(key, 0) < minimum:
+                issues.append(f"2.0.0 requires stats.{key} >= {minimum}")
 
     contract_skills = [entry.get("upstreamName") for entry in companion_contract.get("companionSkills", [])]
     for source_name, source in (

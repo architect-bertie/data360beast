@@ -79,7 +79,7 @@ def validate_structure(issues: list[str]) -> None:
     if graph_path.is_file():
         graph = json.loads(graph_path.read_text(encoding="utf-8"))
         node_types = {node.get("type") for node in graph.get("nodes", [])}
-        for expected in {"official-page", "topic", "phase", "specialist-skill"}:
+        for expected in {"official-page", "topic", "phase", "specialist-skill", "claim", "decision"}:
             if expected not in node_types:
                 fail(issues, f"knowledge graph missing node type: {expected}")
         graph_phases = {node.get("key") for node in graph.get("nodes", []) if node.get("type") == "phase"}
@@ -103,7 +103,7 @@ def validate_structure(issues: list[str]) -> None:
         if not any(node.get("status") == "cataloged" for node in developer_nodes):
             fail(issues, "knowledge graph must distinguish catalog-only Developer references")
         edge_types = {edge.get("type") for edge in graph.get("edges", [])}
-        for expected in {"covers-topic", "covers-phase", "routes-to", "informs-skill", "discovered-from"}:
+        for expected in {"covers-topic", "covers-phase", "routes-to", "informs-skill", "discovered-from", "applies-to"}:
             if expected not in edge_types:
                 fail(issues, f"knowledge graph missing edge type: {expected}")
 
@@ -162,6 +162,7 @@ def validate_structure(issues: list[str]) -> None:
         fail(issues, "root llms.txt and docs/llms.txt diverge")
 
     validate_proof_ledger(issues, matrix_phases)
+    validate_knowledge_contract(issues, matrix_phases)
 
     proof_entry_count = len(
         re.findall(
@@ -218,6 +219,27 @@ def validate_proof_ledger(issues: list[str], matrix_phases: set[str]) -> None:
         status = values["Status"].strip("`")
         if status not in PROOF_STATUSES:
             fail(issues, f"proof ledger {evidence_id} has invalid status: {status}")
+
+
+def validate_knowledge_contract(issues: list[str], matrix_phases: set[str]) -> None:
+    knowledge = ROOT / "docs" / "data360" / "knowledge"
+    for name in ("ontology.json", "claims.json", "decisions.json"):
+        if not (knowledge / name).is_file():
+            fail(issues, f"missing knowledge artifact: {name}")
+    claims_path = knowledge / "claims.json"
+    if not claims_path.is_file():
+        return
+    required = {"id", "subject", "predicate", "object", "phase", "source", "sourceHash", "confidence", "proofStatus", "caveat", "owner"}
+    ids: set[str] = set()
+    for claim in json.loads(claims_path.read_text(encoding="utf-8")).get("claims", []):
+        missing = required - set(claim)
+        if missing:
+            fail(issues, "knowledge claim missing fields: " + ", ".join(sorted(missing)))
+        if claim.get("id") in ids:
+            fail(issues, f"duplicate knowledge claim: {claim.get('id')}")
+        ids.add(claim.get("id"))
+        if claim.get("phase") not in matrix_phases:
+            fail(issues, f"knowledge claim has unknown phase: {claim.get('id')}")
 
 
 def validate_boundary(issues: list[str]) -> None:

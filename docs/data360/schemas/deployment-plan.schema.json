@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data360 Beast DeploymentPlan v1",
+  "type": "object",
+  "required": ["schemaVersion", "specId", "target", "actions"],
+  "properties": {"schemaVersion": {"const": "deployment-plan/v1"}, "actions": {"type": "array", "items": {"type": "object", "required": ["id", "phase", "executor", "state"]}}}
+}
