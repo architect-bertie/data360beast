@@ -22,6 +22,19 @@ org identifiers, passwords, or source-system credentials. The runtime discovers
 the org and data spaces, creates a capability matrix, and records only
 sanitized results under `$DATA360BEAST_HOME/runs/`.
 
+Target discovery uses the authenticated org API version unless the spec supplies
+one explicitly. Data-space discovery must use the current positional
+`sf api request rest` command shape:
+
+```bash
+sf api request rest --target-org <alias> --method GET /services/data/v<api>/ssot/data-spaces
+```
+
+The capability matrix only proves target-org and target data-space reachability.
+Specialist adapters must add their own stream, DMO, CI, segment, activation,
+search, semantic, automation, or packaging readbacks before a phase is treated
+as surface-proven.
+
 ## Resource Contract
 
 Each resource has an ID, phase, executor, dependencies, desired state, proof

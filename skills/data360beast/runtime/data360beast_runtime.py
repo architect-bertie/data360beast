@@ -114,21 +114,30 @@ def discover_target(target: dict[str, Any], runner: Callable[[list[str]], Any] =
         org = json.loads(result.stdout).get("result", {})
     except json.JSONDecodeError:
         return {"org": "unverified", "dataSpaces": "unverified", "reason": "sf org display returned invalid JSON"}
-    data_spaces = "unverified"
+    api_version = str(target.get("apiVersion") or org.get("apiVersion") or "66.0")
+    if not api_version[0].isdigit():
+        api_version = "66.0"
+    data_spaces: list[str] | str = "unverified"
     api = runner([
         "sf", "api", "request", "rest", "--target-org", target["orgAlias"],
-        "--method", "GET", "--url", "/services/data/v66.0/ssot/data-spaces", "--json",
+        "--method", "GET", f"/services/data/v{api_version}/ssot/data-spaces",
     ])
     if getattr(api, "returncode", 1) == 0:
         try:
-            payload = json.loads(api.stdout).get("result", {})
-            data_spaces = [item.get("name") for item in payload.get("dataSpaces", payload.get("items", [])) if item.get("name")]
+            payload = json.loads(api.stdout)
+            if isinstance(payload, dict) and "result" in payload and isinstance(payload["result"], dict):
+                payload = payload["result"]
+            data_spaces = [
+                item.get("name")
+                for item in payload.get("dataSpaces", payload.get("items", []))
+                if isinstance(item, dict) and item.get("name")
+            ]
         except json.JSONDecodeError:
             pass
     return {
         "org": "supported",
-        "orgId": org.get("id"),
-        "instanceUrl": org.get("instanceUrl"),
+        "orgAlias": target["orgAlias"],
+        "apiVersion": api_version,
         "isSandbox": org.get("isSandbox"),
         "dataSpaces": data_spaces,
     }
@@ -136,11 +145,20 @@ def discover_target(target: dict[str, Any], runner: Callable[[list[str]], Any] =
 
 def capability_matrix(spec: dict[str, Any], discovery: dict[str, Any]) -> list[dict[str, str]]:
     requested = spec.get("capabilityRequirements", [])
+    target_data_space = spec.get("target", {}).get("dataSpace")
+    data_spaces = discovery.get("dataSpaces")
+    data_space_verified = isinstance(data_spaces, list) and (
+        not target_data_space or target_data_space in data_spaces
+    )
     return [
         {
             "capability": str(item.get("name", item)) if isinstance(item, dict) else str(item),
-            "status": "supported" if discovery.get("org") == "supported" else "unverified",
-            "reason": "target-org discovery" if discovery.get("org") == "supported" else discovery.get("reason", "org unavailable"),
+            "status": "supported" if discovery.get("org") == "supported" and data_space_verified else "unverified",
+            "reason": (
+                "target-org and target data-space discovery"
+                if discovery.get("org") == "supported" and data_space_verified
+                else discovery.get("reason", "target data-space unavailable or unverified")
+            ),
         }
         for item in requested
     ]
@@ -222,7 +240,7 @@ def apply_plan(plan: dict[str, Any], execute: bool, approve_production: bool, ru
             action["state"] = "blocked"
             action["reason"] = "resource lacks an explicit supported sf-rest mutation request"
             continue
-        command = ["sf", "api", "request", "rest", "--target-org", plan["target"]["orgAlias"], "--method", method, "--url", path, "--json"]
+        command = ["sf", "api", "request", "rest", "--target-org", plan["target"]["orgAlias"], "--method", method, path]
         if "body" in request:
             command.extend(["--body", json.dumps(request["body"])])
         action["state"] = "applying"
@@ -244,7 +262,7 @@ def verify_run(run: str, runner: Callable[[list[str]], Any] = default_runner) ->
         path = request.get("path")
         if action.get("state") != "proven" or not isinstance(path, str) or not path.startswith("/services/"):
             continue
-        result = runner(["sf", "api", "request", "rest", "--target-org", state["target"]["orgAlias"], "--method", "GET", "--url", path, "--json"])
+        result = runner(["sf", "api", "request", "rest", "--target-org", state["target"]["orgAlias"], "--method", "GET", path])
         if getattr(result, "returncode", 1) != 0:
             action["state"] = "repairable"
             action["reason"] = getattr(result, "stderr", "proof readback failed").strip()[:500]
@@ -278,7 +296,7 @@ def destroy_run(run: str, execute: bool, runner: Callable[[list[str]], Any] = de
         path = request.get("path")
         if action.get("state") != "proven" or request.get("method", "").upper() != "DELETE" or not isinstance(path, str) or not path.startswith("/services/"):
             continue
-        result = runner(["sf", "api", "request", "rest", "--target-org", state["target"]["orgAlias"], "--method", "DELETE", "--url", path, "--json"])
+        result = runner(["sf", "api", "request", "rest", "--target-org", state["target"]["orgAlias"], "--method", "DELETE", path])
         action["state"] = "rolled-back" if getattr(result, "returncode", 1) == 0 else "repairable"
         action["reason"] = "lab cleanup succeeded" if action["state"] == "rolled-back" else getattr(result, "stderr", "cleanup failed").strip()[:500]
     state["outcome"] = "rolled-back"

@@ -159,6 +159,59 @@
         "Databricks on AWS PrivateLink is supported without verification"
       ],
       "confidenceRequired": true
+    },
+    {
+      "id": "runtime-target-discovery",
+      "name": "Runtime target discovery",
+      "prompt": "Generate a Data360 Beast implementation plan for a lab org whose local Salesforce CLI default points at a different org.",
+      "mustMentionAny": [
+        ["target org", "org alias"],
+        ["api version", "authenticated org"],
+        ["data space", "dataspace"],
+        ["readback", "discovery"],
+        ["capability matrix", "capability"]
+      ],
+      "mustNotMention": [
+        "local default org is fine",
+        "hard-code v66",
+        "--url --json",
+        "org id is safe to log"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "ci-control-reconciliation",
+      "name": "Calculated insight control reconciliation",
+      "prompt": "A calculated insight is ACTIVE and the last run says SUCCESS. Can I use it for activation?",
+      "mustMentionAny": [
+        ["CIO", "calculated insight output"],
+        ["control query", "independent query"],
+        ["row count", "aggregate"],
+        ["job status", "last run"],
+        ["data space"]
+      ],
+      "mustNotMention": [
+        "ACTIVE proves output",
+        "last run success is enough"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "segment-membership-surface",
+      "name": "Segment membership surface",
+      "prompt": "A segment shows 4,027 members but my membership DMO query returns zero rows.",
+      "mustMentionAny": [
+        ["latest", "history"],
+        ["membership DMO", "membership table"],
+        ["publish status"],
+        ["member count"],
+        ["data space"]
+      ],
+      "mustNotMention": [
+        "segment count is enough",
+        "all membership tables are equivalent"
+      ],
+      "confidenceRequired": true
     }
   ]
 }
