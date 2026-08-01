@@ -234,6 +234,10 @@ def reconcile(records: list[dict], graph: dict, generated_at: str) -> dict:
     return {"schemaVersion": "1.0", "generatedAt": generated_at, "scope": graph["scope"], "summary": {"currentPages": len(current), "newPages": len(new_pages), "removedPages": len(removed_pages), "changedPages": len(changed_pages), "staleReferences": len(stale_refs), "uncoveredPhases": len(expected_phases - covered_phases)}, "newPages": new_pages, "removedPages": removed_pages, "changedPages": changed_pages, "staleBeastReferences": stale_refs, "uncoveredTopics": [], "uncoveredPhases": sorted(expected_phases - covered_phases), "extractionFailures": [], "candidateDiscrepancies": candidate_discrepancies}
 
 
+def without_timestamp(payload: dict) -> dict:
+    return {key: value for key, value in payload.items() if key != "generatedAt"}
+
+
 def run_crawlers(work: Path) -> list[dict]:
     help_out = work / "help"
     dev_out = work / "developer"
@@ -332,6 +336,17 @@ def main() -> int:
             phases = phase_data()
             graph = build_graph(records, phases, generated_at)
             reconciliation = reconcile(records, graph, generated_at)
+            previous_graph = json_load(ROOT / "docs/data360/docs-knowledge-graph.json", {})
+            previous_reconciliation = json_load(ROOT / "docs/data360/docs-watch-reconciliation.json", {})
+            if (
+                previous_graph
+                and previous_reconciliation
+                and without_timestamp(graph) == without_timestamp(previous_graph)
+                and without_timestamp(reconciliation) == without_timestamp(previous_reconciliation)
+            ):
+                generated_at = previous_graph.get("generatedAt") or previous_reconciliation.get("generatedAt") or generated_at
+                graph = build_graph(records, phases, generated_at)
+                reconciliation = reconcile(records, graph, generated_at)
             (work / "docs-knowledge-graph.json").write_text(json.dumps(graph, indent=2) + "\n", encoding="utf-8")
             (work / "docs-watch-reconciliation.json").write_text(json.dumps(reconciliation, indent=2) + "\n", encoding="utf-8")
             # The companion check is source-only and its output is never copied.
