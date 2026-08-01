@@ -200,17 +200,17 @@
     "officialDocsIndexed": 100,
     "specialistSkills": 17,
     "docSyncedBlocksTotal": 38,
-    "executableEvalFixtures": 8,
+    "executableEvalFixtures": 11,
     "operationalHardeningTools": 6,
     "phaseCoverageMatrixEntries": 12,
     "modelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
     "phaseProofMatrixEntries": 12,
-    "promptLevelEvals": 8,
+    "promptLevelEvals": 11,
     "architectureEvalCases": 72,
-    "knowledgeClaims": 8,
-    "proofLedgerEntries": 7,
+    "knowledgeClaims": 11,
+    "proofLedgerEntries": 18,
     "companionSkillPacks": 1,
     "companionSkillsApproved": 9,
     "overallScore": 9.9
@@ -224,6 +224,6 @@
     "developerReferencePagesCataloged": 2645,
     "officialDocsIndexed": 3965,
     "docSyncedBlocksTotal": 46,
-    "proofLedgerEntries": 15
+    "proofLedgerEntries": 18
   }
 }

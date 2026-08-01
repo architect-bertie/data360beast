@@ -248,9 +248,9 @@
   },
   "proofArtifactStats": {
     "phaseProofMatrixEntries": 12,
-    "promptLevelEvals": 8,
-    "executableEvalFixtures": 8,
-    "proofLedgerEntries": 15,
+    "promptLevelEvals": 11,
+    "executableEvalFixtures": 11,
+    "proofLedgerEntries": 18,
     "docSyncedBlocksTotal": 46,
     "specialistSkills": 17,
     "companionSkillPacks": 1,
