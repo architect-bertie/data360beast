@@ -18,6 +18,7 @@ Beast references:
 - Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Architecture engine map: [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-engine-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
@@ -30,11 +31,16 @@ Beast references:
 
 ## Default surfaces
 
-- Apex `ConnectApi.CdpQuery.queryAnsiSqlV2`
-- `POST /ssot/queryv2`
 - `POST /ssot/query-sql`
 - `GET /ssot/query-sql/:queryId`
 - `GET /ssot/query-sql/:queryId/rows`
+- Data 360 Direct API `POST /api/v3/query`
+- Data 360 Direct API `GET /api/v3/query/:queryId`
+- Data 360 Direct API `GET /api/v3/query/:queryId/rows`
+- Data 360 Direct API `GET /api/v3/query/:queryId/chunks/:chunkId`
+- Data 360 Direct API `GET /api/v3/query/:queryId/metadata`
+- Apex `sfsqlquery` namespace and `ConnectApi.CdpQuery`
+- Legacy `POST /ssot/queryv2` only when the target app/version requires it
 - `GET /ssot/metadata`
 - `GET /ssot/profile/metadata`
 - `GET /ssot/profile/:dataModelName`
@@ -50,6 +56,7 @@ Beast references:
 - Query Editor is the official UI surface for SQL exploration, data validation, query testing, and troubleshooting across DLOs, DMOs, CIOs, and data graphs.
 - Use Data Explorer to validate object data and formulas; use Profile Explorer to validate unified profile views.
 - Data 360 SQL is ANSI/PostgreSQL-like, not SOQL.
+- Prefer current Query Connect `/ssot/query-sql`, Data 360 Direct `/api/v3/query`, and documented Apex query surfaces for new retrieve work. Treat Query V1/V2 references as legacy unless the target client/version still requires them.
 - SOQL can query supported Data 360 profile, data source, or DMO objects through
   REST API query or Apex, but it is a narrower platform-integrated path. Use
   ANSI SQL / Query APIs for broad Data 360 querying unless the user specifically
@@ -75,6 +82,10 @@ Beast references:
 - Push predicates and aggregations to the source when using query federation. Avoid unfiltered scans over massive federated datasets.
 - Prefer profile endpoints when you need record-centric retrieval instead of ad hoc SQL.
 - Use metadata retrieval before exposing objects to agents or semantic models.
+- For SDK, notebook, BI client, database-client, driver, or query-engine questions, load the architecture engine map and classify the path as consumer/tool, driver/connector, API, execution engine, object/storage layer, and proof. Power BI, DBeaver, Looker, Tableau, Jupyter, and custom apps are consumers/tools, not engines.
+- Classify query clients by interface: JDBC, ODBC or dedicated BI connector, Python connector/DB-API style cursor, REST/Direct API, Apex, or native Data 360 UI. Do not maintain a closed product list or infer support, engine, or compute locality from the client name alone.
+- Treat DBeaver as a documented JDBC integration when current Salesforce docs are cited. Treat tools such as Looker as candidate/interface-compatible only until the exact driver, dialect, authentication, SQL behavior, and tenant readback are proven by current docs or live validation.
+- Distinguish read-only query extraction from managed transforms: Python connector/Jupyter queries run in Data 360 and then analyze data locally; Code Extension Python runs through managed Data 360 transform execution after package/deploy.
 - Governed queries can omit fields from `SELECT *`; explicit inaccessible fields should fail.
 - View All/Modify All can expose metadata in some UI paths, but query policy enforcement still applies.
 - Dynamic masking is applied at retrieval time; do not use masked values as join/filter truth.

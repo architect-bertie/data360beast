@@ -20,6 +20,7 @@ Beast references:
 - Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Architecture engine map: [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-engine-map.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -56,6 +57,8 @@ Beast references:
 - Profile Explorer is the validation surface for unified profile views and related Lightning apps.
 - Treat Tableau Semantics as the governed source for metrics used across reports, Tableau Next, AI, and apps.
 - Treat analytics as its own serving path. Query Editor success is a useful control, but reports, dashboards, semantic models, Tableau-style consumption, cache, refresh cadence, and target-user governance must be validated directly.
+- For external BI and query consumers, load the architecture engine map and classify the path by consumer/tool, driver/connector, API, execution engine, object/storage layer, and proof. Do not infer engine or official support from a client name.
+- Separate outbound analytics consumption from inbound connector ingestion. Power BI Desktop Connector is an outbound Data 360 query consumer with Import and DirectQuery modes; Microsoft Power BI XMLA is a Data In connector for ingesting or federating external Power BI XMLA data into Data 360.
 - Avoid dashboards that mix incompatible grains without clear labels.
 - Keep row counts, refresh cadence, and credit/usage implications visible to admins.
 - Treat query, report, dashboard, and semantic model design as credit-sensitive:
@@ -91,6 +94,23 @@ Report:
 6. permission/folder setup
 7. validation query/results
 8. limits and consumption notes
+
+## External Consumer Guard
+
+Treat examples such as Power BI, Tableau, DBeaver, Looker, Jupyter, and custom
+apps as consumers or tools. Select the actual interface first: native report,
+semantic model, dedicated BI connector, JDBC/ODBC, Python connector, REST,
+Direct API, or Apex. Then prove authentication, data space, Import versus live
+query behavior, cache/freshness, governance, and result rows in the target
+surface.
+
+Use evidence labels:
+- documented: official Salesforce or vendor docs name the exact integration.
+- interface-compatible: a documented driver/protocol could work, but the tool
+  is not specifically certified.
+- tenant-tested: the exact client, auth, data space, query, and result were
+  validated.
+- inferred/candidate: plausible architecture only; do not claim support.
 
 ## Doc-Synced Notes
 
@@ -128,16 +148,17 @@ and report on the result.
 - Analytics REST API: **2,000-row limit** per call.
 - Calculated Insights API: **4,999 rows** per query call (different limit).
 
-**Analytics tool integration:**
+**Analytics and query consumers:**
 
-| Tool | How it consumes Data 360 |
+| Tool or path | Direction and proof note |
 |---|---|
-| Data 360 Reports & Dashboards | Native reporting on DMOs/CIs/semantic models — no external license |
+| Data 360 Reports & Dashboards | Native analytics on DMOs/CIs/semantic models; prove report total, refresh, folder access, and governed user access |
 | Tableau Next | Personalized contextual insights, deep Data 360 integration |
 | Tableau (legacy) | JDBC + Tableau Semantics; full visualization platform |
-| CRM Analytics | "Direct Data for Data 360" — real-time queries, no preload |
-| Power BI XMLA | XMLA endpoint via the Microsoft Power BI XMLA Connector |
-| Custom apps | Connect API + Query API for embedded analytics |
+| CRM Analytics | "Direct Data for Data 360"; prove the specific live query/report behavior |
+| Power BI Desktop Connector | Outbound Data 360 query consumer; distinguish Import from DirectQuery |
+| Microsoft Power BI XMLA connector | Inbound Data 360 connector for ingesting or federating external Power BI XMLA data; not proof of Power BI Desktop outbound query behavior |
+| Custom apps | Connect API, Direct API, Apex, JDBC, or Python connector depending on implementation |
 
 **KPI Dashboards (consumption insights):**
 - Data 360 emits credit consumption events across these usage families:

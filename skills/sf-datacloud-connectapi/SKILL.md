@@ -28,6 +28,7 @@ Use these first, before guessing:
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Architecture engine map: [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-engine-map.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
 - Companion MCP installs: [docs/mcp-dependencies.md](../../docs/mcp-dependencies.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
@@ -75,7 +76,7 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 
 | Need | Preferred Surface |
 | --- | --- |
-| SQL over Data 360 tables | `ConnectApi.CdpQuery.queryAnsiSqlV2`, `/ssot/query-sql`, `/ssot/queryv2` |
+| SQL over Data 360 tables | `/ssot/query-sql`, Data 360 Direct `/api/v3/query`, Apex `sfsqlquery` or `ConnectApi.CdpQuery`; use `/ssot/queryv2` only for legacy targets |
 | profile/record retrieval | `/ssot/profile/...` |
 | schema and metadata | `/ssot/metadata`, `/ssot/profile/metadata`, Data Model Object endpoints |
 | Data Graph metadata/data | `/ssot/data-graphs/...` |
@@ -108,6 +109,8 @@ Delegate phase behavior to the relevant Data 360 specialist skill after the endp
 - Distinguish query success from segment success. Query SQL can pass while DBT segment creation fails.
 - Distinguish Data Graph retrieval context from segment/activation criteria. Use graph context for enrichment, not silent activation logic.
 - For data spaces, check whether the call needs a query parameter, token exchange body parameter, SQL/Python connector property, or Apex extra parameter such as `ConnectApi.CdpQuery.queryAnsiSqlV2(input, "dataspace_name")`.
+- Choose the API and authentication path independently from the consuming tool. A notebook, BI client, database client, Apex class, or custom app can share an API surface while differing in OAuth flow, token exchange, driver properties, data-space handling, pagination, and local caching.
+- For client/tool questions, load the architecture engine map and classify consumer/tool, driver/connector, API, execution engine, object/storage layer, and proof. Do not infer Hyper, Trino, Spark, certification, or write capability from Power BI, DBeaver, Looker, Tableau, Jupyter, or another client name.
 - For Data 360 API / Direct API, plan the two-step OAuth exchange: Salesforce
   access token first, then a Data 360 access token plus tenant-specific endpoint.
   Do not reuse Connect REST auth assumptions blindly.
