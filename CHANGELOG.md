@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added (Code Extension Operational Hardening)
+- Added a public Code Extension operating playbook covering explicit org and
+  data-space preflight, Python/Java/Docker toolchain checks, DLO/DMO package
+  contracts, Spark-native implementation rules, local-versus-remote proof,
+  deployment/transform recovery, one-run monitoring, output reconciliation,
+  delayed log queries, schedule proof, and data-kit migration.
+- Promoted `BEAST-PROOF-019`, knowledge claim `KC-012`, and the
+  `code-extension-remote-proof` deterministic eval.
+- Updated the Beast router, Prepare specialist, phase matrices, develop/package
+  matrix, public indexes, and manifests to route future Code Extension work
+  through the same proof contract.
+
 ### Added (Deployment-Grade Foundation)
 - Added the portable Data360 Beast desired-state runtime, public implementation,
   deployment-plan, run-state, and certification contracts, plus an explicit

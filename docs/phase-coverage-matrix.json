@@ -135,12 +135,12 @@
       "phase": "develop-package",
       "specialistSkill": "sf-datacloud",
       "companionExecutionSkill": "data360-orchestrate; data360-code-extension-generate",
-      "sourceCoverage": "documented",
-      "officialDocsCoverage": "Data kits and development lifecycle distillation",
-      "openApiCoverage": "metadata/data kit coverage depends on target asset type",
-      "proofLedgerCoverage": "not yet promoted",
-      "helperCoverage": "develop-package deployment matrix and release readiness checks",
-      "frontier": "Sandbox-to-production deploy validation and data kit membership proof"
+      "sourceCoverage": "strong",
+      "officialDocsCoverage": "Data kits, development lifecycle, and Code Extension workflow, constraints, logs, and migration",
+      "openApiCoverage": "metadata/data kit coverage depends on target asset type; Data Transform control-plane operations are covered by Connect API",
+      "proofLedgerCoverage": "BEAST-PROOF-016 and BEAST-PROOF-019 promoted",
+      "helperCoverage": "develop-package deployment matrix, Code Extension operating playbook, and release readiness checks",
+      "frontier": "Repeatable sandbox-to-production Code Extension data-kit deployment and function/chunking execution proof"
     }
   ]
 }
