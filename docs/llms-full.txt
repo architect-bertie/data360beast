@@ -38,6 +38,7 @@ confirms org, data space, permissions, available tools, and mutation approval.
 - Data 360 model-gallery implementation map: https://architect-bertie.github.io/data360beast/data360/model-gallery-implementation-map.md
 - Data 360 limits source precedence: https://architect-bertie.github.io/data360beast/data360/limits-source-precedence.md
 - Data 360 RAG search-index retriever playbook: https://architect-bertie.github.io/data360beast/data360/rag-search-index-retriever-playbook.md
+- Data 360 Code Extension operating playbook: https://architect-bertie.github.io/data360beast/data360/code-extension-operating-playbook.md
 - Proof ledger: https://architect-bertie.github.io/data360beast/proof-ledger.md
 - Labs interface: https://architect-bertie.github.io/data360beast/labs-interface.md
 - Labs repository: https://github.com/architect-bertie/data360beast-labs

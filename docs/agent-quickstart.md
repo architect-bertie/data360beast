@@ -76,8 +76,11 @@ If your IDE does not support skill installation, load these files in order:
 11. `docs/data360/rag-search-index-retriever-playbook.md` when designing RAG,
    Agentforce Data Libraries, search indexes, chunking, retrievers, prompt
    grounding, or Flow/Apex retrieval paths
-12. `docs/llms.txt`
-13. The one task-specific doc you need: `proof-ledger.md`,
+12. `docs/data360/code-extension-operating-playbook.md` when building or
+   troubleshooting a custom script, custom function, deployment, batch
+   transform, output, schedule, or Code Extension logs
+13. `docs/llms.txt`
+14. The one task-specific doc you need: `proof-ledger.md`,
    `labs-interface.md`, `scorecard.md`, or a phase-specific reference.
 
 ## Good Starting Prompts

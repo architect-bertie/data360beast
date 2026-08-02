@@ -399,12 +399,14 @@
         "Metadata API",
         "data kit readback",
         "develop-package deployment matrix",
+        "Code Extension operating playbook",
         "release readiness checks",
         "cost and usage sizing contract"
       ],
       "requiredSources": [
         "Official Developer Guide docs for auth, APIs, metadata, and packageability",
         "Develop/package/deploy matrix for environment gates and readback proof",
+        "Code Extension guide and operating playbook for custom script or function work",
         "Cost and usage sizing contract for multi-environment replay and test data volume",
         "OpenAPI for runtime API mechanics",
         "Target-org data kit and metadata coverage proof"
@@ -415,12 +417,14 @@
         "data kit membership",
         "metadata coverage",
         "sandbox-to-production validation",
-        "metered usage or cost guardrail"
+        "metered usage or cost guardrail",
+        "Code Extension deployment, invocation, terminal run, output, logs, and schedule proof"
       ],
       "forbiddenAssumptions": [
         "Do not treat standard Platform metadata deployment as sufficient for every Data 360 asset.",
         "Do not package raw data.",
-        "Do not reuse Connect REST auth assumptions for Data 360 Direct API token exchange."
+        "Do not reuse Connect REST auth assumptions for Data 360 Direct API token exchange.",
+        "Do not treat local Code Extension success or deployment status as remote transform execution and output proof."
       ]
     }
   ]

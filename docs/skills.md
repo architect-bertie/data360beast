@@ -85,6 +85,7 @@ only for exact folders, package references, and command surfaces from
 - `docs/data360/cost-usage-sizing-contract.md`: qualitative cost and usage sizing contract.
 - `docs/data360/implementation-foundation.md`: outcome, org-topology, residency, ethical-data, sandbox, and cross-phase proof gates.
 - `docs/data360/develop-package-deployment-matrix.md`: develop/package/deploy proof matrix.
+- `docs/data360/code-extension-operating-playbook.md`: Code Extension script/function preflight, package, transform, execution, output, log, recovery, and migration proof.
 - `docs/release-discipline.md`: release, validation, and publishing discipline.
 - `docs/data360/sf-skills-data360-companion.md`: Salesforce `sf-skills` Data 360 companion contract.
 - `docs/data360/sf-skills-data360-companion.json`: machine-readable companion install, naming, authority, and phase crosswalk.

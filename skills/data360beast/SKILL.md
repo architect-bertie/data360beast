@@ -146,6 +146,7 @@ Public-safe operating references:
 - [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md): public-safe RAG, search-index, chunking, retriever, and troubleshooting playbook distilled from a 45-page Salesforce public-facing best-practices PDF.
 - [docs/data360/cost-usage-sizing-contract.md](../../docs/data360/cost-usage-sizing-contract.md): cost and usage sizing contract for ingestion, query, insights, RAG, segmentation, activation, automation, and environment replay.
 - [docs/data360/develop-package-deployment-matrix.md](../../docs/data360/develop-package-deployment-matrix.md): develop, package, data kit, deploy, and readback matrix.
+- [docs/data360/code-extension-operating-playbook.md](../../docs/data360/code-extension-operating-playbook.md): custom script/function preflight, package, validation, deployment, transform, run, log, recovery, and migration proof contract.
 - [docs/data360/mcp-tool-selection.md](../../docs/data360/mcp-tool-selection.md): tool-selection guidance for `sf-docs`, `data360`, `datacloud-mcp-query`, and direct `sf` REST calls.
 - [docs/data360/sf-skills-data360-companion.md](../../docs/data360/sf-skills-data360-companion.md): Salesforce `sf-skills` Data 360 companion contract for optional `sf data360` execution playbooks.
 - [docs/data360/docs-watch-operating-model.md](../../docs/data360/docs-watch-operating-model.md): weekly official-doc refresh, oversized Help fallback, audit, skill-sync, and GitHub publishing model.
@@ -261,7 +262,7 @@ specific:
 - [sf-datacloud-connect](../sf-datacloud-connect/SKILL.md): connectors and
   connections.
 - [sf-datacloud-prepare](../sf-datacloud-prepare/SKILL.md): streams, DLOs,
-  transforms.
+  transforms, and Code Extension scripts.
 - [sf-datacloud-harmonize](../sf-datacloud-harmonize/SKILL.md): DMOs,
   mappings, identity, data graphs.
 - [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md): data spaces,

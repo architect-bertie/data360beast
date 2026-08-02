@@ -22,6 +22,7 @@ Beast references:
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
 - Developer Guide index: [docs/data360/developer/index.md](../../docs/data360/developer/index.md)
+- Code Extension operating playbook: [docs/data360/code-extension-operating-playbook.md](../../docs/data360/code-extension-operating-playbook.md)
 - Proof ledger: [docs/proof-ledger.md](../../docs/proof-ledger.md)
 - Public LLM map: [docs/llms.txt](../../docs/llms.txt)
 - For exact Salesforce behavior, fetch official Help/Developer docs on demand with `sf-docs`.
@@ -91,6 +92,7 @@ Beast references:
 - For unstructured data, hand off chunking/search index design to [sf-datacloud-unstructured-retrieval](../sf-datacloud-unstructured-retrieval/SKILL.md).
 - Use stream reruns for ingestion validation before blaming downstream mappings.
 - Prefer programmatic payloads over UI click-memory when the user wants repeatable setup.
+- For Code Extension scripts, use the operating playbook as the required gate: prove the exact toolchain and BYOK posture, validate the target schema, keep local success separate from remote transform execution, read back `DataCustomCode` after every deploy attempt, submit a run once, reconcile output independently, query delayed logs, and prove schedule state through the product endpoint.
 
 ## Production Gates
 
