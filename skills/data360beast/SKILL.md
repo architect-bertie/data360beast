@@ -217,7 +217,10 @@ machine-readable routing table. The bullets below are the human shorthand.
 
 Use [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-engine-map.md)
 when the work involves architecture, performance, cross-surface mismatches, or
-ambiguous troubleshooting.
+ambiguous troubleshooting. Also load it whenever the user mentions SDKs,
+notebooks, BI/database clients, JDBC/ODBC, Python connectors, Query API
+versions, query engines, Spark, Trino, Hyper, Hyperforce, Power BI, DBeaver,
+Looker, Tableau, Jupyter, or asks where compute runs.
 
 Use [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 when the work involves external lakehouses, zero copy, ingestion strategy,
@@ -249,7 +252,9 @@ workload -> freshness need -> governance need -> cost/I/O profile -> access patt
 Treat engine mapping as inferred unless proven in the target org. Spark-like
 processing, Trino-like query, Hyper-like analytics serving, Airflow-like
 orchestration, and Iceberg-style storage are useful mental models, not public
-API guarantees.
+API guarantees. Classify paths as consumer/tool -> driver/connector -> API ->
+execution engine -> object/storage layer -> proof before naming support,
+compute locality, or performance behavior.
 
 ## Specialist Skill Routing
 

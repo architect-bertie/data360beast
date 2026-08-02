@@ -131,7 +131,8 @@
       "forbiddenAssumptions": [
         "Do not use Query SQL as data stream formula syntax.",
         "Do not edit stream-managed DLO fields directly.",
-        "Do not mask keys or event-time fields without downstream validation."
+        "Do not mask keys or event-time fields without downstream validation.",
+        "Do not equate Spark/DataFrame programming conventions with the reason Code Extension must be uploaded; managed execution, deployment, scheduling, security, observability, and output ownership require separate proof."
       ]
     },
     {
@@ -193,7 +194,7 @@
     {
       "phase": "retrieve",
       "specialistSkill": "sf-datacloud-retrieve",
-      "owns": "Query SQL, Query v2, Profile API, metadata discovery, and query MCP usage.",
+      "owns": "Current Query API, Direct API, legacy Query v2, Profile API, metadata discovery, and query MCP usage.",
       "preferredTools": [
         "data360 MCP",
         "datacloud-mcp-query",
@@ -216,7 +217,8 @@
       "forbiddenAssumptions": [
         "Do not rely on global CLI state.",
         "Do not assume query success proves segment, activation, transform, or analytics behavior.",
-        "Do not surface raw personal identifiers unless the use case and access allow it."
+        "Do not surface raw personal identifiers unless the use case and access allow it.",
+        "Do not infer execution engine, write capability, cache behavior, or official certification from a client/tool name such as Power BI, DBeaver, Looker, Tableau, Jupyter, or a generic JDBC/ODBC client."
       ]
     },
     {
@@ -424,7 +426,8 @@
         "Do not treat standard Platform metadata deployment as sufficient for every Data 360 asset.",
         "Do not package raw data.",
         "Do not reuse Connect REST auth assumptions for Data 360 Direct API token exchange.",
-        "Do not treat local Code Extension success or deployment status as remote transform execution and output proof."
+        "Do not treat local Code Extension success or deployment status as remote transform execution and output proof.",
+        "Do not treat a local SDK, Python connector, notebook, or BI client query as proof of managed Code Extension remote execution."
       ]
     }
   ]

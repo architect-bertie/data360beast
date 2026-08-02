@@ -18,6 +18,7 @@ Beast references:
 - Beast preflight: [docs/beast-preflight.md](../../docs/beast-preflight.md)
 - Phase proof matrix: [docs/phase-proof-matrix.json](../../docs/phase-proof-matrix.json)
 - Public operating model: [docs/operating-model.md](../../docs/operating-model.md)
+- Architecture engine map: [docs/data360/architecture-engine-map.md](../../docs/data360/architecture-engine-map.md)
 - Interoperability decision map: [docs/data360/interoperability-decision-map.md](../../docs/data360/interoperability-decision-map.md)
 - RAG/search-index playbook: [docs/data360/rag-search-index-retriever-playbook.md](../../docs/data360/rag-search-index-retriever-playbook.md)
 - Limits source precedence: [docs/data360/limits-source-precedence.md](../../docs/data360/limits-source-precedence.md)
@@ -93,6 +94,7 @@ Beast references:
 - Use stream reruns for ingestion validation before blaming downstream mappings.
 - Prefer programmatic payloads over UI click-memory when the user wants repeatable setup.
 - For Code Extension scripts, use the operating playbook as the required gate: prove the exact toolchain and BYOK posture, validate the target schema, keep local success separate from remote transform execution, read back `DataCustomCode` after every deploy attempt, submit a run once, reconcile output independently, query delayed logs, and prove schedule state through the product endpoint.
+- For Code Extension architecture questions, separate the Python products. The Data 360 Python Connector extracts query results into local Python/Pandas for analysis; Code Extension Python scripts are packaged for managed Data 360 batch-transform execution. Spark/DataFrame conventions explain the programming model, while upload/deploy explains managed scheduling, security, observability, retries, output ownership, and product readbacks.
 
 ## Production Gates
 
