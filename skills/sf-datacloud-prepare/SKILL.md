@@ -144,11 +144,62 @@ are not yet reproduced in Labs.
   boundary one variable at a time. This isolates the boundary but does not always pin
   the underlying mechanism, and probe scaffolding must be torn down afterward.
 
+## Code Extension runtime behavior (project evidence)
+
+Empirical behavior of the Python Code Extension toolchain and the `DBT_HIDDEN`
+batch transform a deploy auto-creates, beyond the doc-synced implementation gate
+below. Confidence tags map to [docs/proof-ledger.md](../../docs/proof-ledger.md)
+(`BEAST-PROOF-026`–`031`); all were observed in a single authorized org and are
+not yet reproduced in Labs.
+
+- **Deploy is entitlement-gated and auto-creates a hidden transform.** [tested,
+  `BEAST-PROOF-026`] `script deploy` needs the org entitlement
+  `CdpCustomCodeDeployment`; a 403 `FUNCTIONALITY_NOT_ENABLED:
+  [CdpCustomCodeDeployment]` is that gate, not packaging or profile. A successful
+  deploy registers the extension and auto-creates a runnable batch transform
+  (`creationSource: "Code Extension"`, `definition.type: "DBT_HIDDEN"`). Run and
+  delete go through the same Connect APIs as native transforms; both
+  `DELETE /ssot/data-transforms/{name}` and `DELETE /ssot/data-custom-code/{name}`
+  work.
+- **`script run` is a smoke test, never a value-parity gate.** [tested,
+  `BEAST-PROOF-027`] The local reader (`SFCLIDataCloudReader` →
+  `POST /ssot/query-sql`) silently truncates on a response byte cap — no `done`
+  flag, no error. A 178-column DLO of 2,431 rows returned 675 rows at
+  `LIMIT 1000` and 682 with no limit, while a 3-column projection returned the
+  full 1,000. `read_dlo` always issues `SELECT *`, so projection cannot widen it.
+  Extract with `ssot/queryv2` (it honors `LIMIT` exactly) when you need parity.
+- **`read_dlo` pulls the whole object into driver memory.** [tested,
+  `BEAST-PROOF-028`] It returns a PySpark frame built by `createDataFrame` over a
+  pandas frame materialized inside `read_dlo`, so `.select`/`.filter` cannot
+  narrow the pull and there is no predicate hook. Reducing driver memory means not
+  reading that object at all.
+- **Normalize keys and declare the write schema explicitly.** [tested,
+  `BEAST-PROOF-029`] Reader key representation does not follow the DLO's logical
+  type — an 18-wide `materialid__c` arrives zero-padded, `accountid__c` stripped,
+  a numeric `promotionid__c` as `double` — so normalize before joining.
+  `createDataFrame` infers `NullType` for an all-null column, which no DLO field
+  accepts; declare an explicit `StructType` from the target's field definitions.
+  `Client` exposes no `.spark`; use `SparkSession.builder.getOrCreate()`.
+- **A failed run exposes no error text.** [tested, `BEAST-PROOF-030`] A
+  `DBT_HIDDEN` run-history row returns only `status: FAILURE` with
+  `processedRows: 0` and empty `outputStatus` (identical on v63.0 and v67.0).
+  Diagnosis comes from a local `script run` and the `DataCustomCodeLogs__dll` log
+  surface, not from a deploy-and-observe loop.
+- **Ship only the entrypoint's import closure; `script scan` is not idempotent.**
+  [tested, `BEAST-PROOF-031`] `script scan` rewrites `requirements.txt` as
+  `sorted(set(existing) | set(imports))` — reading comment lines as requirements
+  and writing discovered imports unpinned — and it walks the whole package
+  directory, so a module that ships in the payload but is never imported still
+  contributes its imports (an unused module importing `snowflake.connector`
+  staged `snowflake` into the venv). Ship only the modules the entrypoint
+  transitively imports and assert the pin set in CI.
+
 ## Prepare helper scripts
 
-Portable helpers for the behavior above. The two checkers are offline (parse a
-transform body, no org calls); the bisect harness drives an authorized org
-through `sf api request rest` at the org's own API version.
+Portable helpers for the behavior above. The offline checkers parse a transform
+body or a code-ext payload with no org calls; the bisect and diagnostics
+harnesses drive an authorized org through `sf api request rest` at the org's own
+API version.
 
 - [scripts/stl_ref_check.py](scripts/stl_ref_check.py): static check that every
   column an STL formula reads is exposed by its source node, resolving
@@ -161,6 +212,14 @@ through `sf api request rest` at the org's own API version.
   graph/output bisection harness — constant-output scratch probes down an
   ancestor-growing cut sequence to pin a silent failure boundary
   (`BEAST-PROOF-025`). Requires an authorized org and a pre-created scratch DLO.
+- [scripts/ce_payload_closure.py](scripts/ce_payload_closure.py): compute a
+  code-ext payload's transitive import closure by AST and report drift against
+  the copy that ships, so `script scan` can't drag never-imported modules'
+  dependencies into the venv (`BEAST-PROOF-031`). Offline.
+- [scripts/ce_run_diagnostics.py](scripts/ce_run_diagnostics.py): pull the
+  terminal run-history row and recent `DataCustomCodeLogs__dll` rows for a
+  `DBT_HIDDEN` code-ext transform, since its run-history carries no error text
+  (`BEAST-PROOF-030`). Requires an authorized org.
 
 ## Production Gates
 
