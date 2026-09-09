@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 -m unittest discover -s tests
-      - run: python3 -m py_compile skills/data360beast/runtime/data360beast_runtime.py skills/data360beast/scripts/data360beast.py tools/docs_watch.py tools/refresh_skills_from_sf_docs.py tools/validate_expertise.py
+      - run: python3 -m py_compile skills/data360beast/runtime/data360beast_runtime.py skills/data360beast/scripts/data360beast.py skills/sf-datacloud-prepare/scripts/stl_ref_check.py skills/sf-datacloud-prepare/scripts/stl_builder_shape.py skills/sf-datacloud-prepare/scripts/stl_activation_bisect.py tools/docs_watch.py tools/refresh_skills_from_sf_docs.py tools/validate_expertise.py
       - run: python3 tools/run_architecture_evals.py
       - run: python3 tools/validate_expertise.py
       - run: python3 tools/validate_docs_watch.py

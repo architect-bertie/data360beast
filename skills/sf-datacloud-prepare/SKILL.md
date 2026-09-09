@@ -92,6 +92,76 @@ Beast references:
 - Use stream reruns for ingestion validation before blaming downstream mappings.
 - Prefer programmatic payloads over UI click-memory when the user wants repeatable setup.
 
+## STL batch-transform payload behavior (SSOT REST)
+
+Empirical behavior of the `/ssot/data-transforms` STL payload, beyond what the
+doc-synced notes below cover. The UI-facing names in the Join Operations and
+Create-a-Batch-Transform docs are not always the tokens the REST payload accepts.
+Confidence tags map to [docs/proof-ledger.md](../../docs/proof-ledger.md)
+(`BEAST-PROOF-019`–`025`); all were validated in a single authorized org and
+are not yet reproduced in Labs.
+
+- **`joinType` is an enum, not the UI word.** [tested, `BEAST-PROOF-019`] The
+  payload wants `INNER`, `LEFT_OUTER`, `RIGHT_OUTER`, `FULL_OUTER` — not the
+  bare "left / right / full / cross" the Join Operations doc lists. A bare
+  `LEFT` is rejected with `POST_BODY_PARSE_ERROR` (`LEFT_OUTER` and `INNER`
+  confirmed accepted; the `*_OUTER` family is the documented set).
+- **API name length.** [tested, `BEAST-PROOF-019`] The SSOT REST create rejects
+  a transform API name longer than 32 characters, tighter than the 40-char
+  figure in the UI-oriented doc note below. Budget the API name at ≤32.
+- **`groupings` are bare field-name strings; string literals are single-quoted.**
+  [tested, `BEAST-PROOF-019`] `groupings` is an array of plain column-name
+  strings (not objects); STL string literals use single quotes (`'US'`), not
+  double.
+- **Handle join column collisions with `rightQualifier` + `schema.slice`.**
+  [tested, `BEAST-PROOF-020`] When left and right inputs share a field name, set
+  the join node's `rightQualifier` and add a `schema.slice` with `mode: "DROP"`;
+  downstream formulas reference the right-side field as `"qualifier.Field"`.
+  Formula alias nodes to rename join keys do not resolve the collision.
+- **Validation ≠ activation ≠ runtime dispatch.** [tested, `BEAST-PROOF-021`] A
+  payload can validate and activate yet still fail or silently no-op at run — a
+  function that validates but will not dispatch, or a formula whose declared
+  return type is wrong, surfaces only at execution. Prove with a forced full run
+  plus an output readback, never with validation status alone.
+- **`outputD360` OVERWRITE keeps existing keys; a zero-row run reports SUCCESS.**
+  [tested, `BEAST-PROOF-022`] OVERWRITE upserts by primary key rather than
+  truncate-and-replace, so prior PKs survive a run that no longer emits them; and
+  a run that writes zero rows still returns terminal `SUCCESS`. Empty output is
+  not a failure signal — check the output row count, not just run status.
+- **No native cross-transform DAG.** [inferred, `BEAST-PROOF-023`] Transforms do
+  not chain to each other natively; order dependent transforms with a Flow or an
+  external trigger, and when a downstream transform needs run parameters, seed a
+  one-row DLO it can read rather than expecting a parent transform to pass state.
+- **Metadata and run ops.** [tested, `BEAST-PROOF-024`] `MktDataTransform` is the
+  SOQL object for transform metadata; the run-history resource returns a
+  `histories[]` array; send `{"shouldForceFullRun": true}` on the run action for
+  a deterministic full run.
+- **Localize a silent transform failure by graph/output bisection, not whole-payload
+  retries.** [tested, `BEAST-PROOF-025`] When a transform validates and activates but
+  wedges or fails at run, cut it down to a constant-output scratch probe writing to
+  the target DLO, then add one node or one source read back per iteration from a
+  known-good rung; the terminal-failure-vs-still-running signal localizes the failing
+  boundary one variable at a time. This isolates the boundary but does not always pin
+  the underlying mechanism, and probe scaffolding must be torn down afterward.
+
+## Prepare helper scripts
+
+Portable helpers for the behavior above. The two checkers are offline (parse a
+transform body, no org calls); the bisect harness drives an authorized org
+through `sf api request rest` at the org's own API version.
+
+- [scripts/stl_ref_check.py](scripts/stl_ref_check.py): static check that every
+  column an STL formula reads is exposed by its source node, resolving
+  `rightQualifier` renames (`BEAST-PROOF-019`/`020`). Offline.
+- [scripts/stl_builder_shape.py](scripts/stl_builder_shape.py): reshape a body
+  into builder-openable form (one field per formula/typeCast node, an
+  `extractGrains` partner per aggregate) and assert no aggregate-over-aggregate.
+  Offline.
+- [scripts/stl_activation_bisect.py](scripts/stl_activation_bisect.py): the
+  graph/output bisection harness — constant-output scratch probes down an
+  ancestor-growing cut sequence to pin a silent failure boundary
+  (`BEAST-PROOF-025`). Requires an authorized org and a pre-created scratch DLO.
+
 ## Production Gates
 
 1. connection healthy
