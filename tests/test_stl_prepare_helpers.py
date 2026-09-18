@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "skills/sf-datacloud-prepare/scripts"
+sys.path.insert(0, str(SCRIPTS))
 
 
 def load(module_name: str, filename: str):
@@ -230,12 +231,10 @@ class ResolveApiVersionTests(unittest.TestCase):
         runner = lambda _: fake_result(stdout='{"result": {"apiVersion": "63.0"}}')
         self.assertEqual(bisect.resolve_api_version("org", runner=runner), "63.0")
 
-    def test_falls_back_when_missing(self):
+    def test_missing_version_requires_explicit_input(self):
         runner = lambda _: fake_result(stdout='{"result": {}}')
-        self.assertEqual(
-            bisect.resolve_api_version("org", runner=runner),
-            bisect.DEFAULT_API_VERSION,
-        )
+        with self.assertRaises(ValueError):
+            bisect.resolve_api_version('org', runner=runner)
 
 
 class ConnectClientTests(unittest.TestCase):

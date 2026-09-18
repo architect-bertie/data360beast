@@ -27,10 +27,16 @@ guards you can call before deploy; the CLI rewrites files in place.
 from __future__ import annotations
 
 import argparse
+import copy
 import html
 import json
+import os
 import re
 import sys
+import tempfile
+from pathlib import Path
+
+from stl_graph import allocate_name, validate_graph
 
 
 def expand_formula_nodes(nodes: dict) -> dict:
@@ -39,44 +45,48 @@ def expand_formula_nodes(nodes: dict) -> dict:
     Downstream `sources` are rewired to the last node of each chain, so the
     graph stays connected and node-visible order is unchanged.
     """
+    validate_graph(nodes)
     expanded: dict = {}
     tail: dict[str, str] = {}
+    occupied = set(nodes)
+    chains = {}
+
+    # Allocate every tail before rewiring any edge: JSON maps need no topology order.
+    for name, node in nodes.items():
+        fields = node.get('parameters', {}).get('fields', [])
+        if node['action'] in {'formula', 'typeCast'} and len(fields) > 1:
+            if len(node.get('sources', [])) != 1:
+                raise ValueError(f'{name}: split nodes require exactly one source')
+            chains[name] = [allocate_name(f'{name}_{i + 1}', occupied) for i in range(len(fields))]
+            tail[name] = chains[name][-1]
+        else:
+            tail[name] = name
 
     for name, node in nodes.items():
-        sources = [tail.get(source, source) for source in node.get("sources", [])]
+        sources = [tail[source] for source in node.get("sources", [])]
         split_action = node["action"] in {"formula", "typeCast"}
         fields = node["parameters"].get("fields", []) if split_action else []
 
         if not split_action or len(fields) <= 1:
-            rewired = dict(node)
+            rewired = copy.deepcopy(node)
             if "sources" in node:
                 rewired["sources"] = sources
             expanded[name] = rewired
-            tail[name] = name
             continue
 
         previous = sources[0]
         for index, field in enumerate(fields):
-            output_name = (
-                field["name"]
-                if node["action"] == "formula"
-                else field["newProperties"]["name"]
-            )
-            prefix = "FML" if node["action"] == "formula" else "CAST"
-            part = f"{prefix}_{output_name.upper()}"
-            if part in expanded or part in nodes:
-                part = f"{name}_{index + 1}"
-            parameters = {"fields": [field]}
-            if node["action"] == "formula":
-                parameters["expressionType"] = "SQL"
-            expanded[part] = {
-                "action": node["action"],
-                "parameters": parameters,
-                "sources": [previous],
-            }
+            part = chains[name][index]
+            split = copy.deepcopy(node)
+            split['parameters']['fields'] = [copy.deepcopy(field)]
+            split['sources'] = [previous]
+            # Apply the original output schema only after all fields are computed.
+            if index < len(fields) - 1:
+                split.pop('schema', None)
+            expanded[part] = split
             previous = part
-        tail[name] = previous
 
+    validate_graph(expanded)
     return expanded
 
 
@@ -123,7 +133,9 @@ def attach_grain_extractions(nodes: dict) -> dict:
     extraction is a builder error; grouping by a calendar grain changes the
     product grain. Empty `[]` specifies the attribute and is inert.
     """
+    validate_graph(nodes)
     attached: dict = {}
+    occupied = set(nodes)
 
     for name, node in nodes.items():
         sources = node.get("sources") or []
@@ -135,7 +147,7 @@ def attach_grain_extractions(nodes: dict) -> dict:
             attached[name] = node
             continue
 
-        grain = f"GRAIN_{name}"
+        grain = allocate_name(f"GRAIN_{name}", occupied)
         attached[grain] = {
             "action": "extractGrains",
             "parameters": {
@@ -145,6 +157,7 @@ def attach_grain_extractions(nodes: dict) -> dict:
         }
         attached[name] = dict(node, sources=[grain])
 
+    validate_graph(attached)
     return attached
 
 
@@ -230,9 +243,23 @@ def _split_file(path: str) -> int:
     nodes = expand_formula_nodes(nodes)
     assert_no_aggregate_over_aggregate(nodes)
     body["definition"]["nodes"] = attach_grain_extractions(nodes)
-    with open(path, "w") as handle:
-        json.dump(body, handle, indent=2)
-        handle.write("\n")
+    validate_graph(body['definition']['nodes'])
+    target = Path(path)
+    if target.is_symlink():
+        raise ValueError('refusing in-place rewrite of a symlink')
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', dir=target.parent, delete=False) as handle:
+            temporary = Path(handle.name)
+            json.dump(body, handle, indent=2)
+            handle.write('\n')
+            handle.flush()
+            os.fsync(handle.fileno())
+        temporary.chmod(target.stat().st_mode)
+        os.replace(temporary, target)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
     after = len(body["definition"]["nodes"])
     print(

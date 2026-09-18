@@ -40,7 +40,9 @@ def fake_result(stdout="", returncode=0, stderr=""):
 class PayloadClosureTests(unittest.TestCase):
     def _tree(self):
         """A source pkg, a payload with roots, and a payload closure copy."""
-        tmp = Path(tempfile.mkdtemp())
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        tmp = Path(directory.name)
         source = tmp / "src"
         payload = tmp / "payload"
         copy = payload / "closure"
@@ -94,23 +96,20 @@ class PayloadClosureTests(unittest.TestCase):
 
 
 class LogsQueryTests(unittest.TestCase):
-    def test_default_query_is_select_star_with_limit(self):
-        self.assertEqual(
-            diagnostics.build_logs_query(limit=25),
-            "SELECT * FROM DataCustomCodeLogs__dll LIMIT 25",
-        )
+    def test_query_is_scoped_with_limit(self):
+        sql = diagnostics.build_logs_query('ce_engine', limit=25)
+        self.assertIn('"ProcessDefinitionName__c" = \'ce_engine\'', sql)
+        self.assertTrue(sql.endswith('LIMIT 25'))
+        self.assertNotIn('SELECT *', sql)
 
-    def test_where_clause_is_appended(self):
-        self.assertEqual(
-            diagnostics.build_logs_query(limit=5, where="LogLevel__c = 'ERROR'"),
-            "SELECT * FROM DataCustomCodeLogs__dll WHERE LogLevel__c = 'ERROR' LIMIT 5",
-        )
+    def test_execution_filter(self):
+        sql = diagnostics.build_logs_query('ce_engine', limit=5, execution_id='run-1')
+        self.assertIn('"ExecutionId__c" = \'run-1\'', sql)
 
     def test_bad_limit_rejected(self):
-        with self.assertRaises(ValueError):
-            diagnostics.build_logs_query(limit=0)
-        with self.assertRaises(ValueError):
-            diagnostics.build_logs_query(limit=5000)
+        for limit in (0, 5000):
+            with self.assertRaises(ValueError):
+                diagnostics.build_logs_query('ce_engine', limit=limit)
 
 
 class RunHistorySummaryTests(unittest.TestCase):
@@ -148,7 +147,8 @@ class CollectTests(unittest.TestCase):
         report = diagnostics.collect(client, "66.0", "ce_engine", limit=5)
         self.assertEqual(report["transform"], "ce_engine")
         self.assertEqual(report["run"]["status"], "FAILURE")
-        self.assertEqual(report["logs"], {"data": [["log-row"]]})
+        self.assertEqual(report["logs"]["data"], [["log-row"]])
+        self.assertFalse(report["complete"])
 
 
 if __name__ == "__main__":

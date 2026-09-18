@@ -98,48 +98,52 @@ Empirical behavior of the `/ssot/data-transforms` STL payload, beyond what the
 doc-synced notes below cover. The UI-facing names in the Join Operations and
 Create-a-Batch-Transform docs are not always the tokens the REST payload accepts.
 Confidence tags map to [docs/proof-ledger.md](../../docs/proof-ledger.md)
-(`BEAST-PROOF-019`–`025`); all were validated in a single authorized org and
-are not yet reproduced in Labs.
+(`BEAST-PROOF-020`–`BEAST-PROOF-026`); these candidate observations come from one authorized org and
+are not yet reproduced in Labs. API, SDK and CLI plugin versions were not
+recorded unless stated explicitly below; treat them as unknown. These are
+reported observations, not portable platform guarantees. Confirm the exact
+surface, source/output grain, data-space context and runtime before applying them.
 
-- **`joinType` is an enum, not the UI word.** [tested, `BEAST-PROOF-019`] The
+- **`joinType` is an enum, not the UI word.** [tested, `BEAST-PROOF-020`] The
   payload wants `INNER`, `LEFT_OUTER`, `RIGHT_OUTER`, `FULL_OUTER` — not the
   bare "left / right / full / cross" the Join Operations doc lists. A bare
   `LEFT` is rejected with `POST_BODY_PARSE_ERROR` (`LEFT_OUTER` and `INNER`
   confirmed accepted; the `*_OUTER` family is the documented set).
-- **API name length.** [tested, `BEAST-PROOF-019`] The SSOT REST create rejects
+- **API name length.** [tested, `BEAST-PROOF-020`] The observed SSOT REST create rejected
   a transform API name longer than 32 characters, tighter than the 40-char
   figure in the UI-oriented doc note below. Budget the API name at ≤32.
 - **`groupings` are bare field-name strings; string literals are single-quoted.**
-  [tested, `BEAST-PROOF-019`] `groupings` is an array of plain column-name
+  [tested, `BEAST-PROOF-020`] `groupings` is an array of plain column-name
   strings (not objects); STL string literals use single quotes (`'US'`), not
   double.
 - **Handle join column collisions with `rightQualifier` + `schema.slice`.**
-  [tested, `BEAST-PROOF-020`] When left and right inputs share a field name, set
+  [tested, `BEAST-PROOF-021`] When left and right inputs share a field name, set
   the join node's `rightQualifier` and add a `schema.slice` with `mode: "DROP"`;
   downstream formulas reference the right-side field as `"qualifier.Field"`.
   Formula alias nodes to rename join keys do not resolve the collision.
-- **Validation ≠ activation ≠ runtime dispatch.** [tested, `BEAST-PROOF-021`] A
+- **Validation ≠ activation ≠ runtime dispatch.** [tested, `BEAST-PROOF-022`] A
   payload can validate and activate yet still fail or silently no-op at run — a
   function that validates but will not dispatch, or a formula whose declared
   return type is wrong, surfaces only at execution. Prove with a forced full run
   plus an output readback, never with validation status alone.
-- **`outputD360` OVERWRITE keeps existing keys; a zero-row run reports SUCCESS.**
-  [tested, `BEAST-PROOF-022`] OVERWRITE upserts by primary key rather than
-  truncate-and-replace, so prior PKs survive a run that no longer emits them; and
-  a run that writes zero rows still returns terminal `SUCCESS`. Empty output is
-  not a failure signal — check the output row count, not just run status.
-- **No native cross-transform DAG.** [inferred, `BEAST-PROOF-023`] Transforms do
-  not chain to each other natively; order dependent transforms with a Flow or an
+- **Observed `outputD360` OVERWRITE retained prior keys on zero output.**
+  [tested, `BEAST-PROOF-023`] In the observed `outputD360` case,
+  prior keys survived a zero-row OVERWRITE run; this does not establish deletion
+  behavior for every run type, DLO/DMO target, or other write APIs.
+  That zero-row run reported terminal `SUCCESS`. A successful status alone
+  does not establish useful output — check the output row count, not just run status.
+- **No chaining surface found in the observed workflow.** [inferred, `BEAST-PROOF-024`] No native chaining surface was
+  identified in that investigation; verify current orchestration options, then order dependent transforms with a Flow or an
   external trigger, and when a downstream transform needs run parameters, seed a
   one-row DLO it can read rather than expecting a parent transform to pass state.
-- **Metadata and run ops.** [tested, `BEAST-PROOF-024`] `MktDataTransform` is the
+- **Metadata and run ops.** [tested, `BEAST-PROOF-025`] `MktDataTransform` is the
   SOQL object for transform metadata; the run-history resource returns a
   `histories[]` array; send `{"shouldForceFullRun": true}` on the run action for
   a deterministic full run.
 - **Localize a silent transform failure by graph/output bisection, not whole-payload
-  retries.** [tested, `BEAST-PROOF-025`] When a transform validates and activates but
-  wedges or fails at run, cut it down to a constant-output scratch probe writing to
-  the target DLO, then add one node or one source read back per iteration from a
+  retries.** [tested, `BEAST-PROOF-026`] When a transform validates and activates but
+  wedges or fails at run, cut it down to a constant-output scratch probe writing only to
+  a separate disposable DLO, then add one node or one source read back per iteration from a
   known-good rung; the terminal-failure-vs-still-running signal localizes the failing
   boundary one variable at a time. This isolates the boundary but does not always pin
   the underlying mechanism, and probe scaffolding must be torn down afterward.
@@ -149,45 +153,49 @@ are not yet reproduced in Labs.
 Empirical behavior of the Python Code Extension toolchain and the `DBT_HIDDEN`
 batch transform a deploy auto-creates, beyond the doc-synced implementation gate
 below. Confidence tags map to [docs/proof-ledger.md](../../docs/proof-ledger.md)
-(`BEAST-PROOF-026`–`031`); all were observed in a single authorized org and are
-not yet reproduced in Labs.
+(`BEAST-PROOF-027`–`BEAST-PROOF-032`); these candidate observations come from one authorized
+org and are not yet reproduced in Labs. SDK and CLI plugin versions are unknown.
+Keep local-reader observations separate from managed execution; the local
+implementation does not establish remote memory behavior or failure causes.
 
-- **Deploy is entitlement-gated and auto-creates a hidden transform.** [tested,
-  `BEAST-PROOF-026`] `script deploy` needs the org entitlement
+- **Observed deployment entitlement gate and generated transform.** [tested,
+  `BEAST-PROOF-027`] The observed `script deploy` required the entitlement
   `CdpCustomCodeDeployment`; a 403 `FUNCTIONALITY_NOT_ENABLED:
-  [CdpCustomCodeDeployment]` is that gate, not packaging or profile. A successful
-  deploy registers the extension and auto-creates a runnable batch transform
+  [CdpCustomCodeDeployment]` indicated that gate in the observed org; independently check permissions and packaging. That successful
+  deploy registered the extension and created a batch transform
   (`creationSource: "Code Extension"`, `definition.type: "DBT_HIDDEN"`). Run and
   delete go through the same Connect APIs as native transforms; both
   `DELETE /ssot/data-transforms/{name}` and `DELETE /ssot/data-custom-code/{name}`
-  work.
-- **`script run` is a smoke test, never a value-parity gate.** [tested,
-  `BEAST-PROOF-027`] The local reader (`SFCLIDataCloudReader` →
-  `POST /ssot/query-sql`) silently truncates on a response byte cap — no `done`
+  worked in that org/version; their broader availability is unverified.
+- **Local `script run` alone does not establish value parity.** [tested,
+  `BEAST-PROOF-028`] The observed local reader (`SFCLIDataCloudReader` →
+  `POST /ssot/query-sql`) returned fewer rows, consistent with a response byte cap — no `done`
   flag, no error. A 178-column DLO of 2,431 rows returned 675 rows at
   `LIMIT 1000` and 682 with no limit, while a 3-column projection returned the
-  full 1,000. `read_dlo` always issues `SELECT *`, so projection cannot widen it.
-  Extract with `ssot/queryv2` (it honors `LIMIT` exactly) when you need parity.
-- **`read_dlo` pulls the whole object into driver memory.** [tested,
-  `BEAST-PROOF-028`] It returns a PySpark frame built by `createDataFrame` over a
-  pandas frame materialized inside `read_dlo`, so `.select`/`.filter` cannot
-  narrow the pull and there is no predicate hook. Reducing driver memory means not
-  reading that object at all.
+  full 1,000. The inspected local reader issued `SELECT *`; projection after that read
+  did not narrow the original request. A separate `ssot/queryv2` query returned
+  the requested rows in this test. For parity, reconcile independent counts and
+  consume all query batches; `LIMIT` alone does not prove completeness.
+- **The inspected local reader eagerly materialized data.** [tested,
+  `BEAST-PROOF-029`] The inspected implementation built a PySpark frame from an
+  already materialized pandas frame; downstream `.select`/`.filter` could not
+  narrow that local pull. SDK/plugin versions and applicability to the managed
+  runtime are unknown. Do not conclude that avoiding the object is the only
+  memory optimization or that this caused a particular deployed failure.
 - **Normalize keys and declare the write schema explicitly.** [tested,
-  `BEAST-PROOF-029`] Reader key representation does not follow the DLO's logical
-  type — an 18-wide `materialid__c` arrives zero-padded, `accountid__c` stripped,
-  a numeric `promotionid__c` as `double` — so normalize before joining.
-  `createDataFrame` infers `NullType` for an all-null column, which no DLO field
-  accepts; declare an explicit `StructType` from the target's field definitions.
-  `Client` exposes no `.spark`; use `SparkSession.builder.getOrCreate()`.
-- **A failed run exposes no error text.** [tested, `BEAST-PROOF-030`] A
-  `DBT_HIDDEN` run-history row returns only `status: FAILURE` with
+  `BEAST-PROOF-030`] The inspected reader returned sample keys with zero padding, stripped padding,
+  or floating-point representation. Verify actual types and normalize keys only
+  against the intended source/target contract before joining.
+  The investigation reported an all-null column/type-inference failure; declare an explicit `StructType` from the target's field definitions.
+  The inspected `Client` exposed no `.spark`; use `SparkSession.builder.getOrCreate()`.
+- **The observed failed run exposed no error text.** [tested, `BEAST-PROOF-031`] The observed
+  `DBT_HIDDEN` run-history row returned `status: FAILURE` with
   `processedRows: 0` and empty `outputStatus` (identical on v63.0 and v67.0).
   Diagnosis comes from a local `script run` and the `DataCustomCodeLogs__dll` log
   surface, not from a deploy-and-observe loop.
-- **Ship only the entrypoint's import closure; `script scan` is not idempotent.**
-  [tested, `BEAST-PROOF-031`] `script scan` rewrites `requirements.txt` as
-  `sorted(set(existing) | set(imports))` — reading comment lines as requirements
+- **Check the payload closure and requirements after `script scan`.**
+  [tested, `BEAST-PROOF-032`] The inspected `script scan` rewrote `requirements.txt` as
+  `sorted(set(existing).union(imports))` — reading comment lines as requirements
   and writing discovered imports unpinned — and it walks the whole package
   directory, so a module that ships in the payload but is never imported still
   contributes its imports (an unused module importing `snowflake.connector`
@@ -196,30 +204,37 @@ not yet reproduced in Labs.
 
 ## Prepare helper scripts
 
-Portable helpers for the behavior above. The offline checkers parse a transform
-body or a code-ext payload with no org calls; the bisect and diagnostics
-harnesses drive an authorized org through `sf api request rest` at the org's own
-API version.
+All five helpers are retained. Their implementation is checked offline with
+synthetic fixtures and mocked clients; live lifecycle certification remains
+pending. See [references/prepare-helper-contract.md](references/prepare-helper-contract.md)
+for CLI changes, supported shapes, ownership, limits of static checks, and
+incomplete-result handling.
 
-- [scripts/stl_ref_check.py](scripts/stl_ref_check.py): static check that every
-  column an STL formula reads is exposed by its source node, resolving
-  `rightQualifier` renames (`BEAST-PROOF-019`/`020`). Offline.
-- [scripts/stl_builder_shape.py](scripts/stl_builder_shape.py): reshape a body
-  into builder-openable form (one field per formula/typeCast node, an
-  `extractGrains` partner per aggregate) and assert no aggregate-over-aggregate.
-  Offline.
-- [scripts/stl_activation_bisect.py](scripts/stl_activation_bisect.py): the
-  graph/output bisection harness — constant-output scratch probes down an
-  ancestor-growing cut sequence to pin a silent failure boundary
-  (`BEAST-PROOF-025`). Requires an authorized org and a pre-created scratch DLO.
-- [scripts/ce_payload_closure.py](scripts/ce_payload_closure.py): compute a
-  code-ext payload's transitive import closure by AST and report drift against
-  the copy that ships, so `script scan` can't drag never-imported modules'
-  dependencies into the venv (`BEAST-PROOF-031`). Offline.
-- [scripts/ce_run_diagnostics.py](scripts/ce_run_diagnostics.py): pull the
-  terminal run-history row and recent `DataCustomCodeLogs__dll` rows for a
-  `DBT_HIDDEN` code-ext transform, since its run-history carries no error text
-  (`BEAST-PROOF-030`). Requires an authorized org.
+- [scripts/stl_ref_check.py](scripts/stl_ref_check.py): check bare and quoted
+  formula references, explicit input projections and supported DROP slices.
+  Unsupported shapes return INCONCLUSIVE, not a clean pass. Offline.
+- [scripts/stl_builder_shape.py](scripts/stl_builder_shape.py): split formula and
+  typeCast nodes independently of JSON order, preserve properties, validate
+  connectivity, and replace the input only after successful validation. Offline.
+- [scripts/stl_activation_bisect.py](scripts/stl_activation_bisect.py): offline
+  preview by default. Live creation/run/cleanup requires `--execute` and
+  `--environment lab|sandbox`, an explicit org and separate scratch DLO. Uses
+  unique owned probes; refuses collisions and production outputs. Timeouts are
+  inconclusive and unresolved cleanup requires operator attention.
+- [scripts/ce_payload_closure.py](scripts/ce_payload_closure.py): resolve static
+  flat/relative/package imports, check drift read-only with `--check`, and replace
+  only an empty or marked generated directory. Dynamic imports/resources are not
+  certified. Offline.
+- [scripts/ce_run_diagnostics.py](scripts/ce_run_diagnostics.py): read transform-
+  scoped logs in timestamp order, with optional execution/time filters and
+  bounded polling. Requires an explicit org and query data space. Reports scope,
+  pagination, truncation and terminal status separately; never treats logs as
+  independent output-correctness proof.
+
+This troubleshooting layer complements the lifecycle playbook proposed in
+[PR #10](https://github.com/architect-bertie/data360beast/pull/10). It does not
+replace deployment, invocation, terminal status, independent output reconciliation,
+log, or schedule proof.
 
 ## Production Gates
 

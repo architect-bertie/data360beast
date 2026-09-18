@@ -25,6 +25,10 @@ PROOF_HEADERS = [
     "Status",
 ]
 PROOF_STATUSES = {"lab-only", "candidate", "documented", "tested", "promoted", "retired"}
+PROOF_RESERVATIONS = {
+    # Pending PR #10. Accept the entry when it lands, but never reuse its ID.
+    "BEAST-PROOF-019": "Code Extension script deployment and batch-transform lifecycle",
+}
 DEVELOPER_FAMILIES = {
     "developer-guide",
     "code-extension",
@@ -210,6 +214,8 @@ def validate_proof_ledger(issues: list[str], matrix_phases: set[str]) -> None:
         if evidence_id in seen_ids:
             fail(issues, f"duplicate proof ledger ID: {evidence_id}")
         seen_ids.add(evidence_id)
+        if evidence_id in PROOF_RESERVATIONS and values["Surface"] != PROOF_RESERVATIONS[evidence_id]:
+            fail(issues, f"proof ID reserved for different evidence: {evidence_id}")
         for field, value in values.items():
             if not value:
                 fail(issues, f"proof ledger {evidence_id} has empty field: {field}")
@@ -219,6 +225,22 @@ def validate_proof_ledger(issues: list[str], matrix_phases: set[str]) -> None:
         status = values["Status"].strip("`")
         if status not in PROOF_STATUSES:
             fail(issues, f"proof ledger {evidence_id} has invalid status: {status}")
+    validate_proof_references(issues, seen_ids)
+
+
+def validate_proof_references(issues: list[str], known: set[str]) -> None:
+    """Check operating references, excluding tests and historical/local artifacts."""
+    for directory in (ROOT / "skills", ROOT / "docs"):
+        for path in sorted(directory.rglob("*")):
+            if not path.is_file() or path.suffix not in {".md", ".py", ".json", ".txt"}:
+                continue
+            for evidence_id in set(re.findall(r"BEAST-PROOF-\d{3}", path.read_text(encoding="utf-8"))):
+                # The ledger explains the reservation; all other references must
+                # identify actual evidence, never a merely reserved number.
+                if path == ROOT / "docs/proof-ledger.md" and evidence_id in PROOF_RESERVATIONS:
+                    continue
+                if evidence_id not in known:
+                    fail(issues, f"unknown proof reference {evidence_id} in {path.relative_to(ROOT)}")
 
 
 def validate_knowledge_contract(issues: list[str], matrix_phases: set[str]) -> None:

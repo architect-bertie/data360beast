@@ -2,15 +2,15 @@
 """Bisect silent STL activation/run failures with constant-output scratch probes.
 
 Localizes a transform that validates and activates but wedges or fails at run
-(see BEAST-PROOF-025). Each probe keeps one cut node and all of its transitive
+(see BEAST-PROOF-026). Each probe keeps one cut node and all of its transitive
 ancestors, replaces the production output with a constant mapping to a
 pre-created scratch DLO, validates, creates, and waits for ACTIVE or ERROR (and
 optionally a terminal run). Ordered cuts must describe an ancestor-growing path
 through the graph, so a binary search over them pins the failing boundary one
 variable at a time.
 
-Org access uses the Salesforce CLI (`sf api request rest`) at the org's own
-authenticated API version — no hard-coded version, no stored org identifiers.
+Offline preview is the default. Live work requires --execute and a declared
+lab/sandbox boundary. API version is explicit or discovered; there is no fallback.
 The pure body-shaping helpers (`ancestors`, `build_probe`, `build_output_probe`,
 `probe_name`) call no org and are unit-testable on their own.
 """
@@ -19,10 +19,15 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import re
+import sys
+import uuid
 import subprocess
 import tempfile
 import time
 from pathlib import Path
+
+from stl_graph import allocate_name, validate_graph, validate_probe, validate_scratch
 
 TERMINAL_RUN_STATUSES = {
     "SUCCESS",
@@ -33,11 +38,13 @@ TERMINAL_RUN_STATUSES = {
     "SKIPPED_NO_CHANGES",
 }
 
-DEFAULT_API_VERSION = "66.0"
+class Inconclusive(RuntimeError):
+    """No defensible bisection boundary was established."""
+
 
 
 def default_runner(command: list[str]) -> subprocess.CompletedProcess:
-    return subprocess.run(command, capture_output=True, text=True)
+    return subprocess.run(command, capture_output=True, text=True, timeout=60)
 
 
 def limit_aggregate_fields(node: dict, limit: int) -> None:
@@ -64,6 +71,7 @@ def select_aggregate_fields(node: dict, names: set[str]) -> None:
 
 def ancestors(nodes: dict, target: str) -> set[str]:
     """Return target plus every node it transitively depends on."""
+    validate_graph(nodes)
     seen: set[str] = set()
     stack = [target]
     while stack:
@@ -81,6 +89,7 @@ def build_probe(
     full: dict, cut: str, name: str, scratch_dlo: str, key_field: str
 ) -> dict:
     """Build an activation probe that holds the write boundary constant."""
+    validate_scratch(full, scratch_dlo)
     all_nodes = full["definition"]["nodes"]
     keep = ancestors(all_nodes, cut)
     nodes = {
@@ -88,7 +97,12 @@ def build_probe(
         for node_id, node in all_nodes.items()
         if node_id in keep
     }
-    nodes["PROBE_KEY"] = {
+    if any(all_nodes[n]['action'] == 'outputD360' for n in keep):
+        raise ValueError('output nodes cannot be probe cuts or ancestors')
+    occupied = set(nodes)
+    key_node = allocate_name('PROBE_KEY', occupied)
+    out_node = allocate_name('PROBE_OUT', occupied)
+    nodes[key_node] = {
         "action": "formula",
         "parameters": {
             "expressionType": "SQL",
@@ -101,7 +115,7 @@ def build_probe(
         },
         "sources": [cut],
     }
-    nodes["PROBE_OUT"] = {
+    nodes[out_node] = {
         "action": "outputD360",
         "parameters": {
             "name": scratch_dlo,
@@ -113,7 +127,7 @@ def build_probe(
                 "targetField": key_field,
             }],
         },
-        "sources": ["PROBE_KEY"],
+        "sources": [key_node],
     }
 
     definition = {
@@ -134,6 +148,7 @@ def build_probe(
     }
     if "dataSpaceName" in full:
         probe["dataSpaceName"] = full["dataSpaceName"]
+    validate_probe(probe, scratch_dlo)
     return probe
 
 
@@ -145,6 +160,7 @@ def build_output_probe(
     scratch_dlo: str,
 ) -> dict:
     """Keep the full graph but write a prefix of production mappings to scratch."""
+    validate_scratch(full, scratch_dlo)
     nodes = copy.deepcopy(full["definition"]["nodes"])
     outputs = [
         node for node in nodes.values()
@@ -176,104 +192,136 @@ def build_output_probe(
     }
     if "dataSpaceName" in full:
         probe["dataSpaceName"] = full["dataSpaceName"]
+    validate_probe(probe, scratch_dlo)
     return probe
 
 
 class ConnectClient:
-    def __init__(self, org: str, api_version: str, runner=default_runner):
+    def __init__(self, org: str, api_version: str, runner=default_runner, *,
+                 execute=False, invocation=None, clock=time.monotonic, sleep=time.sleep):
         self.org = org
         self.runner = runner
-        self.base = f"/services/data/v{api_version}/ssot/data-transforms"
+        self.base = f"/services/data/v{check_api_version(api_version)}/ssot/data-transforms"
+        self.execute = execute
+        self.invocation = invocation or uuid.uuid4().hex
+        self.owned = {}
+        self.clock, self.sleep = clock, sleep
 
-    def request(
-        self,
-        path: str,
-        method: str = "GET",
-        body: dict | None = None,
-        *,
-        allow_not_found: bool = False,
-    ):
-        command = [
-            "sf", "api", "request", "rest", path,
-            "--target-org", self.org,
-            "--method", method,
-        ]
-        temp_path: Path | None = None
+    def request(self, path, method="GET", body=None, *, allow_not_found=False):
+        query_read = method == 'POST' and path.split('?')[0].endswith('/ssot/queryv2')
+        if method != 'GET' and not query_read and not self.execute:
+            raise RuntimeError('refusing mutation without explicit execution')
+        command = ['sf', 'api', 'request', 'rest', path,
+                   '--target-org', self.org, '--method', method]
+        temp_path = None
         if body is not None:
-            with tempfile.NamedTemporaryFile(
-                mode="w", suffix=".json", delete=False
-            ) as handle:
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as handle:
                 json.dump(body, handle)
                 temp_path = Path(handle.name)
-            command += ["--body", f"@{temp_path}"]
+            command += ['--body', f'@{temp_path}']
         try:
             result = self.runner(command)
         finally:
             if temp_path is not None:
                 temp_path.unlink(missing_ok=True)
+        try:
+            parsed = json.loads(result.stdout) if result.stdout.strip() else None
+        except json.JSONDecodeError as exc:
+            raise RuntimeError(f'{method} {path}: invalid JSON response') from exc
+        not_found = isinstance(parsed, list) and bool(parsed) and all(
+            isinstance(item, dict) and item.get('errorCode') == 'ITEM_NOT_FOUND'
+            for item in parsed)
+        if allow_not_found and not_found:
+            return None
+        if result.returncode != 0 or isinstance(parsed, list):
+            raise RuntimeError(f'{method} {path}: API request failed: {parsed or result.stderr.strip()}')
+        if parsed is None and method != 'DELETE':
+            raise RuntimeError(f'{method} {path}: missing JSON response')
+        return parsed
 
-        parsed = None
-        if result.stdout.strip():
-            try:
-                parsed = json.loads(result.stdout)
-            except json.JSONDecodeError:
-                parsed = None
-        not_found = (
-            isinstance(parsed, list)
-            and any(item.get("errorCode") == "ITEM_NOT_FOUND" for item in parsed)
-        )
-        if result.returncode != 0 and not (allow_not_found and not_found):
-            detail = result.stdout.strip() or result.stderr.strip()
-            raise RuntimeError(
-                f"{method} {path} failed with exit {result.returncode}: {detail}"
-            )
-        return None if not_found else parsed
+    def get(self, name):
+        if not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]*', name):
+            raise ValueError('invalid transform API name')
+        return self.request(f'{self.base}/{name}', allow_not_found=True)
 
-    def get(self, name: str):
-        return self.request(f"{self.base}/{name}", allow_not_found=True)
-
-    def drop(self, name: str, timeout: int = 180) -> None:
-        if self.get(name) is None:
-            return
-        self.request(f"{self.base}/{name}", "DELETE", {})
-        deadline = time.monotonic() + timeout
-        while time.monotonic() < deadline:
-            if self.get(name) is None:
-                return
-            time.sleep(5)
-        raise TimeoutError(f"{name} was not deleted within {timeout}s")
-
-    def validate(self, body: dict) -> None:
-        result = self.request(f"{self.base}-validation", "POST", body)
-        issues = (result or {}).get("issues") or []
-        errors = [
-            issue for issue in issues
-            if (issue.get("errorSeverity") or issue.get("severity")) in {
-                "ERROR", "FATAL"
-            }
-        ]
-        if errors:
-            raise RuntimeError(f"probe validation failed: {json.dumps(errors)}")
-
-    def activate(self, body: dict, timeout: int) -> tuple[str, int]:
-        name = body["name"]
-        self.drop(name)
-        self.validate(body)
-        self.request(self.base, "POST", body)
-        started = time.monotonic()
-        deadline = started + timeout
-        while time.monotonic() < deadline:
-            current = self.get(name)
-            status = (current or {}).get("status")
-            if status in {"ACTIVE", "ERROR"}:
-                return status, round(time.monotonic() - started)
-            time.sleep(10)
+    def require_owned(self, name):
+        record = self.owned.get(name)
+        if not record or record['state'] != 'created':
+            raise RuntimeError(f'unresolved cleanup for {name}: creation identity is not proven')
         current = self.get(name)
-        return f"TIMEOUT:{(current or {}).get('status')}", round(
-            time.monotonic() - started
-        )
+        if current is None:
+            return None
+        if (current.get('id') != record['id'] or
+                current.get('description') != record['marker']):
+            raise RuntimeError(f'unresolved cleanup for {name}: ownership readback differs')
+        return current
+
+    def drop(self, name, timeout=180):
+        if not self.execute:
+            raise RuntimeError('refusing deletion without explicit execution')
+        current = self.require_owned(name)
+        if current is not None:
+            self.request(f'{self.base}/{name}', 'DELETE', {})
+            deadline = self.clock() + timeout
+            while self.clock() < deadline:
+                if self.get(name) is None:
+                    break
+                self.sleep(5)
+            else:
+                raise TimeoutError(f'unresolved cleanup: {name} was not deleted')
+        self.owned.pop(name, None)
+
+    def cleanup(self, name):
+        if name not in self.owned:
+            return  # A refused collision is never ours to clean up.
+        current = self.require_owned(name)
+        record = self.owned[name]
+        if current is not None and record.get('run_started'):
+            if current.get('lastRunStatus') not in TERMINAL_RUN_STATUSES:
+                self.stop_run(name)
+        self.drop(name)
+
+    def validate(self, body):
+        result = self.request(f'{self.base}-validation', 'POST', body)
+        if not isinstance(result, dict):
+            raise RuntimeError('invalid validation response')
+        issues = result.get('issues') or []
+        if result.get('success') is False or any(
+            (item.get('errorSeverity') or item.get('severity')) in {'ERROR', 'FATAL'}
+            for item in issues):
+            raise RuntimeError(f'probe validation failed: {issues}')
+
+    def activate(self, body, timeout):
+        if not self.execute:
+            raise RuntimeError('refusing creation without explicit execution')
+        name = body['name']
+        if self.get(name) is not None:
+            raise RuntimeError(f'probe name already exists: {name}; refusing replacement')
+        marker = f'Beast scratch probe; invocation={self.invocation}; name={name}'
+        body = copy.deepcopy(body)
+        body['description'] = marker
+        self.validate(body)
+        # Mark an attempted POST before sending. An exception may mean the server
+        # accepted it; without a returned ID automatic deletion is unsafe.
+        self.owned[name] = {'state': 'ambiguous', 'marker': marker, 'id': None}
+        result = self.request(self.base, 'POST', body)
+        identity = result.get('id') if isinstance(result, dict) else None
+        if not isinstance(identity, str) or not identity:
+            raise RuntimeError(f'unresolved cleanup for {name}: create returned no identity')
+        self.owned[name].update(state='created', id=identity)
+        started = self.clock()
+        while self.clock() - started < timeout:
+            current = self.require_owned(name)
+            status = (current or {}).get('status')
+            if status in {'ACTIVE', 'ERROR'}:
+                return status, round(self.clock() - started)
+            self.sleep(min(10, max(0, timeout - (self.clock() - started))))
+        return 'TIMEOUT', round(self.clock() - started)
 
     def start_run(self, name: str) -> None:
+        if self.require_owned(name) is None:
+            raise RuntimeError('owned probe disappeared before run')
+        self.owned[name]['run_started'] = True
         result = self.request(
             f"{self.base}/{name}/actions/run",
             "POST",
@@ -292,11 +340,14 @@ class ConnectClient:
         failures, so we ignore them and keep polling until run-history (or the
         summary) reports a terminal, or the timeout expires.
         """
+        previous = self.request(f"{self.base}/{name}/run-history?limit=1")
+        if not isinstance(previous, dict) or previous.get('histories'):
+            raise Inconclusive('new probe has unexpected run history; refusing ambiguous run')
         self.start_run(name)
-        started = time.monotonic()
+        started = self.clock()
         deadline = started + timeout
-        while time.monotonic() < deadline:
-            current = self.get(name) or {}
+        while self.clock() < deadline:
+            current = self.require_owned(name) or {}
             status = current.get("lastRunStatus")
             run_date = current.get("lastRunDate")
 
@@ -313,318 +364,192 @@ class ConnectClient:
                     )
                     return (
                         history_status,
-                        round(time.monotonic() - started),
+                        round(self.clock() - started),
                         detail,
                     )
 
             if status in TERMINAL_RUN_STATUSES:
-                return status, round(time.monotonic() - started), "summary terminal"
+                return status, round(self.clock() - started), "summary terminal"
 
             print(
                 f"  poll {name}: summary={status} lastRunDate={run_date} "
-                f"elapsed={round(time.monotonic() - started)}s (flop-tolerant)",
+                f"elapsed={round(self.clock() - started)}s (flop-tolerant)",
                 flush=True,
             )
-            time.sleep(15)
-        current = self.get(name) or {}
+            self.sleep(min(15, max(0, deadline - self.clock())))
+        current = self.require_owned(name) or {}
         return (
             f"TIMEOUT:{current.get('lastRunStatus')}",
-            round(time.monotonic() - started),
+            round(self.clock() - started),
             "no terminal history",
         )
 
     def stop_run(self, name: str, timeout: int = 180) -> None:
-        current = self.get(name) or {}
+        current = self.require_owned(name) or {}
         if current.get("lastRunStatus") in TERMINAL_RUN_STATUSES:
             return
         self.request(f"{self.base}/{name}/actions/cancel", "POST", {})
         self.request(f"{self.base}/{name}/actions/refresh-status", "POST", {})
-        deadline = time.monotonic() + timeout
-        while time.monotonic() < deadline:
-            current = self.get(name) or {}
+        deadline = self.clock() + timeout
+        while self.clock() < deadline:
+            current = self.require_owned(name) or {}
             if current.get("lastRunStatus") in TERMINAL_RUN_STATUSES:
                 return
-            time.sleep(5)
+            self.sleep(5)
         raise TimeoutError(f"{name} run was not canceled within {timeout}s")
 
 
+def check_api_version(value):
+    if not isinstance(value, str) or not re.fullmatch(r'[1-9][0-9]*\.[0-9]+', value):
+        raise ValueError('a valid API version is required; supply --api-version')
+    return value
+
+
 def resolve_api_version(org: str, runner=default_runner) -> str:
-    """Resolve the org's authenticated API version, falling back to a default."""
-    result = runner(["sf", "org", "display", "--json", "--target-org", org])
+    result = runner(['sf', 'org', 'display', '--json', '--target-org', org])
     if result.returncode != 0:
-        raise RuntimeError(result.stdout.strip() or result.stderr.strip())
-    payload = json.loads(result.stdout)
-    api_version = str(payload["result"].get("apiVersion") or DEFAULT_API_VERSION)
-    if not api_version[0].isdigit():
-        api_version = DEFAULT_API_VERSION
-    return api_version
+        raise RuntimeError('API version discovery failed; supply --api-version')
+    return check_api_version(json.loads(result.stdout).get('result', {}).get('apiVersion'))
 
 
-def probe_name(prefix: str, index: int) -> str:
-    name = f"{prefix}{index:02d}"
-    if len(name) > 32:
-        raise ValueError(f"probe name exceeds 32 characters: {name}")
+def probe_name(prefix, index, invocation=None):
+    name = f'{prefix}_{invocation}_{index:04d}' if invocation else f'{prefix}{index:02d}'
+    if len(name) > 32 or not re.fullmatch(r'[A-Za-z][A-Za-z0-9_]*', name):
+        raise ValueError('probe name must be an API identifier of at most 32 characters')
     return name
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("transform", type=Path)
-    parser.add_argument("--org", required=True)
-    parser.add_argument("--scratch-dlo", required=True)
-    parser.add_argument(
-        "--scratch-key-field",
-        default="RecordKey__c",
-        help="primary-key target field on the scratch DLO",
-    )
-    parser.add_argument("--name-prefix", default="DTTMPBISECT")
-    parser.add_argument("--timeout", type=int, default=1200)
-    parser.add_argument(
-        "--phase",
-        choices=("activation", "run"),
-        default="activation",
-    )
-    selection = parser.add_mutually_exclusive_group(required=True)
-    selection.add_argument("--cuts", nargs="+")
-    selection.add_argument("--aggregate-prefix-node")
-    selection.add_argument("--output-prefix", action="store_true")
-    selection.add_argument(
-        "--aggregate-field",
-        nargs=2,
-        metavar=("NODE", "FIELD"),
-    )
-    args = parser.parse_args()
-
-    full = json.loads(args.transform.read_text())
-    nodes = full["definition"]["nodes"]
-    if args.cuts:
-        cut_sets = [ancestors(nodes, cut) for cut in args.cuts]
-        for earlier, later in zip(cut_sets, cut_sets[1:]):
-            if not earlier < later:
-                raise ValueError("cuts must form a strictly ancestor-growing sequence")
-
-    client = ConnectClient(args.org, resolve_api_version(args.org))
-    pass_status = "SUCCESS" if args.phase == "run" else "ACTIVE"
-
-    def execute_body(body: dict, name: str, description: str) -> str:
-        print(
-            f"PROBE {description} "
-            f"nodes={len(body['definition']['nodes'])}",
-            flush=True,
-        )
-        status = "UNSET"
+def execute_probe(client, body, phase, timeout):
+    name = body['name']
+    original = None
+    try:
+        status, elapsed = client.activate(body, timeout)
+        if status == 'ACTIVE' and phase == 'run':
+            status, elapsed, detail = client.run(name, timeout)
+        print(f'RESULT {name} status={status} elapsed={elapsed}s', flush=True)
+        if status.startswith('TIMEOUT'):
+            raise Inconclusive(f'{name}: timeout; no failing boundary is proven')
+        return status
+    except BaseException as exc:
+        original = exc
+        raise
+    finally:
         try:
-            activation_status, elapsed = client.activate(body, args.timeout)
-            if activation_status != "ACTIVE":
-                raise RuntimeError(
-                    f"{description} did not activate: {activation_status}"
-                )
-            detail = ""
-            if args.phase == "run":
-                status, run_elapsed, detail = client.run(name, args.timeout)
-                elapsed += run_elapsed
+            client.cleanup(name)
+        except BaseException as cleanup_error:
+            print(f'UNRESOLVED CLEANUP {name}: {cleanup_error}', file=sys.stderr)
+            if original is None:
+                raise
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('transform', type=Path)
+    parser.add_argument('--org', required=True)
+    parser.add_argument('--scratch-dlo', required=True)
+    parser.add_argument('--scratch-key-field', default='RecordKey__c')
+    parser.add_argument('--name-prefix', default='DTTMPBISECT')
+    parser.add_argument('--timeout', type=int, default=1200)
+    parser.add_argument('--phase', choices=('activation', 'run'), default='activation')
+    parser.add_argument('--execute', action='store_true', help='create/run/delete owned scratch probes')
+    parser.add_argument('--environment', choices=('lab', 'sandbox'))
+    parser.add_argument('--api-version')
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument('--cuts', nargs='+')
+    selection.add_argument('--aggregate-prefix-node')
+    selection.add_argument('--output-prefix', action='store_true')
+    selection.add_argument('--aggregate-field', nargs=2, metavar=('NODE', 'FIELD'))
+    args = parser.parse_args()
+    if args.execute and not args.environment:
+        parser.error('--execute requires --environment lab|sandbox')
+    if args.timeout <= 0:
+        parser.error('--timeout must be positive')
+    if args.api_version:
+        check_api_version(args.api_version)
+    full = json.loads(args.transform.read_text())
+    validate_scratch(full, args.scratch_dlo)
+    nodes = full['definition']['nodes']
+    invocation = uuid.uuid4().hex[:10]
+    probes, labels = [], []
+    if args.cuts:
+        sets = [ancestors(nodes, cut) for cut in args.cuts]
+        if any(not earlier < later for earlier, later in zip(sets, sets[1:])):
+            raise ValueError('cuts must form a strictly ancestor-growing sequence')
+        for cut in args.cuts:
+            probes.append(build_probe(full, cut, probe_name(args.name_prefix, len(probes), invocation),
+                                      args.scratch_dlo, args.scratch_key_field))
+            labels.append(cut)
+    elif args.output_prefix:
+        outputs = [node for node in nodes.values() if node['action'] == 'outputD360']
+        if len(outputs) != 1:
+            raise ValueError('output-prefix requires exactly one original output')
+        mappings = outputs[0]['parameters']['fieldsMappings']
+        for count in range(1, len(mappings) + 1):
+            probes.append(build_output_probe(full, limit=count,
+                name=probe_name(args.name_prefix, count, invocation), scratch_dlo=args.scratch_dlo))
+            labels.append(f'output mappings={count}')
+    else:
+        cut = args.aggregate_prefix_node or args.aggregate_field[0]
+        if cut not in nodes or nodes[cut]['action'] != 'aggregate':
+            raise ValueError(f'{cut} is not an aggregate node')
+        fields = nodes[cut]['parameters']['aggregations']
+        names = {field['name'] for field in fields}
+        if args.aggregate_field and args.aggregate_field[1] not in names:
+            raise ValueError('unknown aggregate field')
+        counts = [len(fields)] if args.aggregate_field else range(1, len(fields) + 1)
+        for count in counts:
+            body = build_probe(full, cut, probe_name(args.name_prefix, count, invocation),
+                               args.scratch_dlo, args.scratch_key_field)
+            if args.aggregate_field:
+                select_aggregate_fields(body['definition']['nodes'][cut], {args.aggregate_field[1]})
             else:
-                status = activation_status
-            print(
-                f"RESULT {description} status={status} elapsed={elapsed}s {detail}",
-                flush=True,
-            )
-            return status
-        finally:
-            if status != "UNSET":
-                if args.phase == "run" and status not in TERMINAL_RUN_STATUSES:
-                    client.stop_run(name)
-                client.drop(name)
-
-    def execute(
-        cut: str,
-        name: str,
-        aggregate_limit: int | None = None,
-        aggregate_fields: set[str] | None = None,
-    ) -> str:
-        body = build_probe(
-            full, cut, name, args.scratch_dlo, args.scratch_key_field
-        )
-        if aggregate_limit is not None:
-            limit_aggregate_fields(
-                body["definition"]["nodes"][cut],
-                aggregate_limit,
-            )
-        if aggregate_fields is not None:
-            select_aggregate_fields(
-                body["definition"]["nodes"][cut],
-                aggregate_fields,
-            )
-        return execute_body(
-            body,
-            name,
-            f"cut={cut} aggregate_limit={aggregate_limit}",
-        )
-
-    if args.output_prefix:
-        output = next(
-            node for node in nodes.values()
-            if node["action"] == "outputD360"
-        )
-        mappings = output["parameters"]["fieldsMappings"]
-        results: dict[int, str] = {}
-
-        def test_mapping_count(count: int) -> str:
-            if count not in results:
-                name = probe_name(args.name_prefix, count)
-                body = build_output_probe(
-                    full,
-                    limit=count,
-                    name=name,
-                    scratch_dlo=args.scratch_dlo,
-                )
-                results[count] = execute_body(
-                    body,
-                    name,
-                    f"output_mappings={count}",
-                )
-            return results[count]
-
-        first = test_mapping_count(1)
-        if first != pass_status:
-            raise RuntimeError(
-                f"first output mapping did not pass {args.phase}: {first}"
-            )
-        last = test_mapping_count(len(mappings))
-        if last == pass_status:
-            print(
-                f"BOUNDARY after output mappings; all {len(mappings)} "
-                f"passed {args.phase}",
-                flush=True,
-            )
-            return 0
-        low, high = 1, len(mappings)
-        while high - low > 1:
-            middle = (low + high) // 2
-            if test_mapping_count(middle) == pass_status:
-                low = middle
-            else:
-                high = middle
-        failing = mappings[high - 1]
-        print(
-            f"BOUNDARY last_pass_count={low} first_fail_count={high} "
-            f"first_fail_source={failing['sourceField']} "
-            f"first_fail_target={failing['targetField']}",
-            flush=True,
-        )
+                limit_aggregate_fields(body['definition']['nodes'][cut], count)
+            probes.append(body)
+            labels.append(f'{cut} aggregate fields={args.aggregate_field[1] if args.aggregate_field else count}')
+    if not probes:
+        raise ValueError('no probe candidates')
+    for body in probes:
+        validate_probe(body, args.scratch_dlo)
+    if not args.execute:
+        print(json.dumps({'mode': 'offline-preview', 'org': args.org,
+            'environment': args.environment, 'apiVersion': args.api_version,
+            'scratchDlo': args.scratch_dlo, 'phase': args.phase, 'probes': probes}, indent=2))
         return 0
+    version = args.api_version or resolve_api_version(args.org)
+    client = ConnectClient(args.org, version, execute=True, invocation=invocation)
+    passed = 'SUCCESS' if args.phase == 'run' else 'ACTIVE'
+    results = {}
 
-    if args.aggregate_field:
-        cut, field_name = args.aggregate_field
-        node = nodes.get(cut)
-        if not node or node.get("action") != "aggregate":
-            raise ValueError(f"{cut} is not an aggregate node")
-        available = {
-            field["name"] for field in node["parameters"]["aggregations"]
-        }
-        if field_name not in available:
-            raise ValueError(f"{field_name} is not an aggregation in {cut}")
-        status = execute(
-            cut,
-            probe_name(args.name_prefix, 0),
-            aggregate_fields={field_name},
-        )
-        print(
-            f"BOUNDARY aggregate={cut} field={field_name} "
-            f"status={status}",
-            flush=True,
-        )
-        return 0
-
-    if args.aggregate_prefix_node:
-        cut = args.aggregate_prefix_node
-        node = nodes.get(cut)
-        if not node or node.get("action") != "aggregate":
-            raise ValueError(f"{cut} is not an aggregate node")
-        aggregations = node["parameters"]["aggregations"]
-        if not aggregations:
-            raise ValueError(f"{cut} has no aggregate fields")
-        results: dict[int, str] = {}
-
-        def test_count(count: int) -> str:
-            if count not in results:
-                results[count] = execute(
-                    cut,
-                    probe_name(args.name_prefix, count),
-                    count,
-                )
-            return results[count]
-
-        first = test_count(1)
-        if first != pass_status:
-            raise RuntimeError(
-                f"first aggregate field did not pass {args.phase}: "
-                f"{aggregations[0]['name']} status={first}"
-            )
-        last = test_count(len(aggregations))
-        if last == pass_status:
-            print(
-                f"BOUNDARY after {cut}; all {len(aggregations)} aggregate "
-                f"fields passed {args.phase}",
-                flush=True,
-            )
-            return 0
-        low, high = 1, len(aggregations)
-        while high - low > 1:
-            middle = (low + high) // 2
-            if test_count(middle) == pass_status:
-                low = middle
-            else:
-                high = middle
-        print(
-            f"BOUNDARY aggregate={cut} last_pass_count={low} "
-            f"first_fail_count={high} "
-            f"first_fail_field={aggregations[high - 1]['name']}",
-            flush=True,
-        )
-        return 0
-
-    results: dict[int, str] = {}
-
-    def test(index: int) -> str:
+    def test(index):
         if index not in results:
-            cut = args.cuts[index]
-            results[index] = execute(
-                cut,
-                probe_name(args.name_prefix, index),
-            )
+            results[index] = execute_probe(client, probes[index], args.phase, args.timeout)
         return results[index]
 
     first = test(0)
-    if first != pass_status:
-        raise RuntimeError(
-            f"earliest cut {args.cuts[0]} did not pass {args.phase}: {first}"
-        )
-
-    last = test(len(args.cuts) - 1)
-    if last == pass_status:
-        print(
-            f"BOUNDARY production output mapping/target; "
-            f"every compute cut passed {args.phase}",
-            flush=True,
-        )
+    if args.aggregate_field:
+        print(f'OBSERVATION {labels[0]} status={first}; no general boundary proven')
         return 0
-
-    low, high = 0, len(args.cuts) - 1
+    if first != passed:
+        raise Inconclusive(f'earliest probe failed: {labels[0]} ({first}); no passing baseline')
+    last = len(probes) - 1
+    if test(last) == passed:
+        print('NO FAILING BOUNDARY: all tested endpoints passed; original target is untested')
+        return 0
+    low, high = 0, last
     while high - low > 1:
         middle = (low + high) // 2
-        status = test(middle)
-        if status == pass_status:
+        if test(middle) == passed:
             low = middle
         else:
             high = middle
-    print(
-        f"BOUNDARY last_active={args.cuts[low]} "
-        f"first_error={args.cuts[high]}",
-        flush=True,
-    )
+    print(f'OBSERVED BOUNDARY last_pass={labels[low]} first_fail={labels[high]}; '
+          'assumes monotonic behavior; not root-cause or output-correctness proof')
     return 0
 
 
-if __name__ == "__main__":
-    raise SystemExit(main())
+if __name__ == '__main__':
+    try:
+        raise SystemExit(main())
+    except (ValueError, RuntimeError, TimeoutError) as exc:
+        print(str(exc), file=sys.stderr)
+        raise SystemExit(2)
