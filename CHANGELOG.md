@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Changed (Prepare Runtime Helpers)
+- Retained all five STL/Code Extension helpers with regression coverage for
+  probe ownership, scratch-only writes, cleanup, safe package replacement,
+  package imports, graph order, quoted columns, and correlated diagnostics.
+- Bisection now previews offline by default; execution requires an explicit
+  lab/sandbox boundary. Diagnostics replaces raw SQL filters with structured
+  filters, explicit query data space, and completeness reporting.
+- Scoped contributed runtime observations as candidates with unknown toolchain
+  versions; reserved the pending lifecycle proof ID and validated references.
+
 ### Added (Deployment-Grade Foundation)
 - Added the portable Data360 Beast desired-state runtime, public implementation,
   deployment-plan, run-state, and certification contracts, plus an explicit

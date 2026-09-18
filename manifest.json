@@ -210,7 +210,7 @@
     "promptLevelEvals": 11,
     "architectureEvalCases": 72,
     "knowledgeClaims": 11,
-    "proofLedgerEntries": 18,
+    "proofLedgerEntries": 31,
     "companionSkillPacks": 1,
     "companionSkillsApproved": 9,
     "overallScore": 9.9
@@ -224,6 +224,6 @@
     "developerReferencePagesCataloged": 2645,
     "officialDocsIndexed": 3965,
     "docSyncedBlocksTotal": 46,
-    "proofLedgerEntries": 18
+    "proofLedgerEntries": 31
   }
 }
