@@ -63,6 +63,12 @@ Review date: 2026-09-25. Include adjacent official documentation when it
 describes a direct Data 360 data, governance, query, or integration dependency.
 Do not expand discovery to entire neighboring product documentation trees.
 
+The completed refresh indexes 4,186 official pages: 467 Help and 3,719 Developer
+pages. Relative to the starting checkout, it adds 224 pages, changes 331 source
+hashes, and removes three old URLs from the inventory. The
+[complete delta review](docs-watch-delta-review.md) lists every affected source
+and notes the remaining claim-source coverage gaps.
+
 | Topic | Decision | Reason and source |
 | --- | --- | --- |
 | Tableau Semantics | Include | Semantic models operate on Data 360 data and governance. Follow `analytics.c360*` as well as `data.c360*` pages; the current introductory source is [About Tableau Semantics](https://help.salesforce.com/s/articleView?id=analytics.c360_a_sl_get_started.htm&language=en_US&type=5). The old `data.c360_a_sl.htm` seed returned NotFound during live extraction. |

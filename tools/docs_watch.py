@@ -91,6 +91,7 @@ APPROVED_STAGES = {
     "docs/data360/developer/skill-update-synthesis.md",
     "docs/data360/develop-package-deployment-matrix.md",
     "docs/data360/docs-watch-operating-model.md",
+    "docs/data360/docs-watch-delta-review.md",
     "docs/data360/docs-knowledge-graph.json",
     "docs/data360/docs-watch-reconciliation.json",
     "docs/data360/sf-skills-data360-companion.json",
