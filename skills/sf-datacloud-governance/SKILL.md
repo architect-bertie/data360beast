@@ -169,7 +169,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 **Sources (sf-docs cached Help):**
 - data.c360_a_data_spaces.htm — About Data Spaces
 
-**Source fingerprint:** `818dba70f9cc90d3590c0a4a`
+**Source fingerprint:** `4b8bf278a47fd1d9f0930414`
 
 **Notes:**
 - Treat a data space as a logical partition; it scopes data, metadata, and processes for teams (brand/region/department).
@@ -185,7 +185,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 **Sources (sf-docs cached Help):**
 - data.c360_a_userpermissions.htm — Data 360 Standard Permission Sets
 
-**Source fingerprint:** `50ee4df04ff1f2c142273c2c`
+**Source fingerprint:** `a2a3d9fd3ba39b53d4859344`
 
 **Notes:**
 - Standard Data 360 permission sets can change over time; avoid custom clones unless you have a specific reason and a review process.

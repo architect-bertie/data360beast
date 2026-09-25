@@ -235,17 +235,17 @@
     "RAG debug chain and evaluation metrics"
   ],
   "officialDocIndexes": {
-    "helpSalesforcePages": 369,
+    "helpSalesforcePages": 439,
     "helpDocsDistilled": 64,
-    "developerSalesforceGuidePages": 951,
+    "developerSalesforceGuidePages": 992,
     "connectorPagesCataloged": 140,
     "publicModelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
-    "officialPagesIndexed": 3965,
+    "officialPagesIndexed": 4158,
     "rawCorpusPublished": false,
-    "developerSalesforcePagesIndexed": 3596,
-    "developerReferencePagesCataloged": 2645
+    "developerSalesforcePagesIndexed": 3719,
+    "developerReferencePagesCataloged": 2727
   },
   "proofArtifactStats": {
     "phaseProofMatrixEntries": 12,
@@ -289,5 +289,5 @@
     "overall": 9.9
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-08-01"
+  "lastReviewed": "2026-09-25"
 }

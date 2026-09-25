@@ -58,17 +58,18 @@ Agentforce Vibes extension package or local `node_modules` package folders.
 
 | Beast phase | Beast specialist | Upstream companion skill |
 | --- | --- | --- |
-| Cross-phase | `sf-datacloud` | `data360-orchestrate` |
-| Connect | `sf-datacloud-connect` | `data360-connect` |
-| Prepare | `sf-datacloud-prepare` | `data360-prepare` |
-| Harmonize | `sf-datacloud-harmonize` | `data360-harmonize` |
-| Segment | `sf-datacloud-segment` | `data360-segment` |
-| Act | `sf-datacloud-act` | `data360-activate` |
-| Retrieve | `sf-datacloud-retrieve` | `data360-query` |
 | Retrieve schema | `sf-datacloud-retrieve` | `data360-schema-get` |
 | Develop/package | `sf-datacloud` | `data360-code-extension-generate` |
 
 ## Operating Loop
+
+Upstream removed `data360-orchestrate`, `data360-connect`, `data360-prepare`,
+`data360-harmonize`, `data360-segment`, `data360-activate`, and `data360-query`
+in commit `0851d45f78fdfa511bda12446c8cbe7c83c0d352`. These are recorded as
+retired in the JSON contract and are no longer installed or required by drift
+checks. Existing local copies are left untouched and may be stale. Beast's
+own phase specialists remain available; this change does not remove Salesforce
+product capabilities or establish a replacement CLI workflow.
 
 Use the same four layers as Beast:
 
@@ -99,6 +100,6 @@ Current observed upstream:
 
 - Repository: <https://github.com/forcedotcom/sf-skills>
 - Package: `@salesforce/afv-skills`
-- Version: `1.33.0`
-- Commit: `fe3e2edad0f763edd1927420d1d4b0e31d252452`
-- Observed: 2026-08-01
+- Version: `1.58.0`
+- Commit: `d4a9aa448c7b743c1f1da41f41aa9723a6621232`
+- Observed: 2026-09-25

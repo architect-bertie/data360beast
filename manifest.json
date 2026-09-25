@@ -217,13 +217,13 @@
     "overallScore": 9.9
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-08-01",
+  "lastReviewed": "2026-09-25",
   "sourceStats": {
-    "helpDocsAnalyzed": 369,
-    "developerGuidePagesAnalyzed": 951,
-    "developerPagesIndexed": 3596,
-    "developerReferencePagesCataloged": 2645,
-    "officialDocsIndexed": 3965,
+    "helpDocsAnalyzed": 439,
+    "developerGuidePagesAnalyzed": 992,
+    "developerPagesIndexed": 3719,
+    "developerReferencePagesCataloged": 2727,
+    "officialDocsIndexed": 4158,
     "docSyncedBlocksTotal": 46,
     "proofLedgerEntries": 19
   }

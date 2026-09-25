@@ -144,16 +144,15 @@ Use [sf-datacloud-governance](../sf-datacloud-governance/SKILL.md) when CI valid
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
+- data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines
 
-**Source fingerprint:** `1ce0aa69b0b275b02c26170b`
+**Source fingerprint:** `72b4a3c512e308a3217788be`
 
 **Notes:**
 - Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
 - Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
 - Before promoting CI SQL patterns, check calculated-insight, real-time insight, and streaming-insight limit families.
 - Separate SQL validity from job/runtime proof; limits can apply after a query compiles.
-- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
 
 <!-- SF_DOC_SYNC_END:limits-insights -->
 

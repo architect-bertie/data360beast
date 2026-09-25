@@ -217,7 +217,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - data.c360_a_hybridsearch_index_create.htm — Create a Hybrid Search Index with Advanced Setup
 - data.c360_a_ai_retriever_create.htm — Create an Individual Retriever
 
-**Source fingerprint:** `74b719c72614030ef5b5c19e`
+**Source fingerprint:** `05b323a13454ecfb87539618`
 
 **Notes:**
 - Hybrid search is intended to combine semantic (vector) and lexical (keyword) matching; choose it when vocabulary precision matters.
@@ -247,15 +247,14 @@ pipeline. It retains the SF_DOC_SYNC markers for the doc-watch pipeline.
 _Auto-synced from the local sf-docs cached Salesforce Help export (official docs only)._
 
 **Sources (sf-docs cached Help):**
-- data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines | Salesforce Help
+- data.c360_a_limits_and_guidelines.htm — Data 360 Limits and Guidelines
 
-**Source fingerprint:** `1ce0aa69b0b275b02c26170b`
+**Source fingerprint:** `72b4a3c512e308a3217788be`
 
 **Notes:**
 - Treat the captured Limits and Guidelines page as a required source before making durable guidance for this phase.
 - Separate soft guidelines from hard limits, and call out when a limit can require an Account Executive request or org-specific validation.
 - Before recommending chunking, parser mode, ranking fields, index refresh, or retriever shape, check the unstructured-data and search-index limit family.
 - Keep reindexing, embedding, query, storage, and intelligent-processing cost in the design review.
-- Relevant limit families currently captured include: General Guidelines and Limits, Activation Guidelines and Limits, AI Models (formerly Einstein Studio) Guidelines and Limits, Calculated Insights Guidelines and Limits, Code Extension Guidelines and Limits, Data Actions Guidelines and Limits, Data Explorer Guidelines and Limits, Data Federation Guidelines and Limits, Data Graphs Guidelines and Limits, Data Ingestion Guidelines and Limits, Data Model Object Guidelines and Limits, Data Shares Guidelines and Limits.
 
 <!-- SF_DOC_SYNC_END:limits-unstructured-search -->

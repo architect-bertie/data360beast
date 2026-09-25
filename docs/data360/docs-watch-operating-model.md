@@ -57,7 +57,41 @@ customer data, credentials, org metadata dumps, private traces, or bulky payload
 readbacks. Beast records the proof, caveat, confidence label, and Labs reference;
 Labs keeps the scenario body.
 
-## Oversized Help Pages
+## Related Topic Discovery
+
+Review date: 2026-09-25. Include adjacent official documentation when it
+describes a direct Data 360 data, governance, query, or integration dependency.
+Do not expand discovery to entire neighboring product documentation trees.
+
+| Topic | Decision | Reason and source |
+| --- | --- | --- |
+| Tableau Semantics | Include | Semantic models operate on Data 360 data and governance. Follow `analytics.c360*` as well as `data.c360*` pages; the current introductory source is [About Tableau Semantics](https://help.salesforce.com/s/articleView?id=analytics.c360_a_sl_get_started.htm&language=en_US&type=5). The old `data.c360_a_sl.htm` seed returned NotFound during live extraction. |
+| Agentforce session tracing | Include bounded source | [Session tracing](https://help.salesforce.com/s/articleView?id=ai.generative_ai_session_trace.htm&language=en_US&type=5) stores agent interaction data in Data 360 and informs ingestion, modeling, and analytics. General agent authoring remains outside this crawl. |
+| Personalization profile context | Include bounded source | [Get Context](https://help.salesforce.com/s/articleView?id=mktg.persnl_agentforce_configure_get_context_action.htm&language=en_US&type=5) depends on Data 360 profile data graphs and identity roots. General campaign configuration remains outside this crawl. |
+| Hosted Data 360 MCP | Include one reference | The [official server reference](https://developer.salesforce.com/docs/platform/hosted-mcp-servers/references/reference/data360-mcp.html) documents the Data 360 API access surface. Do not crawl unrelated hosted servers. |
+| Data 360 terminology | Include | The [glossary](https://help.salesforce.com/s/articleView?id=sf.c360_a_glossary_guide.htm&language=en_US&type=5) connects concepts across the indexed phases. |
+| Industry sales/service deployments | Defer | Product-specific configurations are not core Data 360 contracts. Add individual sources when an implementation requires their data kit, DMO, or ingestion dependency. |
+| General blogs and workshops | Exclude from authoritative index | Use for discovery only; prefer the owning Help or Developer reference for current behavior. |
+
+Help `--refresh` bypasses the sf-docs result cache. The depth-four boundary
+still applies; this is bounded discovery, not a claim of exhaustive coverage
+of every Salesforce article. Missing pages must not be reported as captured.
+
+The September 25 source crawl captured 419 Help articles (56 absent from the
+previous Help index) and inventoried 3,719 Developer pages: 992 content captures
+and 2,727 catalog entries. Four previously indexed articles were still live but
+not rediscovered: billing for ingestion, transforms, identity resolution, and
+model monitoring. They are now explicit fallback seeds for the next run.
+The old semantic-layer and credit-reduction IDs returned NotFound.
+
+These counts describe temporary source captures, not an applied index refresh.
+Publication stopped at companion drift because upstream commit
+`0851d45f78fdfa511bda12446c8cbe7c83c0d352` removed seven approved Data 360
+skills. The contract now retains these as retired entries and monitors the
+two remaining active companions. The installer and validator use the same
+active set. Do not treat future missing companion folders as no drift.
+
+## Oversized Capture Handling
 
 Some Help articles are too large for the standard sf-docs Aura extraction path.
 When the export contains `Cannot populate due to large Document size`, run:

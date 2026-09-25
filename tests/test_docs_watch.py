@@ -1,5 +1,7 @@
 import importlib.util
 import json
+import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -27,6 +29,47 @@ VALIDATE_SPEC.loader.exec_module(validate_docs_watch)
 
 
 class DocsWatchTests(unittest.TestCase):
+    def test_help_refresh_bypasses_cache_and_writes_summary(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            extractors = root / "dist/extractors"
+            extractors.mkdir(parents=True)
+            (root / "package.json").write_text('{"type":"module"}')
+            (extractors / "index.js").write_text(
+                'export async function scrape() { throw new Error("cached scrape called"); }'
+            )
+            (extractors / "base.js").write_text('export async function closeBrowser() {}')
+            (extractors / "help-sf.js").write_text(
+                'export class HelpSfExtractor { async extract(url) { return {'
+                'url, title: "Data Spaces", markdown: "Data spaces scope metadata. ".repeat(30),'
+                'cached: false, extractedAt: "2026-09-25T00:00:00Z"}; }}'
+            )
+            output = root / "output"
+            subprocess.run([
+                "node", str(ROOT / "tools/sf_docs_help_crawl.mjs"), "--refresh",
+                "--outdir", str(output), "--max-pages", "1",
+            ], env={**os.environ, "SF_DOCS_MCP_ROOT": str(root)}, check=True,
+                capture_output=True, text=True)
+            manifest = json.loads((output / "manifest.json").read_text())
+            summary = json.loads((output / "summaries/data.c360_a_product_considerations.json").read_text())
+            self.assertEqual(summary["source"], manifest[0]["source"])
+            self.assertEqual(summary["title"], "Data Spaces")
+            self.assertTrue(summary["summary"]["lead"])
+
+    def test_active_companions_match_installer_and_exclude_retired(self):
+        contract = json.loads((ROOT / "docs/data360/sf-skills-data360-companion.json").read_text())
+        spec = importlib.util.spec_from_file_location(
+            "companion_installer", ROOT / "skills/data360beast/scripts/install_sf_skills_data360_companion.py"
+        )
+        installer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(installer)
+        active = {entry["upstreamName"] for entry in contract["companionSkills"]}
+        retired = {entry["upstreamName"] for entry in contract["retiredCompanionSkills"]}
+        self.assertEqual(active, set(installer.COMPANION_SKILLS))
+        self.assertEqual(active, {"data360-schema-get", "data360-code-extension-generate"})
+        self.assertEqual(len(retired), 7)
+        self.assertFalse(active & retired)
+
     def test_url_normalization_and_source_classification(self):
         help_url = docs_watch.normalize_official_url(
             "https://help.salesforce.com/s/articleView?type=5&id=data.c360_test.htm#section"
