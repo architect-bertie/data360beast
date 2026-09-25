@@ -156,6 +156,7 @@
     "docs/data360/interoperability-decision-map.md",
     "docs/data360/cost-usage-sizing-contract.md",
     "docs/data360/develop-package-deployment-matrix.md",
+    "docs/data360/code-extension-operating-playbook.md",
     "docs/data360/limits-source-precedence.md",
     "docs/data360/mcp-tool-selection.md",
     "docs/data360/model-gallery-implementation-map.md",
@@ -200,17 +201,17 @@
     "officialDocsIndexed": 100,
     "specialistSkills": 17,
     "docSyncedBlocksTotal": 38,
-    "executableEvalFixtures": 11,
+    "executableEvalFixtures": 13,
     "operationalHardeningTools": 6,
     "phaseCoverageMatrixEntries": 12,
     "modelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
     "phaseProofMatrixEntries": 12,
-    "promptLevelEvals": 11,
+    "promptLevelEvals": 13,
     "architectureEvalCases": 72,
-    "knowledgeClaims": 11,
-    "proofLedgerEntries": 18,
+    "knowledgeClaims": 12,
+    "proofLedgerEntries": 19,
     "companionSkillPacks": 1,
     "companionSkillsApproved": 9,
     "overallScore": 9.9
@@ -224,6 +225,6 @@
     "developerReferencePagesCataloged": 2645,
     "officialDocsIndexed": 3965,
     "docSyncedBlocksTotal": 46,
-    "proofLedgerEntries": 18
+    "proofLedgerEntries": 19
   }
 }

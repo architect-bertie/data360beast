@@ -74,6 +74,9 @@ Start with:
   for source-backed architectural claims, caveats, proof status, and ownership.
 - [`docs/data360/develop-package-deployment-matrix.md`](docs/data360/develop-package-deployment-matrix.md)
   for data kit, packageability, deployment, and readback gates.
+- [`docs/data360/code-extension-operating-playbook.md`](docs/data360/code-extension-operating-playbook.md)
+  for Code Extension toolchain, package, transform, run, output, log, recovery,
+  and migration proof.
 - [`docs/data360/mcp-tool-selection.md`](docs/data360/mcp-tool-selection.md)
   for choosing between `sf-docs`, `data360`, `datacloud-mcp-query`, and direct
   `sf` REST calls.
@@ -206,6 +209,7 @@ data360beast/
     |-- implementation-foundation.md
     |-- cost-usage-sizing-contract.md
     |-- develop-package-deployment-matrix.md
+    |-- code-extension-operating-playbook.md
     |-- limits-source-precedence.md
     |-- mcp-tool-selection.md
     |-- model-gallery-implementation-map.md

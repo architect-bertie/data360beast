@@ -23,7 +23,7 @@ public-safe proof contract.
 | DMOs, mappings, and relationships | Use data kits or supported metadata movement only; resolve target data-space names. | Mapping status, DMO primary key metadata, relationship readback. |
 | Identity resolution | Treat rulesets and run state separately. | Ruleset metadata readback and run status/counts. |
 | Calculated insights | Package metadata only when supported; run/publish in target. | Syntax check, run status, output CIO query. |
-| Code Extension | Develop and validate scripts/functions in a Data 360 sandbox. Move deployments or batch transforms with a DevOps data kit; add referenced DLOs/DMOs when they are not included automatically. | Deployment status, batch-transform or chunking-function run state, output DLO/DMO or chunk readback, and `DataCustomCodeLogs__dll`. |
+| Code Extension | Follow the [Code Extension operating playbook](code-extension-operating-playbook.md). Develop and validate scripts/functions in a Data 360 sandbox. Move deployments or batch transforms with a DevOps data kit; add referenced DLOs/DMOs when they are not included automatically. | `DataCustomCode` readback, batch-transform or chunking-function terminal state, independent output reconciliation, delayed `DataCustomCodeLogs__dll` query, schedule state, and cleanup/retention proof. |
 | Search indexes/retrievers | Packageability and index rebuild behavior are availability-sensitive. | Source DMO/UDMO, chunk/index DMO counts, retriever output. |
 | Semantic models | Preserve metric definitions, grain, dimensions, and governed access. | Model readback, metric result, report/dashboard comparison. |
 | Segments | Separate definition, count, publish, and membership proof. | Segment status, count, publish history. |
@@ -47,6 +47,7 @@ public-safe proof contract.
 10. Run readback proof by returned ID, status, count, metadata, or query.
 11. Run governed-user proof when access controls are in scope.
 12. Record only distilled evidence in the proof ledger.
+13. For Code Extension, read back deployment state even when the CLI exits nonzero; then prove transform ownership, one accepted run, output controls, logs, and schedule separately.
 
 ## Forbidden Assumptions
 
@@ -56,3 +57,6 @@ public-safe proof contract.
 - Do not move credentials, tokens, org metadata dumps, or customer data.
 - Do not claim sandbox parity until target-org feature availability, data
   spaces, and limits are checked.
+- Do not treat local Code Extension execution, deployment success, generic
+  transform fields, or an initially empty log query as remote execution,
+  schedule, output, or observability proof.

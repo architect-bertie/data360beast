@@ -30,6 +30,7 @@ Skill pack: https://github.com/architect-bertie/data360beast/tree/main/skills
 - [Deployment runtime](https://architect-bertie.github.io/data360beast/data360/deployment-runtime.md): portable desired-state preflight, plan, approval, execution, and proof contract.
 - [Knowledge claims](https://architect-bertie.github.io/data360beast/data360/knowledge/claims.json): source-backed architectural claims and caveats.
 - [Data 360 develop/package/deploy matrix](https://architect-bertie.github.io/data360beast/data360/develop-package-deployment-matrix.md): data kit, metadata, deployment, and readback gates.
+- [Data 360 Code Extension operating playbook](https://architect-bertie.github.io/data360beast/data360/code-extension-operating-playbook.md): custom script/function preflight, package, validation, transform, execution, output, log, recovery, and migration proof.
 - [Data 360 MCP tool selection](https://architect-bertie.github.io/data360beast/data360/mcp-tool-selection.md): when to use `sf-docs`, `data360`, `datacloud-mcp-query`, or direct `sf` REST calls.
 - [Operating model](https://architect-bertie.github.io/data360beast/operating-model.md): the Data 360 delivery loop.
 - [Proof ledger](https://architect-bertie.github.io/data360beast/proof-ledger.md): public-safe evidence, caveats, confidence labels, and promotion status.

@@ -212,6 +212,27 @@
         "all membership tables are equivalent"
       ],
       "confidenceRequired": true
+    },
+    {
+      "id": "code-extension-remote-proof",
+      "name": "Code Extension remote proof",
+      "prompt": "My Data 360 Code Extension script passes local run and deploy says success. Is the feature proven?",
+      "mustMentionAny": [
+        ["target org", "org alias"],
+        ["data space", "dataspace"],
+        ["DataCustomCode", "deployment readback"],
+        ["batch transform", "run history", "terminal run"],
+        ["output", "control query", "independent reconciliation"],
+        ["DataCustomCodeLogs__dll", "logs", "10 minutes"],
+        ["schedule endpoint", "schedule readback", "unscheduled"]
+      ],
+      "mustNotMention": [
+        "local run proves remote execution",
+        "deploy success proves output",
+        "empty logs mean no observability",
+        "FullRunFrequency proves the schedule"
+      ],
+      "confidenceRequired": true
     }
   ]
 }
