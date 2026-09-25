@@ -117,10 +117,18 @@ python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py --dry
 python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
 ```
 
-The installer fetches only the nine approved Data 360-relevant folders from
+The installer fetches only `data360-schema-get` and
+`data360-code-extension-generate` from
 [`forcedotcom/sf-skills`](https://github.com/forcedotcom/sf-skills). It does
 not vendor upstream skill bodies into this repo and refuses to write into VS
 Code Agentforce Vibes `globalStorage` or local `node_modules` package folders.
+
+The seven former phase companions are retired after upstream removal. Use
+Beast's matching `sf-datacloud-*` specialist, or `sf-datacloud` for cross-phase
+work, with the usual preflight and proof requirements. Existing local copies
+are left untouched and may be stale. See the
+[companion contract](docs/data360/sf-skills-data360-companion.md) for details;
+retirement does not establish a replacement CLI workflow.
 
 ## GitHub Readiness
 

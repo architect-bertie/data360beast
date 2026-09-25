@@ -154,16 +154,38 @@ async function main() {
     })),
     ...fallbackDiscoverySeeds,
   ];
-  const seen = new Set();
+  const discoveries = new Map();
   const manifest = [];
+
+  function expandLinks(current, discovery) {
+    if (current.depth >= maxDepth) return;
+    for (const link of discovery.links) {
+      const previous = discoveries.get(link);
+      if (!previous || current.depth + 1 < previous.depth) {
+        queue.push({ url: link, depth: current.depth + 1, parent: discovery.id });
+      }
+    }
+  }
 
   await mkdir(path.join(outdir, "raw"), { recursive: true });
   await mkdir(path.join(outdir, "summaries"), { recursive: true });
 
-  while (queue.length && (maxPages <= 0 || manifest.length < maxPages)) {
+  while (queue.length) {
     const current = queue.shift();
-    if (!current || seen.has(current.url)) continue;
-    seen.add(current.url);
+    if (!current || current.depth > maxDepth) continue;
+    const previous = discoveries.get(current.url);
+    if (previous) {
+      if (current.depth >= previous.depth) continue;
+      previous.depth = current.depth;
+      if (previous.entry) {
+        previous.entry.depth = current.depth;
+        previous.entry.parent = current.parent;
+      }
+      expandLinks(current, previous);
+      continue;
+    }
+    // Finish shorter-path updates after the capture budget is exhausted.
+    if (maxPages > 0 && manifest.length >= maxPages) continue;
     process.stderr.write(`Scraping depth ${current.depth}: ${current.url}\n`);
     const result = refresh ? await helpExtractor.extract(current.url) : await scrape(current.url);
     const id = articleId(result.url);
@@ -171,15 +193,13 @@ async function main() {
     const rawPath = path.join(outdir, "raw", `${fileBase}.md`);
     const links = extractHelpLinks(result.markdown);
     const summary = compactSummary(result.markdown);
+    const discovery = { depth: current.depth, id, links, entry: null };
+    discoveries.set(current.url, discovery);
     if (!isAcceptableResult(result)) {
       process.stderr.write(
         `Rejected Help shell or suspicious capture: ${id} (${result.title}, ${result.markdown.length} chars)\n`,
       );
-      if (current.depth < maxDepth) {
-        for (const link of links) {
-          if (!seen.has(link)) queue.push({ url: link, depth: current.depth + 1, parent: id });
-        }
-      }
+      expandLinks(current, discovery);
       continue;
     }
     const frontmatter = [
@@ -199,7 +219,7 @@ async function main() {
     }
     await writeFile(path.join(outdir, "summaries", `${fileBase}.json`),
       JSON.stringify({ articleId: id, title: result.title, source: result.url, summary }, null, 2) + "\n", "utf8");
-    manifest.push({
+    discovery.entry = {
       title: result.title,
       source: result.url,
       articleId: id,
@@ -209,12 +229,9 @@ async function main() {
       markdownChars: result.markdown.length,
       links: links.length,
       summary,
-    });
-    if (current.depth < maxDepth) {
-      for (const link of links) {
-        if (!seen.has(link)) queue.push({ url: link, depth: current.depth + 1, parent: id });
-      }
-    }
+    };
+    manifest.push(discovery.entry);
+    expandLinks(current, discovery);
   }
 
   await writeFile(

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2",
-  "generatedAt": "2026-09-25T22:04:49.375994+00:00",
+  "generatedAt": "2026-09-25T22:15:49.955588+00:00",
   "scope": {
     "helpSeed": "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5",
     "developerCenter": "https://developer.salesforce.com/developer-centers/data-cloud",
@@ -565,6 +565,27 @@
       ]
     },
     {
+      "id": "page:301ea4c0f2c143b64252",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_add_new_source_fields.htm&language=en_US&type=5",
+      "title": "Add a Source Field",
+      "identifier": "data.c360_a_add_new_source_fields.htm",
+      "depth": 4,
+      "parent": "data.c360_a_enable_user_permissions_external_salesforce_org.htm",
+      "contentHash": "24b25f7d2b4e4083c19254045337b3f0e8621029e0af9ca106158ac9e42701e9",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "data-streams-and-ingestion"
+      ],
+      "phases": [
+        "connect",
+        "prepare",
+        "govern"
+      ]
+    },
+    {
       "id": "page:6b025aca0ac552b44729",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_add_object_permissions.htm&language=en_US&type=5",
@@ -810,8 +831,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_ai_retriever_create.htm&language=en_US&type=5",
       "title": "Create an Individual Retriever",
       "identifier": "data.c360_a_ai_retriever_create.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 3,
+      "parent": "data.c360_a_search_index_easy_setup_search_index.htm",
       "contentHash": "e9a56f6ad6e3d3bd24ca89743d323bbe8f6e889606e5fdc29e8452175966deff",
       "status": "captured",
       "type": "official-page",
@@ -916,7 +937,7 @@
       "title": "Test an Individual Retriever",
       "identifier": "data.c360_a_ai_retriever_test_create.htm",
       "depth": 4,
-      "parent": "data.c360_a_ai_retriever_test.htm",
+      "parent": "data.c360_a_ai_retriever_create.htm",
       "contentHash": "d72b40bd5f1c4923ec5c15e70f9f211c903b2e7be7520c374708bc24def29dd3",
       "status": "captured",
       "type": "official-page",
@@ -992,7 +1013,7 @@
       "title": "Activate or Deactivate a Retriever Version",
       "identifier": "data.c360_a_ai_retriever_version_activate.htm",
       "depth": 4,
-      "parent": "data.c360_a_ai_retriever_version.htm",
+      "parent": "data.c360_a_ai_retriever_create.htm",
       "contentHash": "937d9cdb619784a41475f240bda03506a3789c8e7404fc854d5c029a687c6143",
       "status": "captured",
       "type": "official-page",
@@ -1716,8 +1737,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_changelog_usage_and_access.htm&language=en_US&type=5",
       "title": "Data 360 Usage and Access Changes",
       "identifier": "data.c360_a_changelog_usage_and_access.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 1,
+      "parent": "data.c360_a_product_considerations.htm",
       "contentHash": "b896109ae1fbced5f0529993f3b4cbe6a65956271b0ecb56ddf0b8c56936f29d",
       "status": "captured",
       "type": "official-page",
@@ -1770,13 +1791,100 @@
       ]
     },
     {
+      "id": "page:7f1df479a2f3c55e0378",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_delete.htm&language=en_US&type=5",
+      "title": "Delete a Companion Connection",
+      "identifier": "data.c360_a_companion_connection_delete.htm",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
+      "contentHash": "04031b48aac043795d0217bb2ec4cf4ad48dd6dd4344d2334eed481e1840a4c6",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "connect",
+        "automation"
+      ]
+    },
+    {
+      "id": "page:26c4de87cd8d78095970",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_setup.htm&language=en_US&type=5",
+      "title": "Set Up a Data Cloud One Companion Connection",
+      "identifier": "data.c360_a_companion_connection_setup.htm",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
+      "contentHash": "e5c7aa2560009322c591a4524194c83e33d8d77e97ff72baa7342762613590d1",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "governance-and-security",
+        "limits-and-considerations",
+        "packaging-and-deployment"
+      ],
+      "phases": [
+        "connect",
+        "govern",
+        "retrieve",
+        "develop-package"
+      ]
+    },
+    {
+      "id": "page:519f1f5a48f47b49d883",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_shared_objects.htm&language=en_US&type=5",
+      "title": "Objects Shared with Companion Orgs",
+      "identifier": "data.c360_a_companion_connection_shared_objects.htm",
+      "depth": 4,
+      "parent": "data.c360_a_companion_connection_setup.htm",
+      "contentHash": "0bf440475cf8d5ec4e846be0d3c9144fdecf4ce2d0db35405e88c7d789b5c263",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize",
+        "govern",
+        "insight",
+        "automation"
+      ]
+    },
+    {
+      "id": "page:77da70c63b06450a840e",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_statuses.htm&language=en_US&type=5",
+      "title": "Data Cloud One Companion Connection Statuses",
+      "identifier": "data.c360_a_companion_connection_statuses.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_cloud_one_monitoring.htm",
+      "contentHash": "e0fa95660690128ad82b7e485274dd752e320401d127062d7141de5c7acae5a2",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "connect",
+        "govern",
+        "retrieve",
+        "act"
+      ]
+    },
+    {
       "id": "page:d04499b6e74b6419ded3",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connections.htm&language=en_US&type=5",
       "title": "Data Cloud One Companion Connections",
       "identifier": "data.c360_a_companion_connections.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 2,
+      "parent": "data.c360_a_lifecycle_management_cleanup.htm",
       "contentHash": "82bc22a8cf411824b55645f27bed305aca59472530c8d191840c7c557fba3843",
       "status": "captured",
       "type": "official-page",
@@ -1788,6 +1896,52 @@
       ],
       "phases": [
         "connect",
+        "develop-package"
+      ]
+    },
+    {
+      "id": "page:79004a27914a7dd5ab11",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_connection_details.htm&language=en_US&type=5",
+      "title": "Data 360 Connection Details on Companion Orgs",
+      "identifier": "data.c360_a_companion_org_connection_details.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_cloud_one_app.htm",
+      "contentHash": "995be282afb7d0980a4e2557dc7d99be6f5cf73af1142cd58cfdf15666a52741",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "connect",
+        "govern"
+      ]
+    },
+    {
+      "id": "page:74dafc771abe7e0f6387",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5",
+      "title": "Data 360 Features on Companion Orgs",
+      "identifier": "data.c360_a_companion_org_data_cloud_features.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_cloud_one_app.htm",
+      "contentHash": "81b1d729b49b1c6b5f7dbf7ba91fbc497497e1d2beda85d4934476697b65666b",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "segmentation-and-activation"
+      ],
+      "phases": [
+        "connect",
+        "govern",
+        "retrieve",
+        "ai-search",
+        "segment",
+        "act",
+        "automation",
         "develop-package"
       ]
     },
@@ -2099,6 +2253,26 @@
         "segment",
         "act",
         "automation"
+      ]
+    },
+    {
+      "id": "page:648920f203df6fe23bf8",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_control_external_user_access.htm&language=en_US&type=5",
+      "title": "Controlling External User Access in Data 360",
+      "identifier": "data.c360_a_control_external_user_access.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_gov_capabilities.htm",
+      "contentHash": "2e5e5b488bbb9c76438f2d41b366bedd5338db5741c5cb62db43f163b00d1015",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "governance-and-security",
+        "limits-and-considerations"
+      ],
+      "phases": [
+        "govern"
       ]
     },
     {
@@ -2776,6 +2950,48 @@
       ]
     },
     {
+      "id": "page:466cce848a4ee6947f5b",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_enable_object_and_field_permissions.htm&language=en_US&type=5",
+      "title": "Enable Object and Field Permissions for CRM Connections",
+      "identifier": "data.c360_a_crm_enable_object_and_field_permissions.htm",
+      "depth": 3,
+      "parent": "data.c360_a_userpermissions.htm",
+      "contentHash": "44706fab22bcf9927d074a50fe4cdf65768dfe64d90a37d0c4c89e67d166735f",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "connections-and-connectors",
+        "data-streams-and-ingestion"
+      ],
+      "phases": [
+        "connect",
+        "prepare",
+        "govern"
+      ]
+    },
+    {
+      "id": "page:2dc1dd711645fd4a41c9",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_salesforce_commerce_object_perms.htm&language=en_US&type=5",
+      "title": "Salesforce Commerce Object Permissions",
+      "identifier": "data.c360_a_crm_salesforce_commerce_object_perms.htm",
+      "depth": 4,
+      "parent": "data.c360_a_enable_user_permissions_external_salesforce_org.htm",
+      "contentHash": "07cfaa7501a9c75f08b5eaf431e2bad6c7a357a35790fd8b711d758a64f5474e",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "connections-and-connectors"
+      ],
+      "phases": [
+        "connect",
+        "govern"
+      ]
+    },
+    {
       "id": "page:2d5eb70284f7f578cdce",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_store_deleted_data_stream_records.htm&language=en_US&type=5",
@@ -3054,13 +3270,89 @@
       ]
     },
     {
+      "id": "page:dbfd36ae9e068cfd9043",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_app.htm&language=en_US&type=5",
+      "title": "Access Data Cloud One from a Companion Org",
+      "identifier": "data.c360_a_data_cloud_one_app.htm",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
+      "contentHash": "43ecf8ad64ab29b60a69279b502c3e2cbda5366bda86648a3c957feb3b067915",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "connections-and-connectors"
+      ],
+      "phases": [
+        "connect",
+        "govern",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "page:8adba8417a6caf9c8a89",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_governance.htm&language=en_US&type=5",
+      "title": "Tagging, Policies, and Access in Data Cloud One",
+      "identifier": "data.c360_a_data_cloud_one_governance.htm",
+      "depth": 4,
+      "parent": "data.c360_a_companion_connection_setup.htm",
+      "contentHash": "ed48e6dd36ed402f186983ca2f4d18fcd298d973458108ecd6e7235c4b008ff4",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "governance-and-security"
+      ],
+      "phases": [
+        "govern"
+      ]
+    },
+    {
+      "id": "page:7f9fc8c997493c3754a8",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_metadata_ownership.htm&language=en_US&type=5",
+      "title": "Metadata Ownership in Connected Orgs",
+      "identifier": "data.c360_a_data_cloud_one_metadata_ownership.htm",
+      "depth": 4,
+      "parent": "data.c360_a_companion_connection_setup.htm",
+      "contentHash": "e93b7ec64d88eebe4b0f3aa4f12f1286827eb12d532a2e4d7f82595f98944440",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [],
+      "phases": [
+        "connect",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "page:791348a26d68367b20f7",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_monitoring.htm&language=en_US&type=5",
+      "title": "Monitor Data 360 Companion Connections",
+      "identifier": "data.c360_a_data_cloud_one_monitoring.htm",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
+      "contentHash": "63762bc2c7e352fad7b0f0933d7143a3d41927709a8ebf570bf034f5879c2fdf",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "connect",
+        "govern"
+      ]
+    },
+    {
       "id": "page:bc2926e4fff45e73c158",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5",
       "title": "Considerations for Data Cloud One in a Sandbox Org",
       "identifier": "data.c360_a_data_cloud_one_sandboxes.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
       "contentHash": "bba1f0ffacc16e4c1d729939451744856cd8eb4b182dac816279fc837bfbc3e9",
       "status": "captured",
       "type": "official-page",
@@ -3076,6 +3368,28 @@
         "act",
         "automation",
         "develop-package"
+      ]
+    },
+    {
+      "id": "page:9d34e673ad0ea043bb20",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_version_mismatch.htm&language=en_US&type=5",
+      "title": "Version Mismatch Errors in Data Cloud One Orgs",
+      "identifier": "data.c360_a_data_cloud_one_version_mismatch.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_cloud_one_monitoring.htm",
+      "contentHash": "23e2342ea4e361a86b999394a0be511be05be2b20d4011bd29800e36dd988b5e",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "dmo-modeling-and-mapping",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "connect",
+        "harmonize",
+        "retrieve"
       ]
     },
     {
@@ -3149,8 +3463,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_gov_capabilities.htm&language=en_US&type=5",
       "title": "Data Governance in Data 360",
       "identifier": "data.c360_a_data_gov_capabilities.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 3,
+      "parent": "data.c360_a_userpermissions.htm",
       "contentHash": "0ca173af071237aa732bd2d2f83ea4224a8a0bcb20c077aed8400e8d95245963",
       "status": "captured",
       "type": "official-page",
@@ -3336,6 +3650,24 @@
       ]
     },
     {
+      "id": "page:537bcc7dfa43fabb21c7",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_associate_perm_sets.htm&language=en_US&type=5",
+      "title": "Associate a Permission Set with a Data Space",
+      "identifier": "data.c360_a_data_spaces_associate_perm_sets.htm",
+      "depth": 3,
+      "parent": "data.c360_a_userpermissions.htm",
+      "contentHash": "6109d1ac64e7cb30abafe902e4e688babbdcc921696658ae1884ee8495ff0462",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions"
+      ],
+      "phases": [
+        "govern"
+      ]
+    },
+    {
       "id": "page:d8bddb1ac86c19c05727",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_create.htm&language=en_US&type=5",
@@ -3349,6 +3681,43 @@
       "topics": [],
       "phases": [
         "govern"
+      ]
+    },
+    {
+      "id": "page:e333c6592ad9b0eb2ff4",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_feature_access.htm&language=en_US&type=5",
+      "title": "Manage Feature Access for Data Space-Aware Data Cloud Features",
+      "identifier": "data.c360_a_data_spaces_feature_access.htm",
+      "depth": 3,
+      "parent": "data.c360_a_userpermissions.htm",
+      "contentHash": "f15762fddcb2390d346b7b8c373364f8de28a8d34f10ce5fc65ab50b8a53255c",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions"
+      ],
+      "phases": [
+        "govern",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "page:59644531b18c4d76ebe6",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_in_companion_orgs.htm&language=en_US&type=5",
+      "title": "Understand Data Spaces in Companion Orgs",
+      "identifier": "data.c360_a_data_spaces_in_companion_orgs.htm",
+      "depth": 4,
+      "parent": "data.c360_a_companion_connection_setup.htm",
+      "contentHash": "521e30ece04f03ee05416cef94852e0345566288ddfa78f102acc288cdec43b9",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [],
+      "phases": [
+        "connect",
+        "govern",
+        "retrieve"
       ]
     },
     {
@@ -4374,6 +4743,25 @@
       ]
     },
     {
+      "id": "page:ae555450ec4c7cb83c8f",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_enable_permissions_for_crm_streaming.htm&language=en_US&type=5",
+      "title": "Enable Permissions for CRM Streaming",
+      "identifier": "data.c360_a_enable_permissions_for_crm_streaming.htm",
+      "depth": 4,
+      "parent": "data.c360_a_enable_user_permissions_external_salesforce_org.htm",
+      "contentHash": "ee6ddd3f9f35f8eabb25c254f2bcbef2af055d30945aa71c10bea8643b8196b9",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions"
+      ],
+      "phases": [
+        "prepare",
+        "govern"
+      ]
+    },
+    {
       "id": "page:08919c1efcdc7e25f7db",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_enable_tableau_connector.htm&language=en_US&type=5",
@@ -4400,8 +4788,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_enable_user_permissions_external_salesforce_org.htm&language=en_US&type=5",
       "title": "Salesforce CRM Permissions",
       "identifier": "data.c360_a_enable_user_permissions_external_salesforce_org.htm",
-      "depth": 4,
-      "parent": "data.c360_a_create_crm_data_stream.htm",
+      "depth": 3,
+      "parent": "data.c360_a_userpermissions.htm",
       "contentHash": "c501ecea27b764bb8b552e6d3db877a55aa95d2ae9d9ad1a6290045a34873828",
       "status": "captured",
       "type": "official-page",
@@ -4416,6 +4804,30 @@
         "prepare",
         "govern",
         "retrieve",
+        "develop-package"
+      ]
+    },
+    {
+      "id": "page:c65b50d89ebf5f718095",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_enable_user_permissions_external_salesforce_org_encrypted.htm&language=en_US&type=5",
+      "title": "Enable Permissions to Ingest Salesforce Classic Encrypted Salesforce CRM Objects and Fields",
+      "identifier": "data.c360_a_enable_user_permissions_external_salesforce_org_encrypted.htm",
+      "depth": 4,
+      "parent": "data.c360_a_enable_user_permissions_external_salesforce_org.htm",
+      "contentHash": "213bea56e2447cf290daa7afd7bdc7ca2d4514c9f785d4258902b9eb3d383882",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "acceleration-and-refresh",
+        "authentication-and-permissions",
+        "data-streams-and-ingestion",
+        "packaging-and-deployment"
+      ],
+      "phases": [
+        "connect",
+        "prepare",
+        "govern",
         "develop-package"
       ]
     },
@@ -4755,6 +5167,26 @@
       ]
     },
     {
+      "id": "page:6e64c89c55f8ff083982",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_getting_started_data_gov.htm&language=en_US&type=5",
+      "title": "Get Started with Data Governance",
+      "identifier": "data.c360_a_getting_started_data_gov.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_gov_capabilities.htm",
+      "contentHash": "59e6b2968bac3092e66535a6ee8dd969f8a91e5f2a38bac84fa6b8d723cf5272",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "governance-and-security",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "govern"
+      ]
+    },
+    {
       "id": "page:41707e1ab0e0fe8da7bd",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_glossary_guide.htm&language=en_US&type=5",
@@ -4908,8 +5340,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_hybridsearch_index_create.htm&language=en_US&type=5",
       "title": "Create a Hybrid Search Index with Advanced Setup",
       "identifier": "data.c360_a_hybridsearch_index_create.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 2,
+      "parent": "data.c360_a_einstein_data_usage_in_data_cloud.htm",
       "contentHash": "d4cd32f3dd5107fb143b0ce61ff2fb17c3233e1828153cb7a3f3cd4926aa8106",
       "status": "captured",
       "type": "official-page",
@@ -5568,8 +6000,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines.htm&language=en_US&type=5",
       "title": "Data 360 Limits and Guidelines",
       "identifier": "data.c360_a_limits_and_guidelines.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 1,
+      "parent": "sf.c360_a_search_index_ground_ai.htm",
       "contentHash": "820ffb893202ff26578505ac97429ab6ef958388f926ddfecb196219499db00d",
       "status": "captured",
       "type": "official-page",
@@ -6328,6 +6760,33 @@
       ]
     },
     {
+      "id": "page:712c1643ce98da41d143",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_mergeback_devops_datakits.htm&language=en_US&type=5",
+      "title": "Data 360 Governance Mergeback with DevOps Data Kits",
+      "identifier": "data.c360_a_mergeback_devops_datakits.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_gov_capabilities.htm",
+      "contentHash": "f72a6fcb329f33b04fa07aff63d4639e870d2799413e50f345a38e9ccd3234c4",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping",
+        "governance-and-security",
+        "limits-and-considerations",
+        "packaging-and-deployment"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize",
+        "govern",
+        "retrieve",
+        "insight",
+        "develop-package"
+      ]
+    },
+    {
       "id": "page:98063e935f63b4af4e87",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_miscellaneous_filters.htm&language=en_US&type=5",
@@ -7017,6 +7476,44 @@
         "segment",
         "act",
         "automation"
+      ]
+    },
+    {
+      "id": "page:9484683a01462e85bd1a",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_policy_based_governance_dg.htm&language=en_US&type=5",
+      "title": "Policy-Based Governance in Data 360",
+      "identifier": "data.c360_a_policy_based_governance_dg.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_gov_capabilities.htm",
+      "contentHash": "355cd651aec213c8c1874fc99fe10ba0622010bb5f12a59e4629b7345e1d552a",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "governance-and-security",
+        "limits-and-considerations"
+      ],
+      "phases": [
+        "connect",
+        "govern",
+        "retrieve"
+      ]
+    },
+    {
+      "id": "page:3da202b1009693532c43",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_prepare_home_org_for_dcone.htm&language=en_US&type=5",
+      "title": "Convert a Data Cloud Home Org to a Data Cloud One Companion Org",
+      "identifier": "data.c360_a_prepare_home_org_for_dcone.htm",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
+      "contentHash": "8384bae8d898f6cbcfaae72ef1082c601a44b747bed4ee6f42279887668967db",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [],
+      "phases": [
+        "connect"
       ]
     },
     {
@@ -9321,8 +9818,8 @@
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions.htm&language=en_US&type=5",
       "title": "Data 360 Standard Permission Sets",
       "identifier": "data.c360_a_userpermissions.htm",
-      "depth": 4,
-      "parent": "oversized-help-fallback",
+      "depth": 2,
+      "parent": "data.c360_a_data_cloud.htm",
       "contentHash": "0c9c405534c7e0a674313d25a60f4ecd2816c3f167e560d73db9a3f65e8943f5",
       "status": "captured",
       "type": "official-page",
@@ -9349,6 +9846,24 @@
       ]
     },
     {
+      "id": "page:58290ef5e3930fc82b60",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_cdp.htm&language=en_US&type=5",
+      "title": "Customer Data Platform Standard Permission Sets in Data 360",
+      "identifier": "data.c360_a_userpermissions_cdp.htm",
+      "depth": 3,
+      "parent": "data.c360_a_userpermissions.htm",
+      "contentHash": "b702d7d529cc0973ca1afbbfd35110768e49b4ec124c27fd6f0a3bd33ad59eb1",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions"
+      ],
+      "phases": [
+        "govern"
+      ]
+    },
+    {
       "id": "page:dd11fcc78cabebd305da",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_custom.htm&language=en_US&type=5",
@@ -9364,6 +9879,26 @@
       ],
       "phases": [
         "govern"
+      ]
+    },
+    {
+      "id": "page:038afa521b2a2f4d27d4",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_data_cloud_one.htm&language=en_US&type=5",
+      "title": "Grant Data Cloud One Access to Users",
+      "identifier": "data.c360_a_userpermissions_data_cloud_one.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_cloud_one_app.htm",
+      "contentHash": "102c72616cf1fe9f114e098fd768ec509995eee3c10f822dbfbc3e7714a6369e",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "governance-and-security"
+      ],
+      "phases": [
+        "govern",
+        "retrieve"
       ]
     },
     {
@@ -9432,6 +9967,30 @@
       ]
     },
     {
+      "id": "page:24391cfa92e26a065ad8",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_using_tagging_and_classification_dg.htm&language=en_US&type=5",
+      "title": "Data Tagging and Classification in Data 360",
+      "identifier": "data.c360_a_using_tagging_and_classification_dg.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_gov_capabilities.htm",
+      "contentHash": "0d25dbdd7b258b565b7e7ca0427985c67bab5e741d47fa7c419bab8c225777cf",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "governance-and-security"
+      ],
+      "phases": [
+        "connect",
+        "prepare",
+        "govern",
+        "retrieve",
+        "ai-search",
+        "automation"
+      ]
+    },
+    {
       "id": "page:76686966a490765efed9",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_view_data_graph_metadata.htm&language=en_US&type=5",
@@ -9486,6 +10045,35 @@
         "prepare",
         "harmonize",
         "insight"
+      ]
+    },
+    {
+      "id": "page:7e4b0de975e4a4d17082",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_viewing_data_lineage.htm&language=en_US&type=5",
+      "title": "Viewing Data Relationships with Unified Lineage",
+      "identifier": "data.c360_a_viewing_data_lineage.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_gov_capabilities.htm",
+      "contentHash": "c162b713fdd42dcc3fd74f29e31df93c1b420f0262d7d5a888d2206b6b8403f3",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "connections-and-connectors",
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping",
+        "identity-resolution",
+        "segmentation-and-activation",
+        "unstructured-and-search"
+      ],
+      "phases": [
+        "connect",
+        "prepare",
+        "harmonize",
+        "insight",
+        "semantic",
+        "segment",
+        "act"
       ]
     },
     {
@@ -93300,6 +93888,46 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:301ea4c0f2c143b64252",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:6b025aca0ac552b44729",
       "to": "phase:govern",
       "type": "covers-phase"
@@ -95445,6 +96073,191 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:7f1df479a2f3c55e0378",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7f1df479a2f3c55e0378",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7f1df479a2f3c55e0378",
+      "to": "phase:automation",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7f1df479a2f3c55e0378",
+      "to": "skill:sf-datacloud-automation",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7f1df479a2f3c55e0378",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7f1df479a2f3c55e0378",
+      "to": "topic:6349fe42518ab76df8c6",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "phase:develop-package",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26c4de87cd8d78095970",
+      "to": "topic:1259995b8106b99e19ca",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "phase:insight",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "skill:sf-datacloud-calculated-insights",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "phase:automation",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "skill:sf-datacloud-automation",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:519f1f5a48f47b49d883",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "phase:act",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "skill:sf-datacloud-act",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:77da70c63b06450a840e",
+      "to": "topic:6349fe42518ab76df8c6",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:d04499b6e74b6419ded3",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -95482,6 +96295,126 @@
     {
       "from": "page:d04499b6e74b6419ded3",
       "to": "topic:6349fe42518ab76df8c6",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:79004a27914a7dd5ab11",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:79004a27914a7dd5ab11",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:79004a27914a7dd5ab11",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:79004a27914a7dd5ab11",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:79004a27914a7dd5ab11",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:79004a27914a7dd5ab11",
+      "to": "topic:6349fe42518ab76df8c6",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:ai-search",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-unstructured-retrieval",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:segment",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-segment",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:act",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-act",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:automation",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud-automation",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "phase:develop-package",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:74dafc771abe7e0f6387",
+      "to": "topic:c540fe881d8abc9db35d",
       "type": "covers-topic"
     },
     {
@@ -96165,6 +97098,31 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:648920f203df6fe23bf8",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:648920f203df6fe23bf8",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:648920f203df6fe23bf8",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:648920f203df6fe23bf8",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:648920f203df6fe23bf8",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:8287f592b979b402135d",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -97525,6 +98483,81 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:466cce848a4ee6947f5b",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:2dc1dd711645fd4a41c9",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:2dc1dd711645fd4a41c9",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:2dc1dd711645fd4a41c9",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:2dc1dd711645fd4a41c9",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:2dc1dd711645fd4a41c9",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:2dc1dd711645fd4a41c9",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:2d5eb70284f7f578cdce",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -98182,6 +99215,111 @@
     {
       "from": "page:7e2be61a9851db90a219",
       "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:dbfd36ae9e068cfd9043",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:8adba8417a6caf9c8a89",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:8adba8417a6caf9c8a89",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:8adba8417a6caf9c8a89",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7f9fc8c997493c3754a8",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7f9fc8c997493c3754a8",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7f9fc8c997493c3754a8",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7f9fc8c997493c3754a8",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:791348a26d68367b20f7",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:791348a26d68367b20f7",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:791348a26d68367b20f7",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:791348a26d68367b20f7",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:791348a26d68367b20f7",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:791348a26d68367b20f7",
+      "to": "topic:6349fe42518ab76df8c6",
       "type": "covers-topic"
     },
     {
@@ -98252,6 +99390,51 @@
     {
       "from": "page:bc2926e4fff45e73c158",
       "to": "topic:1259995b8106b99e19ca",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9d34e673ad0ea043bb20",
+      "to": "topic:6349fe42518ab76df8c6",
       "type": "covers-topic"
     },
     {
@@ -98747,6 +99930,21 @@
     {
       "from": "page:d5affc57cd0cc87ebc3b",
       "to": "topic:1259995b8106b99e19ca",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:537bcc7dfa43fabb21c7",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:537bcc7dfa43fabb21c7",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:537bcc7dfa43fabb21c7",
+      "to": "topic:887f46838f835a068a51",
       "type": "covers-topic"
     },
     {
@@ -98757,6 +99955,61 @@
     {
       "from": "page:d8bddb1ac86c19c05727",
       "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:e333c6592ad9b0eb2ff4",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:e333c6592ad9b0eb2ff4",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:e333c6592ad9b0eb2ff4",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:e333c6592ad9b0eb2ff4",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:e333c6592ad9b0eb2ff4",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:59644531b18c4d76ebe6",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:59644531b18c4d76ebe6",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:59644531b18c4d76ebe6",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:59644531b18c4d76ebe6",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:59644531b18c4d76ebe6",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:59644531b18c4d76ebe6",
+      "to": "skill:sf-datacloud-retrieve",
       "type": "informs-skill"
     },
     {
@@ -100705,6 +101958,31 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:ae555450ec4c7cb83c8f",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:ae555450ec4c7cb83c8f",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:ae555450ec4c7cb83c8f",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:ae555450ec4c7cb83c8f",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:ae555450ec4c7cb83c8f",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:08919c1efcdc7e25f7db",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -100812,6 +102090,66 @@
     {
       "from": "page:cf663f26dac46fcbe462",
       "to": "topic:2ce6dd21df02c816e9fa",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "phase:develop-package",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "topic:e7ea8f67ea4f832734ba",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:c65b50d89ebf5f718095",
+      "to": "topic:1259995b8106b99e19ca",
       "type": "covers-topic"
     },
     {
@@ -101547,6 +102885,31 @@
     {
       "from": "page:fc7e69407a724d629199",
       "to": "topic:2ce6dd21df02c816e9fa",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6e64c89c55f8ff083982",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:6e64c89c55f8ff083982",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:6e64c89c55f8ff083982",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6e64c89c55f8ff083982",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6e64c89c55f8ff083982",
+      "to": "topic:6349fe42518ab76df8c6",
       "type": "covers-topic"
     },
     {
@@ -104670,6 +106033,91 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:712c1643ce98da41d143",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "phase:insight",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "skill:sf-datacloud-calculated-insights",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "phase:develop-package",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:712c1643ce98da41d143",
+      "to": "topic:1259995b8106b99e19ca",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:98063e935f63b4af4e87",
       "to": "phase:retrieve",
       "type": "covers-phase"
@@ -105888,6 +107336,61 @@
       "from": "page:86f98c615b2b292f8501",
       "to": "topic:c540fe881d8abc9db35d",
       "type": "covers-topic"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9484683a01462e85bd1a",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:3da202b1009693532c43",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:3da202b1009693532c43",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
     },
     {
       "from": "page:92b8fef1ee1936cb10f5",
@@ -110605,6 +112108,21 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:58290ef5e3930fc82b60",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:58290ef5e3930fc82b60",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:58290ef5e3930fc82b60",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:dd11fcc78cabebd305da",
       "to": "phase:govern",
       "type": "covers-phase"
@@ -110617,6 +112135,36 @@
     {
       "from": "page:dd11fcc78cabebd305da",
       "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:038afa521b2a2f4d27d4",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:038afa521b2a2f4d27d4",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:038afa521b2a2f4d27d4",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:038afa521b2a2f4d27d4",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:038afa521b2a2f4d27d4",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:038afa521b2a2f4d27d4",
+      "to": "topic:ea0378d9eb63192ad390",
       "type": "covers-topic"
     },
     {
@@ -110755,6 +112303,76 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "phase:ai-search",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "skill:sf-datacloud-unstructured-retrieval",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "phase:automation",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "skill:sf-datacloud-automation",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:24391cfa92e26a065ad8",
+      "to": "topic:ea0378d9eb63192ad390",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:76686966a490765efed9",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -110827,6 +112445,106 @@
     {
       "from": "page:3340b8adab3abcaaac75",
       "to": "topic:2ce6dd21df02c816e9fa",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:insight",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-calculated-insights",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:semantic",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-semantic-layer",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:segment",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-segment",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "phase:act",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "skill:sf-datacloud-act",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "topic:59bc0575a5d30d8e7c27",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "topic:c540fe881d8abc9db35d",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7e4b0de975e4a4d17082",
+      "to": "topic:bd719d539c4bcbc3809b",
       "type": "covers-topic"
     },
     {
