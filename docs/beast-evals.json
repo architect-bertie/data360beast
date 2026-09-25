@@ -233,6 +233,88 @@
         "FullRunFrequency proves the schedule"
       ],
       "confidenceRequired": true
+    },
+    {
+      "id": "query-consumer-compatibility",
+      "name": "Query consumer compatibility",
+      "prompt": "Can I use DBeaver, Looker, Power BI, or Jupyter to query Data 360?",
+      "mustMentionAny": [
+        ["consumer", "tool", "client"],
+        ["interface", "driver", "connector", "jdbc", "odbc", "python", "rest"],
+        ["auth", "oauth", "jwt", "external client app"],
+        ["read-only", "query", "retrieve", "read"],
+        ["compute", "locality", "runs", "remote", "local"],
+        ["documented", "interface-compatible", "tenant-tested", "candidate", "inferred"],
+        ["next proof", "readback", "result rows", "data space"]
+      ],
+      "mustNotMention": [
+        "Looker is certified for Data 360",
+        "all JDBC tools are certified",
+        "Power BI proves XMLA ingestion works",
+        "Jupyter means the transform runs locally"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "client-engine-separation",
+      "name": "Client and engine separation",
+      "prompt": "Which engine does DBeaver, Looker, Power BI, Tableau, or Jupyter use against Data 360?",
+      "mustMentionAny": [
+        ["consumer", "tool", "client"],
+        ["api", "query-sql", "direct api", "jdbc", "odbc", "python"],
+        ["engine", "hyper", "trino", "spark"],
+        ["infer", "inferred", "not infer", "do not infer"],
+        ["proof", "readback", "documented", "tenant"]
+      ],
+      "mustNotMention": [
+        "DBeaver uses Spark",
+        "Looker uses Hyper",
+        "Power BI uses Trino",
+        "Jupyter uses Spark because it is Python",
+        "client name proves the engine"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "python-connector-vs-code-extension",
+      "name": "Python connector versus Code Extension",
+      "prompt": "Why upload Code Extension if Python can query Data 360 from a notebook?",
+      "mustMentionAny": [
+        ["python connector", "jupyter", "notebook"],
+        ["query", "extract", "pandas", "dataframe"],
+        ["code extension", "custom script", "batch transform"],
+        ["managed", "remote", "data 360 execution"],
+        ["deployment", "package", "upload"],
+        ["schedule", "security", "observability", "logs", "output ownership"],
+        ["spark", "dataframe"]
+      ],
+      "mustNotMention": [
+        "upload is required only because Spark",
+        "Python connector proves Code Extension",
+        "notebook execution is remote transform proof",
+        "local dataframe output proves Data 360 output"
+      ],
+      "confidenceRequired": true
+    },
+    {
+      "id": "powerbi-xmla-direction",
+      "name": "Power BI XMLA direction",
+      "prompt": "Is Power BI XMLA the same as the Power BI Desktop Connector for Data 360?",
+      "mustMentionAny": [
+        ["power bi desktop connector", "desktop"],
+        ["xmla"],
+        ["data in", "ingest", "federate", "inbound"],
+        ["directquery", "import", "outbound", "query consumer"],
+        ["direction", "workload"],
+        ["documented", "proof", "data space"]
+      ],
+      "mustNotMention": [
+        "Power BI XMLA is the Power BI Desktop Connector",
+        "XMLA is outbound Data 360 querying",
+        "DirectQuery uses XMLA connector",
+        "Power BI Desktop ingestion connector"
+      ],
+      "confidenceRequired": true
     }
   ]
 }
