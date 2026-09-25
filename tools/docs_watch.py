@@ -76,6 +76,8 @@ APPROVED_STAGES = {
     "llms.txt",
     "manifest.json",
     "docs/agent-manifest.json",
+    "docs/agent-quickstart.md",
+    "docs/phase-coverage-matrix.json",
     "docs/index.html",
     "docs/llms-full.txt",
     "docs/llms.txt",
@@ -88,6 +90,8 @@ APPROVED_STAGES = {
     "docs/data360/developer/learning-map.md",
     "docs/data360/developer/skill-update-synthesis.md",
     "docs/data360/develop-package-deployment-matrix.md",
+    "docs/data360/docs-watch-operating-model.md",
+    "docs/data360/docs-watch-delta-review.md",
     "docs/data360/docs-knowledge-graph.json",
     "docs/data360/docs-watch-reconciliation.json",
     "docs/data360/sf-skills-data360-companion.json",
@@ -95,6 +99,7 @@ APPROVED_STAGES = {
     "docs/data360/deployment-runtime.md",
     "docs/architecture-evals.json",
     "skills/data360beast/SKILL.md",
+    "skills/data360beast/references/sf-skills-data360-companion.md",
     "skills/data360beast/scripts/data360beast.py",
     "skills/data360beast/runtime/__init__.py",
     "skills/data360beast/runtime/data360beast_runtime.py",
@@ -105,6 +110,7 @@ APPROVED_STAGES = {
     "tools/docs_watch.py",
     "tools/refresh_skills_from_sf_docs.py",
     "tools/sf_docs_developer_guide_crawl.mjs",
+    "tools/sf_docs_help_crawl.mjs",
     "tools/validate_docs_watch.py",
     "tools/build_knowledge_graph.py",
     "tools/run_architecture_evals.py",
@@ -810,6 +816,7 @@ def main() -> int:
         run(["python3", "tools/validate_docs_watch.py"])
         run(["python3", "tools/validate_expertise.py"])
         run(["python3", "tools/run_architecture_evals.py"])
+        run(["python3", "tools/release_readiness.py"])
         sha = push_status = None
         if args.commit:
             sha, push_status = stage_and_push()

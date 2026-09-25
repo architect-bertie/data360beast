@@ -52,8 +52,16 @@ python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
 The companion contract is
 [`docs/data360/sf-skills-data360-companion.md`](data360/sf-skills-data360-companion.md).
 Beast-facing guidance says Data 360; exact upstream folder names such as
-`data360-orchestrate` are preserved for install paths from
+`data360-schema-get` are preserved for install paths from
 `forcedotcom/sf-skills`.
+
+Only `data360-schema-get` and `data360-code-extension-generate` are active
+companions. The seven former phase companions are retired after upstream
+removal; existing local copies are left untouched and may be stale. Use the
+matching Beast specialist in [the skill crosswalk](skills.md), or
+`sf-datacloud` for cross-phase work, with Beast preflight, authorization, and
+operation-specific proof. Retirement does not establish a replacement CLI
+workflow.
 
 ## Manual Context
 

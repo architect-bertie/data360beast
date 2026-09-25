@@ -17,9 +17,15 @@ const MCP_ROOT = process.env.SF_DOCS_MCP_ROOT ?? DEFAULT_MCP_ROOT;
 const extractorUrl = pathToFileURL(path.join(MCP_ROOT, "dist/extractors/index.js")).href;
 const browserUrl = pathToFileURL(path.join(MCP_ROOT, "dist/extractors/base.js")).href;
 const { scrape } = await import(extractorUrl);
-const { closeBrowser } = await import(browserUrl);
+const { closeBrowser, getStealthBrowser } = await import(browserUrl);
 
 const GUIDE_SEEDS = [
+  {
+    family: "hosted-data360-mcp",
+    url: "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/references/reference/data360-mcp.html",
+    capture: "full",
+    singlePage: true,
+  },
   {
     family: "developer-guide",
     url: "https://developer.salesforce.com/docs/data/data-cloud-dev/guide/get-started.html",
@@ -362,7 +368,7 @@ async function discover(center) {
   const familyReports = [];
   for (const config of GUIDE_SEEDS) {
     const html = await fetchText(config.url);
-    const sidebar = extractSidebar(html);
+    const sidebar = config.singlePage ? [] : extractSidebar(html);
     const pages = sidebar.length
       ? flattenSidebar(sidebar, config.family)
       : [{ label: extractAttr(html.match(/<meta\s+name="description"[^>]*>/i)?.[0] || "", "content") || config.family, url: config.url, depth: 0, parent: null, guideFamily: config.family }];
@@ -386,6 +392,9 @@ async function main() {
   await mkdir(path.join(outdir, "raw"), { recursive: true });
   await mkdir(path.join(outdir, "summaries"), { recursive: true });
 
+  // Initialize once before parallel captures; the companion lazily launches
+  // browsers without sharing its pending launch promise.
+  await getStealthBrowser();
   const manifest = await mapConcurrent(pages, concurrency, async (page, index) => {
     const familyConfig = configByFamily.get(page.guideFamily);
     const capture = shouldCapture(page, familyConfig);

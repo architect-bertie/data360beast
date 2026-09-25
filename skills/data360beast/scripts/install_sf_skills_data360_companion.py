@@ -22,13 +22,6 @@ ARCHIVE_URL = "https://github.com/forcedotcom/sf-skills/archive/{ref}.zip"
 DEFAULT_REF = "main"
 
 COMPANION_SKILLS = [
-    "data360-orchestrate",
-    "data360-connect",
-    "data360-prepare",
-    "data360-harmonize",
-    "data360-segment",
-    "data360-activate",
-    "data360-query",
     "data360-schema-get",
     "data360-code-extension-generate",
 ]

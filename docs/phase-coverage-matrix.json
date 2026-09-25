@@ -3,6 +3,7 @@
   "name": "Data360 Beast Phase Coverage Matrix",
   "updated": "2026-05-14",
   "purpose": "Machine-readable view of source, proof, helper, and frontier coverage by Data 360 phase. This complements docs/phase-proof-matrix.json, which owns routing and proof expectations.",
+  "companionRoutingPolicy": "Only data360-schema-get and data360-code-extension-generate remain active companions. The seven former phase companions were removed upstream in 0851d45f78fdfa511bda12446c8cbe7c83c0d352. Use each phase's specialistSkill for workflows outside the active companions' scope, subject to Beast preflight, authorization, and operation-specific proof. A null companionExecutionSkill means no active companion route; retirement does not establish a replacement CLI workflow.",
   "coverageLevels": {
     "strong": "Public docs and specialist guidance exist, plus proof ledger or helper coverage.",
     "documented": "Official-doc or OpenAPI-backed guidance exists, but target-org proof still depends on implementation.",
@@ -13,7 +14,7 @@
     {
       "phase": "connect",
       "specialistSkill": "sf-datacloud-connect",
-      "companionExecutionSkill": "data360-connect",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "64 Help article distillation plus 140+ connector catalog",
       "openApiCoverage": "Connect API payload mechanics via sf-datacloud-connectapi",
@@ -24,7 +25,7 @@
     {
       "phase": "prepare",
       "specialistSkill": "sf-datacloud-prepare",
-      "companionExecutionSkill": "data360-prepare",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "prepare/model Help distillation and formula syntax guidance",
       "openApiCoverage": "stream, DLO, and transform mechanics through OpenAPI when supplied",
@@ -35,7 +36,7 @@
     {
       "phase": "harmonize",
       "specialistSkill": "sf-datacloud-harmonize",
-      "companionExecutionSkill": "data360-harmonize",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "DMO, mapping, relationship, identity, graph, and model-gallery maps",
       "openApiCoverage": "mapping and DMO endpoints through OpenAPI when supplied",
@@ -57,7 +58,7 @@
     {
       "phase": "retrieve",
       "specialistSkill": "sf-datacloud-retrieve",
-      "companionExecutionSkill": "data360-query; data360-schema-get",
+      "companionExecutionSkill": "data360-schema-get",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "query/explore docs plus data-space API notes",
       "openApiCoverage": "Query SQL, Query v2, Profile API, and metadata endpoints",
@@ -68,7 +69,7 @@
     {
       "phase": "insight",
       "specialistSkill": "sf-datacloud-calculated-insights",
-      "companionExecutionSkill": "data360-segment",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "insight authoring, CI SQL rules, and limits gate",
       "openApiCoverage": "CI lifecycle endpoints through OpenAPI when supplied",
@@ -90,7 +91,7 @@
     {
       "phase": "ai-search",
       "specialistSkill": "sf-datacloud-unstructured-retrieval",
-      "companionExecutionSkill": "data360-query",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "RAG playbook, process-content, search-index, retriever, and limits docs",
       "openApiCoverage": "query/vector/hybrid paths where supported",
@@ -101,7 +102,7 @@
     {
       "phase": "segment",
       "specialistSkill": "sf-datacloud-segment",
-      "companionExecutionSkill": "data360-segment",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "segmentation docs and limits gate",
       "openApiCoverage": "segment REST and Apex ConnectApi patterns",
@@ -112,7 +113,7 @@
     {
       "phase": "act",
       "specialistSkill": "sf-datacloud-act",
-      "companionExecutionSkill": "data360-activate",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "activation limits and activation target cards",
       "openApiCoverage": "activation targets and activations through OpenAPI when supplied",
@@ -123,7 +124,7 @@
     {
       "phase": "automation",
       "specialistSkill": "sf-datacloud-automation",
-      "companionExecutionSkill": "data360-activate",
+      "companionExecutionSkill": null,
       "sourceCoverage": "strong",
       "officialDocsCoverage": "Data Cloud-triggered flows, activation-triggered flows, API activations, and flow editing",
       "openApiCoverage": "data action targets/actions through OpenAPI when supplied",
@@ -134,7 +135,7 @@
     {
       "phase": "develop-package",
       "specialistSkill": "sf-datacloud",
-      "companionExecutionSkill": "data360-orchestrate; data360-code-extension-generate",
+      "companionExecutionSkill": "data360-code-extension-generate",
       "sourceCoverage": "strong",
       "officialDocsCoverage": "Data kits, development lifecycle, and Code Extension workflow, constraints, logs, and migration",
       "openApiCoverage": "metadata/data kit coverage depends on target asset type; Data Transform control-plane operations are covered by Connect API",

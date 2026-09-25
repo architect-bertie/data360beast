@@ -1,5 +1,7 @@
 import importlib.util
 import json
+import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -27,6 +29,89 @@ VALIDATE_SPEC.loader.exec_module(validate_docs_watch)
 
 
 class DocsWatchTests(unittest.TestCase):
+    def test_help_shorter_paths_expand_without_refetching(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            extractors = root / "dist/extractors"
+            extractors.mkdir(parents=True)
+            (root / "package.json").write_text('{"type":"module"}')
+            (extractors / "index.js").write_text('export async function scrape() {}')
+            (extractors / "base.js").write_text('export async function closeBrowser() {}')
+            a = "data.c360_a_activations_publish_history.htm"
+            links = {
+                "data.c360_a_product_considerations.htm": [a],
+                a: ["data.c360_test_b.htm"],
+                "data.c360_test_b.htm": ["data.c360_test_c.htm"],
+                "data.c360_test_c.htm": ["data.c360_test_d.htm", a],
+            }
+            (extractors / "help-sf.js").write_text(
+                "const links = " + json.dumps(links) + "; const seen = new Set();"
+                'export class HelpSfExtractor { async extract(url) {'
+                'if (seen.has(url)) throw new Error("duplicate fetch"); seen.add(url);'
+                'const id = new URL(url).searchParams.get("id");'
+                'return {url, title: id, cached: false, extractedAt: "now",'
+                'markdown: "Evidence body. ".repeat(50) + (links[id] || []).map('
+                'child => "\\n[child](https://help.salesforce.com/s/articleView?id=" + child + "&type=5)").join("")}; }}'
+            )
+            command = ["node", str(ROOT / "tools/sf_docs_help_crawl.mjs"),
+                       "--refresh", "--depth", "3", "--outdir", str(root / "output")]
+            env = {**os.environ, "SF_DOCS_MCP_ROOT": str(root)}
+            subprocess.run(command, env=env, check=True, capture_output=True, text=True)
+            rows = json.loads((root / "output/manifest.json").read_text())
+            by_id = {row["articleId"]: row for row in rows}
+            self.assertEqual(by_id[a]["depth"], 1)
+            self.assertEqual(by_id[a]["parent"], "data.c360_a_product_considerations.htm")
+            self.assertEqual(by_id["data.c360_test_b.htm"]["depth"], 2)
+            self.assertEqual(by_id["data.c360_test_c.htm"]["depth"], 3)
+            self.assertNotIn("data.c360_test_d.htm", by_id)
+            budget = next(i + 1 for i, row in enumerate(rows) if row["articleId"] == a)
+            subprocess.run(command + ["--max-pages", str(budget)], env=env,
+                           check=True, capture_output=True, text=True)
+            capped = json.loads((root / "output/manifest.json").read_text())
+            self.assertEqual(len(capped), budget)
+            self.assertEqual(next(row for row in capped if row["articleId"] == a)["depth"], 1)
+
+    def test_help_refresh_bypasses_cache_and_writes_summary(self):
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            extractors = root / "dist/extractors"
+            extractors.mkdir(parents=True)
+            (root / "package.json").write_text('{"type":"module"}')
+            (extractors / "index.js").write_text(
+                'export async function scrape() { throw new Error("cached scrape called"); }'
+            )
+            (extractors / "base.js").write_text('export async function closeBrowser() {}')
+            (extractors / "help-sf.js").write_text(
+                'export class HelpSfExtractor { async extract(url) { return {'
+                'url, title: "Data Spaces", markdown: "Data spaces scope metadata. ".repeat(30),'
+                'cached: false, extractedAt: "2026-09-25T00:00:00Z"}; }}'
+            )
+            output = root / "output"
+            subprocess.run([
+                "node", str(ROOT / "tools/sf_docs_help_crawl.mjs"), "--refresh",
+                "--outdir", str(output), "--max-pages", "1",
+            ], env={**os.environ, "SF_DOCS_MCP_ROOT": str(root)}, check=True,
+                capture_output=True, text=True)
+            manifest = json.loads((output / "manifest.json").read_text())
+            summary = json.loads((output / "summaries/data.c360_a_product_considerations.json").read_text())
+            self.assertEqual(summary["source"], manifest[0]["source"])
+            self.assertEqual(summary["title"], "Data Spaces")
+            self.assertTrue(summary["summary"]["lead"])
+
+    def test_active_companions_match_installer_and_exclude_retired(self):
+        contract = json.loads((ROOT / "docs/data360/sf-skills-data360-companion.json").read_text())
+        spec = importlib.util.spec_from_file_location(
+            "companion_installer", ROOT / "skills/data360beast/scripts/install_sf_skills_data360_companion.py"
+        )
+        installer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(installer)
+        active = {entry["upstreamName"] for entry in contract["companionSkills"]}
+        retired = {entry["upstreamName"] for entry in contract["retiredCompanionSkills"]}
+        self.assertEqual(active, set(installer.COMPANION_SKILLS))
+        self.assertEqual(active, {"data360-schema-get", "data360-code-extension-generate"})
+        self.assertEqual(len(retired), 7)
+        self.assertFalse(active & retired)
+
     def test_url_normalization_and_source_classification(self):
         help_url = docs_watch.normalize_official_url(
             "https://help.salesforce.com/s/articleView?type=5&id=data.c360_test.htm#section"

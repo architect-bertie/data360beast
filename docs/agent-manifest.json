@@ -194,21 +194,14 @@
       "name": "salesforce-sf-skills-data360",
       "repository": "https://github.com/forcedotcom/sf-skills",
       "packageName": "@salesforce/afv-skills",
-      "observedPackageVersion": "1.32.0",
-      "observedRef": "fe3e2edad0f763edd1927420d1d4b0e31d252452",
+      "observedPackageVersion": "1.58.0",
+      "observedRef": "d4a9aa448c7b743c1f1da41f41aa9723a6621232",
       "installMode": "subset",
       "scope": "data360-only",
       "contract": "https://architect-bertie.github.io/data360beast/data360/sf-skills-data360-companion.json",
       "installer": "skills/data360beast/scripts/install_sf_skills_data360_companion.py",
       "authority": "Execution and debugging companion for sf data360 command workflows; not official Data 360 documentation",
       "skills": [
-        "data360-orchestrate",
-        "data360-connect",
-        "data360-prepare",
-        "data360-harmonize",
-        "data360-segment",
-        "data360-activate",
-        "data360-query",
         "data360-schema-get",
         "data360-code-extension-generate"
       ]
@@ -235,17 +228,17 @@
     "RAG debug chain and evaluation metrics"
   ],
   "officialDocIndexes": {
-    "helpSalesforcePages": 369,
+    "helpSalesforcePages": 467,
     "helpDocsDistilled": 64,
-    "developerSalesforceGuidePages": 951,
+    "developerSalesforceGuidePages": 992,
     "connectorPagesCataloged": 140,
     "publicModelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
-    "officialPagesIndexed": 3965,
+    "officialPagesIndexed": 4186,
     "rawCorpusPublished": false,
-    "developerSalesforcePagesIndexed": 3596,
-    "developerReferencePagesCataloged": 2645
+    "developerSalesforcePagesIndexed": 3719,
+    "developerReferencePagesCataloged": 2727
   },
   "proofArtifactStats": {
     "phaseProofMatrixEntries": 12,
@@ -289,5 +282,5 @@
     "overall": 9.9
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-08-01"
+  "lastReviewed": "2026-09-25"
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check the approved Salesforce sf-skills Data 360 companion subset.
 
-The checker reads only the nine skills named by the Beast contract, keeps the
+The checker reads only the active skills named by the Beast contract, keeps the
 upstream bodies in a temporary directory, and emits public-safe metadata. It
 never vendors upstream content into this repository.
 """

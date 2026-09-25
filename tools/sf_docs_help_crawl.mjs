@@ -21,7 +21,31 @@ const FALLBACK_DISCOVERY_ARTICLE_IDS = [
   "data.c360_a_query_data_in_dc.htm",
   "data.c360_a_query_secondary_indexes.htm",
   "data.c360_a_segment_types_statuses.htm",
-  "data.c360_a_sl.htm",
+  "analytics.c360_a_sl_get_started.htm",
+  "data.c360_a_billing_considerations_for_data_ingestion.htm",
+  "data.c360_a_billing_considerations_for_data_transforms.htm",
+  "data.c360_a_billing_considerations_for_identity_resolution.htm",
+  "data.c360_a_ai_foundation_models_configured_monitor.htm",
+];
+const RELATED_ARTICLE_IDS = [
+  "sf.c360_a_search_index_ground_ai.htm",
+  "ai.generative_ai_session_trace.htm",
+  "mktg.persnl_agentforce_configure_get_context_action.htm",
+  "sf.c360_a_glossary_guide.htm",
+];
+const REQUIRED_EVIDENCE_IDS = [
+  "data.c360_a_data_spaces.htm",
+  "data.c360_a_using_data_cloud_apis_with_data_spaces.htm",
+  "data.c360_a_userpermissions.htm",
+  "data.c360_a_hybridsearch_index_create.htm",
+  "data.c360_a_ai_retriever_create.htm",
+  "data.c360_a_limits_and_guidelines.htm",
+  "data.c360_a_changelog_usage_and_access.htm",
+  "data.c360_a_data_cloud_architecture_strategy.htm",
+  "data.c360_a_data_gov_capabilities.htm",
+  "data.c360_a_data_cloud_sandbox_create.htm",
+  "data.c360_a_data_cloud_one_sandboxes.htm",
+  "data.c360_a_companion_connections.htm",
 ];
 const DEFAULT_MCP_ROOT = path.join(
   process.env.HOME ?? ".",
@@ -34,6 +58,8 @@ const extractorUrl = pathToFileURL(path.join(MCP_ROOT, "dist/extractors/index.js
 const browserUrl = pathToFileURL(path.join(MCP_ROOT, "dist/extractors/base.js")).href;
 const { scrape } = await import(extractorUrl);
 const { closeBrowser } = await import(browserUrl);
+const { HelpSfExtractor } = await import(pathToFileURL(path.join(MCP_ROOT, "dist/extractors/help-sf.js")).href);
+const helpExtractor = new HelpSfExtractor();
 
 function argValue(name, fallback) {
   const idx = process.argv.indexOf(name);
@@ -50,7 +76,7 @@ function normalizeHelpUrl(url) {
     const parsed = new URL(url, "https://help.salesforce.com");
     if (parsed.hostname !== "help.salesforce.com") return null;
     const id = parsed.searchParams.get("id");
-    if (!id || !(id.startsWith("data.c360") || id.startsWith("data.cdp"))) return null;
+    if (!id || !(/^(?:data|analytics|sf)\.c360|^data\.cdp/.test(id) || RELATED_ARTICLE_IDS.includes(id))) return null;
     return `https://help.salesforce.com/s/articleView?id=${id}&language=en_US&type=5`;
   } catch {
     return null;
@@ -114,41 +140,66 @@ async function main() {
   const maxDepth = Number(argValue("--depth", "2"));
   const seed = argValue("--seed", DEFAULT_SEED);
   const refresh = hasFlag("--refresh");
-  const fallbackDiscoverySeeds = FALLBACK_DISCOVERY_ARTICLE_IDS.map((id) => ({
+  const fallbackDiscoverySeeds = [...FALLBACK_DISCOVERY_ARTICLE_IDS, ...REQUIRED_EVIDENCE_IDS].map((id) => ({
     url: `https://help.salesforce.com/s/articleView?id=${id}&language=en_US&type=5`,
     depth: maxDepth,
     parent: "oversized-help-fallback",
   }));
   const queue = [
     { url: normalizeHelpUrl(seed) ?? seed, depth: 0, parent: null },
+    ...RELATED_ARTICLE_IDS.map((id) => ({
+      url: `https://help.salesforce.com/s/articleView?id=${id}&language=en_US&type=5`,
+      depth: 0,
+      parent: "reviewed-related-topic",
+    })),
     ...fallbackDiscoverySeeds,
   ];
-  const seen = new Set();
+  const discoveries = new Map();
   const manifest = [];
+
+  function expandLinks(current, discovery) {
+    if (current.depth >= maxDepth) return;
+    for (const link of discovery.links) {
+      const previous = discoveries.get(link);
+      if (!previous || current.depth + 1 < previous.depth) {
+        queue.push({ url: link, depth: current.depth + 1, parent: discovery.id });
+      }
+    }
+  }
 
   await mkdir(path.join(outdir, "raw"), { recursive: true });
   await mkdir(path.join(outdir, "summaries"), { recursive: true });
 
-  while (queue.length && (maxPages <= 0 || manifest.length < maxPages)) {
+  while (queue.length) {
     const current = queue.shift();
-    if (!current || seen.has(current.url)) continue;
-    seen.add(current.url);
+    if (!current || current.depth > maxDepth) continue;
+    const previous = discoveries.get(current.url);
+    if (previous) {
+      if (current.depth >= previous.depth) continue;
+      previous.depth = current.depth;
+      if (previous.entry) {
+        previous.entry.depth = current.depth;
+        previous.entry.parent = current.parent;
+      }
+      expandLinks(current, previous);
+      continue;
+    }
+    // Finish shorter-path updates after the capture budget is exhausted.
+    if (maxPages > 0 && manifest.length >= maxPages) continue;
     process.stderr.write(`Scraping depth ${current.depth}: ${current.url}\n`);
-    const result = await scrape(current.url);
+    const result = refresh ? await helpExtractor.extract(current.url) : await scrape(current.url);
     const id = articleId(result.url);
     const fileBase = slug(result.url);
     const rawPath = path.join(outdir, "raw", `${fileBase}.md`);
     const links = extractHelpLinks(result.markdown);
     const summary = compactSummary(result.markdown);
+    const discovery = { depth: current.depth, id, links, entry: null };
+    discoveries.set(current.url, discovery);
     if (!isAcceptableResult(result)) {
       process.stderr.write(
         `Rejected Help shell or suspicious capture: ${id} (${result.title}, ${result.markdown.length} chars)\n`,
       );
-      if (current.depth < maxDepth) {
-        for (const link of links) {
-          if (!seen.has(link)) queue.push({ url: link, depth: current.depth + 1, parent: id });
-        }
-      }
+      expandLinks(current, discovery);
       continue;
     }
     const frontmatter = [
@@ -166,7 +217,9 @@ async function main() {
     } else {
       await writeFile(rawPath, frontmatter + result.markdown + "\n", "utf8");
     }
-    manifest.push({
+    await writeFile(path.join(outdir, "summaries", `${fileBase}.json`),
+      JSON.stringify({ articleId: id, title: result.title, source: result.url, summary }, null, 2) + "\n", "utf8");
+    discovery.entry = {
       title: result.title,
       source: result.url,
       articleId: id,
@@ -176,12 +229,9 @@ async function main() {
       markdownChars: result.markdown.length,
       links: links.length,
       summary,
-    });
-    if (current.depth < maxDepth) {
-      for (const link of links) {
-        if (!seen.has(link)) queue.push({ url: link, depth: current.depth + 1, parent: id });
-      }
-    }
+    };
+    manifest.push(discovery.entry);
+    expandLinks(current, discovery);
   }
 
   await writeFile(

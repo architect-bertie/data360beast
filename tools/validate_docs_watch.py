@@ -152,8 +152,14 @@ def validate_structure(issues: list[str]) -> None:
 
     contract = json.loads((ROOT / "docs/data360/sf-skills-data360-companion.json").read_text(encoding="utf-8"))
     names = [item.get("upstreamName") for item in contract.get("companionSkills", [])]
-    if len(names) != 9 or len(set(names)) != 9:
-        fail(issues, "companion contract must contain exactly nine unique skills")
+    if len(names) != 2 or set(names) != {"data360-schema-get", "data360-code-extension-generate"}:
+        fail(issues, "companion contract must contain the two supported upstream skills")
+    for relative in ("manifest.json", "docs/agent-manifest.json"):
+        metadata = json.loads((ROOT / relative).read_text(encoding="utf-8"))
+        packs = [pack for pack in metadata.get("companionSkillPacks", [])
+                 if pack.get("name") == "salesforce-sf-skills-data360"]
+        if len(packs) != 1 or packs[0].get("skills") != names:
+            fail(issues, f"{relative} active companions disagree with contract")
     markdown = (ROOT / "docs/data360/sf-skills-data360-companion.md").read_text(encoding="utf-8")
     for name in names:
         if name not in markdown:

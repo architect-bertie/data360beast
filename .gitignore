@@ -13,6 +13,7 @@ docs/data360/*
 !docs/data360/model-gallery-implementation-map.md
 !docs/data360/rag-search-index-retriever-playbook.md
 !docs/data360/docs-watch-operating-model.md
+!docs/data360/docs-watch-delta-review.md
 !docs/data360/docs-knowledge-graph.json
 !docs/data360/docs-watch-reconciliation.json
 !docs/data360/cost-usage-sizing-contract.md

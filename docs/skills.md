@@ -60,17 +60,18 @@ python3 skills/data360beast/scripts/install_sf_skills_data360_companion.py
 
 | Beast phase | Beast specialist | Salesforce `sf-skills` companion |
 | --- | --- | --- |
-| Cross-phase | `sf-datacloud` | `data360-orchestrate` |
-| Connect | `sf-datacloud-connect` | `data360-connect` |
-| Prepare | `sf-datacloud-prepare` | `data360-prepare` |
-| Harmonize | `sf-datacloud-harmonize` | `data360-harmonize` |
-| Segment | `sf-datacloud-segment` | `data360-segment` |
-| Act | `sf-datacloud-act` | `data360-activate` |
-| Retrieve | `sf-datacloud-retrieve` | `data360-query` |
 | Retrieve schema | `sf-datacloud-retrieve` | `data360-schema-get` |
 | Develop/package | `sf-datacloud` | `data360-code-extension-generate` |
 
-Use **Data 360** in Beast-facing prose. Preserve upstream `*-datacloud` names
+The seven former phase companions were removed upstream in commit
+`0851d45f78fdfa511bda12446c8cbe7c83c0d352` and are retired. For those workflows,
+use the matching Beast specialist listed above, or `sf-datacloud` for
+cross-phase work, with Beast preflight and operation-specific proof. Existing
+local companion copies are left untouched and may be stale; they are not active
+routes. See the [companion contract](data360/sf-skills-data360-companion.md)
+for the retirement record. No replacement CLI workflow is implied.
+
+Use **Data 360** in Beast-facing prose. Preserve upstream `data360-*` names
 only for exact folders, package references, and command surfaces from
 [`forcedotcom/sf-skills`](https://github.com/forcedotcom/sf-skills).
 
