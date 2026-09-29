@@ -17,6 +17,4 @@ jobs:
       - env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
-        run: |
-          gh pr checks "$PR" --required --watch
-          gh pr merge "$PR" --auto --squash --delete-branch
+        run: gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --auto --squash --delete-branch
