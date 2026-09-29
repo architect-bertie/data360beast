@@ -210,7 +210,7 @@
     "overallScore": 9.9
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-09-25",
+  "lastReviewed": "2026-09-29",
   "sourceStats": {
     "helpDocsAnalyzed": 467,
     "developerGuidePagesAnalyzed": 992,
