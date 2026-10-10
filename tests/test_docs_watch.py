@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +30,59 @@ VALIDATE_SPEC.loader.exec_module(validate_docs_watch)
 
 
 class DocsWatchTests(unittest.TestCase):
+    def test_metadata_syncs_companions_after_drift_and_on_recovery(self):
+        for changed in (True, False):
+            with self.subTest(changed=changed), tempfile.TemporaryDirectory() as raw:
+                root = Path(raw)
+                (root / "docs/data360").mkdir(parents=True)
+                (root / "skills").mkdir()
+                (root / "docs/proof-ledger.md").write_text("# Proof ledger\n")
+                upstream = {
+                    "repository": "https://github.com/forcedotcom/sf-skills",
+                    "packageName": "@salesforce/afv-skills",
+                    "observedPackageVersion": "new-version",
+                    "observedRef": "new-commit",
+                }
+                contract = {
+                    "upstream": {**upstream, "observedRef": "old-commit"} if changed else upstream,
+                    "companionSkills": [{"upstreamName": "data360-schema-get"}],
+                }
+                (root / "docs/data360/sf-skills-data360-companion.json").write_text(json.dumps(contract))
+                (root / "docs/data360/sf-skills-data360-companion.md").write_text(
+                    "- Version: `old-version`\n- Commit: `old-commit`\n- Observed: 2026-01-01\n"
+                )
+                paths = (root / "manifest.json", root / "docs/agent-manifest.json")
+                for path in paths:
+                    path.write_text(json.dumps({
+                        "unrelated": "preserved",
+                        "companionSkillPacks": [{
+                            "name": "salesforce-sf-skills-data360", "observedRef": "stale",
+                            "observedPackageVersion": "stale", "skills": ["retired-skill"],
+                            "contract": "surface-specific-contract", "installer": "keep-installer",
+                        }],
+                    }))
+                with patch.object(docs_watch, "ROOT", root):
+                    docs_watch.apply_companion_drift({
+                        "changed": changed, "categories": ["install"] if changed else [],
+                        "observed": {
+                            "repository": upstream["repository"], "packageName": upstream["packageName"],
+                            "packageVersion": upstream["observedPackageVersion"], "commit": upstream["observedRef"],
+                        },
+                    })
+                    docs_watch.update_public_metadata({"nodes": [], "generatedAt": "2026-10-10"})
+                    first = [path.read_text() for path in paths]
+                    docs_watch.update_public_metadata({"nodes": [], "generatedAt": "2026-10-10"})
+                    self.assertEqual(first, [path.read_text() for path in paths])
+                for path in paths:
+                    metadata = json.loads(path.read_text())
+                    pack = metadata["companionSkillPacks"][0]
+                    for key, value in upstream.items():
+                        self.assertEqual(pack[key], value)
+                    self.assertEqual(pack["skills"], ["data360-schema-get"])
+                    self.assertEqual(pack["contract"], "surface-specific-contract")
+                    self.assertEqual(pack["installer"], "keep-installer")
+                    self.assertEqual(metadata["unrelated"], "preserved")
+
     def test_help_shorter_paths_expand_without_refetching(self):
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)

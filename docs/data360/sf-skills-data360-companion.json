@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0",
   "name": "Salesforce sf-skills Data 360 Companion Contract",
-  "updated": "2026-09-25",
+  "updated": "2026-10-10",
   "purpose": "Machine-readable contract for using the Salesforce sf-skills repository as a Data 360 execution and debugging companion to Data360 Beast without vendoring upstream skill content.",
   "upstream": {
     "repository": "https://github.com/forcedotcom/sf-skills",
     "packageName": "@salesforce/afv-skills",
-    "observedPackageVersion": "1.58.0",
-    "observedRef": "d4a9aa448c7b743c1f1da41f41aa9723a6621232",
-    "observedRefDate": "2026-09-25",
+    "observedPackageVersion": "1.62.0",
+    "observedRef": "4bbae5c421e51b40e4169afa72c4496372a602a7",
+    "observedRefDate": "2026-10-10",
     "license": "CC-BY-NC-4.0",
     "installRoot": "skills/"
   },
@@ -83,8 +83,8 @@
       "sha256": "cf3949da535e692c3bb21b66a13edc6b87d1ebbe45dff295797cae84fbdc24c5"
     },
     "skills/data360-schema-get/SKILL.md": {
-      "bytes": 9851,
-      "sha256": "2892cb7d82b982a15b0ebd02d874572ec8fa1afade3f0ba8e713b9c9e61738f5"
+      "bytes": 9849,
+      "sha256": "f5733654d5096db59c2d77d784e6377065deaa4293d801334cd500b01fde5a5c"
     },
     "skills/data360-schema-get/references/README.md": {
       "bytes": 4425,

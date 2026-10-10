@@ -201,11 +201,11 @@ _Auto-synced from sf-docs captures of official Salesforce Developer documentatio
 
 **Sources:**
 - https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-data-cloud-integrations.html - Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
-- https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-databricks-connector.html - Databricks Connectors | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
+- https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-databricks-connector.html - Databricks Connector | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
 - https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-databricks-file-federation-connection.html - Set Up a Databricks File Federation Connection | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
 - https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-ingestion-api.html - Ingestion API | Data 360 Integrations | Data 360 Integration Guide | Salesforce Developers
 
-**Source fingerprint:** `408740012f5cfef7fa6fe2cf`
+**Source fingerprint:** `189417577b6f42e77f931e75`
 
 **Implementation notes:**
 - Classify each connector by supported direction and mode: ingestion, query federation, file federation, data share, unstructured ingestion, activation, or bidirectional use.

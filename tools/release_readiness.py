@@ -50,10 +50,9 @@ def main() -> int:
             issues.append(f"{source_name} companionSkillPacks must contain exactly one entry")
             continue
         pack = companion_packs[0]
-        if pack.get("repository") != companion_contract.get("upstream", {}).get("repository"):
-            issues.append(f"{source_name} companionSkillPacks repository diverges from companion contract")
-        if pack.get("observedRef") != companion_contract.get("upstream", {}).get("observedRef"):
-            issues.append(f"{source_name} companionSkillPacks observedRef diverges from companion contract")
+        for key in ("repository", "packageName", "observedPackageVersion", "observedRef"):
+            if pack.get(key) != companion_contract.get("upstream", {}).get(key):
+                issues.append(f"{source_name} companionSkillPacks {key} diverges from companion contract")
         if pack.get("skills") != contract_skills:
             issues.append(f"{source_name} companionSkillPacks skills diverge from companion contract")
         installer = pack.get("installer")

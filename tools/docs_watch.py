@@ -115,6 +115,7 @@ APPROVED_STAGES = {
     "tools/build_knowledge_graph.py",
     "tools/run_architecture_evals.py",
     "tools/validate_expertise.py",
+    "tools/release_readiness.py",
     "tests/test_docs_watch.py",
     "tests/test_data360beast_runtime.py",
 }
@@ -140,7 +141,7 @@ APPROVED_STAGES.update({
 
 
 def run(command: list[str], *, cwd: Path = ROOT, check: bool = True, timeout: int = 1800) -> subprocess.CompletedProcess[str]:
-    print("$ " + " ".join(command))
+    print("$ " + " ".join(command), flush=True)
     result = subprocess.run(command, cwd=cwd, text=True, capture_output=True, check=False, timeout=timeout)
     if result.stdout:
         print(result.stdout.strip())
@@ -640,6 +641,14 @@ def apply_companion_drift(drift: dict) -> None:
 
 
 def update_public_metadata(graph: dict) -> None:
+    contract = json_load(ROOT / "docs/data360/sf-skills-data360-companion.json", {})
+    upstream = contract["upstream"]
+    companion_metadata = {
+        key: upstream[key]
+        for key in ("repository", "packageName", "observedPackageVersion", "observedRef")
+    }
+    companion_metadata["skills"] = [entry["upstreamName"] for entry in contract["companionSkills"]]
+
     pages = [node for node in graph.get("nodes", []) if node.get("type") == "official-page"]
     help_pages = sum(node.get("sourceType") == "help" for node in pages)
     developer_pages = [node for node in pages if node.get("sourceType") == "developer"]
@@ -660,6 +669,8 @@ def update_public_metadata(graph: dict) -> None:
 
     manifest_path = ROOT / "manifest.json"
     manifest = json_load(manifest_path, {})
+    for pack in manifest.get("companionSkillPacks", []):
+        pack.update(companion_metadata)
     if graph.get("generatedAt"):
         manifest["lastReviewed"] = str(graph["generatedAt"])[:10]
     stats = manifest.setdefault("sourceStats", {})
@@ -676,6 +687,8 @@ def update_public_metadata(graph: dict) -> None:
 
     agent_path = ROOT / "docs/agent-manifest.json"
     agent = json_load(agent_path, {})
+    for pack in agent.get("companionSkillPacks", []):
+        pack.update(companion_metadata)
     if graph.get("generatedAt"):
         agent["lastReviewed"] = str(graph["generatedAt"])[:10]
     agent.setdefault("entrypoints", {})["implementationFoundation"] = (
