@@ -100,6 +100,6 @@ Current observed upstream:
 
 - Repository: <https://github.com/forcedotcom/sf-skills>
 - Package: `@salesforce/afv-skills`
-- Version: `1.58.0`
-- Commit: `d4a9aa448c7b743c1f1da41f41aa9723a6621232`
-- Observed: 2026-09-25
+- Version: `1.62.0`
+- Commit: `4bbae5c421e51b40e4169afa72c4496372a602a7`
+- Observed: 2026-10-10

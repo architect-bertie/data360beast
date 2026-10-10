@@ -1,6 +1,6 @@
 # Data 360 Help Index
 
-Indexed articles: 467
+Indexed articles: 468
 
 This public index lists the official Salesforce Help pages analyzed for
 Data360 Beast. Raw extracted article bodies and generated local summaries are
@@ -21,7 +21,7 @@ Discovery depth: 4
 | Use Search for AI, Automation, and Analytics | sf.c360_a_search_index_ground_ai.htm | 0 | 9379 | https://help.salesforce.com/s/articleView?id=sf.c360_a_search_index_ground_ai.htm&language=en_US&type=5 |
 | Agentforce Session Tracing | ai.generative_ai_session_trace.htm | 0 | 4208 | https://help.salesforce.com/s/articleView?id=ai.generative_ai_session_trace.htm&language=en_US&type=5 |
 | Configure Personalization: Get Context Action | mktg.persnl_agentforce_configure_get_context_action.htm | 0 | 4113 | https://help.salesforce.com/s/articleView?id=mktg.persnl_agentforce_configure_get_context_action.htm&language=en_US&type=5 |
-| Data 360 Glossary of Terms | sf.c360_a_glossary_guide.htm | 0 | 37247 | https://help.salesforce.com/s/articleView?id=sf.c360_a_glossary_guide.htm&language=en_US&type=5 |
+| Data 360 Glossary of Terms | sf.c360_a_glossary_guide.htm | 0 | 38019 | https://help.salesforce.com/s/articleView?id=sf.c360_a_glossary_guide.htm&language=en_US&type=5 |
 | Activation Record Home in Data 360 | data.c360_a_activations_publish_history.htm | 4 | 4317 | https://help.salesforce.com/s/articleView?id=data.c360_a_activations_publish_history.htm&language=en_US&type=5 |
 | Bring Your Own Model | data.c360_a_bring_your_own_model.htm | 4 | 3235 | https://help.salesforce.com/s/articleView?id=data.c360_a_bring_your_own_model.htm&language=en_US&type=5 |
 | Data 360 Limits and Guidelines | data.c360_a_considerations_and_guidelines.htm | 4 | 63 | https://help.salesforce.com/s/articleView?id=data.c360_a_considerations_and_guidelines.htm&language=en_US&type=5 |
@@ -33,10 +33,10 @@ Discovery depth: 4
 | Developer Edition Limits and Guidelines for Data 360 | data.c360_a_limits_and_guidelines_dev_ed.htm | 4 | 3577 | https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines_dev_ed.htm&language=en_US&type=5 |
 | Profile Explorer in Data 360 | data.c360_a_profile_explorer.htm | 4 | 2827 | https://help.salesforce.com/s/articleView?id=data.c360_a_profile_explorer.htm&language=en_US&type=5 |
 | Query Data in Data 360 | data.c360_a_query_data_in_dc.htm | 4 | 2675 | https://help.salesforce.com/s/articleView?id=data.c360_a_query_data_in_dc.htm&language=en_US&type=5 |
-| Optimize Queries with Secondary Indexes | data.c360_a_query_secondary_indexes.htm | 4 | 4541 | https://help.salesforce.com/s/articleView?id=data.c360_a_query_secondary_indexes.htm&language=en_US&type=5 |
+| Optimize Queries with Secondary Indexes | data.c360_a_query_secondary_indexes.htm | 4 | 5767 | https://help.salesforce.com/s/articleView?id=data.c360_a_query_secondary_indexes.htm&language=en_US&type=5 |
 | Segment Types and Statuses | data.c360_a_segment_types_statuses.htm | 4 | 4611 | https://help.salesforce.com/s/articleView?id=data.c360_a_segment_types_statuses.htm&language=en_US&type=5 |
 | About Tableau Semantics | analytics.c360_a_sl_get_started.htm | 4 | 2151 | https://help.salesforce.com/s/articleView?id=analytics.c360_a_sl_get_started.htm&language=en_US&type=5 |
-| Billing Considerations for Data Ingestion | data.c360_a_billing_considerations_for_data_ingestion.htm | 4 | 6695 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_data_ingestion.htm&language=en_US&type=5 |
+| Billing Considerations for Data Ingestion | data.c360_a_billing_considerations_for_data_ingestion.htm | 4 | 6582 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_data_ingestion.htm&language=en_US&type=5 |
 | Billing Considerations for Data Transforms | data.c360_a_billing_considerations_for_data_transforms.htm | 4 | 9081 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_data_transforms.htm&language=en_US&type=5 |
 | Billing Considerations for Identity Resolution | data.c360_a_billing_considerations_for_identity_resolution.htm | 4 | 9365 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_identity_resolution.htm&language=en_US&type=5 |
 | Monitor Model Activity | data.c360_a_ai_foundation_models_configured_monitor.htm | 4 | 1342 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_foundation_models_configured_monitor.htm&language=en_US&type=5 |
@@ -50,8 +50,8 @@ Discovery depth: 4
 | Data 360 Architecture Strategy | data.c360_a_data_cloud_architecture_strategy.htm | 4 | 5459 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_architecture_strategy.htm&language=en_US&type=5 |
 | Data Governance in Data 360 | data.c360_a_data_gov_capabilities.htm | 3 | 4105 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_gov_capabilities.htm&language=en_US&type=5 |
 | Create a Data 360 Sandbox | data.c360_a_data_cloud_sandbox_create.htm | 4 | 7492 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_sandbox_create.htm&language=en_US&type=5 |
-| Considerations for Data Cloud One in a Sandbox Org | data.c360_a_data_cloud_one_sandboxes.htm | 3 | 3967 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5 |
-| Data Cloud One Companion Connections | data.c360_a_companion_connections.htm | 2 | 3209 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connections.htm&language=en_US&type=5 |
+| Considerations for Data Cloud One in a Sandbox Org | data.c360_a_data_cloud_one_sandboxes.htm | 3 | 4114 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5 |
+| Data Cloud One Companion Connections | data.c360_a_companion_connections.htm | 2 | 3793 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connections.htm&language=en_US&type=5 |
 | About Salesforce Data 360 | data.c360_a_data_cloud.htm | 1 | 10454 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud.htm&language=en_US&type=5 |
 | Set Up and Turn On Data 360 | data.c360_a_setup_provision.htm | 1 | 2283 | https://help.salesforce.com/s/articleView?id=data.c360_a_setup_provision.htm&language=en_US&type=5 |
 | Create Data 360 Users and Assign Permissions | data.c360_a_setup_walkthrough.htm | 1 | 3060 | https://help.salesforce.com/s/articleView?id=data.c360_a_setup_walkthrough.htm&language=en_US&type=5 |
@@ -73,15 +73,15 @@ Discovery depth: 4
 | Using Retrieval Augmented Generation | data.c360_a_rag_overview.htm | 1 | 4141 | https://help.salesforce.com/s/articleView?id=data.c360_a_rag_overview.htm&language=en_US&type=5 |
 | Billing Considerations for Unstructured Data and Search Index | data.c360_a_unstructured_data_billing_considerations.htm | 1 | 15089 | https://help.salesforce.com/s/articleView?id=data.c360_a_unstructured_data_billing_considerations.htm&language=en_US&type=5 |
 | Unstructured Data in Data 360 | data.c360_a_unstructured_data_about.htm | 1 | 6463 | https://help.salesforce.com/s/articleView?id=data.c360_a_unstructured_data_about.htm&language=en_US&type=5 |
-| Build and Manage Data Graphs | data.c360_a_build_and_manage_data_graphs.htm | 1 | 6280 | https://help.salesforce.com/s/articleView?id=data.c360_a_build_and_manage_data_graphs.htm&language=en_US&type=5 |
-| Data 360 Glossary of Terms | data.c360_a_glossary_guide.htm | 1 | 37247 | https://help.salesforce.com/s/articleView?id=data.c360_a_glossary_guide.htm&language=en_US&type=5 |
+| Build and Manage Data Graphs | data.c360_a_build_and_manage_data_graphs.htm | 1 | 6447 | https://help.salesforce.com/s/articleView?id=data.c360_a_build_and_manage_data_graphs.htm&language=en_US&type=5 |
+| Data 360 Glossary of Terms | data.c360_a_glossary_guide.htm | 1 | 38019 | https://help.salesforce.com/s/articleView?id=data.c360_a_glossary_guide.htm&language=en_US&type=5 |
 | Connect Salesforce Data to Data 360 | data.c360_a_connect_data_task_steps.htm | 2 | 5343 | https://help.salesforce.com/s/articleView?id=data.c360_a_connect_data_task_steps.htm&language=en_US&type=5 |
-| Data Services Billable Usage Types for Data 360 | data.c360_a_data_usage_types.htm | 2 | 13705 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_usage_types.htm&language=en_US&type=5 |
+| Data Services Billable Usage Types for Data 360 | data.c360_a_data_usage_types.htm | 2 | 13755 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_usage_types.htm&language=en_US&type=5 |
 | Unlock Hidden Insights with Tableau | data.c360_a_dc_for_tableau.htm | 2 | 17605 | https://help.salesforce.com/s/articleView?id=data.c360_a_dc_for_tableau.htm&language=en_US&type=5 |
-| Data to Decisions: Data 360 and Tableau Next | data.c360_a_datacloud_tableaunext.htm | 2 | 7979 | https://help.salesforce.com/s/articleView?id=data.c360_a_datacloud_tableaunext.htm&language=en_US&type=5 |
-| Create Segments in Data 360 | data.c360_a_segments.htm | 2 | 5734 | https://help.salesforce.com/s/articleView?id=data.c360_a_segments.htm&language=en_US&type=5 |
+| Data to Decisions: Data 360 and Tableau Next | data.c360_a_datacloud_tableaunext.htm | 2 | 8186 | https://help.salesforce.com/s/articleView?id=data.c360_a_datacloud_tableaunext.htm&language=en_US&type=5 |
+| Create Segments in Data 360 | data.c360_a_segments.htm | 2 | 5719 | https://help.salesforce.com/s/articleView?id=data.c360_a_segments.htm&language=en_US&type=5 |
 | Better Together: Data and AI | data.c360_a_dc_ai.htm | 2 | 8988 | https://help.salesforce.com/s/articleView?id=data.c360_a_dc_ai.htm&language=en_US&type=5 |
-| A Solid Data Foundation: Data 360 and Informatica IDMC | data.c360_a_informatica.htm | 2 | 5309 | https://help.salesforce.com/s/articleView?id=data.c360_a_informatica.htm&language=en_US&type=5 |
+| A Solid Data Foundation: Data 360 and Informatica IDMC | data.c360_a_informatica.htm | 2 | 5532 | https://help.salesforce.com/s/articleView?id=data.c360_a_informatica.htm&language=en_US&type=5 |
 | Data Builds the Foundation for Marketing | data.c360_a_datacloud_mktgnext.htm | 2 | 7350 | https://help.salesforce.com/s/articleView?id=data.c360_a_datacloud_mktgnext.htm&language=en_US&type=5 |
 | About Data 360 Releases | data.c360_a_dc_releases.htm | 2 | 4905 | https://help.salesforce.com/s/articleView?id=data.c360_a_dc_releases.htm&language=en_US&type=5 |
 | Data 360 Resources | data.c360_a_dc_resources.htm | 2 | 20558 | https://help.salesforce.com/s/articleView?id=data.c360_a_dc_resources.htm&language=en_US&type=5 |
@@ -116,7 +116,7 @@ Discovery depth: 4
 | Set Up a Microsoft Azure Target Connection | data.c360_a_set_up_a_microsoft_azure_target_connection.htm | 2 | 4331 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_a_microsoft_azure_target_connection.htm&language=en_US&type=5 |
 | Set Up a Google Cloud Storage Target Connection | data.c360_a_set_up_a_google_cloud_storage_target_connection.htm | 2 | 3646 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_a_google_cloud_storage_target_connection.htm&language=en_US&type=5 |
 | Document AI | data.c360_a_document_ai.htm | 2 | 7469 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai.htm&language=en_US&type=5 |
-| Explore and Research Content with Notebook AI | data.c360_a_notebook_ai_research_analyze.htm | 2 | 5361 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_research_analyze.htm&language=en_US&type=5 |
+| Explore and Research Content with Notebook AI | data.c360_a_notebook_ai_research_analyze.htm | 2 | 5342 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_research_analyze.htm&language=en_US&type=5 |
 | Intelligent Context in Data 360 | data.c360_a_intelligent_context.htm | 2 | 4967 | https://help.salesforce.com/s/articleView?id=data.c360_a_intelligent_context.htm&language=en_US&type=5 |
 | LLM-based Parsing and Preprocessing | data.c360_a_llm_parsing_preprocessing.htm | 2 | 2407 | https://help.salesforce.com/s/articleView?id=data.c360_a_llm_parsing_preprocessing.htm&language=en_US&type=5 |
 | Create a Vector Search Index with Advanced Setup | data.c360_a_search_index_create_vector_index_config.htm | 2 | 12967 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_create_vector_index_config.htm&language=en_US&type=5 |
@@ -127,7 +127,7 @@ Discovery depth: 4
 | Data 360 Time Zones | data.c360_a_time_zones.htm | 2 | 821 | https://help.salesforce.com/s/articleView?id=data.c360_a_time_zones.htm&language=en_US&type=5 |
 | Control and Metadata Change Events | data.c360_a_control_events_supported_objects.htm | 2 | 8062 | https://help.salesforce.com/s/articleView?id=data.c360_a_control_events_supported_objects.htm&language=en_US&type=5 |
 | Allowlisting | data.c360_a_allowlist.htm | 2 | 3174 | https://help.salesforce.com/s/articleView?id=data.c360_a_allowlist.htm&language=en_US&type=5 |
-| Chunk DMO | data.c360_a_search_index_chunk_dmo.htm | 2 | 1621 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_chunk_dmo.htm&language=en_US&type=5 |
+| Chunk DMO | data.c360_a_search_index_chunk_dmo.htm | 2 | 1907 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_chunk_dmo.htm&language=en_US&type=5 |
 | Index DMO | data.c360_a_search_index_index_dmo.htm | 2 | 1300 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_index_dmo.htm&language=en_US&type=5 |
 | Chunking Strategies | data.c360_a_search_index_supported_chunking_strategies.htm | 2 | 11662 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_supported_chunking_strategies.htm&language=en_US&type=5 |
 | How the Max Token Setting Affects Chunking | data.c360_a_search_index_max_token_setting.htm | 2 | 1784 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_max_token_setting.htm&language=en_US&type=5 |
@@ -161,20 +161,20 @@ Discovery depth: 4
 | Fully Qualified Keys in Data Objects | data.c360_a_dlo_dmo_key_qualifiers.htm | 2 | 2632 | https://help.salesforce.com/s/articleView?id=data.c360_a_dlo_dmo_key_qualifiers.htm&language=en_US&type=5 |
 | Create a Data Graph | data.c360_a_create_a_data_graph.htm | 2 | 6233 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_data_graph.htm&language=en_US&type=5 |
 | Create a Data Graph from a Data Kit | data.c360_a_create_a_data_graph_data_kit.htm | 2 | 2581 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_data_graph_data_kit.htm&language=en_US&type=5 |
-| Redeploy a Data Kit When Its Data Graph Is Deployed | data.c360_a_redeploy_datakit_for_dg.htm | 2 | 1931 | https://help.salesforce.com/s/articleView?id=data.c360_a_redeploy_datakit_for_dg.htm&language=en_US&type=5 |
+| Redeploy a Data Kit When Its Data Graph Is Deployed | data.c360_a_redeploy_datakit_for_dg.htm | 2 | 1748 | https://help.salesforce.com/s/articleView?id=data.c360_a_redeploy_datakit_for_dg.htm&language=en_US&type=5 |
 | Add Calculated Insights to a Data Graph | data.c360_a_add_calculated_insights_to_a_data_graph.htm | 2 | 3460 | https://help.salesforce.com/s/articleView?id=data.c360_a_add_calculated_insights_to_a_data_graph.htm&language=en_US&type=5 |
 | View Data Graph Properties and JSON Structure | data.c360_a_view_data_graph_metadata.htm | 2 | 1746 | https://help.salesforce.com/s/articleView?id=data.c360_a_view_data_graph_metadata.htm&language=en_US&type=5 |
 | Edit a Data Graph | data.c360_a_edit_a_data_graph.htm | 2 | 3201 | https://help.salesforce.com/s/articleView?id=data.c360_a_edit_a_data_graph.htm&language=en_US&type=5 |
 | Clone a Data Graph | data.c360_a_clone_a_data_graph.htm | 2 | 1587 | https://help.salesforce.com/s/articleView?id=data.c360_a_clone_a_data_graph.htm&language=en_US&type=5 |
 | Delete a Data Graph | data.c360_a_delete_a_data_graph.htm | 2 | 1822 | https://help.salesforce.com/s/articleView?id=data.c360_a_delete_a_data_graph.htm&language=en_US&type=5 |
 | Refresh a Data Graph | data.c360_a_refresh_a_data_graph.htm | 2 | 2616 | https://help.salesforce.com/s/articleView?id=data.c360_a_refresh_a_data_graph.htm&language=en_US&type=5 |
-| Streaming Data Graphs | data.c360_a_streaming_dg.htm | 2 | 2701 | https://help.salesforce.com/s/articleView?id=data.c360_a_streaming_dg.htm&language=en_US&type=5 |
+| Streaming Data Graphs | data.c360_a_streaming_dg.htm | 2 | 2808 | https://help.salesforce.com/s/articleView?id=data.c360_a_streaming_dg.htm&language=en_US&type=5 |
 | Manage Data Returned in Data Graphs | data.c360_a_limit_child_records_data_graph.htm | 2 | 4339 | https://help.salesforce.com/s/articleView?id=data.c360_a_limit_child_records_data_graph.htm&language=en_US&type=5 |
 | Control Data Graph Access | data.c360_a_dg_granular_gov.htm | 2 | 6247 | https://help.salesforce.com/s/articleView?id=data.c360_a_dg_granular_gov.htm&language=en_US&type=5 |
 | Record Caching and User Session Length in Real-Time Data Graphs | data.c360_a_record_caching_in_rt_data_graphs.htm | 2 | 2085 | https://help.salesforce.com/s/articleView?id=data.c360_a_record_caching_in_rt_data_graphs.htm&language=en_US&type=5 |
 | Session Extension in Real-Time Data Graphs | data.c360_a_sess_ext_data_graphs.htm | 2 | 1487 | https://help.salesforce.com/s/articleView?id=data.c360_a_sess_ext_data_graphs.htm&language=en_US&type=5 |
 | Data Graph Refresh History | data.c360_a_data_graph_refresh_history.htm | 2 | 1717 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_graph_refresh_history.htm&language=en_US&type=5 |
-| Create a Salesforce CRM Data Stream | data.c360_a_create_crm_data_stream.htm | 3 | 8288 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_crm_data_stream.htm&language=en_US&type=5 |
+| Create a Salesforce CRM Data Stream | data.c360_a_create_crm_data_stream.htm | 3 | 8594 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_crm_data_stream.htm&language=en_US&type=5 |
 | Unify Source Profiles | data.c360_a_identity_resolution_data_modeling_requirements.htm | 3 | 3597 | https://help.salesforce.com/s/articleView?id=data.c360_a_identity_resolution_data_modeling_requirements.htm&language=en_US&type=5 |
 | Create Identity Resolution Rulesets | data.c360_a_identity_resolution_ruleset_create.htm | 3 | 4855 | https://help.salesforce.com/s/articleView?id=data.c360_a_identity_resolution_ruleset_create.htm&language=en_US&type=5 |
 | Enhance Data with Insights | data.c360_a_insights.htm | 3 | 8024 | https://help.salesforce.com/s/articleView?id=data.c360_a_insights.htm&language=en_US&type=5 |
@@ -192,7 +192,7 @@ Discovery depth: 4
 | Tableau Accelerators for Data 360 | data.c360_a_tableau_accelerators.htm | 3 | 6802 | https://help.salesforce.com/s/articleView?id=data.c360_a_tableau_accelerators.htm&language=en_US&type=5 |
 | Data 360 and Tableau Use Cases | data.c360_a_dc_for_tableau_use_cases.htm | 3 | 2386 | https://help.salesforce.com/s/articleView?id=data.c360_a_dc_for_tableau_use_cases.htm&language=en_US&type=5 |
 | Connect Data | data.c360_a_data_ingestion.htm | 3 | 3687 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_ingestion.htm&language=en_US&type=5 |
-| About the Data 360 Marketing Agent | data.c360_a_marketing_agent.htm | 3 | 6168 | https://help.salesforce.com/s/articleView?id=data.c360_a_marketing_agent.htm&language=en_US&type=5 |
+| About the Data 360 Marketing Agent | data.c360_a_marketing_agent.htm | 3 | 6270 | https://help.salesforce.com/s/articleView?id=data.c360_a_marketing_agent.htm&language=en_US&type=5 |
 | Create a Standard Segment in Data 360 | data.c360_a_create_a_segment.htm | 3 | 6985 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_segment.htm&language=en_US&type=5 |
 | Create a Real-Time Segment | data.c360_a_create_a_realtime_segment.htm | 3 | 1833 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_realtime_segment.htm&language=en_US&type=5 |
 | Create a Waterfall Segment | data.c360_a_create_a_waterfall_segment.htm | 3 | 5343 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_waterfall_segment.htm&language=en_US&type=5 |
@@ -227,6 +227,7 @@ Discovery depth: 4
 | Set Up a Data Cloud One Companion Connection | data.c360_a_companion_connection_setup.htm | 3 | 6867 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_setup.htm&language=en_US&type=5 |
 | Monitor Data 360 Companion Connections | data.c360_a_data_cloud_one_monitoring.htm | 3 | 1542 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_monitoring.htm&language=en_US&type=5 |
 | Delete a Companion Connection | data.c360_a_companion_connection_delete.htm | 3 | 1762 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_delete.htm&language=en_US&type=5 |
+| Resolve Connection Errors in Data Cloud One Sandbox Orgs | data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm | 3 | 3097 | https://help.salesforce.com/s/articleView?id=data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm&language=en_US&type=5 |
 | Access Data Cloud One from a Companion Org | data.c360_a_data_cloud_one_app.htm | 3 | 1977 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_app.htm&language=en_US&type=5 |
 | Ingest and Model Digital Identifiers for JSON-based External Activation Targets | data.c360_a_map_digital_identifiers_activation_toolkit.htm | 3 | 7866 | https://help.salesforce.com/s/articleView?id=data.c360_a_map_digital_identifiers_activation_toolkit.htm&language=en_US&type=5 |
 | Create an External Platform Activation Target | data.c360_a_create_external_activation_platform_activation_target.htm | 3 | 4115 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_external_activation_platform_activation_target.htm&language=en_US&type=5 |
@@ -244,7 +245,7 @@ Discovery depth: 4
 | Enable Notebook AI Web Access | data.c360_a_notebook_ai_web_access.htm | 3 | 2579 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_web_access.htm&language=en_US&type=5 |
 | Generate Research Reports with Deep Research | data.c360_a_notebook_ai_deep_research.htm | 3 | 3236 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_deep_research.htm&language=en_US&type=5 |
 | Manage AI Notebooks | data.c360_a_notebook_ai_manage_notebooks.htm | 3 | 4421 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_manage_notebooks.htm&language=en_US&type=5 |
-| Billing Considerations for Notebook AI | data.c360_a_notebookai_billing_considerations.htm | 3 | 4928 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebookai_billing_considerations.htm&language=en_US&type=5 |
+| Billing Considerations for Notebook AI | data.c360_a_notebookai_billing_considerations.htm | 3 | 13976 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebookai_billing_considerations.htm&language=en_US&type=5 |
 | Troubleshoot Notebook AI Errors | data.c360_a_notebook_ai_troubleshooting.htm | 3 | 1671 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_troubleshooting.htm&language=en_US&type=5 |
 | Create an Intelligent Context Configuration | data.c360_a_intelligent_context_create_configuration.htm | 3 | 10350 | https://help.salesforce.com/s/articleView?id=data.c360_a_intelligent_context_create_configuration.htm&language=en_US&type=5 |
 | Billing Considerations for Intelligent Context | data.c360_a_billing_considerations_for_intelligent_context.htm | 3 | 4298 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_intelligent_context.htm&language=en_US&type=5 |
@@ -260,7 +261,7 @@ Discovery depth: 4
 | Vector Search Query Expressions and Pre-Filtering | data.c360_a_search_index_query_prefilters.htm | 3 | 4743 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_query_prefilters.htm&language=en_US&type=5 |
 | Hybrid Search Query Expressions for Autodrop | data.c360_a_hybridsearch_autodrop_query.htm | 3 | 3869 | https://help.salesforce.com/s/articleView?id=data.c360_a_hybridsearch_autodrop_query.htm&language=en_US&type=5 |
 | Data Kits | data.c360_a_data_package_kits.htm | 3 | 5106 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_package_kits.htm&language=en_US&type=5 |
-| Ingest File Attachments from Salesforce CRM Objects into Data 360 | data.c360_a_unstructured_data_connect_content_document.htm | 3 | 16883 | https://help.salesforce.com/s/articleView?id=data.c360_a_unstructured_data_connect_content_document.htm&language=en_US&type=5 |
+| Ingest File Attachments from Salesforce CRM Objects into Data 360 | data.c360_a_unstructured_data_connect_content_document.htm | 3 | 16875 | https://help.salesforce.com/s/articleView?id=data.c360_a_unstructured_data_connect_content_document.htm&language=en_US&type=5 |
 | Monitor the Status of Unstructured Connectors Data Ingestion | data.c360_a_monitor_the_status_of_unstructured_connectors_data_ingestion.htm | 3 | 2004 | https://help.salesforce.com/s/articleView?id=data.c360_a_monitor_the_status_of_unstructured_connectors_data_ingestion.htm&language=en_US&type=5 |
 | Billing Considerations for Data Federation | data.c360_a_billing_considerations_for_data_federation.htm | 3 | 12394 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_data_federation.htm&language=en_US&type=5 |
 | Zero Copy Data Federation | data.c360_a_byol_data_federation.htm | 3 | 4460 | https://help.salesforce.com/s/articleView?id=data.c360_a_byol_data_federation.htm&language=en_US&type=5 |
@@ -276,11 +277,11 @@ Discovery depth: 4
 | Data Drift in High-Frequency Data Graph Refreshes | data.c360_a_dg_data_drift.htm | 3 | 2592 | https://help.salesforce.com/s/articleView?id=data.c360_a_dg_data_drift.htm&language=en_US&type=5 |
 | CRM Connector Streaming | data.c360_a_crm_connector_streaming.htm | 4 | 3549 | https://help.salesforce.com/s/articleView?id=data.c360_a_crm_connector_streaming.htm&language=en_US&type=5 |
 | Category | data.c360_a_category.htm | 4 | 5895 | https://help.salesforce.com/s/articleView?id=data.c360_a_category.htm&language=en_US&type=5 |
+| Set Up a CRM Salesforce Org Connection | data.c360_a_set_up_crm_connection.htm | 4 | 7308 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_crm_connection.htm&language=en_US&type=5 |
 | Data Stream Schedule in Data 360 | data.c360_a_data_stream_schedule.htm | 4 | 7201 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_stream_schedule.htm&language=en_US&type=5 |
 | Disable or Re-enable a Salesforce CRM Connector Data Stream Field | data.c360_a_crm_disable_or_reenable_data_stream_field.htm | 4 | 2904 | https://help.salesforce.com/s/articleView?id=data.c360_a_crm_disable_or_reenable_data_stream_field.htm&language=en_US&type=5 |
 | Store or Remove Deleted CRM Connector Data Stream Records | data.c360_a_crm_store_deleted_data_stream_records.htm | 4 | 3988 | https://help.salesforce.com/s/articleView?id=data.c360_a_crm_store_deleted_data_stream_records.htm&language=en_US&type=5 |
 | Object Support for CRM Data Streams | data.c360_a_crm_unsupported_objects_types.htm | 4 | 22268 | https://help.salesforce.com/s/articleView?id=data.c360_a_crm_unsupported_objects_types.htm&language=en_US&type=5 |
-| Set Up a CRM Salesforce Org Connection | data.c360_a_set_up_crm_connection.htm | 4 | 7308 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_crm_connection.htm&language=en_US&type=5 |
 | About Identity Resolution | data.c360_a_identity_resolution.htm | 4 | 4194 | https://help.salesforce.com/s/articleView?id=data.c360_a_identity_resolution.htm&language=en_US&type=5 |
 | Profile Unification Types | data.c360_a_identity_resolution_unification_types.htm | 4 | 1651 | https://help.salesforce.com/s/articleView?id=data.c360_a_identity_resolution_unification_types.htm&language=en_US&type=5 |
 | Identity Resolution Rulesets | data.c360_a_identity_resolution_ruleset.htm | 4 | 2973 | https://help.salesforce.com/s/articleView?id=data.c360_a_identity_resolution_ruleset.htm&language=en_US&type=5 |
@@ -307,7 +308,7 @@ Discovery depth: 4
 | Data Object Concepts and Schema in Data 360 | data.c360_a_schema_setup_concepts.htm | 4 | 4085 | https://help.salesforce.com/s/articleView?id=data.c360_a_schema_setup_concepts.htm&language=en_US&type=5 |
 | Data Sources in Data 360 | data.c360_a_connectors.htm | 4 | 2482 | https://help.salesforce.com/s/articleView?id=data.c360_a_connectors.htm&language=en_US&type=5 |
 | Data Streams in Data 360 | data.c360_a_data_streams.htm | 4 | 6770 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_streams.htm&language=en_US&type=5 |
-| Private Connect for Data 360 | data.c360_a_private_connect_data_cloud.htm | 4 | 6397 | https://help.salesforce.com/s/articleView?id=data.c360_a_private_connect_data_cloud.htm&language=en_US&type=5 |
+| Private Connect for Data 360 | data.c360_a_private_connect_data_cloud.htm | 4 | 7093 | https://help.salesforce.com/s/articleView?id=data.c360_a_private_connect_data_cloud.htm&language=en_US&type=5 |
 | Date and Datetime Formats | data.c360_a_data_types_and_date_formats.htm | 4 | 6305 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_types_and_date_formats.htm&language=en_US&type=5 |
 | Supported File Formats in Data 360 | data.c360_a_supported_file_formats.htm | 4 | 3920 | https://help.salesforce.com/s/articleView?id=data.c360_a_supported_file_formats.htm&language=en_US&type=5 |
 | Enable Data 360 Data Q&A Agent | data.c360_a_enable_data_qna_agent.htm | 4 | 3619 | https://help.salesforce.com/s/articleView?id=data.c360_a_enable_data_qna_agent.htm&language=en_US&type=5 |
@@ -345,7 +346,7 @@ Discovery depth: 4
 | Create an Einstein Segment in Data 360 | data.c360_a_create_segment_einstein_create.htm | 4 | 4443 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_segment_einstein_create.htm&language=en_US&type=5 |
 | How to Write a Good Prompt for Einstein Segments in Data 360 | data.c360_a_create_segment_einstein_prompts.htm | 4 | 2560 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_segment_einstein_prompts.htm&language=en_US&type=5 |
 | Improve Your Einstein Segment Creation Results in Data 360 | data.c360_a_create_segment_einstein_improve.htm | 4 | 2085 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_segment_einstein_improve.htm&language=en_US&type=5 |
-| Data Services Billable Usage Types for Data 360 | sf.c360_a_data_usage_types.htm | 4 | 13705 | https://help.salesforce.com/s/articleView?id=sf.c360_a_data_usage_types.htm&language=en_US&type=5 |
+| Data Services Billable Usage Types for Data 360 | sf.c360_a_data_usage_types.htm | 4 | 13755 | https://help.salesforce.com/s/articleView?id=sf.c360_a_data_usage_types.htm&language=en_US&type=5 |
 | Billing Considerations for Predictive AI | data.c360_a_ai_usage_inference.htm | 4 | 4984 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_usage_inference.htm&language=en_US&type=5 |
 | Set Up AI Models | data.c360_a_ai_license_perms.htm | 4 | 2917 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_license_perms.htm&language=en_US&type=5 |
 | Create, Connect, and Activate Models | data.c360_a_ai_create_connect_activate_models.htm | 4 | 5919 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_create_connect_activate_models.htm&language=en_US&type=5 |
@@ -354,7 +355,7 @@ Discovery depth: 4
 | Key Concepts for Predictive AI | data.c360_a_ai_predictive_about.htm | 4 | 4688 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_predictive_about.htm&language=en_US&type=5 |
 | Use Case: Enhance Paid Media Campaigns with First-Party Data | data.c360_a_mce_migration_configure.htm | 4 | 6087 | https://help.salesforce.com/s/articleView?id=data.c360_a_mce_migration_configure.htm&language=en_US&type=5 |
 | Understanding the Ad Activation Report | data.c360_a_mce_ad_activation_report.htm | 4 | 3454 | https://help.salesforce.com/s/articleView?id=data.c360_a_mce_ad_activation_report.htm&language=en_US&type=5 |
-| Enrichment Considerations | data.c360_a_enrichment_considerations.htm | 4 | 17743 | https://help.salesforce.com/s/articleView?id=data.c360_a_enrichment_considerations.htm&language=en_US&type=5 |
+| Enrichment Considerations | data.c360_a_enrichment_considerations.htm | 4 | 17771 | https://help.salesforce.com/s/articleView?id=data.c360_a_enrichment_considerations.htm&language=en_US&type=5 |
 | Billing Considerations for Data 360 Enrichments | data.c360_a_enrichment_considerations_cost.htm | 4 | 8208 | https://help.salesforce.com/s/articleView?id=data.c360_a_enrichment_considerations_cost.htm&language=en_US&type=5 |
 | Create a Related List Enrichment | data.c360_a_create_a_related_list_enrichment.htm | 4 | 5766 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_related_list_enrichment.htm&language=en_US&type=5 |
 | Create a Permission Set for a Related List Enrichment | data.c360_a_create_a_related_list_permset.htm | 4 | 3224 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_a_related_list_permset.htm&language=en_US&type=5 |
@@ -448,17 +449,17 @@ Discovery depth: 4
 | Understand Data Spaces in Companion Orgs | data.c360_a_data_spaces_in_companion_orgs.htm | 4 | 1751 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_in_companion_orgs.htm&language=en_US&type=5 |
 | Data Cloud One Companion Connection Statuses | data.c360_a_companion_connection_statuses.htm | 4 | 3027 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_statuses.htm&language=en_US&type=5 |
 | Version Mismatch Errors in Data Cloud One Orgs | data.c360_a_data_cloud_one_version_mismatch.htm | 4 | 3663 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_version_mismatch.htm&language=en_US&type=5 |
-| Data 360 Features on Companion Orgs | data.c360_a_companion_org_data_cloud_features.htm | 4 | 4516 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5 |
+| Data 360 Features on Companion Orgs | data.c360_a_companion_org_data_cloud_features.htm | 4 | 4586 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5 |
 | Data 360 Connection Details on Companion Orgs | data.c360_a_companion_org_connection_details.htm | 4 | 1748 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_connection_details.htm&language=en_US&type=5 |
-| Grant Data Cloud One Access to Users | data.c360_a_userpermissions_data_cloud_one.htm | 4 | 1106 | https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_data_cloud_one.htm&language=en_US&type=5 |
+| Grant Data Cloud One Access to Users | data.c360_a_userpermissions_data_cloud_one.htm | 4 | 1302 | https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_data_cloud_one.htm&language=en_US&type=5 |
 | External Activation Platforms | data.c360_a_build_external_activation_platforms.htm | 4 | 2995 | https://help.salesforce.com/s/articleView?id=data.c360_a_build_external_activation_platforms.htm&language=en_US&type=5 |
 | Requirements for External Activation Targets | data.c360_a_requirements_for_external_activation_targets.htm | 4 | 2893 | https://help.salesforce.com/s/articleView?id=data.c360_a_requirements_for_external_activation_targets.htm&language=en_US&type=5 |
-| Identity Boost | data.c360_a_crc_identity_boost.htm | 4 | 5375 | https://help.salesforce.com/s/articleView?id=data.c360_a_crc_identity_boost.htm&language=en_US&type=5 |
+| Identity Boost | data.c360_a_crc_identity_boost.htm | 4 | 6849 | https://help.salesforce.com/s/articleView?id=data.c360_a_crc_identity_boost.htm&language=en_US&type=5 |
 | Add Filters to the Activation Membership | data.c360_a_activation_membership_filtering.htm | 4 | 3628 | https://help.salesforce.com/s/articleView?id=data.c360_a_activation_membership_filtering.htm&language=en_US&type=5 |
 | Add Filters to Contact Points in Activation | data.c360_a_contact_point_filtering.htm | 4 | 3253 | https://help.salesforce.com/s/articleView?id=data.c360_a_contact_point_filtering.htm&language=en_US&type=5 |
 | Audience Data Model Object | data.c360_a_audience_data_model_object.htm | 4 | 2966 | https://help.salesforce.com/s/articleView?id=data.c360_a_audience_data_model_object.htm&language=en_US&type=5 |
 | Activation Type and Target Compatibility | data.c360_a_publish_schedule_activation_target_compatibility.htm | 4 | 2272 | https://help.salesforce.com/s/articleView?id=data.c360_a_publish_schedule_activation_target_compatibility.htm&language=en_US&type=5 |
-| Identity Boost for Ad Audiences Partners | data.c360_a_ad_audiences_identity_boost.htm | 4 | 4025 | https://help.salesforce.com/s/articleView?id=data.c360_a_ad_audiences_identity_boost.htm&language=en_US&type=5 |
+| Identity Boost for Ad Audiences Partners | data.c360_a_ad_audiences_identity_boost.htm | 4 | 4305 | https://help.salesforce.com/s/articleView?id=data.c360_a_ad_audiences_identity_boost.htm&language=en_US&type=5 |
 | File Name Examples for File Storage Activation | data.c360_a_file_name_examples.htm | 4 | 2858 | https://help.salesforce.com/s/articleView?id=data.c360_a_file_name_examples.htm&language=en_US&type=5 |
 | Create an Activation for File Storage Target | data.c360_a_add_activation_target.htm | 4 | 11669 | https://help.salesforce.com/s/articleView?id=data.c360_a_add_activation_target.htm&language=en_US&type=5 |
 | Add a Data Kit to a Package | data.c360_a_publish_package_kit.htm | 4 | 1920 | https://help.salesforce.com/s/articleView?id=data.c360_a_publish_package_kit.htm&language=en_US&type=5 |

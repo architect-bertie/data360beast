@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1",
-  "generatedAt": "2026-09-25T22:15:49.955588+00:00",
+  "generatedAt": "2026-10-10T18:08:17.434922+00:00",
   "scope": {
     "helpSeed": "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5",
     "developerCenter": "https://developer.salesforce.com/developer-centers/data-cloud",
@@ -12,14 +12,14 @@
     "contentHashContract": "crawler-content-sha256-v1"
   },
   "summary": {
-    "currentPages": 4186,
-    "helpPages": 467,
-    "developerPages": 3719,
-    "developerCaptured": 992,
-    "developerCataloged": 2727,
-    "newPages": 28,
-    "removedPages": 0,
-    "changedPages": 0,
+    "currentPages": 4221,
+    "helpPages": 468,
+    "developerPages": 3753,
+    "developerCaptured": 996,
+    "developerCataloged": 2757,
+    "newPages": 37,
+    "removedPages": 2,
+    "changedPages": 58,
     "rehashedPages": 0,
     "staleReferences": 0,
     "uncoveredTopics": 0,
@@ -27,8 +27,8 @@
     "extractionFailures": 0
   },
   "sourceCounts": {
-    "help": 467,
-    "developer": 3719
+    "help": 468,
+    "developer": 3753
   },
   "developerFamilies": {
     "code-extension": {
@@ -57,9 +57,9 @@
       "cataloged": 0
     },
     "dmo-mapping": {
-      "total": 2761,
+      "total": 2791,
       "captured": 34,
-      "cataloged": 2727
+      "cataloged": 2757
     },
     "hosted-data360-mcp": {
       "total": 1,
@@ -67,8 +67,8 @@
       "cataloged": 0
     },
     "integration": {
-      "total": 857,
-      "captured": 857,
+      "total": 861,
+      "captured": 861,
       "cataloged": 0
     },
     "query-guide": {
@@ -83,41 +83,153 @@
     }
   },
   "newPages": [
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_add_new_source_fields.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_delete.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_setup.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_shared_objects.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_statuses.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_connection_details.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_control_external_user_access.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_enable_object_and_field_permissions.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_salesforce_commerce_object_perms.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_app.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_governance.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_metadata_ownership.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_monitoring.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_version_mismatch.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_associate_perm_sets.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_feature_access.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_in_companion_orgs.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_enable_permissions_for_crm_streaming.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_enable_user_permissions_external_salesforce_org_encrypted.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_getting_started_data_gov.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_mergeback_devops_datakits.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_policy_based_governance_dg.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_prepare_home_org_for_dcone.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_cdp.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_data_cloud_one.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_using_tagging_and_classification_dg.htm&language=en_US&type=5",
-    "https://help.salesforce.com/s/articleView?id=data.c360_a_viewing_data_lineage.htm&language=en_US&type=5"
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/MessagingConsentObjects.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-benefitassignmentgroupmember_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-budgetmngeventtype_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-estimatedexpense_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtappvlitemrulegrp_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtparticipantrole_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtparticipanttype_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtptcptyperolemap_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtrule_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtrulegroup_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtrulegrpasgnrule_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-eventmgmtstatus_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-expense_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-expensetype_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-expert_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-geocountry_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngevent_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventbudget_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventcapacityrsv_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventparticipant_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventproduct_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventresource_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventresourcepreference_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventsessionparticipant_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventsupplierproduct_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mngeventterritory_dmo_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accountscoreadjustmentdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accounttierassignmentdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accounttierdefinitiondmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-assetallocationdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-benefitassignmentgroupmemberdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-individualscoreadjustmentdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-databricks-integration.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-oraclenetsuite-connector-limitations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-snowflake-integration.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-staging-area.html",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm&language=en_US&type=5"
   ],
-  "removedPages": [],
-  "changedPages": [],
+  "removedPages": [
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-commandcenteralertdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/cdp_crm_dk2__FieldService.html"
+  ],
+  "changedPages": [
+    "https://developer.salesforce.com/docs/data/connectapi/references",
+    "https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/author-custom-script.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/considerations-when-writing-custom-code.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-emailengagementdmo-dmo.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entity-interface-dmos-introduction.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-standard_mappings.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/file-based-data-kits-introduction.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-awsrdsaurorapostgres-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-awsrdspostgres-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-azurepostgres-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdsauroramysql-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdsaurorapostgres-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdsmariadb-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdsmysql-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdsoracle-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdspostgres-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-awsrdssqlserver-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-azuremysql-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-azurepostgres-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-herokupostgres-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-singlestore-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-data-cloud-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googleanalytics-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googleanalytics-cred.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-heretto-connector-limitations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-herokupostgres-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-ixia-ccms-connector-limitations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-mobile-web-datastream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-oraclenetsuite-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-prepare-your-flare-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-prepare-your-heretto-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-prepare-your-ixia-ccms-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-prepare-your-tridion-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-flare-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-googleanalytics-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-googledrive-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-heretto-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-ixia-ccms-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-oraclenetsuite-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-sftp-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-sftp-unstructured-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-tridion-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-sftp-unstructured-connector-limitations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-thirdparty-connectors.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-tridion-connector-limitations.html",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_ad_audiences_identity_boost.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connections.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_connect_external_activation_platform.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_crc_identity_boost.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_dc_resources.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_enrichment_considerations.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_informatica.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_marketing_agent.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_notebookai_billing_considerations.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_private_connect_data_cloud.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_query_secondary_indexes.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_redeploy_datakit_for_dg.htm&language=en_US&type=5"
+  ],
   "rehashedPages": [],
   "staleBeastReferences": [],
   "uncoveredTopics": [],
   "uncoveredPhases": [],
   "extractionFailures": [],
-  "candidateDiscrepancies": []
+  "candidateDiscrepancies": [
+    {
+      "url": "https://developer.salesforce.com/docs/data/connectapi/references",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-code-ext/guide/considerations-when-writing-custom-code.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entity-interface-dmos-introduction.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-standard_mappings.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/file-based-data-kits-introduction.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-heretto-connector-limitations.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-ixia-ccms-connector-limitations.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-sftp-unstructured-connector-limitations.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-tridion-connector-limitations.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=data.c360_a_redeploy_datakit_for_dg.htm&language=en_US&type=5",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    }
+  ]
 }
