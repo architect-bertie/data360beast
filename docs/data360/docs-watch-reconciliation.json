@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1",
-  "generatedAt": "2026-10-12T11:25:33.557439+00:00",
+  "generatedAt": "2026-10-29T22:30:15.853905+00:00",
   "scope": {
     "helpSeed": "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5",
     "developerCenter": "https://developer.salesforce.com/developer-centers/data-cloud",
@@ -12,23 +12,23 @@
     "contentHashContract": "crawler-content-sha256-v1"
   },
   "summary": {
-    "currentPages": 4221,
-    "helpPages": 468,
-    "developerPages": 3753,
-    "developerCaptured": 996,
+    "currentPages": 4249,
+    "helpPages": 476,
+    "developerPages": 3773,
+    "developerCaptured": 1016,
     "developerCataloged": 2757,
-    "newPages": 0,
-    "removedPages": 0,
-    "changedPages": 0,
+    "newPages": 29,
+    "removedPages": 1,
+    "changedPages": 50,
     "rehashedPages": 0,
-    "staleReferences": 0,
+    "staleReferences": 1,
     "uncoveredTopics": 0,
     "uncoveredPhases": 0,
     "extractionFailures": 0
   },
   "sourceCounts": {
-    "help": 468,
-    "developer": 3753
+    "help": 476,
+    "developer": 3773
   },
   "developerFamilies": {
     "code-extension": {
@@ -67,8 +67,8 @@
       "cataloged": 0
     },
     "integration": {
-      "total": 861,
-      "captured": 861,
+      "total": 881,
+      "captured": 881,
       "cataloged": 0
     },
     "query-guide": {
@@ -82,13 +82,135 @@
       "cataloged": 0
     }
   },
-  "newPages": [],
-  "removedPages": [],
-  "changedPages": [],
+  "newPages": [
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-add-a-private-network-route-for-bigquery-google-cloud.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-add-a-private-network-route-for-databricks-on-azure-sf-managed.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-add-a-private-network-route-for-databricks-on-azure.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-add-a-private-network-route-for-snowflake-on-azure-sf-managed.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-add-a-private-network-route-for-snowflake-on-azure.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-add-network-route-snowflake.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-a-pnr-redshift.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-delete-private-connect-network-route.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-prepare-adobeanalytics-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-add-pnr-amazon-msk.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-amazon-msk-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-big-query-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-considerations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-databricks-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-redshift-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-snowflake-integrations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-private-connect-update-your-snowflake-network-policy.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-a-redshift-federation-connection-for-private-connect.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-a-snowflake-federation-connection-for-private-connect.html",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_ai_customsql_retriever_create.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_catalog_considerations.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_metadata_ext_rfsh.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_metadata_grounding_capabilities.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_salesforce_catalog.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_salesforce_catalog_billing_considerations.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_an_amazon_kinesis_target_connection.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_sf_catalog_enable.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_sf_catalog_troubleshooting.htm&language=en_US&type=5"
+  ],
+  "removedPages": [
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_enriched_index_billing_considerations.htm&language=en_US&type=5"
+  ],
+  "changedPages": [
+    "https://developer.salesforce.com/docs/data/connectapi/references",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360a-starter-data-bundles.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mce-engagement-uma.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-mce-eventdetectiondifferences-in-datamodel.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-adobeanalytics-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-adobeanalytics-cred.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-amazon-integration.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-acton-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-adp-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-airtable-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-epicorerp-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-excelonline-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-graphql-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-jiraservicedesk-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-paylocity-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-smartsheet-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-snapchatads-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-splunk-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-twitterads-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-veevavault-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-create-youtubeanalytics-data-stream.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-databricks-integration.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-google-integration.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googleadsmi-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googleadsmi-custom-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googledrive-unstructured-connector-limitations.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-metaadsmi-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-metaadsmi-custom-connector.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-set-up-adobeanalytics-connection.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-snowflake-integration.html",
+    "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-thirdparty-connectors.html",
+    "https://help.salesforce.com/s/articleView?id=ai.generative_ai_session_trace.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_ai_retriever.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_ai_retriever_test_metrics.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_ai_retriever_version.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_changelog_usage_and_access.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_connect_external_activation_platform.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_considerations_and_guidelines.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_create_crm_data_stream.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_disable_or_reenable_data_stream_field.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_data_target_configuration_in_data_cloud.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_dc_resources.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_refresh_a_data_graph.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_supported_chunking_strategies.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_segment_on.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_segmentation_interface.htm&language=en_US&type=5",
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_unstructured_data_billing_considerations.htm&language=en_US&type=5"
+  ],
   "rehashedPages": [],
-  "staleBeastReferences": [],
+  "staleBeastReferences": [
+    "https://help.salesforce.com/s/articleView?id=data.c360_a_enriched_index_billing_considerations.htm&language=en_US&type=5"
+  ],
   "uncoveredTopics": [],
   "uncoveredPhases": [],
   "extractionFailures": [],
-  "candidateDiscrepancies": []
+  "candidateDiscrepancies": [
+    {
+      "url": "https://developer.salesforce.com/docs/data/connectapi/references",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googleadsmi-custom-connector.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-googledrive-unstructured-connector-limitations.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-metaadsmi-custom-connector.html",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=ai.generative_ai_session_trace.htm&language=en_US&type=5",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=data.c360_a_considerations_and_guidelines.htm&language=en_US&type=5",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=data.c360_a_crm_disable_or_reenable_data_stream_field.htm&language=en_US&type=5",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=data.c360_a_limits_and_guidelines.htm&language=en_US&type=5",
+      "reason": "changed source touches limits, permissions, licensing, availability, or behavior-sensitive guidance"
+    }
+  ]
 }

@@ -194,8 +194,8 @@
       "name": "salesforce-sf-skills-data360",
       "repository": "https://github.com/forcedotcom/sf-skills",
       "packageName": "@salesforce/afv-skills",
-      "observedPackageVersion": "1.62.0",
-      "observedRef": "4bbae5c421e51b40e4169afa72c4496372a602a7",
+      "observedPackageVersion": "1.67.0",
+      "observedRef": "985407c7f7896030759d3310fe47d652265916b3",
       "installMode": "subset",
       "scope": "data360-only",
       "contract": "https://architect-bertie.github.io/data360beast/data360/sf-skills-data360-companion.json",
@@ -228,16 +228,16 @@
     "RAG debug chain and evaluation metrics"
   ],
   "officialDocIndexes": {
-    "helpSalesforcePages": 468,
+    "helpSalesforcePages": 476,
     "helpDocsDistilled": 64,
-    "developerSalesforceGuidePages": 996,
+    "developerSalesforceGuidePages": 1016,
     "connectorPagesCataloged": 140,
     "publicModelGalleryDiagramsAnalyzed": 14,
     "ragBestPracticePdfPagesAnalyzed": 45,
     "ragDiagramsAndScreenshotsAnalyzed": 8,
-    "officialPagesIndexed": 4221,
+    "officialPagesIndexed": 4249,
     "rawCorpusPublished": false,
-    "developerSalesforcePagesIndexed": 3753,
+    "developerSalesforcePagesIndexed": 3773,
     "developerReferencePagesCataloged": 2757
   },
   "proofArtifactStats": {
@@ -282,5 +282,5 @@
     "overall": 9.9
   },
   "publicBoundary": "No raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, or org-specific metadata are published.",
-  "lastReviewed": "2026-10-12"
+  "lastReviewed": "2026-10-29"
 }
