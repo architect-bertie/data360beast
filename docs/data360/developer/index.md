@@ -1,9 +1,9 @@
 # Data 360 Developer Documentation Index
 
 Developer Center: https://developer.salesforce.com/developer-centers/data-cloud
-Indexed pages: 3773
+Indexed pages: 3812
 Content captures through sf-docs: 1016
-Reference catalog entries: 2757
+Reference catalog entries: 2796
 
 This public index covers the Data 360 guide families routed from the official
 Salesforce Developer Center. Raw extracted bodies and generated summaries are
@@ -19,7 +19,7 @@ not published. The complete page catalog is represented in the public knowledge 
 | connect-rest-api | 1 | 1 | 0 | https://developer.salesforce.com/docs/data/connectapi/overview |
 | connect-rest-api-guide | 11 | 11 | 0 | https://developer.salesforce.com/docs/data/connectapi/guide |
 | connect-rest-api-reference | 1 | 1 | 0 | https://developer.salesforce.com/docs/data/connectapi/references |
-| dmo-mapping | 2791 | 34 | 2757 | https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-model-data.html |
+| dmo-mapping | 2830 | 34 | 2796 | https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-model-data.html |
 | integration | 881 | 881 | 0 | https://developer.salesforce.com/docs/data/data-cloud-int/guide/c360-a-data-cloud-integrations.html |
 | query-guide | 24 | 24 | 0 | https://developer.salesforce.com/docs/data/data-cloud-query-guide/guide/query-guide-get-started.html |
 | sql-reference | 1 | 1 | 0 | https://developer.salesforce.com/docs/data/data-cloud-query-guide/references/dc-sql-reference/data-cloud-sql-context.html |

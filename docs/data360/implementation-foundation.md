@@ -93,7 +93,7 @@ _Auto-synced from the local sf-docs cached Salesforce Help export (official docs
 - data.c360_a_data_cloud_one_sandboxes.htm — Considerations for Data Cloud One in a Sandbox Org
 - data.c360_a_companion_connections.htm — Data Cloud One Companion Connections
 
-**Source fingerprint:** `5fb4b5471ab19f00d31caaa5`
+**Source fingerprint:** `49411677fbbf6f26f7d55bf9`
 
 **Notes:**
 - Choose business outcomes, source/data strategy, users, permissions, limits, and topology before asset creation.

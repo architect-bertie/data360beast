@@ -118,8 +118,8 @@
       "name": "salesforce-sf-skills-data360",
       "repository": "https://github.com/forcedotcom/sf-skills",
       "packageName": "@salesforce/afv-skills",
-      "observedPackageVersion": "1.67.0",
-      "observedRef": "985407c7f7896030759d3310fe47d652265916b3",
+      "observedPackageVersion": "1.68.0",
+      "observedRef": "a8a18ce1e4ba12e69b4073eab98ce31bfbd8271e",
       "installMode": "subset",
       "scope": "data360-only",
       "contract": "docs/data360/sf-skills-data360-companion.json",
@@ -210,13 +210,13 @@
     "overallScore": 9.9
   },
   "publicBoundary": "This repository intentionally excludes raw Salesforce Help exports, generated caches, lab data, raw Labs payload dumps, credentials, and org-specific metadata.",
-  "lastReviewed": "2026-10-29",
+  "lastReviewed": "2026-11-03",
   "sourceStats": {
-    "helpDocsAnalyzed": 476,
+    "helpDocsAnalyzed": 477,
     "developerGuidePagesAnalyzed": 1016,
-    "developerPagesIndexed": 3773,
-    "developerReferencePagesCataloged": 2757,
-    "officialDocsIndexed": 4249,
+    "developerPagesIndexed": 3812,
+    "developerReferencePagesCataloged": 2796,
+    "officialDocsIndexed": 4289,
     "docSyncedBlocksTotal": 46,
     "proofLedgerEntries": 19
   }

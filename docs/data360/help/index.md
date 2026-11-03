@@ -1,6 +1,6 @@
 # Data 360 Help Index
 
-Indexed articles: 476
+Indexed articles: 477
 
 This public index lists the official Salesforce Help pages analyzed for
 Data360 Beast. Raw extracted article bodies and generated local summaries are
@@ -50,8 +50,8 @@ Discovery depth: 4
 | Data 360 Architecture Strategy | data.c360_a_data_cloud_architecture_strategy.htm | 4 | 5459 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_architecture_strategy.htm&language=en_US&type=5 |
 | Data Governance in Data 360 | data.c360_a_data_gov_capabilities.htm | 3 | 4105 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_gov_capabilities.htm&language=en_US&type=5 |
 | Create a Data 360 Sandbox | data.c360_a_data_cloud_sandbox_create.htm | 4 | 7492 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_sandbox_create.htm&language=en_US&type=5 |
-| Considerations for Data Cloud One in a Sandbox Org | data.c360_a_data_cloud_one_sandboxes.htm | 3 | 4114 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5 |
-| Data Cloud One Companion Connections | data.c360_a_companion_connections.htm | 2 | 3793 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connections.htm&language=en_US&type=5 |
+| Considerations for Data Cloud One in a Sandbox Org | data.c360_a_data_cloud_one_sandboxes.htm | 4 | 4744 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5 |
+| Data Cloud One Companion Connections | data.c360_a_companion_connections.htm | 2 | 3226 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connections.htm&language=en_US&type=5 |
 | About Salesforce Data 360 | data.c360_a_data_cloud.htm | 1 | 10454 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud.htm&language=en_US&type=5 |
 | Set Up and Turn On Data 360 | data.c360_a_setup_provision.htm | 1 | 2283 | https://help.salesforce.com/s/articleView?id=data.c360_a_setup_provision.htm&language=en_US&type=5 |
 | Create Data 360 Users and Assign Permissions | data.c360_a_setup_walkthrough.htm | 1 | 3060 | https://help.salesforce.com/s/articleView?id=data.c360_a_setup_walkthrough.htm&language=en_US&type=5 |
@@ -64,7 +64,7 @@ Discovery depth: 4
 | General Set Up Tasks in Data 360 | data.c360_a_admin_maintenance_tasks.htm | 1 | 2591 | https://help.salesforce.com/s/articleView?id=data.c360_a_admin_maintenance_tasks.htm&language=en_US&type=5 |
 | Find Your Instance and Endpoint Information | data.c360_a_find_your_functional_domain.htm | 1 | 1782 | https://help.salesforce.com/s/articleView?id=data.c360_a_find_your_functional_domain.htm&language=en_US&type=5 |
 | Chunk and Index Data Model Objects | data.c360_a_search_index_chunk_index_dmo.htm | 1 | 2091 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_chunk_index_dmo.htm&language=en_US&type=5 |
-| Chunk Data | data.c360_a_search_index_grounding.htm | 1 | 2957 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_grounding.htm&language=en_US&type=5 |
+| Chunk Data | data.c360_a_search_index_grounding.htm | 1 | 2958 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_grounding.htm&language=en_US&type=5 |
 | Vector Search | data.c360_a_search_index_vector_index.htm | 1 | 4031 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_vector_index.htm&language=en_US&type=5 |
 | Hybrid Search | data.c360_a_hybridsearch_index.htm | 1 | 6006 | https://help.salesforce.com/s/articleView?id=data.c360_a_hybridsearch_index.htm&language=en_US&type=5 |
 | Manage Search Indexes | data.c360_a_search_index_manage.htm | 1 | 2482 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_manage.htm&language=en_US&type=5 |
@@ -110,13 +110,13 @@ Discovery depth: 4
 | Set Up Connectors with Microsoft OAuth | data.c360_a_setup_oauth_microsoft.htm | 2 | 3515 | https://help.salesforce.com/s/articleView?id=data.c360_a_setup_oauth_microsoft.htm&language=en_US&type=5 |
 | Set Up Connectors with OpenId Connect OAuth | data.c360_a_setup_oauth_openid.htm | 2 | 3556 | https://help.salesforce.com/s/articleView?id=data.c360_a_setup_oauth_openid.htm&language=en_US&type=5 |
 | Disconnect a Data Source | data.c360_a_disconnect_a_data_source.htm | 2 | 1557 | https://help.salesforce.com/s/articleView?id=data.c360_a_disconnect_a_data_source.htm&language=en_US&type=5 |
-| Set Up an External Activation Platform | data.c360_a_connect_external_activation_platform.htm | 2 | 4828 | https://help.salesforce.com/s/articleView?id=data.c360_a_connect_external_activation_platform.htm&language=en_US&type=5 |
+| Set Up an External Activation Platform | data.c360_a_connect_external_activation_platform.htm | 2 | 4985 | https://help.salesforce.com/s/articleView?id=data.c360_a_connect_external_activation_platform.htm&language=en_US&type=5 |
 | Set Up an Amazon S3 Target Connection | data.c360_a_set_up_an_amazon_s3_target_connection.htm | 2 | 3095 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_an_amazon_s3_target_connection.htm&language=en_US&type=5 |
 | Set Up an Amazon Kinesis Target Connection | data.c360_a_set_up_an_amazon_kinesis_target_connection.htm | 2 | 5809 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_an_amazon_kinesis_target_connection.htm&language=en_US&type=5 |
 | Set Up an SFTP Target Connection | data.c360_a_set_up_an_sftp_target_connection.htm | 2 | 3591 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_an_sftp_target_connection.htm&language=en_US&type=5 |
 | Set Up a Microsoft Azure Target Connection | data.c360_a_set_up_a_microsoft_azure_target_connection.htm | 2 | 4331 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_a_microsoft_azure_target_connection.htm&language=en_US&type=5 |
 | Set Up a Google Cloud Storage Target Connection | data.c360_a_set_up_a_google_cloud_storage_target_connection.htm | 2 | 3646 | https://help.salesforce.com/s/articleView?id=data.c360_a_set_up_a_google_cloud_storage_target_connection.htm&language=en_US&type=5 |
-| Document AI | data.c360_a_document_ai.htm | 2 | 7469 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai.htm&language=en_US&type=5 |
+| Document AI | data.c360_a_document_ai.htm | 2 | 8437 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai.htm&language=en_US&type=5 |
 | Explore and Research Content with Notebook AI | data.c360_a_notebook_ai_research_analyze.htm | 2 | 5342 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_research_analyze.htm&language=en_US&type=5 |
 | Intelligent Context in Data 360 | data.c360_a_intelligent_context.htm | 2 | 4967 | https://help.salesforce.com/s/articleView?id=data.c360_a_intelligent_context.htm&language=en_US&type=5 |
 | LLM-based Parsing and Preprocessing | data.c360_a_llm_parsing_preprocessing.htm | 2 | 2408 | https://help.salesforce.com/s/articleView?id=data.c360_a_llm_parsing_preprocessing.htm&language=en_US&type=5 |
@@ -131,7 +131,7 @@ Discovery depth: 4
 | Allowlisting | data.c360_a_allowlist.htm | 2 | 3174 | https://help.salesforce.com/s/articleView?id=data.c360_a_allowlist.htm&language=en_US&type=5 |
 | Chunk DMO | data.c360_a_search_index_chunk_dmo.htm | 2 | 1907 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_chunk_dmo.htm&language=en_US&type=5 |
 | Index DMO | data.c360_a_search_index_index_dmo.htm | 2 | 1300 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_index_dmo.htm&language=en_US&type=5 |
-| Chunking Strategies | data.c360_a_search_index_supported_chunking_strategies.htm | 2 | 12696 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_supported_chunking_strategies.htm&language=en_US&type=5 |
+| Chunking Strategies | data.c360_a_search_index_supported_chunking_strategies.htm | 2 | 12733 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_supported_chunking_strategies.htm&language=en_US&type=5 |
 | How the Max Token Setting Affects Chunking | data.c360_a_search_index_max_token_setting.htm | 2 | 1784 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_max_token_setting.htm&language=en_US&type=5 |
 | Citations for Content Chunks | data.c360_a_search_index_chunk_citations.htm | 2 | 1570 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_chunk_citations.htm&language=en_US&type=5 |
 | Run Vector Searches Using Query API | data.c360_a_search_index_query.htm | 2 | 3962 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_query.htm&language=en_US&type=5 |
@@ -145,7 +145,7 @@ Discovery depth: 4
 | Hybrid Search Best Practices | data.c360_a_hybridsearch_best_practices.htm | 2 | 4408 | https://help.salesforce.com/s/articleView?id=data.c360_a_hybridsearch_best_practices.htm&language=en_US&type=5 |
 | Hybrid Search Autodrop Best Practices | data.c360_a_hybridsearch_autodrop_best_practices.htm | 2 | 4494 | https://help.salesforce.com/s/articleView?id=data.c360_a_hybridsearch_autodrop_best_practices.htm&language=en_US&type=5 |
 | Create a Search Index Configuration with Easy Setup | data.c360_a_search_index_easy_setup_search_index.htm | 2 | 3380 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_easy_setup_search_index.htm&language=en_US&type=5 |
-| View Search Index Status and Process History | data.c360_a_search_index_view_search_index.htm | 2 | 4799 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_view_search_index.htm&language=en_US&type=5 |
+| View Search Index Status and Process History | data.c360_a_search_index_view_search_index.htm | 2 | 4891 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_view_search_index.htm&language=en_US&type=5 |
 | Edit Search Index Configurations | data.c360_a_search_index_edit_search_index.htm | 2 | 1533 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_edit_search_index.htm&language=en_US&type=5 |
 | Rebuild a Search Index Configuration | data.c360_a_search_index_rebuild_search_index.htm | 2 | 2523 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_rebuild_search_index.htm&language=en_US&type=5 |
 | Delete Search Index Configurations | data.c360_a_search_index_delete_index_config.htm | 2 | 1858 | https://help.salesforce.com/s/articleView?id=data.c360_a_search_index_delete_index_config.htm&language=en_US&type=5 |
@@ -225,12 +225,12 @@ Discovery depth: 4
 | Identity Resolution Ruleset Processing Results | data.c360_a_resolution_summary.htm | 3 | 3373 | https://help.salesforce.com/s/articleView?id=data.c360_a_resolution_summary.htm&language=en_US&type=5 |
 | Change the Category of a Data Model Object | data.c360_a_change_data_model_object_category.htm | 3 | 2036 | https://help.salesforce.com/s/articleView?id=data.c360_a_change_data_model_object_category.htm&language=en_US&type=5 |
 | Migrate Users from a Customer Data Platform License to a Data Cloud License | data.c360_a_license_update_perm_set_migration.htm | 3 | 2164 | https://help.salesforce.com/s/articleView?id=data.c360_a_license_update_perm_set_migration.htm&language=en_US&type=5 |
-| Convert a Data Cloud Home Org to a Data Cloud One Companion Org | data.c360_a_prepare_home_org_for_dcone.htm | 3 | 2275 | https://help.salesforce.com/s/articleView?id=data.c360_a_prepare_home_org_for_dcone.htm&language=en_US&type=5 |
 | Set Up a Data Cloud One Companion Connection | data.c360_a_companion_connection_setup.htm | 3 | 6867 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_setup.htm&language=en_US&type=5 |
 | Monitor Data 360 Companion Connections | data.c360_a_data_cloud_one_monitoring.htm | 3 | 1542 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_monitoring.htm&language=en_US&type=5 |
-| Delete a Companion Connection | data.c360_a_companion_connection_delete.htm | 3 | 1762 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_delete.htm&language=en_US&type=5 |
-| Resolve Connection Errors in Data Cloud One Sandbox Orgs | data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm | 3 | 2520 | https://help.salesforce.com/s/articleView?id=data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm&language=en_US&type=5 |
 | Access Data Cloud One from a Companion Org | data.c360_a_data_cloud_one_app.htm | 3 | 1996 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_app.htm&language=en_US&type=5 |
+| Data Cloud One in Sandbox Environments | data.c360_a_data_cloud_one_sandbox.htm | 3 | 1454 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandbox.htm&language=en_US&type=5 |
+| Delete a Companion Connection | data.c360_a_companion_connection_delete.htm | 3 | 1762 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_delete.htm&language=en_US&type=5 |
+| Convert a Data Cloud Home Org to a Data Cloud One Companion Org | data.c360_a_prepare_home_org_for_dcone.htm | 3 | 2275 | https://help.salesforce.com/s/articleView?id=data.c360_a_prepare_home_org_for_dcone.htm&language=en_US&type=5 |
 | Ingest and Model Digital Identifiers for JSON-based External Activation Targets | data.c360_a_map_digital_identifiers_activation_toolkit.htm | 3 | 7866 | https://help.salesforce.com/s/articleView?id=data.c360_a_map_digital_identifiers_activation_toolkit.htm&language=en_US&type=5 |
 | Create an External Platform Activation Target | data.c360_a_create_external_activation_platform_activation_target.htm | 3 | 4115 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_external_activation_platform_activation_target.htm&language=en_US&type=5 |
 | Create an Activation for an External Platform | data.c360_a_create_external_activation_platform_activations.htm | 3 | 7222 | https://help.salesforce.com/s/articleView?id=data.c360_a_create_external_activation_platform_activations.htm&language=en_US&type=5 |
@@ -242,7 +242,7 @@ Discovery depth: 4
 | Create a Document Schema Configuration Using Auto-Extraction | data.c360_a_document_ai_new_config.htm | 3 | 4488 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai_new_config.htm&language=en_US&type=5 |
 | Create a Document Schema Configuration Manually | data.c360_a_document_ai_new_config_manual.htm | 3 | 4933 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai_new_config_manual.htm&language=en_US&type=5 |
 | Create a Document Schema Configuration Without a Source Object | data.c360_a_document_ai_new_config_no_source.htm | 3 | 4777 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai_new_config_no_source.htm&language=en_US&type=5 |
-| Manage Document AI Configurations | data.c360_a_document_ai_manage_configs.htm | 3 | 5069 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai_manage_configs.htm&language=en_US&type=5 |
+| Manage Document AI Configurations | data.c360_a_document_ai_manage_configs.htm | 3 | 5828 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai_manage_configs.htm&language=en_US&type=5 |
 | Document AI Example Schemas | data.c360_a_document_ai_schema_ref.htm | 3 | 8236 | https://help.salesforce.com/s/articleView?id=data.c360_a_document_ai_schema_ref.htm&language=en_US&type=5 |
 | Enable Notebook AI For Data Spaces and Users | data.c360_a_notebook_ai_custom_user_perm.htm | 3 | 5145 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_custom_user_perm.htm&language=en_US&type=5 |
 | Enable Notebook AI Web Access | data.c360_a_notebook_ai_web_access.htm | 3 | 2579 | https://help.salesforce.com/s/articleView?id=data.c360_a_notebook_ai_web_access.htm&language=en_US&type=5 |
@@ -276,7 +276,7 @@ Discovery depth: 4
 | Get Trusted AI Responses with Retriever Citations | data.c360_a_ai_citations_retriever.htm | 3 | 4041 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_citations_retriever.htm&language=en_US&type=5 |
 | Manage Retrievers | data.c360_a_ai_retriever_version.htm | 3 | 3613 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_retriever_version.htm&language=en_US&type=5 |
 | Customize, Test, and Validate Retrievers with Retriever Playground | data.c360_a_ai_retriever_test.htm | 3 | 5006 | https://help.salesforce.com/s/articleView?id=data.c360_a_ai_retriever_test.htm&language=en_US&type=5 |
-| Retriever Filters Reference | data.c360_a_retriever_filter_reference.htm | 3 | 3357 | https://help.salesforce.com/s/articleView?id=data.c360_a_retriever_filter_reference.htm&language=en_US&type=5 |
+| Retriever Filters Reference | data.c360_a_retriever_filter_reference.htm | 3 | 3728 | https://help.salesforce.com/s/articleView?id=data.c360_a_retriever_filter_reference.htm&language=en_US&type=5 |
 | Configure a Key Qualifier Field | data.c360_a_add_or_view_key_qualifier.htm | 3 | 3327 | https://help.salesforce.com/s/articleView?id=data.c360_a_add_or_view_key_qualifier.htm&language=en_US&type=5 |
 | Billing Considerations for Data Graphs | data.c360_a_billing_considerations_for_data_graphs.htm | 3 | 12715 | https://help.salesforce.com/s/articleView?id=data.c360_a_billing_considerations_for_data_graphs.htm&language=en_US&type=5 |
 | Applying Filters in the Data Graph | data.c360_a_apply_filters_dg.htm | 3 | 2024 | https://help.salesforce.com/s/articleView?id=data.c360_a_apply_filters_dg.htm&language=en_US&type=5 |
@@ -454,11 +454,12 @@ Discovery depth: 4
 | Objects Shared with Companion Orgs | data.c360_a_companion_connection_shared_objects.htm | 4 | 707 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_shared_objects.htm&language=en_US&type=5 |
 | Metadata Ownership in Connected Orgs | data.c360_a_data_cloud_one_metadata_ownership.htm | 4 | 900 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_metadata_ownership.htm&language=en_US&type=5 |
 | Understand Data Spaces in Companion Orgs | data.c360_a_data_spaces_in_companion_orgs.htm | 4 | 1751 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_spaces_in_companion_orgs.htm&language=en_US&type=5 |
-| Data Cloud One Companion Connection Statuses | data.c360_a_companion_connection_statuses.htm | 4 | 3027 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_statuses.htm&language=en_US&type=5 |
+| Data Cloud One Companion Connection Statuses | data.c360_a_companion_connection_statuses.htm | 4 | 5690 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_connection_statuses.htm&language=en_US&type=5 |
 | Version Mismatch Errors in Data Cloud One Orgs | data.c360_a_data_cloud_one_version_mismatch.htm | 4 | 3663 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_version_mismatch.htm&language=en_US&type=5 |
-| Data 360 Features on Companion Orgs | data.c360_a_companion_org_data_cloud_features.htm | 4 | 4492 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5 |
+| Data 360 Features on Companion Orgs | data.c360_a_companion_org_data_cloud_features.htm | 4 | 4538 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_data_cloud_features.htm&language=en_US&type=5 |
 | Data 360 Connection Details on Companion Orgs | data.c360_a_companion_org_connection_details.htm | 4 | 1748 | https://help.salesforce.com/s/articleView?id=data.c360_a_companion_org_connection_details.htm&language=en_US&type=5 |
 | Grant Data Cloud One Access to Users | data.c360_a_userpermissions_data_cloud_one.htm | 4 | 1302 | https://help.salesforce.com/s/articleView?id=data.c360_a_userpermissions_data_cloud_one.htm&language=en_US&type=5 |
+| Hydrate a Data Cloud One Companion Sandbox | data.c360_a_data_cloud_one_hydratable_sandbox.htm | 4 | 5267 | https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_hydratable_sandbox.htm&language=en_US&type=5 |
 | External Activation Platforms | data.c360_a_build_external_activation_platforms.htm | 4 | 2995 | https://help.salesforce.com/s/articleView?id=data.c360_a_build_external_activation_platforms.htm&language=en_US&type=5 |
 | Requirements for External Activation Targets | data.c360_a_requirements_for_external_activation_targets.htm | 4 | 2893 | https://help.salesforce.com/s/articleView?id=data.c360_a_requirements_for_external_activation_targets.htm&language=en_US&type=5 |
 | Identity Boost | data.c360_a_crc_identity_boost.htm | 4 | 6849 | https://help.salesforce.com/s/articleView?id=data.c360_a_crc_identity_boost.htm&language=en_US&type=5 |

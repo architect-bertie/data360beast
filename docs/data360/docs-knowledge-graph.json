@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2",
-  "generatedAt": "2026-10-29T22:30:15.853905+00:00",
+  "generatedAt": "2026-11-03T19:39:34.542923+00:00",
   "scope": {
     "helpSeed": "https://help.salesforce.com/s/articleView?id=data.c360_a_product_considerations.htm&language=en_US&type=5",
     "developerCenter": "https://developer.salesforce.com/developer-centers/data-cloud",
@@ -1794,7 +1794,7 @@
       "identifier": "data.c360_a_changelog_usage_and_access.htm",
       "depth": 1,
       "parent": "data.c360_a_product_considerations.htm",
-      "contentHash": "e1db1fa263414995fe125366d1058333bb5823826634394582336a2330edd784",
+      "contentHash": "31923fe7e64c7853f32e8ca178e4f45cdea3407ad1c58638453c3129c977e4bd",
       "status": "captured",
       "type": "official-page",
       "topics": [],
@@ -1918,7 +1918,7 @@
       "identifier": "data.c360_a_companion_connection_statuses.htm",
       "depth": 4,
       "parent": "data.c360_a_data_cloud_one_monitoring.htm",
-      "contentHash": "e0fa95660690128ad82b7e485274dd752e320401d127062d7141de5c7acae5a2",
+      "contentHash": "48b1245fd7894d234b2653be3c3a58d0adb67858250013e232556f432d9377bd",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -1927,9 +1927,7 @@
       ],
       "phases": [
         "connect",
-        "govern",
-        "retrieve",
-        "act"
+        "retrieve"
       ]
     },
     {
@@ -1940,17 +1938,17 @@
       "identifier": "data.c360_a_companion_connections.htm",
       "depth": 2,
       "parent": "data.c360_a_lifecycle_management_cleanup.htm",
-      "contentHash": "ba63a754232709afb6f86308c71e1b8c124610d5a86faf40285fbce62200e5db",
+      "contentHash": "f3fc99fea96a970f6f559e7d9aa436fec588ef030534888c6991476461e35804",
       "status": "captured",
       "type": "official-page",
       "topics": [
         "connections-and-connectors",
-        "limits-and-considerations",
         "packaging-and-deployment",
         "troubleshooting-and-readiness"
       ],
       "phases": [
         "connect",
+        "prepare",
         "develop-package"
       ]
     },
@@ -2082,7 +2080,7 @@
       "identifier": "data.c360_a_connect_external_activation_platform.htm",
       "depth": 2,
       "parent": "data.c360_a_data_target_configuration_in_data_cloud.htm",
-      "contentHash": "a4610b215a49b0deaa09a0272b02a626fb52d07097ae42ac7a6df82515b97169",
+      "contentHash": "c7456d0f77e7301caceb62a76a2401e3a842b5c0b3c3b918aa69ccb11f6bda8a",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -2172,7 +2170,7 @@
       "identifier": "data.c360_a_considerations_and_guidelines.htm",
       "depth": 4,
       "parent": "oversized-help-fallback",
-      "contentHash": "12afa74ad5bd1da669d1c207bf23b1c2dc05766b259e416431f2300d99093494",
+      "contentHash": "815f31a05638b5e0c2c98e1d716662f37c255438a24f24f599394adb862a7a78",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -3360,6 +3358,33 @@
       ]
     },
     {
+      "id": "page:28ef29df497a77ea7dc7",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_hydratable_sandbox.htm&language=en_US&type=5",
+      "title": "Hydrate a Data Cloud One Companion Sandbox",
+      "identifier": "data.c360_a_data_cloud_one_hydratable_sandbox.htm",
+      "depth": 4,
+      "parent": "data.c360_a_data_cloud_one_sandbox.htm",
+      "contentHash": "e44ab8e883145903fb71abd7f412848f5ac5c85a408236653d224feb0823e7ac",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "acceleration-and-refresh",
+        "connections-and-connectors",
+        "data-streams-and-ingestion",
+        "limits-and-considerations",
+        "packaging-and-deployment",
+        "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "connect",
+        "prepare",
+        "retrieve",
+        "automation",
+        "develop-package"
+      ]
+    },
+    {
       "id": "page:7f9fc8c997493c3754a8",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_metadata_ownership.htm&language=en_US&type=5",
@@ -3397,14 +3422,34 @@
       ]
     },
     {
+      "id": "page:677b516978913bfb19e3",
+      "sourceType": "help",
+      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandbox.htm&language=en_US&type=5",
+      "title": "Data Cloud One in Sandbox Environments",
+      "identifier": "data.c360_a_data_cloud_one_sandbox.htm",
+      "depth": 3,
+      "parent": "data.c360_a_companion_connections.htm",
+      "contentHash": "fe0e4b23101ca23f2cdaedaf695d539117b3fc82333c5c2ff7df02d0f1ff4f3f",
+      "status": "captured",
+      "type": "official-page",
+      "topics": [
+        "limits-and-considerations",
+        "packaging-and-deployment"
+      ],
+      "phases": [
+        "connect",
+        "develop-package"
+      ]
+    },
+    {
       "id": "page:bc2926e4fff45e73c158",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_data_cloud_one_sandboxes.htm&language=en_US&type=5",
       "title": "Considerations for Data Cloud One in a Sandbox Org",
       "identifier": "data.c360_a_data_cloud_one_sandboxes.htm",
-      "depth": 3,
-      "parent": "data.c360_a_companion_connections.htm",
-      "contentHash": "0fd44ac0743aa2c4d3646ad7b2a43e24d4798a90c3febee1869df0d9e53d2ff6",
+      "depth": 4,
+      "parent": "oversized-help-fallback",
+      "contentHash": "f367b9a348d3cd442fc082f89298453408cef64c72f995c1b994d1c942e21a2b",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -3416,7 +3461,6 @@
       "phases": [
         "connect",
         "retrieve",
-        "act",
         "automation",
         "develop-package"
       ]
@@ -4255,7 +4299,7 @@
       "identifier": "data.c360_a_dc_resources.htm",
       "depth": 2,
       "parent": "data.c360_a_data_cloud.htm",
-      "contentHash": "806f9d3ef2619f47514f9c7ff26207e318cb3ce79531353a25b2147a0e818c3c",
+      "contentHash": "188cfe9f4ac6d9fbdd2336a48b13685274c6c33d26202824b186f583637f3174",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -4520,7 +4564,7 @@
       "identifier": "data.c360_a_document_ai.htm",
       "depth": 2,
       "parent": "data.c360_a_einstein_data_usage_in_data_cloud.htm",
-      "contentHash": "f56e4cc963a9c4144dc9dfaac13e5e6c1e920bfe7703b78cbc75d10a65611b15",
+      "contentHash": "260337058aac8490abb66571c3b0a7bcc0fa9d3e2140500b447eec661b6c9927",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -4569,14 +4613,16 @@
       "identifier": "data.c360_a_document_ai_manage_configs.htm",
       "depth": 3,
       "parent": "data.c360_a_document_ai.htm",
-      "contentHash": "32635623968aa96da4a9cd7598c1fca7ee0929c5e61eec8c0e35e752a48f51e4",
+      "contentHash": "f21c6273d8f89c630ef9d205e606a1f229b15c7e6845c778be16be3374631647",
       "status": "captured",
       "type": "official-page",
       "topics": [
         "packaging-and-deployment"
       ],
       "phases": [
+        "connect",
         "prepare",
+        "retrieve",
         "develop-package"
       ]
     },
@@ -6033,7 +6079,7 @@
       "identifier": "data.c360_a_limits_and_guidelines.htm",
       "depth": 1,
       "parent": "sf.c360_a_search_index_ground_ai.htm",
-      "contentHash": "12afa74ad5bd1da669d1c207bf23b1c2dc05766b259e416431f2300d99093494",
+      "contentHash": "815f31a05638b5e0c2c98e1d716662f37c255438a24f24f599394adb862a7a78",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -8236,31 +8282,6 @@
       ]
     },
     {
-      "id": "page:8d66890afa79703ec88b",
-      "sourceType": "help",
-      "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm&language=en_US&type=5",
-      "title": "Resolve Connection Errors in Data Cloud One Sandbox Orgs",
-      "identifier": "data.c360_a_resolve_connection_errors_in_a_dcone_sandbox.htm",
-      "depth": 3,
-      "parent": "data.c360_a_companion_connections.htm",
-      "contentHash": "90a87c405451be3334e50fd68a071663677e252ae4b9b72364e889c8a1cd844b",
-      "status": "captured",
-      "type": "official-page",
-      "topics": [
-        "acceleration-and-refresh",
-        "connections-and-connectors",
-        "limits-and-considerations",
-        "packaging-and-deployment",
-        "troubleshooting-and-readiness"
-      ],
-      "phases": [
-        "connect",
-        "retrieve",
-        "automation",
-        "develop-package"
-      ]
-    },
-    {
       "id": "page:170a59ddb6c1145cefe1",
       "sourceType": "help",
       "source": "https://help.salesforce.com/s/articleView?id=data.c360_a_retrieval_response_enriched_index.htm&language=en_US&type=5",
@@ -8855,7 +8876,7 @@
       "identifier": "data.c360_a_search_index_supported_chunking_strategies.htm",
       "depth": 2,
       "parent": "data.c360_a_search_index_grounding.htm",
-      "contentHash": "4376e34d146ef5440f3819b3e255ae9fd110c6720b4eb23682fa2e091efda4c8",
+      "contentHash": "3f3a9d52d8d5ad0b77d077e5d0c4cfcfdfdb7fc0c6f2ccfe33780a6589294c74",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -12316,26 +12337,6 @@
       "extractionMethod": "sf-docs-extractor"
     },
     {
-      "id": "page:2a3ddba667ac33227836",
-      "sourceType": "developer",
-      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/CmsAdvanced.html",
-      "title": "CMS Advanced",
-      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/CmsAdvanced.html",
-      "depth": 2,
-      "parent": "Standard Data Bundles",
-      "contentHash": "4c38ee8171a338e6e2e255c7c98bb4e314b5f7d64fdf957a2f3c186c9fd8988f",
-      "status": "cataloged",
-      "type": "official-page",
-      "topics": [
-        "dmo-modeling-and-mapping"
-      ],
-      "phases": [
-        "harmonize"
-      ],
-      "guideFamily": "dmo-mapping",
-      "extractionMethod": "official-sidebar-catalog"
-    },
-    {
       "id": "page:fb6851226c5609cdef44",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/CmsBase.html",
@@ -12489,6 +12490,50 @@
       ],
       "guideFamily": "dmo-mapping",
       "extractionMethod": "sf-docs-extractor"
+    },
+    {
+      "id": "page:e6ce54dca1019d37c40b",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-abnexperiment_dmo_mappings.html",
+      "title": "AbnExperiment DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-abnexperiment_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "0850f9b438ebdcdb85cc969f7d3afc35201fdb5c9414c7ed37ded267f0dd678f",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:35b06f05298c5eb88a9a",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-abnexperimentcohort_dmo_mappings.html",
+      "title": "AbnExperimentCohort DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-abnexperimentcohort_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "b0bf5605878cf0a9572a2036cb33cf0f28306cc6d19dcb0ef477e2ad62b2b757",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
     },
     {
       "id": "page:7964d032936896b96022",
@@ -13371,6 +13416,28 @@
       "depth": 2,
       "parent": "Standard DLO to DMO Mappings",
       "contentHash": "3cbf5d444934c263487be3f2745668d5f91f36c9a338912dabb66b2190a0d8f8",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:02e638959baaad77baf2",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-agentworkconversationaldata_dmo_mappings.html",
+      "title": "AgentWorkConversationalData DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-agentworkconversationaldata_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "b1fff84335e18ec4210625704aaf8641e3aa45aa90846a95c2be02f12915f4d8",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -14467,6 +14534,28 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:150b17dbdfee7723bae4",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-assetlocation_dmo_mappings.html",
+      "title": "AssetLocation DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-assetlocation_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "098cded8eb8b31986b9c260a7c9b7505d7270c03245a5f25c7c979768b7cf315",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:13cb8e30545d7bac3d68",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-assetmilestone_dmo_mappings.html",
@@ -14909,6 +14998,30 @@
       "depth": 2,
       "parent": "Standard DLO to DMO Mappings",
       "contentHash": "b8f3fb4c1c6a93e8b225395bc02f7b1af5472f533236df69eeca67a845010603",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize",
+        "govern"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:28c75e06332808cea25e",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-authorizationtierobject_dmo_mappings.html",
+      "title": "AuthorizationTierObject DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-authorizationtierobject_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "179c6e59063d79729a33ffdce10ee7a7d709d0c0b45300e942e20d960dd13b4f",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -18483,6 +18596,28 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:1d7eea7ccbe64fd9fdd0",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-collectionplanmilestone_dmo_mappings.html",
+      "title": "CollectionPlanMilestone DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-collectionplanmilestone_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "24a42b5f178499dc35dddf539ac19dce8353051852962c5994e96a5a60396b31",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:3cd9adc79590ea04ec03",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-collectionplanreason_dmo_mappings.html",
@@ -20088,6 +20223,28 @@
       "depth": 2,
       "parent": "Standard DLO to DMO Mappings",
       "contentHash": "933b342f0ae5bb75a0402eec0d0a2e066c8fdbf8cc7d1c040c6aa80fa5160c88",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:26368f0984cd6a03263d",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-contactpointottsvc_dmo_mappings.html",
+      "title": "ContactPointOttSvc DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-contactpointottsvc_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "716ee02de4f9d1320f71096a7437b7ea67cc3a970a8505a49e387d3c05027bce",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -30730,6 +30887,29 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:b6fdd566020bc96b2ba0",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-offerengagementlimit_dmo_mappings.html",
+      "title": "OfferEngagementLimit DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-offerengagementlimit_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "d618f9e40f4ee751b35335f748cca41e54e1b1b52df727dcbaf6497d940199b7",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping",
+        "limits-and-considerations"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:9f37758f2386946c7c16",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-offergroup_dmo_mappings.html",
@@ -32437,6 +32617,94 @@
       "depth": 2,
       "parent": "Standard DLO to DMO Mappings",
       "contentHash": "95955cda67ef944f9d8b0547c3057115490b81e03e6a416e03033f8f58dcfd29",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:f189c0e8341785adecd9",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationdecision_dmo_mappings.html",
+      "title": "PersonalizationDecision DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationdecision_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "9cbfe6c6cefa454a228533380599120c470bfcf38f091d1f0cec97cc95b24ad2",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:5590ed9cfd057b3f5f64",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationpoint_dmo_mappings.html",
+      "title": "PersonalizationPoint DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationpoint_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "4d15f16363e84e689aa39ccce5e10804d5625b87189b016f5d3318aa659eaa2a",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:66d55407c7e144419515",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationrecommender_dmo_mappings.html",
+      "title": "PersonalizationRecommender DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationrecommender_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "61882a8bbef16f1150734359930c76eb75c21bda3ae84a74117ed745731ba594",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:d568f175530291ccc5b2",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationschema_dmo_mappings.html",
+      "title": "PersonalizationSchema DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-personalizationschema_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "1fa428828d723547ce51daca914937c0a781a40b79e275643076d4071e03def2",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -35816,6 +36084,226 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:9eae4fc31b94ac6a4e36",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossession_dmo_mappings.html",
+      "title": "Repossession DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossession_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "e6dba17533b2ab50b51fcf3e33bbd6aa322f80652f864aa8aa66a7bd9f26425e",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:26a9e91e85933bfb342d",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionactivity_dmo_mappings.html",
+      "title": "RepossessionActivity DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionactivity_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "20ed42212f850b214b85c95c7f9fc0232955694404986cd83da527a6615dbfc7",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:ca2d3f6c13f5f488582b",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitem_dmo_mappings.html",
+      "title": "RepossessionItem DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitem_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "27512af0f4d81e34703bf1669475f8c6c9e3bc447e87156ef41737d0dd619b7e",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:6678d94737307a250b3f",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemcost_dmo_mappings.html",
+      "title": "RepossessionItemCost DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemcost_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "73c1db02cbbe993184cf93c2bb3345f310c226ff2a9e95a93bc4012abeb3f5b0",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:1ae122a769da56ed6f7a",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemcostdetail_dmo_mappings.html",
+      "title": "RepossessionItemCostDetail DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemcostdetail_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "dbc3b7c920f0e92b27742cc65d3b6af5abc2af6cb3b0989bfc923bca87d2bb23",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:16d97ee6d4e7f3620dc0",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemuser_dmo_mappings.html",
+      "title": "RepossessionItemUser DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemuser_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "5ea2b3e7a590e986d1a87713d7e1fa9d2b0f1cee97f3bf70a3b623bbbdfbcf1f",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:1c105d034b5a6178fd22",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemvendor_dmo_mappings.html",
+      "title": "RepossessionItemVendor DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitemvendor_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "a89765caf88d7fd67b7a312f6b36c3a815f8e50e662b5c028e4856f1caa41a2c",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:00f1f6a6a4cd21595663",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitmprochld_dmo_mappings.html",
+      "title": "RepossessionItmProcHld DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionitmprochld_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "fe4b117976c9dcf0834c44a9833a8a2c1fa04b7f1aa64e3cefc30c42de6d8a1f",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:09227af4172665af3396",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionnoticelog_dmo_mappings.html",
+      "title": "RepossessionNoticeLog DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionnoticelog_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "23045dfeef15d85b2082e9eb276d24cc84b58e384ad5058ebe986c42509fd432",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:d4b7bc031a3bed240fd9",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionnoticerule_dmo_mappings.html",
+      "title": "RepossessionNoticeRule DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-repossessionnoticerule_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "93ec5c9c6a8ab489c392a8f83b3908705459e98c71dd0bfa60f7ea64485a5227",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:006eb667d980e85e3e5b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-resourceabsence_dmo_mappings.html",
@@ -36585,6 +37073,28 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:05df447290bdde74219d",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-servicepoint_dmo_mappings.html",
+      "title": "ServicePoint DLO Mappings",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-servicepoint_dmo_mappings.html",
+      "depth": 2,
+      "parent": "Standard DLO to DMO Mappings",
+      "contentHash": "a1048253569e4fc61551545324449499b75309da668961c52fdf6f046fba8da8",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "data-streams-and-ingestion",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:cf2d918a4ee7af9a66e3",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-servicepresencestatus_dmo_mappings.html",
@@ -36848,11 +37358,11 @@
       "id": "page:f9fb50da92288fcdb1b1",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentationdailysummarydmo-dmo.html",
-      "title": "Abn Experimentation Daily Summary DMO",
+      "title": "Experimentation Daily Summary DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentationdailysummarydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "39b7a5faaa1ca0c51cb7808b445a6bc1183bbfd6ca0e7a9a344f1a320b8133c4",
+      "contentHash": "aa0fe91b7026dffc1f8bd2e3357031e119ed6745a6f27b568179fc58eb615373",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -36868,11 +37378,11 @@
       "id": "page:c4b07fb32f1de57afdef",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentationsummarydmo-dmo.html",
-      "title": "Abn Experimentation Summary DMO",
+      "title": "Experimentation Summary DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentationsummarydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "d73e128401786161409c19a0de55ad96b91a5733fdce5d764a5825d6cd4f4244",
+      "contentHash": "0a2c1f9b7fadbee6431930561eea1f4cf6e249e366a3e3140d37cb8e60c8ad19",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -36888,11 +37398,11 @@
       "id": "page:28571cf9cf345bb9435f",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentcohortdmo-dmo.html",
-      "title": "Abn Experiment Cohort DMO",
+      "title": "Experiment Cohort DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentcohortdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "ba44c35e4bf3d3e9ec83c9cad5d60f3bd0e6f18f2c0c534c50fcf36137f64ec4",
+      "contentHash": "1dab09676a95392c91799f5f1d0b5ff1bf1319859cbbf51f4b314632e41a1d70",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -36908,11 +37418,11 @@
       "id": "page:422821145f4bb21da726",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentdmo-dmo.html",
-      "title": "Abn Experiment DMO",
+      "title": "Experiment DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "ba3a793ecb4959a8f01815e39ac307907c01bc0df57b8727808e105987979fce",
+      "contentHash": "b9a39b0f88ab2f4463472c47bbf613aa6a1ccf07a7aef5454137f96e6a83d4d7",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -36928,11 +37438,11 @@
       "id": "page:6974b7ec75f5901cd1cf",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentlogdmo-dmo.html",
-      "title": "Abn Experiment Log DMO",
+      "title": "Experiment Log DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-abnexperimentlogdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "3ffb1c07fe153d62fdf1b4fe3ba52e927323c9b0077d919314d51df3f02d791c",
+      "contentHash": "3a798a0199394ddb080e12b9749d39218eef7d96e50d01ef25b7f6b91a5a4c99",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -37090,11 +37600,11 @@
       "id": "page:951bd5d94dc82fc823c8",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-academictermregstrntimelinedmo-dmo.html",
-      "title": "Academic Term Regstrn Timeline DMO",
+      "title": "Academic Term Registration Timeline DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-academictermregstrntimelinedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "8691d988c1816dde5d9be0a9bf7ea5a0b272e94730eec8e469b284b46d2d6e85",
+      "contentHash": "134f80cf7d9ab759e7fbe70525ab494df622dc26d793fe43c9d704954f5331df",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -37177,7 +37687,7 @@
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accountdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "cc836f9e077f5c6176b8f0f1d366776a666e6c730fd7e0fa228c4b6e79fbc5ec",
+      "contentHash": "7f241bfe4f73dc3f979a14bab964c348f1f3b55e13853ee10a42330947db6dc6",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -37479,46 +37989,6 @@
       "depth": 2,
       "parent": "Standard DMOs",
       "contentHash": "f3944558531245b4df101d222dede82f48f7e684473f04b1b2a0a5962f5b1df8",
-      "status": "cataloged",
-      "type": "official-page",
-      "topics": [
-        "dmo-modeling-and-mapping"
-      ],
-      "phases": [
-        "harmonize"
-      ],
-      "guideFamily": "dmo-mapping",
-      "extractionMethod": "official-sidebar-catalog"
-    },
-    {
-      "id": "page:3f917b9a0f8dfb06bfcd",
-      "sourceType": "developer",
-      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accounttierassignmentdmo-dmo.html",
-      "title": "Account Tier Assignment DMO",
-      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accounttierassignmentdmo-dmo.html",
-      "depth": 2,
-      "parent": "Standard DMOs",
-      "contentHash": "8c638a8e52da75b6471a272a60f63385ef2063a9d6cb1b44e200b503a2c026f6",
-      "status": "cataloged",
-      "type": "official-page",
-      "topics": [
-        "dmo-modeling-and-mapping"
-      ],
-      "phases": [
-        "harmonize"
-      ],
-      "guideFamily": "dmo-mapping",
-      "extractionMethod": "official-sidebar-catalog"
-    },
-    {
-      "id": "page:6f81ad1115c752ca124a",
-      "sourceType": "developer",
-      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accounttierdefinitiondmo-dmo.html",
-      "title": "Account Tier Definition DMO",
-      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-accounttierdefinitiondmo-dmo.html",
-      "depth": 2,
-      "parent": "Standard DMOs",
-      "contentHash": "56afb4c70b9a0ec77620bca2504cd6f560493aa910e47668a97720e4b74f2a4a",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38142,11 +38612,11 @@
       "id": "page:7dbe2f111c9d5b3b014e",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-adverseeventsupportinfodmo-dmo.html",
-      "title": "Adverse Event Support Info DMO",
+      "title": "Adverse Event Supporting Information DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-adverseeventsupportinfodmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "9e8fb8b5315254137e40c40599e4057a8254ae28c12d4a154cb2d28568d2f82e",
+      "contentHash": "b13e04c8be22c0598eee03dc91db52b177acc13a86add9d616854cdcb246735c",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38263,11 +38733,11 @@
       "id": "page:3c9f9418b3d7eefa9375",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentactiondmo-dmo.html",
-      "title": "Ai Agent Action DMO",
+      "title": "AI Agent Action DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentactiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "42637f35a76e5e70e63e2995f58f9ed7481d0a8986e4efb67c282f82f775c70e",
+      "contentHash": "e496ba2420686c837ebbc842438f53e1a514bfa02bb6d7a68870c5c8ed06479b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38303,11 +38773,11 @@
       "id": "page:9064aaecc4c0fc74ad9c",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentinteractiondmo-dmo.html",
-      "title": "Ai Agent Interaction DMO",
+      "title": "AI Agent Interaction DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentinteractiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "7de7e86878f281a759e7ba179a54d9b2f03693fe8324abe499dbfe2558fe0332",
+      "contentHash": "3624127ff7893d1c062ee4fce29f3f05f81e458872ddfedf35509d1878b6df64",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38323,11 +38793,11 @@
       "id": "page:013ffb35457b9002253c",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentinteractionmessagedmo-dmo.html",
-      "title": "Ai Agent Interaction Message DMO",
+      "title": "AI Agent Interaction Message DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentinteractionmessagedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "833403855aa9b557a36b3fcb005d31dfa955cf56cb85df1d727de1f698b27139",
+      "contentHash": "204f6d814d3a539aeb886d6af13aa04ab323bafe1421d99332f8d3f851bd8bcd",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38343,11 +38813,11 @@
       "id": "page:1d5711e4496574d46f76",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentinteractionstepdmo-dmo.html",
-      "title": "Ai Agent Interaction Step DMO",
+      "title": "AI Agent Interaction Step DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentinteractionstepdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "b17e90c9aefc06e2f1ec62d3a413c8917ac0e1c0605a0cd3a16b5240bc93e0ac",
+      "contentHash": "23afd025e0036f3d641ad9f9f918eeb0a2d9675156c012e940d9f52b5f9d6213",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38383,11 +38853,11 @@
       "id": "page:7362c3c2ab0e737225f6",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentmomentdmo-dmo.html",
-      "title": "Ai Agent Moment DMO",
+      "title": "AI Agent Moment DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentmomentdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "3ff77329e5c1a4a49109237faa533827197cf7718234d2a10c1e203a3831e7f3",
+      "contentHash": "f84590a5d46c4709a05b60ea002f219ac4eb077c2d6207b447c4ed32bda75e22",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38403,11 +38873,11 @@
       "id": "page:59c28e213522433dd3ce",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentmomentinteractiondmo-dmo.html",
-      "title": "Ai Agent Moment Interaction DMO",
+      "title": "AI Agent Moment Interaction DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentmomentinteractiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "31257a8fc0f85a7981828af063573eee9de7018dfe40fc2abfd028ebc0532444",
+      "contentHash": "b914387fa1baf1d44153bb527fea148857d5926e5a338a929c5783ed864a346e",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38443,11 +38913,11 @@
       "id": "page:522ab3140b9b91d6478b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentsessiondmo-dmo.html",
-      "title": "Ai Agent Session DMO",
+      "title": "AI Agent Session DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentsessiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "85201dd9ebf36701e19f694295f00c026881e43207148e556c039f2666d8ad1c",
+      "contentHash": "7f5871f95c42b69b182c8579be9ac8d881b2baa551b4bc1c10540f9c14117e31",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38483,11 +38953,11 @@
       "id": "page:b3030857b4b7ff091f9a",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentsessionparticipantdmo-dmo.html",
-      "title": "Ai Agent Session Participant DMO",
+      "title": "AI Agent Session Participant DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagentsessionparticipantdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "2fa64e6167a62337b687d6dba72731ab18c59933539a90cdad35888ba8d5ea23",
+      "contentHash": "f9233db818a331748d3b92191d96e735de4b1556be1b278a27eb7868dd140157",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38503,11 +38973,11 @@
       "id": "page:4506b78fcace2e859733",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagassociationdmo-dmo.html",
-      "title": "Ai Agent Tag Association DMO",
+      "title": "AI Agent Tag Association DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagassociationdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "2bd8bafd9605c4abc42015ecca64e940931d9c08f0f84346d716ec354c29e3b5",
+      "contentHash": "2fda90d61405a761cff78e82f819088e489d9524923b07709dfe2ec27e3b1f14",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38543,11 +39013,11 @@
       "id": "page:6e381844ac51b434311c",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagdefinitionassociationdmo-dmo.html",
-      "title": "Ai Agent Tag Definition Association DMO",
+      "title": "AI Agent Tag Definition Association DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagdefinitionassociationdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a20425535afdf4629af8e4f69f8c23761a9b08aff8008a3c07e354928c4fbd4d",
+      "contentHash": "e3d29cdd045ce3312dd9bd7bfec93f48b86d072f1d4adc8ef9392280bb80be9d",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38563,11 +39033,11 @@
       "id": "page:a1ed9405f4b5890e5e31",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagdefinitiondmo-dmo.html",
-      "title": "Ai Agent Tag Definition DMO",
+      "title": "AI Agent Tag Definition DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagdefinitiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a64212b27d4a225f18707d88ea52323c8a1915afd981fa72cb0aa1da05afb065",
+      "contentHash": "36f64ddbe5a730bff496bc646cb2ab1e3d4850dc3546171614d27e4d16c9d6c8",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38583,11 +39053,11 @@
       "id": "page:2f86ac4f3c42bc7a5ee3",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagdmo-dmo.html",
-      "title": "Ai Agent Tag DMO",
+      "title": "AI Agent Tag DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttagdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a0e567fbcfc5636fc5b01547d7e16025ec895ca97499c58a55f90e50e132a462",
+      "contentHash": "c35061bca0b87a79a2635ecb68599dba6af679e237781f904fb1d0b3178cfb5c",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38603,11 +39073,11 @@
       "id": "page:6767aa1f700005ba6b6a",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttopicdmo-dmo.html",
-      "title": "Ai Agent Topic DMO",
+      "title": "AI Agent Topic DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-aiagenttopicdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "1a74f6547033f56ce009501aaddf2d0c4fc2e4aa0e3dfe83dd0ed07a79f48084",
+      "contentHash": "fa55480312f06a8447ca3c99a6b9178641afda4ae14dc1ee05e7d353bac27b7b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38704,11 +39174,11 @@
       "id": "page:0314c85617bd7e4f3213",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-airetrieverqualitymetricdmo-dmo.html",
-      "title": "Ai Retriever Quality Metric DMO",
+      "title": "AI Retriever Quality Metric DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-airetrieverqualitymetricdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "f4c13a1592d7c0c1be60e3e010a28de04b2536fe13352821d4cf19e08b4d7426",
+      "contentHash": "9335f581da9b72659b3c0d1b09012a0954f78a648c89b352ad270e6cc2d187eb",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38727,11 +39197,11 @@
       "id": "page:12abfea38af1a309b264",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-airtravelemissionsfactordmo-dmo.html",
-      "title": "Air Travel Emissions Factor DMO",
+      "title": "Air Travel Emission Factor DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-airtravelemissionsfactordmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "695979e46a14af9668b4098f175f2197771b9d295f24b726c2dfbffc40f5a1ed",
+      "contentHash": "ee60b0ccd20d28b21147b968d4ca4fad2e655259165ead39a592baddf7ff2dc6",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -38889,11 +39359,11 @@
       "id": "page:795a8b6a89398ac3969e",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-anticorruptioninitiativesummarydmo-dmo.html",
-      "title": "Anti Corruption Initiative Summary DMO",
+      "title": "Anti-Corruption Initiative Summary DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-anticorruptioninitiativesummarydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a9a53be155ba0a2566a79f42ac8f9a2bac73f578129c594df91e4d5a08fce7c4",
+      "contentHash": "d2e46a0991f4edbc78d60b21c7d1e8596cbb8ee12e2e7f1d067ecb2b6be69467",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -39748,6 +40218,26 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:6de8d261144dc1f8680f",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-assetlocationdmo-dmo.html",
+      "title": "Asset Location DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-assetlocationdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "72e9736f4b5c321acbf820b611bbe132298c8e27e1448978bf63679864d2b410",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:7096259ea18ace592782",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-assetmilestonedmo-dmo.html",
@@ -39891,11 +40381,11 @@
       "id": "page:b9a392eb86a09bb706f5",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-assetservicelevelobjectiveconsequencedmo-dmo.html",
-      "title": "Asset Service Level Objective Consequence DMO",
+      "title": "Asset Service Level Objective Cnsqnc DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-assetservicelevelobjectiveconsequencedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "daf3c23df769c02b77cd5b001d8e76cd2dde226b7643421e1fd1720cafb61593",
+      "contentHash": "dc8c11171e65efc2d22c8a5ce1deebf959c4a08e08ce28116ec7374759b00672",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -40260,11 +40750,11 @@
       "id": "page:bedebb57b8368bccd032",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-authlocationpermitscheduledmo-dmo.html",
-      "title": "Auth Location Permit Schedule DMO",
+      "title": "Authorized Location Permit Schedule DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-authlocationpermitscheduledmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "7bd482b77a0f4dfc23c7c8f9e59027c49f59afb6e2faead7fcd1d39c0a84c895",
+      "contentHash": "d4021a3b5887cecd2f2e8d37da6485f3000f99b41f6a418f94cf96e240388104",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -40443,6 +40933,28 @@
       "depth": 2,
       "parent": "Standard DMOs",
       "contentHash": "eacddd251d158a9c4d01ca85157852a30f96918059a575d32929a33862b9050d",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "authentication-and-permissions",
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize",
+        "govern"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:ebedf10c6f9a78637564",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-authorizationtierobjectdmo-dmo.html",
+      "title": "Authorization Tier Object DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-authorizationtierobjectdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "f6c819ae0e83494bc4e576225f28df1ae21964011d3f310f6d370519b9e4a650",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -40742,11 +41254,11 @@
       "id": "page:cc1211030d1d7c7734b9",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-benefitprvdsearchableflddmo-dmo.html",
-      "title": "Benefit Prvd Searchable Fld DMO",
+      "title": "Benefit Provider Searchable Field DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-benefitprvdsearchableflddmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "2e0673bc83190eff38dce7e8e468eb53aa16f667d6204d08a54359fcaa2fd76d",
+      "contentHash": "41298c8b173b789548434a85e491e270533eaccd896715f1a4ff4e98e1190deb",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -41035,11 +41547,11 @@
       "id": "page:be816d0ab552b5ea57e6",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-billingtreatmentitemdmo-dmo.html",
-      "title": "Billing Treatment Item DMO",
+      "title": "BillingTreatment Item DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-billingtreatmentitemdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "0b90a8ca69fdaf01e4c5236a0defa47aaa81ffb471dcb0d8069acbb9cba4358d",
+      "contentHash": "8278c1e778ddfcab37dd00e35a1e0d081597bfd697caaabd8a68d8cc3ff09aa3",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -41683,11 +42195,11 @@
       "id": "page:707f28d8a49b1754efc7",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-busregauthtypedependencydmo-dmo.html",
-      "title": "Bus Reg Auth Type Dependency DMO",
+      "title": "Business Reg Auth Type Dependency DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-busregauthtypedependencydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "d9424a025c6690f471d1138d038211f61fbf21de9eedb69898a78281e85e3933",
+      "contentHash": "f243ac057f7b732ae7936aab1e21133672a8a4e3b79a824574f166c409a15831",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -42066,11 +42578,11 @@
       "id": "page:afd9207092c5a6a62513",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-carebarrier2dmo-dmo.html",
-      "title": "Care Barrier2 DMO",
+      "title": "Care Barrier DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-carebarrier2dmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "d9a0c6f8f7206c22f07d6350b64734d14c0090e4159efdbbbb01bfde404ab087",
+      "contentHash": "f1778225086e0cf4fb708b4aab6fe32b81974a381b47ed7d0eb0dea7070165e8",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -42288,11 +42800,11 @@
       "id": "page:e0f4a5c6829adcbfd757",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-carepgmprovhealthcareproviderdmo-dmo.html",
-      "title": "Care Pgm Prov Healthcare Provider DMO",
+      "title": "Care Program Healthcare Provider DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-carepgmprovhealthcareproviderdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "bb0112520801954d413c32b03d567e29aa9a189ad5565c127561f48435c8a1d5",
+      "contentHash": "f6bc516a238879df463a914c48d7baf50b6e27b8a272c75eae1c85930d74220b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -45420,6 +45932,26 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:fb4fd661e3e9b3937237",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-collectionplanmilestonedmo-dmo.html",
+      "title": "Collection Plan Milestone DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-collectionplanmilestonedmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "90a37a368d1493a86a8401f7819e32cb6ac7cd828035ff1b1415dfa3a2849276",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:e9aec10f2eee9170fb94",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-collectionplanreasondmo-dmo.html",
@@ -45825,18 +46357,20 @@
       "id": "page:9d6f6bf7f044796b2c76",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-complianceplcycmplclverdmo-dmo.html",
-      "title": "Compliance Plcy Cmpl Cl Ver DMO",
+      "title": "Compliance Policy Cmpl Clause Ver DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-complianceplcycmplclverdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "b02f086fea34e67fbc8da1167924f61a2770ff46de9fa126cc31460ffccda92b",
+      "contentHash": "be8ec476f413355fda8a5f8e3f991f48d9dbbd7e842c8d35abc5cd6a3d1ee7d0",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
-        "dmo-modeling-and-mapping"
+        "dmo-modeling-and-mapping",
+        "governance-and-security"
       ],
       "phases": [
-        "harmonize"
+        "harmonize",
+        "govern"
       ],
       "guideFamily": "dmo-mapping",
       "extractionMethod": "official-sidebar-catalog"
@@ -46674,11 +47208,11 @@
       "id": "page:708d0c445ca5fc4fc909",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-contractdocvercontentdocdmo-dmo.html",
-      "title": "Contract Doc Ver Content Doc DMO",
+      "title": "Contract Doc Version Content Doc DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-contractdocvercontentdocdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "cfb922b99e83c43c934c20f281f4edecdcb5e685e2d21c9887a4f324acd512c3",
+      "contentHash": "2be8ecfad7bd0823c48c1e1e66a4cc38178903174aab5e670f5f0b5baedb2617",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -46754,11 +47288,11 @@
       "id": "page:b091e0ab52a18208cda9",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-convchannelengmtsummarysubjectdmo-dmo.html",
-      "title": "Conv Channel Engmt Summary Subject DMO",
+      "title": "Conv Channel Engagement Summary Subject DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-convchannelengmtsummarysubjectdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "427d705b9d6b73f630b7da2b8f5b9c3512c9455a56796d8291e14cfa0efcbe15",
+      "contentHash": "612fcfe1f38479ed2b6b57f389c084fde95e3f7d61b8d33cc1f1ab165bbf60ff",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -46774,11 +47308,11 @@
       "id": "page:42ab17f7e8746935dabf",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-convchnlengmtsummaryptcpdmo-dmo.html",
-      "title": "Conv Chnl Engmt Summary Ptcp DMO",
+      "title": "Conv Chnl Engmt Summary Participant DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-convchnlengmtsummaryptcpdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "c1aa46b32525799d0e0d1de2d0955a7f5b60de79523d78d925f615cd76f024fc",
+      "contentHash": "9a93068dfb37d1c2570631f9118d618ba53a06072c4a446100f04cd0669689ee",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -46934,11 +47468,11 @@
       "id": "page:546e3b4998022e16357b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-convreasonreportdefinitiondmo-dmo.html",
-      "title": "Conv Reason Report Definition DMO",
+      "title": "Conversation Reason Report Definition DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-convreasonreportdefinitiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "2ec0c30a2bbaba9578f26666166c20ba42cd7594d7749bc1aae76ecddf9f7e35",
+      "contentHash": "edbac02c0bbd18d282fd088b8cb9567710bb15ebb63d8d6da852b658d30e2762",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -47177,11 +47711,11 @@
       "id": "page:f1eece91e58d56604c12",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-courseofferingptcpresultdmo-dmo.html",
-      "title": "Course Offering Ptcp Result DMO",
+      "title": "Course Offering Participant Result DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-courseofferingptcpresultdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "1a25388230804b155f07bf922ad863d1c77b66c674f9f04908f463fee610e212",
+      "contentHash": "cee29fcc299d220a6420bfbbfd2f780538ced92a87955e7adb1c888db57c00e7",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -47279,11 +47813,11 @@
       "id": "page:c789ca98eb9b141ed421",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-courseofferingscheduletmpldmo-dmo.html",
-      "title": "Course Offering Schedule Tmpl DMO",
+      "title": "Course Offering Schedule Template DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-courseofferingscheduletmpldmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "96c3f5d28d65f41902245bed21eb281e984f29c9ffff5dbd8a0abaad13683da6",
+      "contentHash": "f87d08df76c8a8a42a259958a82673ce4889ea35f31a311132ba1d2d91585839",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -47301,11 +47835,11 @@
       "id": "page:0a811eec9ca9f8979c71",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-courseofrptcpactivitygradedmo-dmo.html",
-      "title": "Course Ofr Ptcp Activity Grade DMO",
+      "title": "Course Offering Ptcp Activity Grade DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-courseofrptcpactivitygradedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "d8f268e636fe6ebda9f41867d89c35be412e1e957481a8755729546b568bc510",
+      "contentHash": "49dc098d07305857599081f40e61e4ff9aa6a43cc9bf35b5962d4f448299dca9",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -47926,11 +48460,11 @@
       "id": "page:cd52abf15a76b0e372be",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-dedupengmtanlsstextinsightassocdmo-dmo.html",
-      "title": "Dedup Engmt Anlss Text Insight Assoc DMO",
+      "title": "Dedup Engagement Anlss Txt Insight Assoc DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-dedupengmtanlsstextinsightassocdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "ae7aaa96e5f44abe9e9187bf21d80451405538c8bc149497c54d3cd71d20ae9c",
+      "contentHash": "4b0a9a4efb211b72cd10b41c2729991873db04495f709afe5dd185878ea5096f",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -47947,11 +48481,11 @@
       "id": "page:7d3d0ab639516ba381af",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-dedupengmtanlsstextinsightdmo-dmo.html",
-      "title": "Dedup Engmt Anlss Text Insight DMO",
+      "title": "Dedup Engagement Analysis Text Insight DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-dedupengmtanlsstextinsightdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "596c9f7336eafbb5ae3a079740cb8337d1cdff57b995eb3e1d4160e618ee7f2e",
+      "contentHash": "d1fd0d3a8445b4d8e713d4a57f5aead1b25602e3814700c8e5a6ffdff462612f",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -47988,11 +48522,11 @@
       "id": "page:4b94bbf1a96f0489c6bc",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-deliveryverificationengmtsummarydmo-dmo.html",
-      "title": "Delivery Verification Engmt Summary DMO",
+      "title": "Delivery Verification Engagement Summary DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-deliveryverificationengmtsummarydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "e7d8fab30d14021f2c97e25925536b43578ec2682f8a4840a2c6fd1ccac8156d",
+      "contentHash": "154b38efba2cc1c94d3697c8ca7a6f8d346152d1f7314a51af2e9bb97efe9eb6",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -48835,11 +49369,11 @@
       "id": "page:a5dfd84ce26717ea3585",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-electricityemissionsfactorsetdmo-dmo.html",
-      "title": "Electricity Emissions Factor Set DMO",
+      "title": "Electricity Emission Factor Set DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-electricityemissionsfactorsetdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "8faa8807cc8f6bdf7ebdff311b48c8098a8b7371a08ab81713c92b3a2ee43652",
+      "contentHash": "6e4156a1b3e58dedddce5b4ea0ebfe9dab2b8bf01b1a6973d0c794cc2702b099",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -49930,7 +50464,7 @@
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entity-interface-dmos-introduction.html",
       "depth": 1,
       "parent": "Model Data in Data 360",
-      "contentHash": "54b9a2e12f1388cf7134977cd7b5acf34a6f885e7f30ef0732e662297554e577",
+      "contentHash": "458275462e26eba268f8211d7e905e5eb524815a392497c6c9893838608db14a",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -49954,11 +50488,11 @@
       "id": "page:64a3bf5067c6abb4e871",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entpuserdmo-dmo.html",
-      "title": "Entp User DMO",
+      "title": "Enterprise User DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entpuserdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "acda8f4b165c674f07ebcd021524963b9bc892f8c0b64569ea13ece55e32ec10",
+      "contentHash": "eab6299eeeaeb89784f9f7b2f93e1f98b0dd52814ebd600a108d722bce96456a",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -49974,11 +50508,11 @@
       "id": "page:ee1ab4cf80fd0e905cef",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entpuseremaildmo-dmo.html",
-      "title": "Entp User Email DMO",
+      "title": "Enterprise User Email DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entpuseremaildmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a96802f8870be0d2fb0a78a060b582bbf8db118cb35a27d2be902da2d37e2262",
+      "contentHash": "824e093ccb88748251ec4f3095b6ceece86b47e4de3ee9bce47364242cd63a8a",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -49994,11 +50528,11 @@
       "id": "page:259a8f9b512324d39b8e",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entpuseridentificationdmo-dmo.html",
-      "title": "Entp User Identification DMO",
+      "title": "Enterprise User Identification DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-entpuseridentificationdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "84c7a0d6773bce9c0a570399096ce66cd0d1a3b87d03a78c9a2e3a97a338ac0f",
+      "contentHash": "ac52e59257e6c4ddd89a8b698b683edeef3d3780a51975bb139b8ed61ad7d6f4",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -50044,6 +50578,26 @@
       "topics": [
         "dmo-modeling-and-mapping",
         "troubleshooting-and-readiness"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:3540e89ef04f83b4b4ea",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-estimatedexpensedmo-dmo.html",
+      "title": "Estimated Expense DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-estimatedexpensedmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "62739cb4a91dd3a09d8c3fa12ee794290feaf0fc045aef67a9a5b6413b8a35aa",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
       ],
       "phases": [
         "harmonize"
@@ -50290,6 +50844,26 @@
       "depth": 2,
       "parent": "Standard DMOs",
       "contentHash": "4141f602bd996c34be4332066473dc6c96b8304ec1b2f1102c8dc7a3c85c7c8b",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:2e0c0435f042ae45be68",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-expensedmo-dmo.html",
+      "title": "Expense DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-expensedmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "c427e19d6516d439b225ffe1508bad452970b482b58ea438e4bd092b2eba59b9",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -50948,11 +51522,11 @@
       "id": "page:cefc2a4d14138ee6a27b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-finclassetportfoliotargetallocationdmo-dmo.html",
-      "title": "Financial Asset Portfolio Target Allocation DMO",
+      "title": "Financial Asset Portfolio Tgt Allocation DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-finclassetportfoliotargetallocationdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "294424d1604d54470be0f4b0e5b12a9db76be5a2deabfec74633013b46153e27",
+      "contentHash": "66bdc4e3d7118f7bb2df3edcbe28757856e378bd3b8fadd6e5f3a74c42074f6d",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -51494,11 +52068,11 @@
       "id": "page:5f35c416bf792d4fe7ab",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-fulfillmentorderpriceadjdmo-dmo.html",
-      "title": "Fulfillment Order Price Adj DMO",
+      "title": "Fulfillment Order Price Adjustment DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-fulfillmentorderpriceadjdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "80d493579468a392107536ddf1a5413e6caf2fbc35f8f6c4df1caf533848ea5f",
+      "contentHash": "e1b790758cce367da294032a56bf9389677c7f481a1f8e229d43b95b9b47152b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -51514,11 +52088,11 @@
       "id": "page:3c9fd453cce1fe099880",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-fulfillmentorderpriceadjtaxdmo-dmo.html",
-      "title": "Fulfillment Order Price Adj Tax DMO",
+      "title": "Fulfillment Order Price Adjustment Tax DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-fulfillmentorderpriceadjtaxdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "062b712108bf453cfebb30fc99c57c89648fbd2424e034c27012ba31aaf6b710",
+      "contentHash": "d8bdb98502b9a476b8d25805403743b6e9380abe99f5f10e6de202b6b39ba32f",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -52336,11 +52910,11 @@
       "id": "page:6b115e353477bb7b47a7",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-giftcmtchangeattrlogdmo-dmo.html",
-      "title": "Gift Cmt Change Attr Log DMO",
+      "title": "Gift Commitment Change Attribution Log DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-giftcmtchangeattrlogdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "3e13cc1321b5b0b62c024ca80c2f0d9cc3655a170adf51c81cfc10c34996a383",
+      "contentHash": "2186fc19c7a7e0dad9cd91e9961355e7420ee4b2e5fe24d373ac95e0ce5b4e58",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -52558,11 +53132,11 @@
       "id": "page:871da0688d53f9d9bcb4",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-gifttransactiondmo-dmo.html",
-      "title": "Gift Transaction DMO",
+      "title": "GiftTransaction DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-gifttransactiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "294217b340beff5760a31e209598b44b1aafebdea412ede7aac1f27edf4c5730",
+      "contentHash": "dc0d8351aa11bbb488006a157ca77cc03de833fd99f13a52a0d93d248ae244e2",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -52739,18 +53313,20 @@
       "id": "page:96515fb451ed17a09d25",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-govfinancialassistancesummarydmo-dmo.html",
-      "title": "Gov Financial Assistance Summary DMO",
+      "title": "Government Financial Assistance Summary DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-govfinancialassistancesummarydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "3ae9fa60ae72374c27913b1f2956d005c1faa54e37b642fbe7d95676ead92b8d",
+      "contentHash": "5d2dad8f5dcf14e6db482500701536be64d4048b0a98b11ef55a027b5d13622d",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
-        "dmo-modeling-and-mapping"
+        "dmo-modeling-and-mapping",
+        "governance-and-security"
       ],
       "phases": [
-        "harmonize"
+        "harmonize",
+        "govern"
       ],
       "guideFamily": "dmo-mapping",
       "extractionMethod": "official-sidebar-catalog"
@@ -53280,11 +53856,11 @@
       "id": "page:2ea94ae66890b3d2db4b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-healthconddefinitionrelationshipdmo-dmo.html",
-      "title": "Health Cond Definition Relationship DMO",
+      "title": "Health Condition Definition Relationship DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-healthconddefinitionrelationshipdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "8c045a53e36365f9f9103ca6cfcdeba9f888bded79f304ed86fab44f49989c8b",
+      "contentHash": "a87acd99e954c297d37c1c3ff22312ebb607964781e204f4cdabcb52129c536b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -54420,11 +54996,11 @@
       "id": "page:cdc4f24886a732784e7a",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-jobapplnsearchablefielddmo-dmo.html",
-      "title": "Job Appln Searchable Field DMO",
+      "title": "Job Application Searchable Field DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-jobapplnsearchablefielddmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "0d3f85e7d2803c0e5c3d7db0a6954fc2ee33b29bb1e17d54117f3e9b0c0269ab",
+      "contentHash": "8fefe8353a6c130c0cd59797af5fd0fce704ca4ab6815128f03a0f27aab5e148",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55023,11 +55599,11 @@
       "id": "page:45150ee26c5b8c18c7b7",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-learnerprogramrqmtprogressdmo-dmo.html",
-      "title": "Learner Program Rqmt Progress DMO",
+      "title": "Learner Program Requirement Progress DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-learnerprogramrqmtprogressdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "05d2211b9e811aaf1911a20ceef758a3fd1685e47a7732a1b248e3974a18712e",
+      "contentHash": "9d9a09ca970cf8c53444acd9c3d162e6957596bcf862bed91107acbf1e7f7b48",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55223,11 +55799,11 @@
       "id": "page:4196f80f32882b2b9656",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-learningpathwaytmplpgmplandmo-dmo.html",
-      "title": "Learning Pathway Tmpl Pgm Plan DMO",
+      "title": "Learning Pathway Template Program Plan DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-learningpathwaytmplpgmplandmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "ce024715380ba8f536ddba76b54d7dca87cbeb5155a7042013da9f1908e5f13e",
+      "contentHash": "a08c9738384fb20554f5cf9fbce18c83ab3915a24d05e4e91720658d43321a44",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55283,11 +55859,11 @@
       "id": "page:e36dd36217351535e426",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-learningprogramplanrqmtdmo-dmo.html",
-      "title": "Learning Program Plan Rqmt DMO",
+      "title": "Learning Program Plan Requirement DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-learningprogramplanrqmtdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "1ef24ed38425f1a48425493cdc9fb353a139071cb7418acc7cb8f950f08bfdc1",
+      "contentHash": "aee9246ea0df7c323ca801969c7f155c1c85c5dfd76635551d94e8388d866dbb",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55523,11 +56099,11 @@
       "id": "page:7311316ecd96e4cd63ee",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-locationgroupprodexclchgdmo-dmo.html",
-      "title": "Location Group Prod Excl Chg DMO",
+      "title": "Location Group Product Exclusion Change DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-locationgroupprodexclchgdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "424b1376f94db93de7f004db93bc88bd6fde82e4201bbb6b1c9a09040cacd98a",
+      "contentHash": "af2d680425d3ec84b23b47529948ba57deb091aa04dbf6543bb521e07d2fc871",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55543,11 +56119,11 @@
       "id": "page:767249fcaa2ac4b4678a",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-locationgroupprodinvchgdmo-dmo.html",
-      "title": "Location Group Prod Inv Chg DMO",
+      "title": "Location Group Product Inventory Change DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-locationgroupprodinvchgdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a929911b8fad26e8a774c8de3dbb6461f0f5c3480caa7ba48a4f508ed9cc35b6",
+      "contentHash": "8effc1aa74a11fc23cf8236af09c1b6dd5a97859e547f3af8b8752f09ab8ab4b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55623,11 +56199,11 @@
       "id": "page:c9d48139aa88ee9f89cb",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-loyaltyaggregatedptexpirationledgerdmo-dmo.html",
-      "title": "Loyalty Aggregated Point Expiration Ledger DMO",
+      "title": "Loyalty Aggr Point Expiration Ledger DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-loyaltyaggregatedptexpirationledgerdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "1544d6dc7d3f6bc7e23937f173ae7fb3543dde3f464c474214d9a079d0665373",
+      "contentHash": "c3fe2bc39180bead7363677c70184e98b52fa23ad51ff488258e99efb5a38997",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -55983,11 +56559,11 @@
       "id": "page:995dfbca4f92805579a8",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-loyaltyprogramengmtattributepromotiondmo-dmo.html",
-      "title": "Loyalty Program Engmt Attribute Promotion DMO",
+      "title": "Loyalty Pgm Engmt Attribute Promotion DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-loyaltyprogramengmtattributepromotiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "377351e1f89ba56c7da0724c07e0f1805b724ab6b5f8b09ea529bc62609d184c",
+      "contentHash": "3358372f3e9ddd5ea9c0f21fe205e87310941fe88202de45305c3b5fc23603f8",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -56003,11 +56579,11 @@
       "id": "page:84770483324abd22f753",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-loyaltyprogramgroupmemberrelationshipdmo-dmo.html",
-      "title": "Loyalty Program Group Member Relationship DMO",
+      "title": "Loyalty Pgm Group Member Relationship DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-loyaltyprogramgroupmemberrelationshipdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "0871771e0e75d3aaa6ad06ed427caee57ab0365aae4021f3677638b17ce66e75",
+      "contentHash": "2acfd182b2a324de371ff69ede5f33568593a981ff97c73730988d0eea082d16",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -57010,17 +57586,18 @@
       "id": "page:0f29e16d4be842a9652b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-materialitytopicdocclausesetdmo-dmo.html",
-      "title": "Materiality Topic Doc Clause Set DMO",
+      "title": "Materiality Topic Document Clause Set DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-materialitytopicdocclausesetdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "526c09c3c8db0007f8c61199f07dd863ba7d01f8da7c8bdd762518fe92858789",
+      "contentHash": "a0625d9dd1606dcfd8dcd2f4cd4187a240a3e41cb14553adfcf78431275f3b0e",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
         "dmo-modeling-and-mapping"
       ],
       "phases": [
+        "prepare",
         "harmonize"
       ],
       "guideFamily": "dmo-mapping",
@@ -57440,11 +58017,11 @@
       "id": "page:04ba097a036a84e7ab5b",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-mgdeventsesssubjectassignmentdmo-dmo.html",
-      "title": "Mgd Event Sess Subject Assignment DMO",
+      "title": "Managed Event Session Subject Assignment DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-mgdeventsesssubjectassignmentdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "39fc0c198fd5e58c54ef5ef41d6baa17b3edf3a6ebd69fbad13a154649bb8cc9",
+      "contentHash": "f92bde5f4efc95626f36f35ce9cd9657c30ed31dc4a5a1bd2f500cccf6d5b0bc",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -58224,11 +58801,11 @@
       "id": "page:54cb41529ecca474b72e",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-otheremissionsfactorsetdmo-dmo.html",
-      "title": "Other Emissions Factor Set DMO",
+      "title": "Other Emission Factor Set DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-otheremissionsfactorsetdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "6f0118c8a9561a499248a7540258303a500e6ba79a526e01d181263035f4f3bc",
+      "contentHash": "1ac35c03fe0d0dcb740597c851750af97fda3d6f3548e7dc4492b5159407c704",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -59073,11 +59650,11 @@
       "id": "page:642ddde8ca361bf969f3",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-patientmedicalprocedureidentifierdmo-dmo.html",
-      "title": "Patient Medical Procedure Identifier DMO",
+      "title": "PatientMedicalProcedureIdentifier DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-patientmedicalprocedureidentifierdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "ecd2b360a6b0099a66f2f0feeb7db71fcadf0eb8d0f0b5a870818a320d14f0ad",
+      "contentHash": "73bfc76149027fd6b155a916fe5189b6b8bc9d78318c3e161f3a324e118f6ff6",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -59113,11 +59690,11 @@
       "id": "page:516ce1afe0a2a5648da3",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-patientmedicationadministrationdtldmo-dmo.html",
-      "title": "Patient Medication Administration Dtl DMO",
+      "title": "Patient Medication Administration Detail DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-patientmedicationadministrationdtldmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "51cc7cdd080f3d2b63afb13de3184b30511338093544eeef44f07a3ec739075f",
+      "contentHash": "77a23c649a3234aaee444eca8dd3eb9d2a38e1fe8482b0b8126e9e48d9343b8f",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -59293,11 +59870,11 @@
       "id": "page:fce80b6ed9a2f1d983ab",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-patientmedreconrecommendationdmo-dmo.html",
-      "title": "Patient Med Recon Recommendation DMO",
+      "title": "Patient Medication Recon Recommendation DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-patientmedreconrecommendationdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "eca5116c45e663f2a64321925c64a9f481f4592151b800f7b8a67f61b2389a73",
+      "contentHash": "562f74f278a5713441be1f7c59e467c664ea6f1664fcdf77b92efde1ef984eaa",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -60037,11 +60614,11 @@
       "id": "page:fa7afeea68a0856a73da",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-personpublicprofileprefsetdmo-dmo.html",
-      "title": "Person Public Profile Pref Set DMO",
+      "title": "Person Public Profile Preference Set DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-personpublicprofileprefsetdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "c24068b86b7edf15d7ec9b8688347ff498371a1972d2df20b7915ca8561af370",
+      "contentHash": "c2231c46e5fd1f222198b85382dae2266bb0b7ff60af1ffa88586bb663f7ad0c",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -61148,7 +61725,7 @@
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-productdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "6bb1fce2ad94a9ec2b6c72826bec12ced4fd674e30f585937fb99b716f0f962b",
+      "contentHash": "998ce20959aa3af47ef5653c425db7358f2f8666005f5d97f938c76faa636d84",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -62195,11 +62772,11 @@
       "id": "page:9aa4bacd0862b236b991",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-providervisitdtlproductmessagedmo-dmo.html",
-      "title": "Provider Visit Dtl Product Message DMO",
+      "title": "Provider Visit Detailing Product Message DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-providervisitdtlproductmessagedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "1a1626ce6398da4ffc00ef68fed77737e350be0745885edae4ec9bcab94338fb",
+      "contentHash": "5003d06394a3e93cc31a217c5e7e4f77eab4a331641c56bbb7916fecf2d83141",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -63204,11 +63781,11 @@
       "id": "page:d2488c55d483a163aa17",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-regulatorycodeassessmentinddmo-dmo.html",
-      "title": "Regulatory Code Assessment Ind DMO",
+      "title": "Regulatory Code Assessment Indicator DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-regulatorycodeassessmentinddmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "ce357e25f77bf0b5d1a172323fdf9842bfe4718b787cdf3c090596c724c84eba",
+      "contentHash": "6b7285469926134703b2f6aa13fa25bb6cd2dcc3119cb66da59410ff9c798f9d",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -63425,11 +64002,11 @@
       "id": "page:6be33218c3e4cd69857c",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-rentalcaremissionsfactordmo-dmo.html",
-      "title": "Rental Car Emissions Factor DMO",
+      "title": "Rental Car Emission Factor DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-rentalcaremissionsfactordmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "47b6c11a0d9eb40a62a082f08dae62769b91b4b8b66c0510e728f91342ca0a15",
+      "contentHash": "163d0c3f33334fcb90d9dcd77c06d21518e4a42d78b17ca6eadf0636d94c71da",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -63470,6 +64047,206 @@
       "depth": 2,
       "parent": "Standard DMOs",
       "contentHash": "93702a23cd1d8d233384fefa16d138ff73060213ab63ec3b86578231b2b635b5",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:04cfb534b9f07d695b2e",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionactivitydmo-dmo.html",
+      "title": "Repossession Activity DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionactivitydmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "75b7dfc8432b2a036228b5a022a117c7b5028f5704f43f919d99581ef7f5ec1e",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:338f02c8add3204cf887",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessiondmo-dmo.html",
+      "title": "Repossession DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessiondmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "18a34b6fdbd2aeafb81faa44ebdefb061f9d3629c3d96410474d8dd505cca517",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:6e16bfe7eb25f331fc18",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemcostdetaildmo-dmo.html",
+      "title": "Repossession Item Cost Detail DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemcostdetaildmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "79a693be9db1daa28c7e2998d0beaa97d6e19eff5227eb552ffca851172b758e",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:213d9e824eca891880ad",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemcostdmo-dmo.html",
+      "title": "Repossession Item Cost DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemcostdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "3c9da2bf545f348b86b2129a9c1bbb6ea300ae6c0b7edf18b48744623dd4b7f0",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:5fc87a7021a18fd5e4ee",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemdmo-dmo.html",
+      "title": "Repossession Item DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "615d271ce7947979414ba7a68904c2dca3f6b8026933232a12ca1c189a742637",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:eaf92c85db5c792432da",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemuserdmo-dmo.html",
+      "title": "Repossession Item User DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemuserdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "80a21096cb68f520add0c04d8e78f1523ce2868f2e5db0cbabeabd52d108cc78",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:445e4975a9fcc80884c2",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemvendordmo-dmo.html",
+      "title": "Repossession Item Vendor DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitemvendordmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "3d45f92fa15948088fdde1c259903cd23c654fca79825db432c70dcf965028f6",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:4633eda084d35018a66c",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitmprochlddmo-dmo.html",
+      "title": "Repossession Itm Proc Hld DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionitmprochlddmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "52f96454304ea2a6ed1e72ed4a53502fe373ee48bd20cb103f46fd2b47e8e9a8",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:a520e62a0e324d7b13b9",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionnoticelogdmo-dmo.html",
+      "title": "Repossession Notice Log DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionnoticelogdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "0ca9f102b5dfe9ecf23649ab0cf7f8e099ecbe034d8649ad91e11fd552d8e9c3",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:91c77dda87774a959ab9",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionnoticeruledmo-dmo.html",
+      "title": "Repossession Notice Rule DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-repossessionnoticeruledmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "483ba8cfdfa4868bb4d63f4fab26c8dcb09067eda64ba7588b92846fd511a86b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -63835,11 +64612,11 @@
       "id": "page:0d3f0b8175a625061d58",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-returnorderprodpriceadjdmo-dmo.html",
-      "title": "Return Order Prod Price Adj DMO",
+      "title": "Return Order Product Price Adjustment DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-returnorderprodpriceadjdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "bc5ab3a5e5065728510f3197685ff80c1c76dd867254a34cd160c2313d9144cd",
+      "contentHash": "bb49849844c02258a1f8de30cf009e8d68596435f24e8d7537e6013cbb0409ae",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -63916,11 +64693,11 @@
       "id": "page:39ab604bef61cf959798",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-rgltycoderegclauseverdmo-dmo.html",
-      "title": "Rglty Code Reg Clause Ver DMO",
+      "title": "Regulatory Code Regulation Clause Ver DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-rgltycoderegclauseverdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "27aff168327a5ece958a5aa51db644314e92e21c0dd1212d6467cfa4e942e842",
+      "contentHash": "c942976f455a10599285f3c42081737a18d5b67099d9c0b326147c67c1e275e9",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -63936,11 +64713,11 @@
       "id": "page:77605bedb1472319a194",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-rgltycodeviolregclverdmo-dmo.html",
-      "title": "Rglty Code Viol Reg Cl Ver DMO",
+      "title": "Regulatory Code Viol Reg Clause Ver DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-rgltycodeviolregclverdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "1793e48a8afb167077c9229f44986aaab6cad2f637476d89b8c40e84a084940b",
+      "contentHash": "fc982fd729fbe4aeabedb20fde4958b879fd6cbccbead9847de415bf3097a8d4",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -64421,11 +65198,11 @@
       "id": "page:f902785ef022988c325e",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-salesterritoryaccountprodtmsgscoredmo-dmo.html",
-      "title": "Sales Territory Account Prodt Msg Score DMO",
+      "title": "Sales Territory Acct Prodt Message Score DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-salesterritoryaccountprodtmsgscoredmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "f51c259eef18a1a72e84e71f5ec4289a7b3c1d04a22dad924ab2a0b27bed9b8a",
+      "contentHash": "cc9da9cfe038f8293ed34285a3bb7650c253fd6299754cd755294eaea466ada4",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -64441,11 +65218,11 @@
       "id": "page:43281e73df50944a497c",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-salesterritoryaccountrcmdactiondmo-dmo.html",
-      "title": "Sales Territory Account Rcmd Action DMO",
+      "title": "Sales Territory Acct Recommended Action DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-salesterritoryaccountrcmdactiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a09659bc00a45da83d4d2b68a7a2baf38eb2bb3d4565c0c8857efe8c3491cdfd",
+      "contentHash": "e4a548fa9c6ffe46b16c3e5b1d6845684e12c6f16f3fc1a9cbdcdfc44afca008",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -64583,11 +65360,11 @@
       "id": "page:8a020eb3699abb299d51",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3carbonfootprintdmo-dmo.html",
-      "title": "Scope3Carbon Footprint DMO",
+      "title": "Scope 3 Carbon Footprint DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3carbonfootprintdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "277078c71be394893731c012ca22b3e49b5c7b2d164af6ff9f1c2880bbf9f897",
+      "contentHash": "90a1b6bd78c778aa98fb45b4ca74751b3f305ad329155412cdf08f4723648642",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -64603,11 +65380,11 @@
       "id": "page:1b2e94945c0943b10fa0",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3emissionssourcedmo-dmo.html",
-      "title": "Scope3Emissions Source DMO",
+      "title": "Scope 3 Emissions Source DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3emissionssourcedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "399fdaeefe2eae50c88016b8194c88deaf8507c4cd386cdf5504cf64969b39de",
+      "contentHash": "1fa1e856306d76adf61e4826c7194013f47371de158cbf77c60f52b287557954",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -64624,11 +65401,11 @@
       "id": "page:23ca7d029b2163538001",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3procurementitemdmo-dmo.html",
-      "title": "Scope3Procurement Item DMO",
+      "title": "Scope 3 Procurement Item DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3procurementitemdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "fa8ca539bf03e2cb01369f5c9c111d71858104ad893ce8eaea3a2a78acace7f4",
+      "contentHash": "1c310308e53e88a48cfaeec052572834c8a9b8fbed368d3a4ffd301c3ab80e3a",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -64644,11 +65421,11 @@
       "id": "page:06c483a7705d6a6d6bee",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3procurementsummarydmo-dmo.html",
-      "title": "Scope3Procurement Summary DMO",
+      "title": "Scope 3 Procurement Summary DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-scope3procurementsummarydmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "d286280c9d415277be9dd41fb436239b1894f1cbb58b122b1b7d9df7d1a5aaf1",
+      "contentHash": "dba5c80eb4fec605db6a07d4b9fd3da35a9675060b639e1ac9531f2a4b86ad77",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -65871,11 +66648,11 @@
       "id": "page:d6988a680118144ab173",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-stationaryassetenvsourcedmo-dmo.html",
-      "title": "Stationary Asset Env Source DMO",
+      "title": "Stationary Asset Environmental Source DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-stationaryassetenvsourcedmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "5e3dd78aaccd3343d5b9cdc42193942c27b6b763bd3936d128e009feb7927f46",
+      "contentHash": "287ddaeff4e8409807bd3d6e42316ea8d0cdae37bb3d47299b8365b9f1265019",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -65952,11 +66729,11 @@
       "id": "page:fdc74f282e62cb675cc7",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-stnryassetwaterfootprintdmo-dmo.html",
-      "title": "Stnry Asset Water Footprint DMO",
+      "title": "Stationary Asset Water Footprint DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-stnryassetwaterfootprintdmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "e9e6af8bb3e459feb25db986273e76ceae9e26c5991b259a54cdcf3099100e7d",
+      "contentHash": "65a726cca4424ef88f335e3331542f1de10f1a3bfc2edcb1e221cedea405639b",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -66669,6 +67446,47 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:a7ef884fc52669df9532",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxaccountnoticedmo-dmo.html",
+      "title": "Tax Account Notice DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxaccountnoticedmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "d8bb91cd06e5680833e5c1b55be4e16eb050b5dbe112791733ed5bbc252135e1",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:7fc470b8f659b5500083",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxaccountnoticedocumentdmo-dmo.html",
+      "title": "Tax Account Notice Document DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxaccountnoticedocumentdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "27a1d5278b0102663371e62091decfae11742e477a08f9739473a2c47106aa1b",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "prepare",
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:8f6ddb4e617f017ab4f8",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxdisclosuresummarydmo-dmo.html",
@@ -66832,6 +67650,26 @@
       "extractionMethod": "official-sidebar-catalog"
     },
     {
+      "id": "page:165af6c24413fd9d33fe",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxfilingcontactpointdmo-dmo.html",
+      "title": "Tax Filing Contact Point DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxfilingcontactpointdmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "7f4c88af8bdc55d49a9081fff39cc2571dac1324ffa90782f4ae7ea1f1889be7",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
       "id": "page:207b8273f06b1b184101",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxfilingdmo-dmo.html",
@@ -66962,6 +67800,26 @@
       "depth": 2,
       "parent": "Standard DMOs",
       "contentHash": "94ea2626e9a5ddbfa210e0da0cdb82fbcf387cd237004d408f6270f96a6b9429",
+      "status": "cataloged",
+      "type": "official-page",
+      "topics": [
+        "dmo-modeling-and-mapping"
+      ],
+      "phases": [
+        "harmonize"
+      ],
+      "guideFamily": "dmo-mapping",
+      "extractionMethod": "official-sidebar-catalog"
+    },
+    {
+      "id": "page:7d4577005fbd64ba1cbf",
+      "sourceType": "developer",
+      "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxnoticecodedmo-dmo.html",
+      "title": "Tax Notice Code DMO",
+      "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-taxnoticecodedmo-dmo.html",
+      "depth": 2,
+      "parent": "Standard DMOs",
+      "contentHash": "7c4c431359966a0cca2339e81e8cf58b40bc77771a1a74d2ce37de911cac6809",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -67341,11 +68199,11 @@
       "id": "page:1df94458c661f70fcbc7",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-unitofmeasureconversiondmo-dmo.html",
-      "title": "Unitof Measure Conversion DMO",
+      "title": "Unit of Measure Conversion DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-unitofmeasureconversiondmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "369c79ab22a84a5e28705b65353666f9663a54529393e026108b425f59e7ab1d",
+      "contentHash": "29c5da55e6ab8b24c1a017983ecb731cbd76fc15a18bf983fc013b7cd2b194b2",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -67361,11 +68219,11 @@
       "id": "page:96eb5fc7b1c7752da8ea",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-unitofmeasuredmo-dmo.html",
-      "title": "Unit Of Measure DMO",
+      "title": "Unit of Measure DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-unitofmeasuredmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "a69ee8afdba1e38401fc33214733573581489dddbf3d408953fbdb73a44b2152",
+      "contentHash": "6d94ae10d6debc88be162f3b894ee1c825303e15002e1b7a4b61f6a896a7e079",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -67441,11 +68299,11 @@
       "id": "page:6a2e05b84643777870dc",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-userroledmo-dmo.html",
-      "title": "User Role DMO",
+      "title": "Role DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-userroledmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "4facdf0a21a9723ffcd6e6d6f775a1fdea99cf944a3a9177858e510edea08066",
+      "contentHash": "05ddaaf92b8c907701ebaacdcaba1a99e4a07dfa96d16ae3e8a274cad50e1c4c",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -67744,11 +68602,11 @@
       "id": "page:ad1d6d8b271d41c31625",
       "sourceType": "developer",
       "source": "https://developer.salesforce.com/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-violationtypeassessmentinddmo-dmo.html",
-      "title": "Violation Type Assessment Ind DMO",
+      "title": "Violation Type Assessment Indicator DMO",
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-si-violationtypeassessmentinddmo-dmo.html",
       "depth": 2,
       "parent": "Standard DMOs",
-      "contentHash": "01ee618dd874fd3fa1f5447c9d78a8cf355e1ed7ba76eccca1e241430eab3de6",
+      "contentHash": "b67b76da2e2d8a8aff09dac39181efdc344f7e89dc96bd09218aea9fd5300762",
       "status": "cataloged",
       "type": "official-page",
       "topics": [
@@ -68776,7 +69634,7 @@
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/c360dm-standard_mappings.html",
       "depth": 1,
       "parent": "Model Data in Data 360",
-      "contentHash": "8016811e51d17bcb2734d5ba3e436f7039af2afe6f42a1ad4d95617feb02e346",
+      "contentHash": "7d3f40e382fc26884b0bc3c0711fbbd24801ef59d833d32bc517eb9f8b1c5e49",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -70561,7 +71419,7 @@
       "identifier": "/docs/data/data-cloud-dmo-mapping/guide/file-based-data-kits-introduction.html",
       "depth": 1,
       "parent": "Model Data in Data 360",
-      "contentHash": "fb301337bc569b68e1404fec3dc22236f24b8980715198ea0c40a0cbc691e64f",
+      "contentHash": "7eef90212301e616b24af29eda7e8c32c3a2a06346ee40d1c9fc954f3c76ed2e",
       "status": "captured",
       "type": "official-page",
       "topics": [
@@ -97923,32 +98781,12 @@
     },
     {
       "from": "page:77da70c63b06450a840e",
-      "to": "phase:govern",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:77da70c63b06450a840e",
-      "to": "skill:sf-datacloud-governance",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:77da70c63b06450a840e",
       "to": "phase:retrieve",
       "type": "covers-phase"
     },
     {
       "from": "page:77da70c63b06450a840e",
       "to": "skill:sf-datacloud-retrieve",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:77da70c63b06450a840e",
-      "to": "phase:act",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:77da70c63b06450a840e",
-      "to": "skill:sf-datacloud-act",
       "type": "informs-skill"
     },
     {
@@ -97973,6 +98811,16 @@
     },
     {
       "from": "page:d04499b6e74b6419ded3",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:d04499b6e74b6419ded3",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:d04499b6e74b6419ded3",
       "to": "phase:develop-package",
       "type": "covers-phase"
     },
@@ -97984,11 +98832,6 @@
     {
       "from": "page:d04499b6e74b6419ded3",
       "to": "topic:4928545f731428a22568",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:d04499b6e74b6419ded3",
-      "to": "topic:d742eeaca67918a86fc7",
       "type": "covers-topic"
     },
     {
@@ -100932,6 +101775,86 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "skill:sf-datacloud-retrieve",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "phase:automation",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "skill:sf-datacloud-automation",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "phase:develop-package",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "topic:e7ea8f67ea4f832734ba",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "topic:4928545f731428a22568",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "topic:1259995b8106b99e19ca",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28ef29df497a77ea7dc7",
+      "to": "topic:6349fe42518ab76df8c6",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:7f9fc8c997493c3754a8",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -100982,6 +101905,36 @@
       "type": "covers-topic"
     },
     {
+      "from": "page:677b516978913bfb19e3",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:677b516978913bfb19e3",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:677b516978913bfb19e3",
+      "to": "phase:develop-package",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:677b516978913bfb19e3",
+      "to": "skill:sf-datacloud",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:677b516978913bfb19e3",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:677b516978913bfb19e3",
+      "to": "topic:1259995b8106b99e19ca",
+      "type": "covers-topic"
+    },
+    {
       "from": "page:bc2926e4fff45e73c158",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -100999,16 +101952,6 @@
     {
       "from": "page:bc2926e4fff45e73c158",
       "to": "skill:sf-datacloud-retrieve",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:bc2926e4fff45e73c158",
-      "to": "phase:act",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:bc2926e4fff45e73c158",
-      "to": "skill:sf-datacloud-act",
       "type": "informs-skill"
     },
     {
@@ -103253,12 +104196,32 @@
     },
     {
       "from": "page:bd8ebcb69412025e82fa",
+      "to": "phase:connect",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:bd8ebcb69412025e82fa",
+      "to": "skill:sf-datacloud-connect",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:bd8ebcb69412025e82fa",
       "to": "phase:prepare",
       "type": "covers-phase"
     },
     {
       "from": "page:bd8ebcb69412025e82fa",
       "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:bd8ebcb69412025e82fa",
+      "to": "phase:retrieve",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:bd8ebcb69412025e82fa",
+      "to": "skill:sf-datacloud-retrieve",
       "type": "informs-skill"
     },
     {
@@ -110433,71 +111396,6 @@
     },
     {
       "from": "page:b280b4a6bbe38950ec5e",
-      "to": "topic:6349fe42518ab76df8c6",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "phase:connect",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "skill:sf-datacloud-connect",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "phase:retrieve",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "skill:sf-datacloud-retrieve",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "phase:automation",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "skill:sf-datacloud-automation",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "phase:develop-package",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "skill:sf-datacloud",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "topic:e7ea8f67ea4f832734ba",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "topic:4928545f731428a22568",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "topic:d742eeaca67918a86fc7",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
-      "to": "topic:1259995b8106b99e19ca",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:8d66890afa79703ec88b",
       "to": "topic:6349fe42518ab76df8c6",
       "type": "covers-topic"
     },
@@ -119532,26 +120430,6 @@
       "type": "discovered-from"
     },
     {
-      "from": "page:2a3ddba667ac33227836",
-      "to": "phase:harmonize",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:2a3ddba667ac33227836",
-      "to": "skill:sf-datacloud-harmonize",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:2a3ddba667ac33227836",
-      "to": "topic:ce4520d1ac2195ac504e",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:2a3ddba667ac33227836",
-      "to": "page:e482837a74d9c6b3e3e3",
-      "type": "discovered-from"
-    },
-    {
       "from": "page:fb6851226c5609cdef44",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -119817,6 +120695,76 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:e6ce54dca1019d37c40b",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:35b06f05298c5eb88a9a",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:7964d032936896b96022",
       "to": "phase:prepare",
       "type": "covers-phase"
@@ -121193,6 +122141,41 @@
     },
     {
       "from": "page:37ab2e46e1abeb49530a",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:02e638959baaad77baf2",
       "to": "page:d59e6b2892519e6d212c",
       "type": "discovered-from"
     },
@@ -122817,6 +123800,41 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:150b17dbdfee7723bae4",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:13cb8e30545d7bac3d68",
       "to": "phase:prepare",
       "type": "covers-phase"
@@ -123658,6 +124676,56 @@
     },
     {
       "from": "page:3eb12718f418686060e6",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:28c75e06332808cea25e",
       "to": "page:d59e6b2892519e6d212c",
       "type": "discovered-from"
     },
@@ -129032,6 +130100,41 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:1d7eea7ccbe64fd9fdd0",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:3cd9adc79590ea04ec03",
       "to": "phase:prepare",
       "type": "covers-phase"
@@ -131168,6 +132271,41 @@
     },
     {
       "from": "page:06350940b3412508bffe",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26368f0984cd6a03263d",
       "to": "page:d59e6b2892519e6d212c",
       "type": "discovered-from"
     },
@@ -146937,6 +148075,46 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "topic:d742eeaca67918a86fc7",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:b6fdd566020bc96b2ba0",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:9f37758f2386946c7c16",
       "to": "phase:prepare",
       "type": "covers-phase"
@@ -149588,6 +150766,146 @@
     },
     {
       "from": "page:7afb510f5f92ccff0d8b",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:f189c0e8341785adecd9",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:5590ed9cfd057b3f5f64",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:66d55407c7e144419515",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:d568f175530291ccc5b2",
       "to": "page:d59e6b2892519e6d212c",
       "type": "discovered-from"
     },
@@ -154947,6 +156265,356 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9eae4fc31b94ac6a4e36",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:26a9e91e85933bfb342d",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:ca2d3f6c13f5f488582b",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6678d94737307a250b3f",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:1ae122a769da56ed6f7a",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:16d97ee6d4e7f3620dc0",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:1c105d034b5a6178fd22",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:00f1f6a6a4cd21595663",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:09227af4172665af3396",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:d4b7bc031a3bed240fd9",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:006eb667d980e85e3e5b",
       "to": "phase:connect",
       "type": "covers-phase"
@@ -156167,6 +157835,41 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:05df447290bdde74219d",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:05df447290bdde74219d",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:05df447290bdde74219d",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:05df447290bdde74219d",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:05df447290bdde74219d",
+      "to": "topic:9c6c5c406d2987759016",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:05df447290bdde74219d",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:05df447290bdde74219d",
+      "to": "page:d59e6b2892519e6d212c",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:cf2d918a4ee7af9a66e3",
       "to": "phase:prepare",
       "type": "covers-phase"
@@ -157248,46 +158951,6 @@
     },
     {
       "from": "page:16972aa69e3ae1909ca8",
-      "to": "page:ad7f225b8e88cdf4c803",
-      "type": "discovered-from"
-    },
-    {
-      "from": "page:3f917b9a0f8dfb06bfcd",
-      "to": "phase:harmonize",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:3f917b9a0f8dfb06bfcd",
-      "to": "skill:sf-datacloud-harmonize",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:3f917b9a0f8dfb06bfcd",
-      "to": "topic:ce4520d1ac2195ac504e",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:3f917b9a0f8dfb06bfcd",
-      "to": "page:ad7f225b8e88cdf4c803",
-      "type": "discovered-from"
-    },
-    {
-      "from": "page:6f81ad1115c752ca124a",
-      "to": "phase:harmonize",
-      "type": "covers-phase"
-    },
-    {
-      "from": "page:6f81ad1115c752ca124a",
-      "to": "skill:sf-datacloud-harmonize",
-      "type": "informs-skill"
-    },
-    {
-      "from": "page:6f81ad1115c752ca124a",
-      "to": "topic:ce4520d1ac2195ac504e",
-      "type": "covers-topic"
-    },
-    {
-      "from": "page:6f81ad1115c752ca124a",
       "to": "page:ad7f225b8e88cdf4c803",
       "type": "discovered-from"
     },
@@ -159657,6 +161320,26 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:6de8d261144dc1f8680f",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:6de8d261144dc1f8680f",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:6de8d261144dc1f8680f",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6de8d261144dc1f8680f",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:7096259ea18ace592782",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -160563,6 +162246,41 @@
     },
     {
       "from": "page:1fa065c17ca6bf87e491",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
+      "to": "topic:887f46838f835a068a51",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:ebedf10c6f9a78637564",
       "to": "page:ad7f225b8e88cdf4c803",
       "type": "discovered-from"
     },
@@ -165987,6 +167705,26 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:fb4fd661e3e9b3937237",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:fb4fd661e3e9b3937237",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:fb4fd661e3e9b3937237",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:fb4fd661e3e9b3937237",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:e9aec10f2eee9170fb94",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -166413,7 +168151,22 @@
     },
     {
       "from": "page:9d6f6bf7f044796b2c76",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:9d6f6bf7f044796b2c76",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:9d6f6bf7f044796b2c76",
       "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:9d6f6bf7f044796b2c76",
+      "to": "topic:ea0378d9eb63192ad390",
       "type": "covers-topic"
     },
     {
@@ -171167,6 +172920,26 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:3540e89ef04f83b4b4ea",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:3540e89ef04f83b4b4ea",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:3540e89ef04f83b4b4ea",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:3540e89ef04f83b4b4ea",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:f2da703510de1103726a",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -171498,6 +173271,26 @@
     },
     {
       "from": "page:f3ea60a1a63e150ffbc5",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:2e0c0435f042ae45be68",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:2e0c0435f042ae45be68",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:2e0c0435f042ae45be68",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:2e0c0435f042ae45be68",
       "to": "page:ad7f225b8e88cdf4c803",
       "type": "discovered-from"
     },
@@ -174058,7 +175851,22 @@
     },
     {
       "from": "page:96515fb451ed17a09d25",
+      "to": "phase:govern",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:96515fb451ed17a09d25",
+      "to": "skill:sf-datacloud-governance",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:96515fb451ed17a09d25",
       "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:96515fb451ed17a09d25",
+      "to": "topic:ea0378d9eb63192ad390",
       "type": "covers-topic"
     },
     {
@@ -178720,6 +180528,16 @@
       "from": "page:d6afa4625f93c91b38f0",
       "to": "page:ad7f225b8e88cdf4c803",
       "type": "discovered-from"
+    },
+    {
+      "from": "page:0f29e16d4be842a9652b",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:0f29e16d4be842a9652b",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
     },
     {
       "from": "page:0f29e16d4be842a9652b",
@@ -185632,6 +187450,206 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:04cfb534b9f07d695b2e",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:04cfb534b9f07d695b2e",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:04cfb534b9f07d695b2e",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:04cfb534b9f07d695b2e",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:338f02c8add3204cf887",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:338f02c8add3204cf887",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:338f02c8add3204cf887",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:338f02c8add3204cf887",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:6e16bfe7eb25f331fc18",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:6e16bfe7eb25f331fc18",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:6e16bfe7eb25f331fc18",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:6e16bfe7eb25f331fc18",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:213d9e824eca891880ad",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:213d9e824eca891880ad",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:213d9e824eca891880ad",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:213d9e824eca891880ad",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:5fc87a7021a18fd5e4ee",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:5fc87a7021a18fd5e4ee",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:5fc87a7021a18fd5e4ee",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:5fc87a7021a18fd5e4ee",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:eaf92c85db5c792432da",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:eaf92c85db5c792432da",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:eaf92c85db5c792432da",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:eaf92c85db5c792432da",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:445e4975a9fcc80884c2",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:445e4975a9fcc80884c2",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:445e4975a9fcc80884c2",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:445e4975a9fcc80884c2",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:4633eda084d35018a66c",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:4633eda084d35018a66c",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:4633eda084d35018a66c",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:4633eda084d35018a66c",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:a520e62a0e324d7b13b9",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:a520e62a0e324d7b13b9",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:a520e62a0e324d7b13b9",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:a520e62a0e324d7b13b9",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:91c77dda87774a959ab9",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:91c77dda87774a959ab9",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:91c77dda87774a959ab9",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:91c77dda87774a959ab9",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:949e3f8b34d18c730286",
       "to": "phase:prepare",
       "type": "covers-phase"
@@ -189202,6 +191220,56 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:a7ef884fc52669df9532",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:a7ef884fc52669df9532",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:a7ef884fc52669df9532",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:a7ef884fc52669df9532",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:7fc470b8f659b5500083",
+      "to": "phase:prepare",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7fc470b8f659b5500083",
+      "to": "skill:sf-datacloud-prepare",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7fc470b8f659b5500083",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7fc470b8f659b5500083",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7fc470b8f659b5500083",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7fc470b8f659b5500083",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:8f6ddb4e617f017ab4f8",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -189392,6 +191460,26 @@
       "type": "discovered-from"
     },
     {
+      "from": "page:165af6c24413fd9d33fe",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:165af6c24413fd9d33fe",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:165af6c24413fd9d33fe",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:165af6c24413fd9d33fe",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
       "from": "page:207b8273f06b1b184101",
       "to": "phase:harmonize",
       "type": "covers-phase"
@@ -189548,6 +191636,26 @@
     },
     {
       "from": "page:cf21ed1f785d2b8fc275",
+      "to": "page:ad7f225b8e88cdf4c803",
+      "type": "discovered-from"
+    },
+    {
+      "from": "page:7d4577005fbd64ba1cbf",
+      "to": "phase:harmonize",
+      "type": "covers-phase"
+    },
+    {
+      "from": "page:7d4577005fbd64ba1cbf",
+      "to": "skill:sf-datacloud-harmonize",
+      "type": "informs-skill"
+    },
+    {
+      "from": "page:7d4577005fbd64ba1cbf",
+      "to": "topic:ce4520d1ac2195ac504e",
+      "type": "covers-topic"
+    },
+    {
+      "from": "page:7d4577005fbd64ba1cbf",
       "to": "page:ad7f225b8e88cdf4c803",
       "type": "discovered-from"
     },
